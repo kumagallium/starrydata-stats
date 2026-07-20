@@ -1,0 +1,11 @@
+# データセット本体(容量が大きいため git 管理外。download_dataset.py で取得)
+starrydata_dataset/
+starrydata_dataset.zip
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
