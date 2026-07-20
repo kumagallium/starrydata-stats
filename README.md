@@ -5,6 +5,13 @@
 Google Drive の共有フォルダから実行時点の最新データを自動取得して集計できます。
 集計結果は単一 HTML のダッシュボード (`dashboard.html`) でも閲覧できます。
 
+**公開ダッシュボード: https://kumagallium.github.io/starrydata-stats/**
+
+GitHub Actions が毎日 JST 6:00 に最新データを取得・集計し、ダッシュボードと
+`output/`(history.csv 含む)を自動更新して GitHub Pages にデプロイします
+(ワークフロー: [.github/workflows/update-dashboard.yml](.github/workflows/update-dashboard.yml)。
+手動実行は Actions タブの Run workflow から)。
+
 ## セットアップ
 
 [uv](https://docs.astral.sh/uv/) があれば追加のセットアップは不要です(依存を自動解決)。
