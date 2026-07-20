@@ -69,7 +69,6 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "fabrication": cat_top("FabricationProcess"),
         "material_family": cat_top("MaterialFamily"),
         "form": cat_top("Form"),
-        "history": records(output_dir / "history.csv"),
     }
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")

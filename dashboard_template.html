@@ -254,19 +254,6 @@
     </section>
   </div>
 
-  <section class="card">
-    <header class="card-head">
-      <div>
-        <h2>スナップショット推移</h2>
-        <p class="card-sub">集計実行ごとの件数の記録 (output/history.csv)</p>
-      </div>
-      <div class="legend" id="legend-history"></div>
-    </header>
-    <div class="chart" id="chart-history"></div>
-    <p class="note">--download 付きで定期的に実行すると、この記録が蓄積されて成長カーブになります。</p>
-    <details class="tv"><summary>表で見る</summary><div class="tv-wrap" id="table-history"></div></details>
-  </section>
-
   <p class="page-foot" id="page-foot"></p>
 </div>
 
@@ -577,7 +564,6 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   // ---- render all ----
   renderLegend("legend-growth", "line");
   renderLegend("legend-yearly", "rect");
-  renderLegend("legend-history", "line");
 
   lineChart("chart-growth", D.monthly, {
     series: SERIES.map(s => ({ ...s, key: s.key + "_cum" })),
@@ -669,16 +655,6 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     [{ key: "category", label: "形状" }, { key: "samples", label: "サンプル", num: true }],
     D.form);
 
-  lineChart("chart-history", D.history, {
-    xTicks: (rows) => rows.map((r, i) => ({ i, label: r.snapshot_date }))
-      .filter((d, k, arr) => arr.length <= 12 || k % Math.ceil(arr.length / 10) === 0),
-    tipTitle: (r) => "snapshot " + r.snapshot_date,
-  });
-  renderTable("table-history",
-    [{ key: "snapshot_date", label: "スナップショット" },
-     { key: "papers", label: "論文", num: true }, { key: "samples", label: "サンプル", num: true },
-     { key: "curves", label: "カーブ", num: true }, { key: "data_points", label: "データ点", num: true }],
-    [...D.history].reverse());
 })();
 </script>
 </body>
