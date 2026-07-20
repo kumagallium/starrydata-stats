@@ -22,6 +22,7 @@ import argparse
 import json
 import re
 import sys
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import pandas as pd
@@ -101,7 +102,7 @@ def load_dataset(data_dir: Path):
     samples = pd.read_csv(
         samples_path,
         encoding="utf-8-sig",
-        usecols=["sample_id", "composition", "SID", "DOI", "created_at"],
+        usecols=["sample_id", "composition", "SID", "DOI", "created_at", "sample_info"],
         dtype=str,
     )
     curves = pd.read_csv(
@@ -160,9 +161,14 @@ def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
     per_paper_samples = samples.groupby("SID").size()
     per_paper_curves = curves.groupby("SID").size()
 
+    # 登録論文のうち、サンプルまたはカーブのデータが実際に紐づいている論文数
+    sids_with_data = set(samples["SID"].dropna()) | set(curves["SID"].dropna())
+    papers_with_data = int(papers["SID"].isin(sids_with_data).sum())
+
     return {
         "snapshot": snapshot,
         "papers": int(len(papers)),
+        "papers_with_data": papers_with_data,
         "samples": int(len(samples)),
         "curves": int(len(curves)),
         "data_points": int(curves["n_points"].sum()),
@@ -252,6 +258,48 @@ def aggregate_papers_meta(papers) -> tuple:
     return by_issued, journals, publishers
 
 
+def aggregate_sample_info(samples) -> tuple:
+    """sample_info (JSON) から descriptor 別の記入状況とカテゴリ分布を集計する。
+
+    sample_info は {descriptor: {category, comment, extracted}} 形式。
+    合成プロセス (FabricationProcess) や形状 (Form)、材料ファミリー
+    (MaterialFamily) などの情報がここに含まれる。
+    """
+    desc_filled = Counter()      # category/comment/extracted のいずれかが記入されている数
+    desc_with_cat = Counter()    # category が選択されている数
+    cat_counts = defaultdict(Counter)
+
+    for v in samples["sample_info"].dropna():
+        try:
+            d = json.loads(v)
+        except (json.JSONDecodeError, ValueError):
+            continue
+        if not isinstance(d, dict):
+            continue
+        for k, obj in d.items():
+            k2 = k.strip()
+            if not k2 or not isinstance(obj, dict):
+                continue
+            cat = str(obj.get("category") or "").strip()
+            com = str(obj.get("comment") or "").strip()
+            ext = str(obj.get("extracted") or "").strip()
+            if cat or com or ext:
+                desc_filled[k2] += 1
+            if cat:
+                desc_with_cat[k2] += 1
+                cat_counts[k2][cat] += 1
+
+    descriptors = pd.DataFrame(
+        [(k, n, desc_with_cat.get(k, 0)) for k, n in desc_filled.most_common()],
+        columns=["descriptor", "samples_filled", "samples_with_category"],
+    )
+    categories = pd.DataFrame(
+        [(k, val, n) for k, counter in cat_counts.items() for val, n in counter.most_common()],
+        columns=["descriptor", "category", "samples"],
+    ).sort_values(["descriptor", "samples"], ascending=[True, False]).reset_index(drop=True)
+    return descriptors, categories
+
+
 def aggregate_compositions(samples) -> pd.DataFrame:
     """組成別のサンプル数(上位 TOP_N 件)。"""
     comp = samples["composition"].fillna("").str.strip()
@@ -332,6 +380,7 @@ def main() -> None:
     by_month = aggregate_by_period(papers, samples, curves, freq="MS")
     by_issued, journals, publishers = aggregate_papers_meta(papers)
     compositions = aggregate_compositions(samples)
+    info_descriptors, info_categories = aggregate_sample_info(samples)
 
     # --- ファイル出力 ---
     out_dir = args.output_dir / f"snapshot_{snapshot_date(snapshot)}"
@@ -350,6 +399,8 @@ def main() -> None:
         "papers_by_journal.csv": journals,
         "papers_by_publisher.csv": publishers,
         "top_compositions.csv": compositions,
+        "sample_info_descriptors.csv": info_descriptors,
+        "sample_info_categories.csv": info_categories,
     }
     for name, df in outputs.items():
         df.to_csv(out_dir / name, index=False)
@@ -361,7 +412,8 @@ def main() -> None:
     print(f"\n{line}\n Starrydata データセット集計  (snapshot: {snapshot or '不明'})\n{line}")
     print("\n■ 全体サマリ")
     labels = [
-        ("論文数", "papers"),
+        ("登録論文数", "papers"),
+        ("データあり論文数", "papers_with_data"),
         ("サンプル数", "samples"),
         ("カーブ数", "curves"),
         ("データ点数", "data_points"),
@@ -377,6 +429,7 @@ def main() -> None:
 
     print_table(by_project, 14, "プロジェクト別")
     print_table(by_prop_y, 10, "物性(prop_y)別カーブ数")
+    print_table(info_descriptors, 10, "sample_info 記入状況(descriptor別)")
     print_table(by_year.tail(6).reset_index(drop=True), 6,
                 "登録数の推移(直近6年、*_cum は累積)", show_top=False)
 

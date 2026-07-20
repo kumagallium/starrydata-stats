@@ -48,6 +48,13 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
 
     monthly = records(snap_dir / "registrations_by_month.csv")
     yearly = records(snap_dir / "registrations_by_year.csv")
+
+    info_cats = pd.read_csv(snap_dir / "sample_info_categories.csv")
+
+    def cat_top(descriptor: str, n: int = TOP_N_DASH) -> list:
+        df = info_cats[info_cats["descriptor"] == descriptor].head(n)
+        return df[["category", "samples"]].to_dict(orient="records")
+
     data = {
         "snapshot": summary.get("snapshot", ""),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -58,6 +65,10 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "by_property": records(snap_dir / "curves_by_property_y.csv", head=TOP_N_DASH),
         "journals": records(snap_dir / "papers_by_journal.csv", head=TOP_N_DASH),
         "compositions": records(snap_dir / "top_compositions.csv", head=TOP_N_DASH),
+        "sample_info_descriptors": records(snap_dir / "sample_info_descriptors.csv", head=12),
+        "fabrication": cat_top("FabricationProcess"),
+        "material_family": cat_top("MaterialFamily"),
+        "form": cat_top("Form"),
         "history": records(output_dir / "history.csv"),
     }
 

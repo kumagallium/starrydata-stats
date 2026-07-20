@@ -208,6 +208,52 @@
     </section>
   </div>
 
+  <div class="grid2">
+    <section class="card">
+      <header class="card-head">
+        <div>
+          <h2>サンプル情報の記入状況(上位12)</h2>
+          <p class="card-sub">sample_info の descriptor 別・値が記入されたサンプル数</p>
+        </div>
+      </header>
+      <div id="hbar-info-desc"></div>
+      <details class="tv"><summary>表で見る</summary><div class="tv-wrap" id="table-info-desc"></div></details>
+    </section>
+
+    <section class="card">
+      <header class="card-head">
+        <div>
+          <h2>合成プロセス別サンプル数(上位10)</h2>
+          <p class="card-sub">sample_info: FabricationProcess の category 別</p>
+        </div>
+      </header>
+      <div id="hbar-fab"></div>
+      <details class="tv"><summary>表で見る</summary><div class="tv-wrap" id="table-fab"></div></details>
+    </section>
+
+    <section class="card">
+      <header class="card-head">
+        <div>
+          <h2>材料ファミリー別サンプル数(上位10)</h2>
+          <p class="card-sub">sample_info: MaterialFamily の category 別</p>
+        </div>
+      </header>
+      <div id="hbar-family"></div>
+      <details class="tv"><summary>表で見る</summary><div class="tv-wrap" id="table-family"></div></details>
+    </section>
+
+    <section class="card">
+      <header class="card-head">
+        <div>
+          <h2>形状別サンプル数(上位10)</h2>
+          <p class="card-sub">sample_info: Form の category 別</p>
+        </div>
+      </header>
+      <div id="hbar-form"></div>
+      <details class="tv"><summary>表で見る</summary><div class="tv-wrap" id="table-form"></div></details>
+    </section>
+  </div>
+
   <section class="card">
     <header class="card-head">
       <div>
@@ -327,17 +373,21 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   (function () {
     const s = D.summary;
     const tiles = [
-      ["論文数", s.papers], ["サンプル数", s.samples], ["カーブ数", s.curves],
-      ["データ点数", s.data_points], ["図の数", s.figures],
-      ["ユニーク組成数", s.unique_compositions_in_samples],
+      { label: "論文数(データあり)", v: s.papers_with_data ?? s.papers,
+        raw: s.papers_with_data != null ? fmt(s.papers_with_data) + " / 登録論文 " + fmt(s.papers) : fmt(s.papers) },
+      { label: "サンプル数", v: s.samples },
+      { label: "カーブ数", v: s.curves },
+      { label: "データ点数", v: s.data_points },
+      { label: "図の数", v: s.figures },
+      { label: "ユニーク組成数", v: s.unique_compositions_in_samples },
     ];
     const box = document.getElementById("kpis");
-    for (const [label, v] of tiles) {
-      const t = el("div", "tile");
-      t.appendChild(el("div", "t-label", label));
-      t.appendChild(el("div", "t-value", fmtMan(v)));
-      t.appendChild(el("div", "t-raw", fmt(v)));
-      box.appendChild(t);
+    for (const t of tiles) {
+      const tile = el("div", "tile");
+      tile.appendChild(el("div", "t-label", t.label));
+      tile.appendChild(el("div", "t-value", fmtMan(t.v)));
+      tile.appendChild(el("div", "t-raw", t.raw || fmt(t.v)));
+      box.appendChild(tile);
     }
   })();
 
@@ -585,6 +635,39 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   renderTable("table-comps",
     [{ key: "composition", label: "組成" }, { key: "samples", label: "サンプル", num: true }],
     D.compositions);
+
+  hbars("hbar-info-desc", D.sample_info_descriptors, {
+    labelKey: "descriptor", valueKey: "samples_filled",
+    tipRows: [{ key: "samples_filled", label: "記入あり" }, { key: "samples_with_category", label: "うちcategory選択" }],
+  });
+  renderTable("table-info-desc",
+    [{ key: "descriptor", label: "descriptor" }, { key: "samples_filled", label: "記入あり", num: true },
+     { key: "samples_with_category", label: "うちcategory選択", num: true }],
+    D.sample_info_descriptors);
+
+  hbars("hbar-fab", D.fabrication, {
+    labelKey: "category", valueKey: "samples",
+    tipRows: [{ key: "samples", label: "サンプル" }],
+  });
+  renderTable("table-fab",
+    [{ key: "category", label: "合成プロセス" }, { key: "samples", label: "サンプル", num: true }],
+    D.fabrication);
+
+  hbars("hbar-family", D.material_family, {
+    labelKey: "category", valueKey: "samples",
+    tipRows: [{ key: "samples", label: "サンプル" }],
+  });
+  renderTable("table-family",
+    [{ key: "category", label: "材料ファミリー" }, { key: "samples", label: "サンプル", num: true }],
+    D.material_family);
+
+  hbars("hbar-form", D.form, {
+    labelKey: "category", valueKey: "samples",
+    tipRows: [{ key: "samples", label: "サンプル" }],
+  });
+  renderTable("table-form",
+    [{ key: "category", label: "形状" }, { key: "samples", label: "サンプル", num: true }],
+    D.form);
 
   lineChart("chart-history", D.history, {
     xTicks: (rows) => rows.map((r, i) => ({ i, label: r.snapshot_date }))

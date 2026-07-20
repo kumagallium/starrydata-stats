@@ -1,6 +1,7 @@
 {
   "snapshot": "2026-07-20 02:00:02 UTC+0900 (JST)",
   "papers": 56473,
+  "papers_with_data": 17389,
   "samples": 105260,
   "curves": 234029,
   "data_points": 4810741,
