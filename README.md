@@ -58,6 +58,7 @@ pip 環境の場合は `uv run` を `python` に読み替えてください。
 | `papers_by_journal.csv` | ジャーナル別論文数(上位50) |
 | `papers_by_publisher.csv` | 出版社別論文数(上位50) |
 | `top_compositions.csv` | 組成別サンプル数(上位50) |
+| `elements.csv` | 組成に登場する元素別のサンプル数(周期表ヒートマップの元データ) |
 | `sample_info_descriptors.csv` | sample_info(JSON)の descriptor 別記入状況(合成プロセス・形状などの記入数) |
 | `sample_info_categories.csv` | sample_info の descriptor × category 別サンプル数(FabricationProcess / Form / MaterialFamily など全 descriptor) |
 
@@ -70,13 +71,15 @@ pip 環境の場合は `uv run` を `python` に読み替えてください。
 
 ### `dashboard.html`(単一 HTML ダッシュボード)
 
-集計実行のたびに自動再生成されます。ブラウザで開くだけで閲覧でき(サーバー不要・自己完結)、
-以下を表示します。ライト/ダークモード両対応です。
+集計実行のたびに自動再生成されます。ブラウザで開くだけで閲覧できる自己完結の単一 HTML です
+(デザイン「Starlight Editorial」— 夜空バンドのヒーロー + ライト紙面のエディトリアル調、
+日本語主体 + 英語補助の併記。テンプレートは `dashboard_template.html`)。
 
-- 主要件数の KPI タイル(データが紐づく論文数・サンプル・カーブ・データ点・図・ユニーク組成)
+- ヒーローサマリー(カーブ・サンプル・データあり論文数)+ KPI ストリップ 2 段
 - データベースの成長(累積登録数の月次ライングラフ)
 - 年別の新規登録数(グループ棒グラフ)
-- プロジェクト別・物性別・ジャーナル別・組成別ランキング(横棒グラフ)
+- 収録元素の多様性(組成に登場する元素の周期表ヒートマップ)
+- プロジェクト別・物性別・ジャーナル別ランキング
 - サンプル詳細情報(sample_info)の記入状況と、合成プロセス・材料ファミリー・形状の内訳
 
 各チャートはホバーで詳細値を表示し、「表で見る」から同じデータを表形式でも確認できます。

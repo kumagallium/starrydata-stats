@@ -35,6 +35,11 @@ def latest_snapshot_dir(output_dir: Path) -> Path:
 
 
 def records(path: Path, head: int = 0) -> list:
+    if not path.exists():
+        sys.exit(
+            f"エラー: {path} が見つかりません。"
+            "集計 CSV が古い可能性があります。aggregate_stats.py を再実行してください。"
+        )
     df = pd.read_csv(path)
     if head:
         df = df.head(head)
@@ -49,11 +54,18 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
     monthly = records(snap_dir / "registrations_by_month.csv")
     yearly = records(snap_dir / "registrations_by_year.csv")
 
-    info_cats = pd.read_csv(snap_dir / "sample_info_categories.csv")
+    info_cats_path = snap_dir / "sample_info_categories.csv"
+    if not info_cats_path.exists():
+        sys.exit(
+            f"エラー: {info_cats_path} が見つかりません。aggregate_stats.py を再実行してください。"
+        )
+    info_cats = pd.read_csv(info_cats_path)
 
-    def cat_top(descriptor: str, n: int = TOP_N_DASH) -> list:
-        df = info_cats[info_cats["descriptor"] == descriptor].head(n)
-        return df[["category", "samples"]].to_dict(orient="records")
+    def cat_top(descriptor: str, n: int = 5, exclude: tuple = ()) -> list:
+        df = info_cats[info_cats["descriptor"] == descriptor]
+        if exclude:
+            df = df[~df["category"].isin(exclude)]
+        return df.head(n)[["category", "samples"]].to_dict(orient="records")
 
     data = {
         "snapshot": summary.get("snapshot", ""),
@@ -64,11 +76,11 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "by_project": records(snap_dir / "by_project.csv"),
         "by_property": records(snap_dir / "curves_by_property_y.csv", head=TOP_N_DASH),
         "journals": records(snap_dir / "papers_by_journal.csv", head=TOP_N_DASH),
-        "compositions": records(snap_dir / "top_compositions.csv", head=TOP_N_DASH),
-        "sample_info_descriptors": records(snap_dir / "sample_info_descriptors.csv", head=12),
-        "fabrication": cat_top("FabricationProcess"),
-        "material_family": cat_top("MaterialFamily"),
-        "form": cat_top("Form"),
+        "elements": records(snap_dir / "elements.csv"),
+        "sample_info_descriptors": records(snap_dir / "sample_info_descriptors.csv"),
+        "fabrication": cat_top("FabricationProcess", exclude=("Other", "Unknown")),
+        "material_family": cat_top("MaterialFamily", exclude=("Other", "Unknown")),
+        "form": cat_top("Form", exclude=("Other", "Unknown")),
     }
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")

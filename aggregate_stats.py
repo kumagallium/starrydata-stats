@@ -33,6 +33,34 @@ DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 
 TOP_N = 50  # ランキング系 CSV に出力する上位件数
 
+# 周期表ヒートマップ用の元素集計で使う元素記号の全集合
+ELEMENT_SYMBOLS = {
+    "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar",
+    "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
+    "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe",
+    "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu",
+    "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn",
+    "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr",
+    "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og",
+}
+
+# 組成欄に入っている電池系などの「略称」。元素記号の誤検出(例: SIB の S/I/B)を防ぐため除外。
+# top_compositions.csv を見て随時追加する。
+KNOWN_ABBREVIATIONS = {
+    "LMB", "RMB", "SIB", "PIB", "ZIB", "AIB", "LIB", "LAB",
+    "ASSLSB", "ASSLB", "ASSSLSB", "PANI", "NAS", "YBCO",
+    "undefined", "Unknown",
+}
+
+# 組成文字列中の非元素サブストリング。トークン抽出前に除去する
+# (例: "MWCNTs"/"MWNTs" の残渣が W や Ts(テネシン)に誤検出されるのを防ぐ)。
+COMPOSITION_NOISE = re.compile(r"MWCNTs?|SWCNTs?|DWCNTs?|MWNTs?|SWNTs?|DWNTs?|CNTs?|TsO|Not identified")
+
+# 大文字1字+小文字0〜1字。直後にさらに小文字(x/y/z を除く)が続く場合は
+# 英単語の先頭とみなして除外する(例: "Polyaniline" の Po、"half-Heusler" の He)。
+# x/y/z は "Bi(x)Sb(2-x)" のような組成変数として頻出するため許容する。
+ELEMENT_TOKEN = re.compile(r"[A-Z][a-z]?(?![a-w])")
+
 
 # ---------------------------------------------------------------------------
 # 読み込みとパース
@@ -309,6 +337,27 @@ def aggregate_compositions(samples) -> pd.DataFrame:
     )
 
 
+def aggregate_elements(samples) -> pd.DataFrame:
+    """composition 文字列に登場する元素ごとのサンプル数を集計する。
+
+    1サンプル中に同じ元素が複数回出ても1回として数える(=「その元素を含むサンプル数」)。
+    "Li|S" のような区切り記号は無視されるのでそのまま処理できる。
+    """
+    counts = Counter()
+    for comp in samples["composition"].dropna().astype(str):
+        comp = comp.strip()
+        if not comp or comp in KNOWN_ABBREVIATIONS:
+            continue
+        comp = COMPOSITION_NOISE.sub(" ", comp)
+        for sym in set(ELEMENT_TOKEN.findall(comp)):
+            if sym in ELEMENT_SYMBOLS:
+                counts[sym] += 1
+    return pd.DataFrame(
+        sorted(counts.items(), key=lambda kv: -kv[1]),
+        columns=["element", "samples"],
+    )
+
+
 # ---------------------------------------------------------------------------
 # 出力
 # ---------------------------------------------------------------------------
@@ -380,6 +429,7 @@ def main() -> None:
     by_month = aggregate_by_period(papers, samples, curves, freq="MS")
     by_issued, journals, publishers = aggregate_papers_meta(papers)
     compositions = aggregate_compositions(samples)
+    elements = aggregate_elements(samples)
     info_descriptors, info_categories = aggregate_sample_info(samples)
 
     # --- ファイル出力 ---
@@ -399,6 +449,7 @@ def main() -> None:
         "papers_by_journal.csv": journals,
         "papers_by_publisher.csv": publishers,
         "top_compositions.csv": compositions,
+        "elements.csv": elements,
         "sample_info_descriptors.csv": info_descriptors,
         "sample_info_categories.csv": info_categories,
     }

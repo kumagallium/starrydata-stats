@@ -2,6 +2,9 @@
 starrydata_dataset/
 starrydata_dataset.zip
 
+# デザインハンドオフ(ローカル参照用)
+Starrydata ダッシュボード設計.zip
+
 # Python
 __pycache__/
 *.pyc
