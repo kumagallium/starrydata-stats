@@ -1,7 +1,8 @@
 # Starrydata データセット集計ツール
 
-[Starrydata2](https://www.starrydata2.org/) の公開データセット(papers / samples / curves)を、
-さまざまな観点でデータ数集計するツールです。データは日々更新されるため、
+[Starrydata](https://starrydata.org/)(無機材料科学実験データのオープンデータベース構築
+プロジェクト)の Web アプリ [Starrydata2](https://www.starrydata2.org/) が公開する
+データセット(papers / samples / curves)を、さまざまな観点でデータ数集計するツールです。データは日々更新されるため、
 Google Drive の共有フォルダから実行時点の最新データを自動取得して集計できます。
 集計結果は単一 HTML のダッシュボード (`dashboard.html`) でも閲覧できます。
 
