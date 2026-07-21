@@ -665,10 +665,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     }
   }
 
+  const projRows = D.by_project.slice(0, 8);
   rankCol("rank-projects", {
     title: "プロジェクト", metric: "カーブ数 / Curves",
-    cap: `全${D.by_project.length}プロジェクト中 上位8 · バーは各リスト最大値比 / top 8 of ${D.by_project.length}`,
-    rows: D.by_project.slice(0, 8), valueKey: "curves", color: COL.curves,
+    cap: `全${D.by_project.length}プロジェクト中 上位${projRows.length} · バーは各リスト最大値比 / top ${projRows.length} of ${D.by_project.length}`,
+    rows: projRows, valueKey: "curves", color: COL.curves,
     labelFn: (r) => ({ jp: PROJECT_JA[r.project] || r.project, en: PROJECT_JA[r.project] ? r.project : "" }),
     tipRows: (r) => [
       { name: "カーブ", value: fmt(r.curves), color: COL.curves },
@@ -676,20 +677,22 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       { name: "データ点", value: fmt(r.data_points) },
     ],
   });
+  const propRows = D.by_property.slice(0, 8);
   rankCol("rank-props", {
     title: "物性", metric: "カーブ数 / Curves",
-    cap: "curves.csv の prop_y 別 · 上位8 / by prop_y, top 8",
-    rows: D.by_property.slice(0, 8), valueKey: "curves", color: COL.curves,
+    cap: `curves.csv の prop_y 別 · 上位${propRows.length} / by prop_y, top ${propRows.length}`,
+    rows: propRows, valueKey: "curves", color: COL.curves,
     labelFn: (r) => ({ jp: PROP_JA[r.prop_y] || r.prop_y, en: "", tipTitle: r.prop_y }),
     tipRows: (r) => [
       { name: "カーブ", value: fmt(r.curves), color: COL.curves },
       { name: "データ点", value: fmt(r.data_points) },
     ],
   });
+  const journalRows = D.journals.slice(0, 8);
   rankCol("rank-journals", {
     title: "ジャーナル", metric: "論文数 / Papers",
-    cap: "掲載ジャーナル別 · 上位8 / top 8 journals",
-    rows: D.journals.slice(0, 8), valueKey: "papers", color: COL.papers,
+    cap: `掲載ジャーナル別 · 上位${journalRows.length} / top ${journalRows.length} journals`,
+    rows: journalRows, valueKey: "papers", color: COL.papers,
     labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
     tipRows: (r) => [{ name: "論文", value: fmt(r.papers), color: COL.papers }],
   });
@@ -710,10 +713,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   });
 
   // ---- sample_info columns ----
+  const descRows = D.sample_info_descriptors.slice(0, 6);
   rankCol("info-desc", {
     title: `記入状況(全${fmt(S.samples)}サンプル中)`, metric: "",
-    cap: "descriptor別・記入ありサンプル数 · 上位6 / バーは全サンプル比",
-    rows: D.sample_info_descriptors.slice(0, 6), valueKey: "samples_filled", color: COL.samples,
+    cap: `descriptor別・記入ありサンプル数 · 上位${descRows.length} / バーは全サンプル比`,
+    rows: descRows, valueKey: "samples_filled", color: COL.samples,
     maxOverride: S.samples,
     labelFn: (r) => ({ jp: DESC_JA[r.descriptor] || r.descriptor, en: "", tipTitle: r.descriptor }),
     tipRows: (r) => [
@@ -724,21 +728,21 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   });
   rankCol("info-fab", {
     title: "合成プロセス / Fabrication", metric: "",
-    cap: "category別 · 上位5(Other除く)",
+    cap: `category別 · 上位${D.fabrication.length}(Other除く)`,
     rows: D.fabrication, valueKey: "samples", color: COL.samples,
     labelFn: (r) => ({ jp: FAB_JA[r.category] || r.category, en: "", tipTitle: r.category }),
     tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
   });
   rankCol("info-family", {
     title: "材料ファミリー / Family", metric: "",
-    cap: "category別 · 上位5",
+    cap: `category別 · 上位${D.material_family.length}`,
     rows: D.material_family, valueKey: "samples", color: COL.samples,
     labelFn: (r) => ({ jp: FAMILY_JA[r.category] || r.category, en: "", tipTitle: r.category }),
     tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
   });
   rankCol("info-form", {
     title: "形状 / Form", metric: "",
-    cap: "category別 · 上位5",
+    cap: `category別 · 上位${D.form.length}`,
     rows: D.form, valueKey: "samples", color: COL.samples,
     labelFn: (r) => ({ jp: FORM_JA[r.category] || r.category, en: "", tipTitle: r.category }),
     tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
