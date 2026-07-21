@@ -188,13 +188,17 @@ def snapshot_date(snapshot: str) -> str:
 
 def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
     """Return the overall summary (headline counts) as a dict."""
-    n_figures = curves.dropna(subset=["figure_id"]).groupby(["SID", "figure_id"]).ngroups
+    # figure_id is a global identifier: a figure referenced by curves from
+    # several papers counts once. This matches the official stats page
+    # (starrydata.github.io/starrydata_datasets).
+    n_figures = int(curves["figure_id"].dropna().nunique())
     per_paper_samples = samples.groupby("SID").size()
     per_paper_curves = curves.groupby("SID").size()
 
-    # Registered papers that actually have samples or curves attached.
+    # Registered papers that actually have samples or curves attached,
+    # counted as unique SIDs (papers.csv contains a few duplicated SID rows).
     sids_with_data = set(samples["SID"].dropna()) | set(curves["SID"].dropna())
-    papers_with_data = int(papers["SID"].isin(sids_with_data).sum())
+    papers_with_data = len(set(papers["SID"].dropna()) & sids_with_data)
 
     return {
         "snapshot": snapshot,

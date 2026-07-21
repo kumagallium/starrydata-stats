@@ -1,11 +1,11 @@
 {
   "snapshot": "2026-07-21 02:00:01 UTC+0900 (JST)",
   "papers": 56473,
-  "papers_with_data": 17389,
+  "papers_with_data": 17384,
   "samples": 105260,
   "curves": 234029,
   "data_points": 4810741,
-  "figures": 65982,
+  "figures": 60228,
   "unique_dois_in_papers": 56451,
   "unique_compositions_in_samples": 42445,
   "samples_per_paper_mean": 6.05,
