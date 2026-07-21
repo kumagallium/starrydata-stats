@@ -2,15 +2,16 @@
 # requires-python = ">=3.9"
 # dependencies = ["gdown>=5"]
 # ///
-"""Google Drive の共有フォルダから最新の Starrydata データセットを取得して展開する。
+"""Fetch and extract the latest Starrydata dataset from the shared Google Drive folder.
 
-共有フォルダ内の zip ファイル(通常は starrydata_dataset.zip 1つ)をダウンロードし、
-starrydata_dataset/ ディレクトリに展開する。展開が成功するまで既存データは残すため、
-ダウンロード失敗時に手元のデータが壊れることはない。
+Downloads the zip file in the shared folder (normally a single
+starrydata_dataset.zip) and extracts it into starrydata_dataset/. The existing
+data is only replaced after the archive has been verified and extracted, so a
+failed download never corrupts the local copy.
 
-使い方:
-    python download_dataset.py            # 最新データを取得して展開
-    uv run download_dataset.py            # uv を使う場合(依存を自動解決)
+Usage:
+    python download_dataset.py    # fetch and extract the latest dataset
+    uv run download_dataset.py    # with uv (dependencies resolved automatically)
 """
 
 import argparse
@@ -20,7 +21,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-# Starrydata 最新データセットが置かれる Google Drive 共有フォルダ
+# Shared Google Drive folder that holds the latest Starrydata dataset.
 FOLDER_ID = "1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -32,28 +33,28 @@ def download_latest(
     data_dir: Path = DEFAULT_DATA_DIR,
     zip_path: Path = DEFAULT_ZIP_PATH,
 ) -> Path:
-    """共有フォルダから最新 zip をダウンロードし data_dir に展開する。
+    """Download the latest zip from the shared folder and extract it into data_dir.
 
     Returns:
-        展開先ディレクトリの Path
+        Path of the extraction directory.
     """
-    import gdown  # 集計のみの利用時に必須にしないよう遅延 import
+    import gdown  # deferred so aggregation-only runs do not require gdown
 
-    print(f"Google Drive フォルダ ({FOLDER_ID}) の内容を確認しています...")
+    print(f"Listing the Google Drive folder ({FOLDER_ID})...")
     entries = gdown.download_folder(id=FOLDER_ID, skip_download=True, quiet=True)
     if not entries:
-        sys.exit("エラー: フォルダの内容を取得できませんでした。共有設定や URL を確認してください。")
+        sys.exit("Error: could not list the folder. Check the sharing settings and URL.")
 
     zips = [e for e in entries if e.path.lower().endswith(".zip")]
     if not zips:
         names = ", ".join(e.path for e in entries)
-        sys.exit(f"エラー: フォルダ内に zip ファイルが見つかりません。内容: {names}")
+        sys.exit(f"Error: no zip file found in the folder. Contents: {names}")
 
-    # 複数 zip がある場合はファイル名の昇順で最後(日付入り名を想定)を採用
+    # If several zips exist, take the last one in name order (date-stamped names expected).
     zips.sort(key=lambda e: e.path)
     target = zips[-1]
     if len(zips) > 1:
-        print(f"注意: zip が {len(zips)} 個あります。'{target.path}' を使用します。")
+        print(f"Note: {len(zips)} zip files found; using '{target.path}'.")
         for e in zips:
             print(f"  - {e.path}")
 
@@ -61,47 +62,47 @@ def download_latest(
         tmp_dir = Path(tmp)
         tmp_zip = tmp_dir / "dataset.zip"
 
-        print(f"'{target.path}' をダウンロードしています...")
+        print(f"Downloading '{target.path}'...")
         result = gdown.download(id=target.id, output=str(tmp_zip), quiet=False)
         if result is None or not tmp_zip.exists():
-            sys.exit("エラー: ダウンロードに失敗しました。")
+            sys.exit("Error: download failed.")
 
-        print("zip を検証・展開しています...")
+        print("Verifying and extracting the zip...")
         extract_dir = tmp_dir / "extracted"
         try:
             with zipfile.ZipFile(tmp_zip) as zf:
                 bad = zf.testzip()
                 if bad is not None:
-                    sys.exit(f"エラー: zip が破損しています (最初の破損ファイル: {bad})")
+                    sys.exit(f"Error: corrupted zip (first bad file: {bad})")
                 zf.extractall(extract_dir)
         except zipfile.BadZipFile:
-            sys.exit("エラー: ダウンロードしたファイルは正しい zip ではありません。")
+            sys.exit("Error: the downloaded file is not a valid zip archive.")
 
-        # 展開に成功してから既存データを置き換える
+        # Replace the existing data only after a successful extraction.
         if data_dir.exists():
             shutil.rmtree(data_dir)
         shutil.move(str(extract_dir), str(data_dir))
 
-        # 最新 zip を原本として保存(既存の zip は置き換え)
+        # Keep the latest zip as the pristine copy (replacing any previous one).
         shutil.move(str(tmp_zip), str(zip_path))
 
     snapshot = data_dir / "db_snapshot.txt"
     if snapshot.exists():
-        print(f"完了: {data_dir} に展開しました (snapshot: {snapshot.read_text().strip()})")
+        print(f"Done: extracted into {data_dir} (snapshot: {snapshot.read_text().strip()})")
     else:
-        print(f"完了: {data_dir} に展開しました")
+        print(f"Done: extracted into {data_dir}")
     return data_dir
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Google Drive から最新の Starrydata データセットを取得して展開する"
+        description="Fetch and extract the latest Starrydata dataset from Google Drive"
     )
     parser.add_argument(
         "--data-dir",
         type=Path,
         default=DEFAULT_DATA_DIR,
-        help=f"展開先ディレクトリ (default: {DEFAULT_DATA_DIR.name}/)",
+        help=f"extraction directory (default: {DEFAULT_DATA_DIR.name}/)",
     )
     args = parser.parse_args()
     download_latest(data_dir=args.data_dir)

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Starrydata データセット ダッシュボード</title>
+<title>Starrydata Dataset Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
     --rule-kpi:   rgba(26,25,23,.1);
     --rule-strong:rgba(26,25,23,.12);
     --track:      rgba(26,25,23,.07);
-    --curves:     #b07f2e;  /* カーブ */
-    --samples:    #1c8a72;  /* サンプル */
-    --papers:     #3554a8;  /* 論文 */
+    --curves:     #b07f2e;  /* curves */
+    --samples:    #1c8a72;  /* samples */
+    --papers:     #3554a8;  /* papers */
     --hero-ink:   #f5f6ff;
     --sans: "IBM Plex Sans JP", system-ui, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -50,8 +50,17 @@
     background-size: 380px 220px;
   }
   .hero-inner { position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
-  .hero-left { max-width: 600px; }
+  .hero-left { max-width: 660px; }
   .kicker { font-family: var(--mono); font-size: 10.5px; letter-spacing: .24em; color: rgba(240,242,255,.55); margin-bottom: 16px; }
+  .lang-switch { position: absolute; top: 20px; right: 24px; font-family: var(--mono); font-size: 10.5px; display: flex; gap: 8px; align-items: baseline; z-index: 2; }
+  .lang-switch button {
+    background: none; border: none; padding: 2px 4px; cursor: pointer;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em;
+    color: rgba(240,242,255,.45); border-bottom: 1px solid transparent;
+  }
+  .lang-switch button[aria-pressed="true"] { color: #fff; border-bottom-color: rgba(255,255,255,.65); }
+  .lang-switch button:hover { color: #fff; }
+  .lang-switch .sep { color: rgba(240,242,255,.3); }
   .hero h1 { font-family: var(--sans); font-weight: 700; font-size: 34px; line-height: 1.4; margin: 0; color: var(--hero-ink); letter-spacing: .01em; }
   .lead { margin: 14px 0 0; font-size: 13px; line-height: 1.8; color: rgba(240,242,255,.6); }
   .lead .en { font-family: var(--mono); font-size: 11px; color: rgba(240,242,255,.45); }
@@ -98,7 +107,7 @@
   .yearly-col:hover { background: color-mix(in srgb, #1a1917 4%, transparent); }
   .yearly-bars { display: flex; gap: 3px; align-items: flex-end; height: 160px; }
   .yearly-bars div { width: 15px; border-radius: 2px 2px 0 0; }
-  /* ラベル高さを固定し、基線・グリッドの bottom 位置(ラベル17px + gap 8px = 25px)を確定させる */
+  /* Fixed label height keeps the baseline/grid offset (label 17px + gap 8px = 25px) deterministic */
   .yearly-col .yl { font-family: var(--mono); font-size: 10.5px; color: rgba(26,25,23,.5); height: 17px; line-height: 17px; }
   .ygrid { position: absolute; left: 0; right: 0; border-top: 1px solid var(--rule); pointer-events: none; }
   .ygrid .ylab { position: absolute; left: 0; top: -14px; font-family: var(--mono); font-size: 10px; color: var(--ink-40); font-variant-numeric: tabular-nums; }
@@ -162,7 +171,7 @@
 
   /* ---- Responsive ---- */
   @media (max-width: 1150px) {
-    /* ヒーロー数値3つ(Mono 40px)が h1 と横並びで共存できない幅では先に縦積みへ */
+    /* Stack the hero once the three Mono-40px counters can no longer share a row with the h1 */
     .hero-inner { flex-direction: column; align-items: flex-start; }
     .hero-nums { text-align: left; flex-wrap: wrap; gap: 24px; }
   }
@@ -192,17 +201,17 @@
 <div class="page">
   <header class="hero">
     <div class="hero-stars"></div>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <span class="sep">/</span>
+      <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+    </nav>
     <div class="hero-inner">
       <div class="hero-left">
         <div class="kicker" id="kicker"></div>
-        <h1>材料科学の実験データを、<br>夜空の星のように集める。</h1>
-        <p class="lead"><span id="lead-jp"></span><br><span class="en" id="lead-en"></span></p>
-        <div class="hero-links">
-          <a href="https://starrydata.org/" target="_blank" rel="noopener">プロジェクト / About · starrydata.org ↗</a>
-          <a href="https://www.starrydata2.org/" target="_blank" rel="noopener">Webアプリ / App · starrydata2.org ↗</a>
-          <a href="https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh" target="_blank" rel="noopener">データセット / Dataset (Google Drive) ↗</a>
-          <a href="https://github.com/kumagallium/starrydata-stats" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
+        <h1><span id="h1a">Materials science data,</span><br><span id="h1b">like stars in the night sky.</span></h1>
+        <p class="lead"><span id="lead-main"></span><span id="lead-sub-wrap" hidden><br><span class="en" id="lead-sub"></span></span></p>
+        <div class="hero-links" id="hero-links"></div>
       </div>
       <div class="hero-nums" id="hero-nums"></div>
     </div>
@@ -213,46 +222,42 @@
 
   <section class="sec">
     <div class="sec-head">
-      <h2>データベースの成長 <span class="sub" id="growth-range"></span></h2>
-      <div class="legend">
-        <span><span class="chip" style="background:var(--curves)"></span>カーブ</span>
-        <span><span class="chip" style="background:var(--samples)"></span>サンプル</span>
-        <span><span class="chip" style="background:var(--papers)"></span>論文</span>
-      </div>
+      <h2><span id="growth-h2">Database growth</span> <span class="sub" id="growth-range"></span></h2>
+      <div class="legend" id="legend-growth"></div>
     </div>
     <div id="chart-growth"></div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-growth"></div></details>
+    <details class="tv"><summary id="tv-growth-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-growth"></div></details>
   </section>
 
   <section class="sec">
-    <h2>年別の新規登録 <span class="sub">NEW REGISTRATIONS BY YEAR</span></h2>
+    <h2><span id="yearly-h2">New registrations by year</span> <span class="sub" id="yearly-sub"></span></h2>
     <div class="yearly-wrap" id="chart-yearly"></div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-yearly"></div></details>
+    <details class="tv"><summary id="tv-yearly-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-yearly"></div></details>
   </section>
 
   <section class="sec">
-    <h2>収録元素の多様性 <span class="sub">ELEMENT DIVERSITY</span></h2>
-    <div class="sec-note">組成(composition)に登場する元素をサンプル数で塗り分け · 濃いほど多い</div>
+    <h2><span id="elements-h2">Element diversity</span> <span class="sub" id="elements-sub"></span></h2>
+    <div class="sec-note" id="elements-note"></div>
     <div class="elements-grid">
       <div class="ptable-scroll"><div class="ptable" id="ptable"></div></div>
       <div>
         <div class="side-panel">
-          <div class="l">ユニーク組成 / Unique compositions</div>
+          <div class="l" id="uniq-comp-l">Unique compositions</div>
           <div class="v num" id="uniq-comp"></div>
           <div class="n" id="elem-count"></div>
           <div class="scale-legend">
-            <span>少</span>
+            <span id="scale-few">fewer</span>
             <span class="sw" style="background:rgba(28,138,114,.14)"></span>
             <span class="sw" style="background:rgba(28,138,114,.32)"></span>
             <span class="sw" style="background:rgba(28,138,114,.58)"></span>
             <span class="sw" style="background:#1c8a72"></span>
-            <span>多</span>
-            <span style="margin-left:6px">サンプル数</span>
+            <span id="scale-many">more</span>
+            <span style="margin-left:6px" id="scale-unit">samples</span>
           </div>
         </div>
       </div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-elements"></div></details>
+    <details class="tv"><summary id="tv-elements-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-elements"></div></details>
   </section>
 
   <section class="sec">
@@ -261,18 +266,18 @@
       <div class="rank-col" id="rank-props"></div>
       <div class="rank-col" id="rank-journals"></div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-rankings"></div></details>
+    <details class="tv"><summary id="tv-rankings-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-rankings"></div></details>
   </section>
 
   <section class="sec" style="padding-bottom:28px">
-    <h2>サンプル詳細情報 <span class="sub">SAMPLE METADATA (sample_info)</span></h2>
+    <h2><span id="info-h2">Sample metadata</span> <span class="sub" id="info-sub">sample_info</span></h2>
     <div class="rank-grid-4">
       <div class="rank-col rank-col-sm" id="info-desc"></div>
       <div class="rank-col rank-col-sm" id="info-fab"></div>
       <div class="rank-col rank-col-sm" id="info-family"></div>
       <div class="rank-col rank-col-sm" id="info-form"></div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-info"></div></details>
+    <details class="tv"><summary id="tv-info-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-info"></div></details>
   </section>
 
   <footer class="foot">
@@ -284,7 +289,7 @@
 <div id="tooltip"></div>
 
 <script>
-window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","generated_at":"2026-07-21 09:20","summary":{"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","papers":56473,"papers_with_data":17389,"samples":105260,"curves":234029,"data_points":4810741,"figures":65982,"unique_dois_in_papers":56451,"unique_compositions_in_samples":42445,"samples_per_paper_mean":6.05,"samples_per_paper_median":5.0,"samples_per_paper_max":160,"curves_per_paper_mean":13.46,"curves_per_paper_median":8.0,"curves_per_paper_max":246,"points_per_curve_mean":20.56},"monthly":[{"period":"2017-09","papers":0,"samples":461,"curves":1251,"papers_cum":0,"samples_cum":461,"curves_cum":1251},{"period":"2017-10","papers":0,"samples":57,"curves":148,"papers_cum":0,"samples_cum":518,"curves_cum":1399},{"period":"2017-11","papers":0,"samples":5,"curves":9,"papers_cum":0,"samples_cum":523,"curves_cum":1408},{"period":"2017-12","papers":0,"samples":487,"curves":1451,"papers_cum":0,"samples_cum":1010,"curves_cum":2859},{"period":"2018-01","papers":17285,"samples":1203,"curves":3270,"papers_cum":17285,"samples_cum":2213,"curves_cum":6129},{"period":"2018-02","papers":69,"samples":437,"curves":1685,"papers_cum":17354,"samples_cum":2650,"curves_cum":7814},{"period":"2018-03","papers":0,"samples":666,"curves":2602,"papers_cum":17354,"samples_cum":3316,"curves_cum":10416},{"period":"2018-04","papers":0,"samples":545,"curves":1958,"papers_cum":17354,"samples_cum":3861,"curves_cum":12374},{"period":"2018-05","papers":0,"samples":381,"curves":2036,"papers_cum":17354,"samples_cum":4242,"curves_cum":14410},{"period":"2018-06","papers":0,"samples":621,"curves":2649,"papers_cum":17354,"samples_cum":4863,"curves_cum":17059},{"period":"2018-07","papers":0,"samples":736,"curves":2892,"papers_cum":17354,"samples_cum":5599,"curves_cum":19951},{"period":"2018-08","papers":4,"samples":640,"curves":2529,"papers_cum":17358,"samples_cum":6239,"curves_cum":22480},{"period":"2018-09","papers":28,"samples":891,"curves":2926,"papers_cum":17386,"samples_cum":7130,"curves_cum":25406},{"period":"2018-10","papers":2,"samples":1184,"curves":4111,"papers_cum":17388,"samples_cum":8314,"curves_cum":29517},{"period":"2018-11","papers":26,"samples":803,"curves":2676,"papers_cum":17414,"samples_cum":9117,"curves_cum":32193},{"period":"2018-12","papers":46,"samples":1018,"curves":3113,"papers_cum":17460,"samples_cum":10135,"curves_cum":35306},{"period":"2019-01","papers":157,"samples":1716,"curves":5864,"papers_cum":17617,"samples_cum":11851,"curves_cum":41170},{"period":"2019-02","papers":4,"samples":1049,"curves":3745,"papers_cum":17621,"samples_cum":12900,"curves_cum":44915},{"period":"2019-03","papers":1299,"samples":986,"curves":3387,"papers_cum":18920,"samples_cum":13886,"curves_cum":48302},{"period":"2019-04","papers":561,"samples":1281,"curves":3972,"papers_cum":19481,"samples_cum":15167,"curves_cum":52274},{"period":"2019-05","papers":6,"samples":1379,"curves":4072,"papers_cum":19487,"samples_cum":16546,"curves_cum":56346},{"period":"2019-06","papers":0,"samples":1066,"curves":2852,"papers_cum":19487,"samples_cum":17612,"curves_cum":59198},{"period":"2019-07","papers":0,"samples":967,"curves":1835,"papers_cum":19487,"samples_cum":18579,"curves_cum":61033},{"period":"2019-08","papers":0,"samples":765,"curves":2203,"papers_cum":19487,"samples_cum":19344,"curves_cum":63236},{"period":"2019-09","papers":2,"samples":932,"curves":2460,"papers_cum":19489,"samples_cum":20276,"curves_cum":65696},{"period":"2019-10","papers":1,"samples":1119,"curves":3343,"papers_cum":19490,"samples_cum":21395,"curves_cum":69039},{"period":"2019-11","papers":6,"samples":1486,"curves":3467,"papers_cum":19496,"samples_cum":22881,"curves_cum":72506},{"period":"2019-12","papers":40,"samples":1051,"curves":2422,"papers_cum":19536,"samples_cum":23932,"curves_cum":74928},{"period":"2020-01","papers":1538,"samples":1012,"curves":2614,"papers_cum":21074,"samples_cum":24944,"curves_cum":77542},{"period":"2020-02","papers":2095,"samples":1670,"curves":3961,"papers_cum":23169,"samples_cum":26614,"curves_cum":81503},{"period":"2020-03","papers":1342,"samples":1305,"curves":4067,"papers_cum":24511,"samples_cum":27919,"curves_cum":85570},{"period":"2020-04","papers":2379,"samples":1257,"curves":3679,"papers_cum":26890,"samples_cum":29176,"curves_cum":89249},{"period":"2020-05","papers":22,"samples":1341,"curves":3742,"papers_cum":26912,"samples_cum":30517,"curves_cum":92991},{"period":"2020-06","papers":214,"samples":1230,"curves":3982,"papers_cum":27126,"samples_cum":31747,"curves_cum":96973},{"period":"2020-07","papers":119,"samples":1367,"curves":3500,"papers_cum":27245,"samples_cum":33114,"curves_cum":100473},{"period":"2020-08","papers":29,"samples":816,"curves":1949,"papers_cum":27274,"samples_cum":33930,"curves_cum":102422},{"period":"2020-09","papers":43,"samples":601,"curves":1763,"papers_cum":27317,"samples_cum":34531,"curves_cum":104185},{"period":"2020-10","papers":31,"samples":633,"curves":1549,"papers_cum":27348,"samples_cum":35164,"curves_cum":105734},{"period":"2020-11","papers":353,"samples":1034,"curves":2663,"papers_cum":27701,"samples_cum":36198,"curves_cum":108397},{"period":"2020-12","papers":1440,"samples":666,"curves":1732,"papers_cum":29141,"samples_cum":36864,"curves_cum":110129},{"period":"2021-01","papers":20,"samples":1396,"curves":2874,"papers_cum":29161,"samples_cum":38260,"curves_cum":113003},{"period":"2021-02","papers":1554,"samples":542,"curves":2102,"papers_cum":30715,"samples_cum":38802,"curves_cum":115105},{"period":"2021-03","papers":58,"samples":572,"curves":1864,"papers_cum":30773,"samples_cum":39374,"curves_cum":116969},{"period":"2021-04","papers":382,"samples":468,"curves":1642,"papers_cum":31155,"samples_cum":39842,"curves_cum":118611},{"period":"2021-05","papers":988,"samples":698,"curves":2416,"papers_cum":32143,"samples_cum":40540,"curves_cum":121027},{"period":"2021-06","papers":190,"samples":573,"curves":1995,"papers_cum":32333,"samples_cum":41113,"curves_cum":123022},{"period":"2021-07","papers":280,"samples":523,"curves":1703,"papers_cum":32613,"samples_cum":41636,"curves_cum":124725},{"period":"2021-08","papers":71,"samples":479,"curves":1875,"papers_cum":32684,"samples_cum":42115,"curves_cum":126600},{"period":"2021-09","papers":311,"samples":791,"curves":2098,"papers_cum":32995,"samples_cum":42906,"curves_cum":128698},{"period":"2021-10","papers":1427,"samples":959,"curves":2378,"papers_cum":34422,"samples_cum":43865,"curves_cum":131076},{"period":"2021-11","papers":2315,"samples":781,"curves":2284,"papers_cum":36737,"samples_cum":44646,"curves_cum":133360},{"period":"2021-12","papers":26,"samples":736,"curves":2627,"papers_cum":36763,"samples_cum":45382,"curves_cum":135987},{"period":"2022-01","papers":124,"samples":450,"curves":2226,"papers_cum":36887,"samples_cum":45832,"curves_cum":138213},{"period":"2022-02","papers":4213,"samples":594,"curves":2022,"papers_cum":41100,"samples_cum":46426,"curves_cum":140235},{"period":"2022-03","papers":60,"samples":553,"curves":1161,"papers_cum":41160,"samples_cum":46979,"curves_cum":141396},{"period":"2022-04","papers":463,"samples":411,"curves":565,"papers_cum":41623,"samples_cum":47390,"curves_cum":141961},{"period":"2022-05","papers":49,"samples":421,"curves":540,"papers_cum":41672,"samples_cum":47811,"curves_cum":142501},{"period":"2022-06","papers":315,"samples":869,"curves":1289,"papers_cum":41987,"samples_cum":48680,"curves_cum":143790},{"period":"2022-07","papers":46,"samples":961,"curves":1482,"papers_cum":42033,"samples_cum":49641,"curves_cum":145272},{"period":"2022-08","papers":52,"samples":1097,"curves":1669,"papers_cum":42085,"samples_cum":50738,"curves_cum":146941},{"period":"2022-09","papers":148,"samples":1152,"curves":1868,"papers_cum":42233,"samples_cum":51890,"curves_cum":148809},{"period":"2022-10","papers":123,"samples":1309,"curves":1852,"papers_cum":42356,"samples_cum":53199,"curves_cum":150661},{"period":"2022-11","papers":186,"samples":1741,"curves":2385,"papers_cum":42542,"samples_cum":54940,"curves_cum":153046},{"period":"2022-12","papers":229,"samples":1547,"curves":2281,"papers_cum":42771,"samples_cum":56487,"curves_cum":155327},{"period":"2023-01","papers":386,"samples":1993,"curves":3055,"papers_cum":43157,"samples_cum":58480,"curves_cum":158382},{"period":"2023-02","papers":483,"samples":2449,"curves":3488,"papers_cum":43640,"samples_cum":60929,"curves_cum":161870},{"period":"2023-03","papers":399,"samples":2655,"curves":3502,"papers_cum":44039,"samples_cum":63584,"curves_cum":165372},{"period":"2023-04","papers":501,"samples":1829,"curves":2688,"papers_cum":44540,"samples_cum":65413,"curves_cum":168060},{"period":"2023-05","papers":670,"samples":2352,"curves":3609,"papers_cum":45210,"samples_cum":67765,"curves_cum":171669},{"period":"2023-06","papers":1174,"samples":2431,"curves":3758,"papers_cum":46384,"samples_cum":70196,"curves_cum":175427},{"period":"2023-07","papers":572,"samples":2437,"curves":3507,"papers_cum":46956,"samples_cum":72633,"curves_cum":178934},{"period":"2023-08","papers":501,"samples":1844,"curves":2593,"papers_cum":47457,"samples_cum":74477,"curves_cum":181527},{"period":"2023-09","papers":407,"samples":2425,"curves":3263,"papers_cum":47864,"samples_cum":76902,"curves_cum":184790},{"period":"2023-10","papers":402,"samples":2040,"curves":2784,"papers_cum":48266,"samples_cum":78942,"curves_cum":187574},{"period":"2023-11","papers":500,"samples":2156,"curves":3151,"papers_cum":48766,"samples_cum":81098,"curves_cum":190725},{"period":"2023-12","papers":531,"samples":1654,"curves":2531,"papers_cum":49297,"samples_cum":82752,"curves_cum":193256},{"period":"2024-01","papers":409,"samples":1628,"curves":2244,"papers_cum":49706,"samples_cum":84380,"curves_cum":195500},{"period":"2024-02","papers":275,"samples":1870,"curves":2496,"papers_cum":49981,"samples_cum":86250,"curves_cum":197996},{"period":"2024-03","papers":207,"samples":1003,"curves":1287,"papers_cum":50188,"samples_cum":87253,"curves_cum":199283},{"period":"2024-04","papers":333,"samples":1350,"curves":2024,"papers_cum":50521,"samples_cum":88603,"curves_cum":201307},{"period":"2024-05","papers":316,"samples":923,"curves":1567,"papers_cum":50837,"samples_cum":89526,"curves_cum":202874},{"period":"2024-06","papers":312,"samples":743,"curves":1247,"papers_cum":51149,"samples_cum":90269,"curves_cum":204121},{"period":"2024-07","papers":187,"samples":761,"curves":1312,"papers_cum":51336,"samples_cum":91030,"curves_cum":205433},{"period":"2024-08","papers":232,"samples":724,"curves":1195,"papers_cum":51568,"samples_cum":91754,"curves_cum":206628},{"period":"2024-09","papers":323,"samples":865,"curves":1425,"papers_cum":51891,"samples_cum":92619,"curves_cum":208053},{"period":"2024-10","papers":168,"samples":481,"curves":858,"papers_cum":52059,"samples_cum":93100,"curves_cum":208911},{"period":"2024-11","papers":404,"samples":874,"curves":1345,"papers_cum":52463,"samples_cum":93974,"curves_cum":210256},{"period":"2024-12","papers":145,"samples":1045,"curves":2502,"papers_cum":52608,"samples_cum":95019,"curves_cum":212758},{"period":"2025-01","papers":230,"samples":1050,"curves":3024,"papers_cum":52838,"samples_cum":96069,"curves_cum":215782},{"period":"2025-02","papers":514,"samples":892,"curves":2161,"papers_cum":53352,"samples_cum":96961,"curves_cum":217943},{"period":"2025-03","papers":284,"samples":563,"curves":952,"papers_cum":53636,"samples_cum":97524,"curves_cum":218895},{"period":"2025-04","papers":47,"samples":640,"curves":1094,"papers_cum":53683,"samples_cum":98164,"curves_cum":219989},{"period":"2025-05","papers":124,"samples":804,"curves":1402,"papers_cum":53807,"samples_cum":98968,"curves_cum":221391},{"period":"2025-06","papers":81,"samples":581,"curves":983,"papers_cum":53888,"samples_cum":99549,"curves_cum":222374},{"period":"2025-07","papers":84,"samples":564,"curves":1172,"papers_cum":53972,"samples_cum":100113,"curves_cum":223546},{"period":"2025-08","papers":67,"samples":340,"curves":545,"papers_cum":54039,"samples_cum":100453,"curves_cum":224091},{"period":"2025-09","papers":25,"samples":359,"curves":542,"papers_cum":54064,"samples_cum":100812,"curves_cum":224633},{"period":"2025-10","papers":56,"samples":338,"curves":501,"papers_cum":54120,"samples_cum":101150,"curves_cum":225134},{"period":"2025-11","papers":183,"samples":617,"curves":1160,"papers_cum":54303,"samples_cum":101767,"curves_cum":226294},{"period":"2025-12","papers":190,"samples":851,"curves":1606,"papers_cum":54493,"samples_cum":102618,"curves_cum":227900},{"period":"2026-01","papers":105,"samples":753,"curves":1369,"papers_cum":54598,"samples_cum":103371,"curves_cum":229269},{"period":"2026-02","papers":89,"samples":626,"curves":1540,"papers_cum":54687,"samples_cum":103997,"curves_cum":230809},{"period":"2026-03","papers":192,"samples":725,"curves":2070,"papers_cum":54879,"samples_cum":104722,"curves_cum":232879},{"period":"2026-04","papers":1475,"samples":97,"curves":178,"papers_cum":56354,"samples_cum":104819,"curves_cum":233057},{"period":"2026-05","papers":17,"samples":30,"curves":53,"papers_cum":56371,"samples_cum":104849,"curves_cum":233110},{"period":"2026-06","papers":29,"samples":209,"curves":446,"papers_cum":56400,"samples_cum":105058,"curves_cum":233556},{"period":"2026-07","papers":73,"samples":202,"curves":473,"papers_cum":56473,"samples_cum":105260,"curves_cum":234029}],"yearly":[{"period":2017,"papers":0,"samples":1010,"curves":2859,"papers_cum":0,"samples_cum":1010,"curves_cum":2859},{"period":2018,"papers":17460,"samples":9125,"curves":32447,"papers_cum":17460,"samples_cum":10135,"curves_cum":35306},{"period":2019,"papers":2076,"samples":13797,"curves":39622,"papers_cum":19536,"samples_cum":23932,"curves_cum":74928},{"period":2020,"papers":9605,"samples":12932,"curves":35201,"papers_cum":29141,"samples_cum":36864,"curves_cum":110129},{"period":2021,"papers":7622,"samples":8518,"curves":25858,"papers_cum":36763,"samples_cum":45382,"curves_cum":135987},{"period":2022,"papers":6008,"samples":11105,"curves":19340,"papers_cum":42771,"samples_cum":56487,"curves_cum":155327},{"period":2023,"papers":6526,"samples":26265,"curves":37929,"papers_cum":49297,"samples_cum":82752,"curves_cum":193256},{"period":2024,"papers":3311,"samples":12267,"curves":19502,"papers_cum":52608,"samples_cum":95019,"curves_cum":212758},{"period":2025,"papers":1885,"samples":7599,"curves":15142,"papers_cum":54493,"samples_cum":102618,"curves_cum":227900},{"period":2026,"papers":1980,"samples":2642,"curves":6129,"papers_cum":56473,"samples_cum":105260,"curves_cum":234029}],"by_project":[{"project":"ThermoelectricMaterials","papers":30969,"curves":155638,"data_points":2672323},{"project":"BatteryMaterials","papers":3188,"curves":32586,"data_points":759553},{"project":"MagneticMaterials","papers":8767,"curves":16912,"data_points":559033},{"project":"DielectricMaterials","papers":4699,"curves":16555,"data_points":545159},{"project":"GeneralDB","papers":1812,"curves":7506,"data_points":104502},{"project":"CondensedMatter","papers":1345,"curves":6848,"data_points":146308},{"project":"Resistor","papers":1370,"curves":4597,"data_points":84857},{"project":"LowThermalConductivityMaterials","papers":2891,"curves":3518,"data_points":57458},{"project":"HighThermalConductivityMaterials","papers":422,"curves":2638,"data_points":46702},{"project":"Hypermaterial","papers":338,"curves":2591,"data_points":76720},{"project":"SolidStateBatteryMaterials","papers":157,"curves":2002,"data_points":43207},{"project":"PiezoelectricMaterials","papers":2401,"curves":1772,"data_points":93264},{"project":"AirBatteryMaterials","papers":55,"curves":1176,"data_points":25280},{"project":"OrganicThermoelectricMaterials","papers":78,"curves":981,"data_points":4505}],"by_property":[{"prop_y":"Seebeck coefficient","curves":37615,"data_points":724532},{"prop_y":"Thermal conductivity","curves":25571,"data_points":394027},{"prop_y":"Voltage","curves":23652,"data_points":491281},{"prop_y":"Electrical resistivity","curves":23023,"data_points":565523},{"prop_y":"Electrical conductivity","curves":21341,"data_points":330396},{"prop_y":"ZT","curves":20717,"data_points":285983},{"prop_y":"Power factor","curves":17484,"data_points":253282},{"prop_y":"magnetization_per_weight","curves":13767,"data_points":446926},{"prop_y":"Dielectric permittivity (ε’)","curves":9997,"data_points":340043},{"prop_y":"Discharge capacity","curves":9796,"data_points":258231}],"journals":[{"journal":"Journal of Applied Physics","papers":2446},{"journal":"Journal of the American Ceramic Society","papers":2254},{"journal":"Journal of Alloys and Compounds","papers":2105},{"journal":"Physical Review B","papers":1639},{"journal":"Applied Physics Letters","papers":1565},{"journal":"Journal of Electronic Materials","papers":1307},{"journal":"Ceramics International","papers":1136},{"journal":"ACS Applied Materials & Interfaces","papers":1009},{"journal":"Journal of Magnetism and Magnetic Materials","papers":807},{"journal":"Journal of the European Ceramic Society","papers":782}],"elements":[{"element":"O","samples":46629},{"element":"Fe","samples":20247},{"element":"Co","samples":15238},{"element":"Bi","samples":13586},{"element":"Ti","samples":13073},{"element":"Sb","samples":12463},{"element":"Sr","samples":11901},{"element":"Mn","samples":11029},{"element":"Te","samples":10750},{"element":"La","samples":10465},{"element":"Ba","samples":10232},{"element":"Cu","samples":9228},{"element":"S","samples":8199},{"element":"Nb","samples":8162},{"element":"Ca","samples":7955},{"element":"Pb","samples":7557},{"element":"Ni","samples":7475},{"element":"Sn","samples":7364},{"element":"Li","samples":6863},{"element":"Si","samples":6511},{"element":"Se","samples":6227},{"element":"Zn","samples":6157},{"element":"Al","samples":5409},{"element":"Mg","samples":5189},{"element":"Na","samples":4855},{"element":"Zr","samples":4602},{"element":"Ge","samples":3822},{"element":"B","samples":3493},{"element":"In","samples":3491},{"element":"Nd","samples":3249},{"element":"Ce","samples":3240},{"element":"Ag","samples":3145},{"element":"Ga","samples":2914},{"element":"Y","samples":2831},{"element":"C","samples":2763},{"element":"Cr","samples":2559},{"element":"K","samples":2512},{"element":"Pr","samples":2304},{"element":"Yb","samples":2044},{"element":"V","samples":2031},{"element":"Ta","samples":1884},{"element":"Gd","samples":1659},{"element":"Sm","samples":1649},{"element":"P","samples":1382},{"element":"Cd","samples":1288},{"element":"Pd","samples":1273},{"element":"I","samples":1256},{"element":"Ru","samples":1203},{"element":"Hf","samples":1190},{"element":"Mo","samples":1189},{"element":"N","samples":1142},{"element":"Eu","samples":1128},{"element":"As","samples":1050},{"element":"W","samples":990},{"element":"Dy","samples":935},{"element":"Sc","samples":886},{"element":"Pt","samples":703},{"element":"Rh","samples":619},{"element":"Tb","samples":589},{"element":"F","samples":587},{"element":"H","samples":581},{"element":"Er","samples":546},{"element":"Ir","samples":542},{"element":"Ho","samples":537},{"element":"Tl","samples":508},{"element":"Cl","samples":450},{"element":"U","samples":397},{"element":"Re","samples":358},{"element":"Au","samples":295},{"element":"Lu","samples":268},{"element":"Tm","samples":223},{"element":"Br","samples":164},{"element":"Cs","samples":159},{"element":"Th","samples":143},{"element":"Hg","samples":118},{"element":"Rb","samples":75},{"element":"Os","samples":72},{"element":"Be","samples":51},{"element":"Pu","samples":32},{"element":"Np","samples":11},{"element":"No","samples":8},{"element":"Am","samples":7},{"element":"Pa","samples":4},{"element":"Cm","samples":4},{"element":"He","samples":2},{"element":"Ne","samples":2},{"element":"Ac","samples":1},{"element":"Tc","samples":1}],"sample_info_descriptors":[{"descriptor":"DataType","samples_filled":47662,"samples_with_category":47662},{"descriptor":"Form","samples_filled":39361,"samples_with_category":39295},{"descriptor":"FabricationProcess","samples_filled":32181,"samples_with_category":30905},{"descriptor":"MaterialFamily","samples_filled":21454,"samples_with_category":21447},{"descriptor":"Purity","samples_filled":20437,"samples_with_category":20375},{"descriptor":"MagneticMeasurement","samples_filled":16079,"samples_with_category":16079},{"descriptor":"Solvent 1","samples_filled":13992,"samples_with_category":13711},{"descriptor":"Solute 1","samples_filled":13942,"samples_with_category":12985},{"descriptor":"Anode active material","samples_filled":13656,"samples_with_category":12165},{"descriptor":"ElectricalMeasurement","samples_filled":13612,"samples_with_category":13468},{"descriptor":"Measurement temperature","samples_filled":11991,"samples_with_category":11913},{"descriptor":"Cathode active material","samples_filled":10173,"samples_with_category":9152},{"descriptor":"ThermalMeasurement","samples_filled":9894,"samples_with_category":9871},{"descriptor":"Solvent 2","samples_filled":9874,"samples_with_category":9721},{"descriptor":"Cathode conductive agent","samples_filled":8500,"samples_with_category":8189},{"descriptor":"Separator","samples_filled":8477,"samples_with_category":8104},{"descriptor":"Cathode binder 1","samples_filled":8394,"samples_with_category":8162},{"descriptor":"Cell type","samples_filled":7616,"samples_with_category":5662},{"descriptor":"Cathode areal density (cathode loading)","samples_filled":7608,"samples_with_category":7195},{"descriptor":"Solute 2","samples_filled":6034,"samples_with_category":5625},{"descriptor":"Cathode additive 1","samples_filled":4088,"samples_with_category":4014},{"descriptor":"Cathode current collector","samples_filled":4014,"samples_with_category":1422},{"descriptor":"Lower voltage limit","samples_filled":3728,"samples_with_category":3012},{"descriptor":"Upper voltage limit","samples_filled":3682,"samples_with_category":2983},{"descriptor":"Electrolyte additive 1","samples_filled":3321,"samples_with_category":2775},{"descriptor":"Anode areal capacity","samples_filled":3021,"samples_with_category":2118},{"descriptor":"Current density","samples_filled":2591,"samples_with_category":2344},{"descriptor":"RelativeDensity","samples_filled":2480,"samples_with_category":2348},{"descriptor":"Ratio of electrolyte to cathode active material","samples_filled":2451,"samples_with_category":2190},{"descriptor":"Anode current collector","samples_filled":2320,"samples_with_category":2044},{"descriptor":"Counter electrode","samples_filled":2137,"samples_with_category":1859},{"descriptor":"GrainSize","samples_filled":1645,"samples_with_category":1472},{"descriptor":"FabricationProcess 2","samples_filled":1574,"samples_with_category":1545},{"descriptor":"coercivity","samples_filled":1543,"samples_with_category":1416},{"descriptor":"Anode binder 1","samples_filled":1408,"samples_with_category":1353},{"descriptor":"Anode conductive agent","samples_filled":1371,"samples_with_category":1321},{"descriptor":"saturation magnetization","samples_filled":1310,"samples_with_category":1183},{"descriptor":"Reference electrode","samples_filled":1207,"samples_with_category":960},{"descriptor":"Solvent 3","samples_filled":1101,"samples_with_category":1070},{"descriptor":"remanence magnetion","samples_filled":1032,"samples_with_category":914},{"descriptor":"AC/QC type","samples_filled":1030,"samples_with_category":1030},{"descriptor":"magnetic field","samples_filled":867,"samples_with_category":862},{"descriptor":"other sample process info","samples_filled":617,"samples_with_category":616},{"descriptor":"composition type","samples_filled":599,"samples_with_category":599},{"descriptor":"Working electrode","samples_filled":548,"samples_with_category":426},{"descriptor":"measurement condition","samples_filled":520,"samples_with_category":511},{"descriptor":"Cathode catalyst material","samples_filled":433,"samples_with_category":0},{"descriptor":"Solute 3","samples_filled":415,"samples_with_category":159},{"descriptor":"Anode additive 1","samples_filled":408,"samples_with_category":399},{"descriptor":"sample info","samples_filled":389,"samples_with_category":387},{"descriptor":"annealing condition","samples_filled":386,"samples_with_category":386},{"descriptor":"Cathode binder 2","samples_filled":377,"samples_with_category":369},{"descriptor":"Coulombic efficiency","samples_filled":376,"samples_with_category":355},{"descriptor":"Scan rate","samples_filled":374,"samples_with_category":0},{"descriptor":"N/P ratio|A/C ratio","samples_filled":346,"samples_with_category":0},{"descriptor":"Catalyst loading","samples_filled":257,"samples_with_category":0},{"descriptor":"Cathode additive 2","samples_filled":251,"samples_with_category":217},{"descriptor":"AbsoluteDensity","samples_filled":133,"samples_with_category":133},{"descriptor":"Electrolyte additive 2","samples_filled":120,"samples_with_category":30},{"descriptor":"Measurement method1","samples_filled":114,"samples_with_category":0},{"descriptor":"Hysteresis","samples_filled":112,"samples_with_category":0},{"descriptor":"Starting material","samples_filled":108,"samples_with_category":0},{"descriptor":"Synthesis method1","samples_filled":107,"samples_with_category":0},{"descriptor":"Measurement method2","samples_filled":106,"samples_with_category":0},{"descriptor":"Sintering temperature","samples_filled":104,"samples_with_category":0},{"descriptor":"Measurement method3","samples_filled":98,"samples_with_category":0},{"descriptor":"Sintering time","samples_filled":95,"samples_with_category":0},{"descriptor":"Porosity","samples_filled":93,"samples_with_category":93},{"descriptor":"Chemical composition","samples_filled":93,"samples_with_category":0},{"descriptor":"Sample form","samples_filled":88,"samples_with_category":0},{"descriptor":"Final product","samples_filled":81,"samples_with_category":0},{"descriptor":"Synthesis method2","samples_filled":69,"samples_with_category":0},{"descriptor":"Sintering method","samples_filled":57,"samples_with_category":0},{"descriptor":"Synthesis method3","samples_filled":51,"samples_with_category":0},{"descriptor":"Redox mediator in electrolyte","samples_filled":50,"samples_with_category":0},{"descriptor":"lattice parameter","samples_filled":47,"samples_with_category":47},{"descriptor":"direction","samples_filled":43,"samples_with_category":43},{"descriptor":"Cathode areal capacity","samples_filled":41,"samples_with_category":0},{"descriptor":"FabricationProcess 3","samples_filled":33,"samples_with_category":30},{"descriptor":"other sample process info 2","samples_filled":33,"samples_with_category":33},{"descriptor":"sintering temperature","samples_filled":32,"samples_with_category":24},{"descriptor":"Material Family","samples_filled":31,"samples_with_category":31},{"descriptor":"Anode additive 2","samples_filled":30,"samples_with_category":25},{"descriptor":"PoreSize","samples_filled":25,"samples_with_category":25},{"descriptor":"DifferentialThermalAnalyzer","samples_filled":21,"samples_with_category":21},{"descriptor":"Anode binder 2","samples_filled":21,"samples_with_category":21},{"descriptor":"Composition conversion","samples_filled":16,"samples_with_category":2},{"descriptor":"LaserFlash","samples_filled":16,"samples_with_category":16},{"descriptor":"Cathode volumetric density","samples_filled":15,"samples_with_category":0},{"descriptor":"Relative density","samples_filled":14,"samples_with_category":14},{"descriptor":"Redox mediator in cathode","samples_filled":14,"samples_with_category":0},{"descriptor":"comment","samples_filled":12,"samples_with_category":12},{"descriptor":"Cathode additive","samples_filled":11,"samples_with_category":0},{"descriptor":"Electrolyte additive 3","samples_filled":11,"samples_with_category":0},{"descriptor":"Applied field","samples_filled":9,"samples_with_category":9},{"descriptor":"Material family","samples_filled":5,"samples_with_category":5},{"descriptor":"N/P ratio| A/C ratio","samples_filled":5,"samples_with_category":0},{"descriptor":"Saturation magnetization","samples_filled":4,"samples_with_category":4},{"descriptor":"ThermalMeaasurement","samples_filled":3,"samples_with_category":3},{"descriptor":"Differential thermal analyzer","samples_filled":3,"samples_with_category":3},{"descriptor":"MaterialsFamily","samples_filled":2,"samples_with_category":2},{"descriptor":"MaterialFarmily","samples_filled":2,"samples_with_category":2},{"descriptor":"Measurement axis","samples_filled":2,"samples_with_category":2},{"descriptor":"Grain size","samples_filled":2,"samples_with_category":2},{"descriptor":"laser flash and different thermal analyzer","samples_filled":2,"samples_with_category":2},{"descriptor":"Maximum power","samples_filled":2,"samples_with_category":2},{"descriptor":"Module operated temperature","samples_filled":2,"samples_with_category":2},{"descriptor":"Peak efficiency","samples_filled":2,"samples_with_category":2},{"descriptor":"Materials family","samples_filled":1,"samples_with_category":1},{"descriptor":"Note","samples_filled":1,"samples_with_category":1},{"descriptor":"Other","samples_filled":1,"samples_with_category":1},{"descriptor":"Mn15Si26[001]","samples_filled":1,"samples_with_category":1},{"descriptor":"synthesis","samples_filled":1,"samples_with_category":1},{"descriptor":"2D iron-tetracyanoquinodimethane","samples_filled":1,"samples_with_category":1},{"descriptor":"oercivity","samples_filled":1,"samples_with_category":1},{"descriptor":"6: other sample process info","samples_filled":1,"samples_with_category":1}],"fabrication":[{"category":"PressureSintering","samples":5279},{"category":"Melting","samples":5156},{"category":"Sintering","samples":3578},{"category":"MechanicalAlloying","samples":3067},{"category":"FilmGrowth","samples":2677}],"material_family":[{"category":"Perovskite","samples":2419},{"category":"Bi2Te3","samples":1890},{"category":"Oxide","samples":1805},{"category":"Skutterudite","samples":1738},{"category":"Half-Heusler","samples":1252}],"form":[{"category":"Bulk","samples":18131},{"category":"Powder","samples":6345},{"category":"Film","samples":3436},{"category":"pellets","samples":2640},{"category":"SingleCrystal","samples":1931}]};
+window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","generated_at":"2026-07-21 09:36","summary":{"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","papers":56473,"papers_with_data":17389,"samples":105260,"curves":234029,"data_points":4810741,"figures":65982,"unique_dois_in_papers":56451,"unique_compositions_in_samples":42445,"samples_per_paper_mean":6.05,"samples_per_paper_median":5.0,"samples_per_paper_max":160,"curves_per_paper_mean":13.46,"curves_per_paper_median":8.0,"curves_per_paper_max":246,"points_per_curve_mean":20.56},"monthly":[{"period":"2017-09","papers":0,"samples":461,"curves":1251,"papers_cum":0,"samples_cum":461,"curves_cum":1251},{"period":"2017-10","papers":0,"samples":57,"curves":148,"papers_cum":0,"samples_cum":518,"curves_cum":1399},{"period":"2017-11","papers":0,"samples":5,"curves":9,"papers_cum":0,"samples_cum":523,"curves_cum":1408},{"period":"2017-12","papers":0,"samples":487,"curves":1451,"papers_cum":0,"samples_cum":1010,"curves_cum":2859},{"period":"2018-01","papers":17285,"samples":1203,"curves":3270,"papers_cum":17285,"samples_cum":2213,"curves_cum":6129},{"period":"2018-02","papers":69,"samples":437,"curves":1685,"papers_cum":17354,"samples_cum":2650,"curves_cum":7814},{"period":"2018-03","papers":0,"samples":666,"curves":2602,"papers_cum":17354,"samples_cum":3316,"curves_cum":10416},{"period":"2018-04","papers":0,"samples":545,"curves":1958,"papers_cum":17354,"samples_cum":3861,"curves_cum":12374},{"period":"2018-05","papers":0,"samples":381,"curves":2036,"papers_cum":17354,"samples_cum":4242,"curves_cum":14410},{"period":"2018-06","papers":0,"samples":621,"curves":2649,"papers_cum":17354,"samples_cum":4863,"curves_cum":17059},{"period":"2018-07","papers":0,"samples":736,"curves":2892,"papers_cum":17354,"samples_cum":5599,"curves_cum":19951},{"period":"2018-08","papers":4,"samples":640,"curves":2529,"papers_cum":17358,"samples_cum":6239,"curves_cum":22480},{"period":"2018-09","papers":28,"samples":891,"curves":2926,"papers_cum":17386,"samples_cum":7130,"curves_cum":25406},{"period":"2018-10","papers":2,"samples":1184,"curves":4111,"papers_cum":17388,"samples_cum":8314,"curves_cum":29517},{"period":"2018-11","papers":26,"samples":803,"curves":2676,"papers_cum":17414,"samples_cum":9117,"curves_cum":32193},{"period":"2018-12","papers":46,"samples":1018,"curves":3113,"papers_cum":17460,"samples_cum":10135,"curves_cum":35306},{"period":"2019-01","papers":157,"samples":1716,"curves":5864,"papers_cum":17617,"samples_cum":11851,"curves_cum":41170},{"period":"2019-02","papers":4,"samples":1049,"curves":3745,"papers_cum":17621,"samples_cum":12900,"curves_cum":44915},{"period":"2019-03","papers":1299,"samples":986,"curves":3387,"papers_cum":18920,"samples_cum":13886,"curves_cum":48302},{"period":"2019-04","papers":561,"samples":1281,"curves":3972,"papers_cum":19481,"samples_cum":15167,"curves_cum":52274},{"period":"2019-05","papers":6,"samples":1379,"curves":4072,"papers_cum":19487,"samples_cum":16546,"curves_cum":56346},{"period":"2019-06","papers":0,"samples":1066,"curves":2852,"papers_cum":19487,"samples_cum":17612,"curves_cum":59198},{"period":"2019-07","papers":0,"samples":967,"curves":1835,"papers_cum":19487,"samples_cum":18579,"curves_cum":61033},{"period":"2019-08","papers":0,"samples":765,"curves":2203,"papers_cum":19487,"samples_cum":19344,"curves_cum":63236},{"period":"2019-09","papers":2,"samples":932,"curves":2460,"papers_cum":19489,"samples_cum":20276,"curves_cum":65696},{"period":"2019-10","papers":1,"samples":1119,"curves":3343,"papers_cum":19490,"samples_cum":21395,"curves_cum":69039},{"period":"2019-11","papers":6,"samples":1486,"curves":3467,"papers_cum":19496,"samples_cum":22881,"curves_cum":72506},{"period":"2019-12","papers":40,"samples":1051,"curves":2422,"papers_cum":19536,"samples_cum":23932,"curves_cum":74928},{"period":"2020-01","papers":1538,"samples":1012,"curves":2614,"papers_cum":21074,"samples_cum":24944,"curves_cum":77542},{"period":"2020-02","papers":2095,"samples":1670,"curves":3961,"papers_cum":23169,"samples_cum":26614,"curves_cum":81503},{"period":"2020-03","papers":1342,"samples":1305,"curves":4067,"papers_cum":24511,"samples_cum":27919,"curves_cum":85570},{"period":"2020-04","papers":2379,"samples":1257,"curves":3679,"papers_cum":26890,"samples_cum":29176,"curves_cum":89249},{"period":"2020-05","papers":22,"samples":1341,"curves":3742,"papers_cum":26912,"samples_cum":30517,"curves_cum":92991},{"period":"2020-06","papers":214,"samples":1230,"curves":3982,"papers_cum":27126,"samples_cum":31747,"curves_cum":96973},{"period":"2020-07","papers":119,"samples":1367,"curves":3500,"papers_cum":27245,"samples_cum":33114,"curves_cum":100473},{"period":"2020-08","papers":29,"samples":816,"curves":1949,"papers_cum":27274,"samples_cum":33930,"curves_cum":102422},{"period":"2020-09","papers":43,"samples":601,"curves":1763,"papers_cum":27317,"samples_cum":34531,"curves_cum":104185},{"period":"2020-10","papers":31,"samples":633,"curves":1549,"papers_cum":27348,"samples_cum":35164,"curves_cum":105734},{"period":"2020-11","papers":353,"samples":1034,"curves":2663,"papers_cum":27701,"samples_cum":36198,"curves_cum":108397},{"period":"2020-12","papers":1440,"samples":666,"curves":1732,"papers_cum":29141,"samples_cum":36864,"curves_cum":110129},{"period":"2021-01","papers":20,"samples":1396,"curves":2874,"papers_cum":29161,"samples_cum":38260,"curves_cum":113003},{"period":"2021-02","papers":1554,"samples":542,"curves":2102,"papers_cum":30715,"samples_cum":38802,"curves_cum":115105},{"period":"2021-03","papers":58,"samples":572,"curves":1864,"papers_cum":30773,"samples_cum":39374,"curves_cum":116969},{"period":"2021-04","papers":382,"samples":468,"curves":1642,"papers_cum":31155,"samples_cum":39842,"curves_cum":118611},{"period":"2021-05","papers":988,"samples":698,"curves":2416,"papers_cum":32143,"samples_cum":40540,"curves_cum":121027},{"period":"2021-06","papers":190,"samples":573,"curves":1995,"papers_cum":32333,"samples_cum":41113,"curves_cum":123022},{"period":"2021-07","papers":280,"samples":523,"curves":1703,"papers_cum":32613,"samples_cum":41636,"curves_cum":124725},{"period":"2021-08","papers":71,"samples":479,"curves":1875,"papers_cum":32684,"samples_cum":42115,"curves_cum":126600},{"period":"2021-09","papers":311,"samples":791,"curves":2098,"papers_cum":32995,"samples_cum":42906,"curves_cum":128698},{"period":"2021-10","papers":1427,"samples":959,"curves":2378,"papers_cum":34422,"samples_cum":43865,"curves_cum":131076},{"period":"2021-11","papers":2315,"samples":781,"curves":2284,"papers_cum":36737,"samples_cum":44646,"curves_cum":133360},{"period":"2021-12","papers":26,"samples":736,"curves":2627,"papers_cum":36763,"samples_cum":45382,"curves_cum":135987},{"period":"2022-01","papers":124,"samples":450,"curves":2226,"papers_cum":36887,"samples_cum":45832,"curves_cum":138213},{"period":"2022-02","papers":4213,"samples":594,"curves":2022,"papers_cum":41100,"samples_cum":46426,"curves_cum":140235},{"period":"2022-03","papers":60,"samples":553,"curves":1161,"papers_cum":41160,"samples_cum":46979,"curves_cum":141396},{"period":"2022-04","papers":463,"samples":411,"curves":565,"papers_cum":41623,"samples_cum":47390,"curves_cum":141961},{"period":"2022-05","papers":49,"samples":421,"curves":540,"papers_cum":41672,"samples_cum":47811,"curves_cum":142501},{"period":"2022-06","papers":315,"samples":869,"curves":1289,"papers_cum":41987,"samples_cum":48680,"curves_cum":143790},{"period":"2022-07","papers":46,"samples":961,"curves":1482,"papers_cum":42033,"samples_cum":49641,"curves_cum":145272},{"period":"2022-08","papers":52,"samples":1097,"curves":1669,"papers_cum":42085,"samples_cum":50738,"curves_cum":146941},{"period":"2022-09","papers":148,"samples":1152,"curves":1868,"papers_cum":42233,"samples_cum":51890,"curves_cum":148809},{"period":"2022-10","papers":123,"samples":1309,"curves":1852,"papers_cum":42356,"samples_cum":53199,"curves_cum":150661},{"period":"2022-11","papers":186,"samples":1741,"curves":2385,"papers_cum":42542,"samples_cum":54940,"curves_cum":153046},{"period":"2022-12","papers":229,"samples":1547,"curves":2281,"papers_cum":42771,"samples_cum":56487,"curves_cum":155327},{"period":"2023-01","papers":386,"samples":1993,"curves":3055,"papers_cum":43157,"samples_cum":58480,"curves_cum":158382},{"period":"2023-02","papers":483,"samples":2449,"curves":3488,"papers_cum":43640,"samples_cum":60929,"curves_cum":161870},{"period":"2023-03","papers":399,"samples":2655,"curves":3502,"papers_cum":44039,"samples_cum":63584,"curves_cum":165372},{"period":"2023-04","papers":501,"samples":1829,"curves":2688,"papers_cum":44540,"samples_cum":65413,"curves_cum":168060},{"period":"2023-05","papers":670,"samples":2352,"curves":3609,"papers_cum":45210,"samples_cum":67765,"curves_cum":171669},{"period":"2023-06","papers":1174,"samples":2431,"curves":3758,"papers_cum":46384,"samples_cum":70196,"curves_cum":175427},{"period":"2023-07","papers":572,"samples":2437,"curves":3507,"papers_cum":46956,"samples_cum":72633,"curves_cum":178934},{"period":"2023-08","papers":501,"samples":1844,"curves":2593,"papers_cum":47457,"samples_cum":74477,"curves_cum":181527},{"period":"2023-09","papers":407,"samples":2425,"curves":3263,"papers_cum":47864,"samples_cum":76902,"curves_cum":184790},{"period":"2023-10","papers":402,"samples":2040,"curves":2784,"papers_cum":48266,"samples_cum":78942,"curves_cum":187574},{"period":"2023-11","papers":500,"samples":2156,"curves":3151,"papers_cum":48766,"samples_cum":81098,"curves_cum":190725},{"period":"2023-12","papers":531,"samples":1654,"curves":2531,"papers_cum":49297,"samples_cum":82752,"curves_cum":193256},{"period":"2024-01","papers":409,"samples":1628,"curves":2244,"papers_cum":49706,"samples_cum":84380,"curves_cum":195500},{"period":"2024-02","papers":275,"samples":1870,"curves":2496,"papers_cum":49981,"samples_cum":86250,"curves_cum":197996},{"period":"2024-03","papers":207,"samples":1003,"curves":1287,"papers_cum":50188,"samples_cum":87253,"curves_cum":199283},{"period":"2024-04","papers":333,"samples":1350,"curves":2024,"papers_cum":50521,"samples_cum":88603,"curves_cum":201307},{"period":"2024-05","papers":316,"samples":923,"curves":1567,"papers_cum":50837,"samples_cum":89526,"curves_cum":202874},{"period":"2024-06","papers":312,"samples":743,"curves":1247,"papers_cum":51149,"samples_cum":90269,"curves_cum":204121},{"period":"2024-07","papers":187,"samples":761,"curves":1312,"papers_cum":51336,"samples_cum":91030,"curves_cum":205433},{"period":"2024-08","papers":232,"samples":724,"curves":1195,"papers_cum":51568,"samples_cum":91754,"curves_cum":206628},{"period":"2024-09","papers":323,"samples":865,"curves":1425,"papers_cum":51891,"samples_cum":92619,"curves_cum":208053},{"period":"2024-10","papers":168,"samples":481,"curves":858,"papers_cum":52059,"samples_cum":93100,"curves_cum":208911},{"period":"2024-11","papers":404,"samples":874,"curves":1345,"papers_cum":52463,"samples_cum":93974,"curves_cum":210256},{"period":"2024-12","papers":145,"samples":1045,"curves":2502,"papers_cum":52608,"samples_cum":95019,"curves_cum":212758},{"period":"2025-01","papers":230,"samples":1050,"curves":3024,"papers_cum":52838,"samples_cum":96069,"curves_cum":215782},{"period":"2025-02","papers":514,"samples":892,"curves":2161,"papers_cum":53352,"samples_cum":96961,"curves_cum":217943},{"period":"2025-03","papers":284,"samples":563,"curves":952,"papers_cum":53636,"samples_cum":97524,"curves_cum":218895},{"period":"2025-04","papers":47,"samples":640,"curves":1094,"papers_cum":53683,"samples_cum":98164,"curves_cum":219989},{"period":"2025-05","papers":124,"samples":804,"curves":1402,"papers_cum":53807,"samples_cum":98968,"curves_cum":221391},{"period":"2025-06","papers":81,"samples":581,"curves":983,"papers_cum":53888,"samples_cum":99549,"curves_cum":222374},{"period":"2025-07","papers":84,"samples":564,"curves":1172,"papers_cum":53972,"samples_cum":100113,"curves_cum":223546},{"period":"2025-08","papers":67,"samples":340,"curves":545,"papers_cum":54039,"samples_cum":100453,"curves_cum":224091},{"period":"2025-09","papers":25,"samples":359,"curves":542,"papers_cum":54064,"samples_cum":100812,"curves_cum":224633},{"period":"2025-10","papers":56,"samples":338,"curves":501,"papers_cum":54120,"samples_cum":101150,"curves_cum":225134},{"period":"2025-11","papers":183,"samples":617,"curves":1160,"papers_cum":54303,"samples_cum":101767,"curves_cum":226294},{"period":"2025-12","papers":190,"samples":851,"curves":1606,"papers_cum":54493,"samples_cum":102618,"curves_cum":227900},{"period":"2026-01","papers":105,"samples":753,"curves":1369,"papers_cum":54598,"samples_cum":103371,"curves_cum":229269},{"period":"2026-02","papers":89,"samples":626,"curves":1540,"papers_cum":54687,"samples_cum":103997,"curves_cum":230809},{"period":"2026-03","papers":192,"samples":725,"curves":2070,"papers_cum":54879,"samples_cum":104722,"curves_cum":232879},{"period":"2026-04","papers":1475,"samples":97,"curves":178,"papers_cum":56354,"samples_cum":104819,"curves_cum":233057},{"period":"2026-05","papers":17,"samples":30,"curves":53,"papers_cum":56371,"samples_cum":104849,"curves_cum":233110},{"period":"2026-06","papers":29,"samples":209,"curves":446,"papers_cum":56400,"samples_cum":105058,"curves_cum":233556},{"period":"2026-07","papers":73,"samples":202,"curves":473,"papers_cum":56473,"samples_cum":105260,"curves_cum":234029}],"yearly":[{"period":2017,"papers":0,"samples":1010,"curves":2859,"papers_cum":0,"samples_cum":1010,"curves_cum":2859},{"period":2018,"papers":17460,"samples":9125,"curves":32447,"papers_cum":17460,"samples_cum":10135,"curves_cum":35306},{"period":2019,"papers":2076,"samples":13797,"curves":39622,"papers_cum":19536,"samples_cum":23932,"curves_cum":74928},{"period":2020,"papers":9605,"samples":12932,"curves":35201,"papers_cum":29141,"samples_cum":36864,"curves_cum":110129},{"period":2021,"papers":7622,"samples":8518,"curves":25858,"papers_cum":36763,"samples_cum":45382,"curves_cum":135987},{"period":2022,"papers":6008,"samples":11105,"curves":19340,"papers_cum":42771,"samples_cum":56487,"curves_cum":155327},{"period":2023,"papers":6526,"samples":26265,"curves":37929,"papers_cum":49297,"samples_cum":82752,"curves_cum":193256},{"period":2024,"papers":3311,"samples":12267,"curves":19502,"papers_cum":52608,"samples_cum":95019,"curves_cum":212758},{"period":2025,"papers":1885,"samples":7599,"curves":15142,"papers_cum":54493,"samples_cum":102618,"curves_cum":227900},{"period":2026,"papers":1980,"samples":2642,"curves":6129,"papers_cum":56473,"samples_cum":105260,"curves_cum":234029}],"by_project":[{"project":"ThermoelectricMaterials","papers":30969,"curves":155638,"data_points":2672323},{"project":"BatteryMaterials","papers":3188,"curves":32586,"data_points":759553},{"project":"MagneticMaterials","papers":8767,"curves":16912,"data_points":559033},{"project":"DielectricMaterials","papers":4699,"curves":16555,"data_points":545159},{"project":"GeneralDB","papers":1812,"curves":7506,"data_points":104502},{"project":"CondensedMatter","papers":1345,"curves":6848,"data_points":146308},{"project":"Resistor","papers":1370,"curves":4597,"data_points":84857},{"project":"LowThermalConductivityMaterials","papers":2891,"curves":3518,"data_points":57458},{"project":"HighThermalConductivityMaterials","papers":422,"curves":2638,"data_points":46702},{"project":"Hypermaterial","papers":338,"curves":2591,"data_points":76720},{"project":"SolidStateBatteryMaterials","papers":157,"curves":2002,"data_points":43207},{"project":"PiezoelectricMaterials","papers":2401,"curves":1772,"data_points":93264},{"project":"AirBatteryMaterials","papers":55,"curves":1176,"data_points":25280},{"project":"OrganicThermoelectricMaterials","papers":78,"curves":981,"data_points":4505}],"by_property":[{"prop_y":"Seebeck coefficient","curves":37615,"data_points":724532},{"prop_y":"Thermal conductivity","curves":25571,"data_points":394027},{"prop_y":"Voltage","curves":23652,"data_points":491281},{"prop_y":"Electrical resistivity","curves":23023,"data_points":565523},{"prop_y":"Electrical conductivity","curves":21341,"data_points":330396},{"prop_y":"ZT","curves":20717,"data_points":285983},{"prop_y":"Power factor","curves":17484,"data_points":253282},{"prop_y":"magnetization_per_weight","curves":13767,"data_points":446926},{"prop_y":"Dielectric permittivity (ε’)","curves":9997,"data_points":340043},{"prop_y":"Discharge capacity","curves":9796,"data_points":258231}],"journals":[{"journal":"Journal of Applied Physics","papers":2446},{"journal":"Journal of the American Ceramic Society","papers":2254},{"journal":"Journal of Alloys and Compounds","papers":2105},{"journal":"Physical Review B","papers":1639},{"journal":"Applied Physics Letters","papers":1565},{"journal":"Journal of Electronic Materials","papers":1307},{"journal":"Ceramics International","papers":1136},{"journal":"ACS Applied Materials & Interfaces","papers":1009},{"journal":"Journal of Magnetism and Magnetic Materials","papers":807},{"journal":"Journal of the European Ceramic Society","papers":782}],"elements":[{"element":"O","samples":46629},{"element":"Fe","samples":20247},{"element":"Co","samples":15238},{"element":"Bi","samples":13586},{"element":"Ti","samples":13073},{"element":"Sb","samples":12463},{"element":"Sr","samples":11901},{"element":"Mn","samples":11029},{"element":"Te","samples":10750},{"element":"La","samples":10465},{"element":"Ba","samples":10232},{"element":"Cu","samples":9228},{"element":"S","samples":8199},{"element":"Nb","samples":8162},{"element":"Ca","samples":7955},{"element":"Pb","samples":7557},{"element":"Ni","samples":7475},{"element":"Sn","samples":7364},{"element":"Li","samples":6863},{"element":"Si","samples":6511},{"element":"Se","samples":6227},{"element":"Zn","samples":6157},{"element":"Al","samples":5409},{"element":"Mg","samples":5189},{"element":"Na","samples":4855},{"element":"Zr","samples":4602},{"element":"Ge","samples":3822},{"element":"B","samples":3493},{"element":"In","samples":3491},{"element":"Nd","samples":3249},{"element":"Ce","samples":3240},{"element":"Ag","samples":3145},{"element":"Ga","samples":2914},{"element":"Y","samples":2831},{"element":"C","samples":2763},{"element":"Cr","samples":2559},{"element":"K","samples":2512},{"element":"Pr","samples":2304},{"element":"Yb","samples":2044},{"element":"V","samples":2031},{"element":"Ta","samples":1884},{"element":"Gd","samples":1659},{"element":"Sm","samples":1649},{"element":"P","samples":1382},{"element":"Cd","samples":1288},{"element":"Pd","samples":1273},{"element":"I","samples":1256},{"element":"Ru","samples":1203},{"element":"Hf","samples":1190},{"element":"Mo","samples":1189},{"element":"N","samples":1142},{"element":"Eu","samples":1128},{"element":"As","samples":1050},{"element":"W","samples":990},{"element":"Dy","samples":935},{"element":"Sc","samples":886},{"element":"Pt","samples":703},{"element":"Rh","samples":619},{"element":"Tb","samples":589},{"element":"F","samples":587},{"element":"H","samples":581},{"element":"Er","samples":546},{"element":"Ir","samples":542},{"element":"Ho","samples":537},{"element":"Tl","samples":508},{"element":"Cl","samples":450},{"element":"U","samples":397},{"element":"Re","samples":358},{"element":"Au","samples":295},{"element":"Lu","samples":268},{"element":"Tm","samples":223},{"element":"Br","samples":164},{"element":"Cs","samples":159},{"element":"Th","samples":143},{"element":"Hg","samples":118},{"element":"Rb","samples":75},{"element":"Os","samples":72},{"element":"Be","samples":51},{"element":"Pu","samples":32},{"element":"Np","samples":11},{"element":"No","samples":8},{"element":"Am","samples":7},{"element":"Pa","samples":4},{"element":"Cm","samples":4},{"element":"He","samples":2},{"element":"Ne","samples":2},{"element":"Ac","samples":1},{"element":"Tc","samples":1}],"sample_info_descriptors":[{"descriptor":"DataType","samples_filled":47662,"samples_with_category":47662},{"descriptor":"Form","samples_filled":39361,"samples_with_category":39295},{"descriptor":"FabricationProcess","samples_filled":32181,"samples_with_category":30905},{"descriptor":"MaterialFamily","samples_filled":21454,"samples_with_category":21447},{"descriptor":"Purity","samples_filled":20437,"samples_with_category":20375},{"descriptor":"MagneticMeasurement","samples_filled":16079,"samples_with_category":16079},{"descriptor":"Solvent 1","samples_filled":13992,"samples_with_category":13711},{"descriptor":"Solute 1","samples_filled":13942,"samples_with_category":12985},{"descriptor":"Anode active material","samples_filled":13656,"samples_with_category":12165},{"descriptor":"ElectricalMeasurement","samples_filled":13612,"samples_with_category":13468},{"descriptor":"Measurement temperature","samples_filled":11991,"samples_with_category":11913},{"descriptor":"Cathode active material","samples_filled":10173,"samples_with_category":9152},{"descriptor":"ThermalMeasurement","samples_filled":9894,"samples_with_category":9871},{"descriptor":"Solvent 2","samples_filled":9874,"samples_with_category":9721},{"descriptor":"Cathode conductive agent","samples_filled":8500,"samples_with_category":8189},{"descriptor":"Separator","samples_filled":8477,"samples_with_category":8104},{"descriptor":"Cathode binder 1","samples_filled":8394,"samples_with_category":8162},{"descriptor":"Cell type","samples_filled":7616,"samples_with_category":5662},{"descriptor":"Cathode areal density (cathode loading)","samples_filled":7608,"samples_with_category":7195},{"descriptor":"Solute 2","samples_filled":6034,"samples_with_category":5625},{"descriptor":"Cathode additive 1","samples_filled":4088,"samples_with_category":4014},{"descriptor":"Cathode current collector","samples_filled":4014,"samples_with_category":1422},{"descriptor":"Lower voltage limit","samples_filled":3728,"samples_with_category":3012},{"descriptor":"Upper voltage limit","samples_filled":3682,"samples_with_category":2983},{"descriptor":"Electrolyte additive 1","samples_filled":3321,"samples_with_category":2775},{"descriptor":"Anode areal capacity","samples_filled":3021,"samples_with_category":2118},{"descriptor":"Current density","samples_filled":2591,"samples_with_category":2344},{"descriptor":"RelativeDensity","samples_filled":2480,"samples_with_category":2348},{"descriptor":"Ratio of electrolyte to cathode active material","samples_filled":2451,"samples_with_category":2190},{"descriptor":"Anode current collector","samples_filled":2320,"samples_with_category":2044},{"descriptor":"Counter electrode","samples_filled":2137,"samples_with_category":1859},{"descriptor":"GrainSize","samples_filled":1645,"samples_with_category":1472},{"descriptor":"FabricationProcess 2","samples_filled":1574,"samples_with_category":1545},{"descriptor":"coercivity","samples_filled":1543,"samples_with_category":1416},{"descriptor":"Anode binder 1","samples_filled":1408,"samples_with_category":1353},{"descriptor":"Anode conductive agent","samples_filled":1371,"samples_with_category":1321},{"descriptor":"saturation magnetization","samples_filled":1310,"samples_with_category":1183},{"descriptor":"Reference electrode","samples_filled":1207,"samples_with_category":960},{"descriptor":"Solvent 3","samples_filled":1101,"samples_with_category":1070},{"descriptor":"remanence magnetion","samples_filled":1032,"samples_with_category":914},{"descriptor":"AC/QC type","samples_filled":1030,"samples_with_category":1030},{"descriptor":"magnetic field","samples_filled":867,"samples_with_category":862},{"descriptor":"other sample process info","samples_filled":617,"samples_with_category":616},{"descriptor":"composition type","samples_filled":599,"samples_with_category":599},{"descriptor":"Working electrode","samples_filled":548,"samples_with_category":426},{"descriptor":"measurement condition","samples_filled":520,"samples_with_category":511},{"descriptor":"Cathode catalyst material","samples_filled":433,"samples_with_category":0},{"descriptor":"Solute 3","samples_filled":415,"samples_with_category":159},{"descriptor":"Anode additive 1","samples_filled":408,"samples_with_category":399},{"descriptor":"sample info","samples_filled":389,"samples_with_category":387},{"descriptor":"annealing condition","samples_filled":386,"samples_with_category":386},{"descriptor":"Cathode binder 2","samples_filled":377,"samples_with_category":369},{"descriptor":"Coulombic efficiency","samples_filled":376,"samples_with_category":355},{"descriptor":"Scan rate","samples_filled":374,"samples_with_category":0},{"descriptor":"N/P ratio|A/C ratio","samples_filled":346,"samples_with_category":0},{"descriptor":"Catalyst loading","samples_filled":257,"samples_with_category":0},{"descriptor":"Cathode additive 2","samples_filled":251,"samples_with_category":217},{"descriptor":"AbsoluteDensity","samples_filled":133,"samples_with_category":133},{"descriptor":"Electrolyte additive 2","samples_filled":120,"samples_with_category":30},{"descriptor":"Measurement method1","samples_filled":114,"samples_with_category":0},{"descriptor":"Hysteresis","samples_filled":112,"samples_with_category":0},{"descriptor":"Starting material","samples_filled":108,"samples_with_category":0},{"descriptor":"Synthesis method1","samples_filled":107,"samples_with_category":0},{"descriptor":"Measurement method2","samples_filled":106,"samples_with_category":0},{"descriptor":"Sintering temperature","samples_filled":104,"samples_with_category":0},{"descriptor":"Measurement method3","samples_filled":98,"samples_with_category":0},{"descriptor":"Sintering time","samples_filled":95,"samples_with_category":0},{"descriptor":"Porosity","samples_filled":93,"samples_with_category":93},{"descriptor":"Chemical composition","samples_filled":93,"samples_with_category":0},{"descriptor":"Sample form","samples_filled":88,"samples_with_category":0},{"descriptor":"Final product","samples_filled":81,"samples_with_category":0},{"descriptor":"Synthesis method2","samples_filled":69,"samples_with_category":0},{"descriptor":"Sintering method","samples_filled":57,"samples_with_category":0},{"descriptor":"Synthesis method3","samples_filled":51,"samples_with_category":0},{"descriptor":"Redox mediator in electrolyte","samples_filled":50,"samples_with_category":0},{"descriptor":"lattice parameter","samples_filled":47,"samples_with_category":47},{"descriptor":"direction","samples_filled":43,"samples_with_category":43},{"descriptor":"Cathode areal capacity","samples_filled":41,"samples_with_category":0},{"descriptor":"FabricationProcess 3","samples_filled":33,"samples_with_category":30},{"descriptor":"other sample process info 2","samples_filled":33,"samples_with_category":33},{"descriptor":"sintering temperature","samples_filled":32,"samples_with_category":24},{"descriptor":"Material Family","samples_filled":31,"samples_with_category":31},{"descriptor":"Anode additive 2","samples_filled":30,"samples_with_category":25},{"descriptor":"PoreSize","samples_filled":25,"samples_with_category":25},{"descriptor":"DifferentialThermalAnalyzer","samples_filled":21,"samples_with_category":21},{"descriptor":"Anode binder 2","samples_filled":21,"samples_with_category":21},{"descriptor":"Composition conversion","samples_filled":16,"samples_with_category":2},{"descriptor":"LaserFlash","samples_filled":16,"samples_with_category":16},{"descriptor":"Cathode volumetric density","samples_filled":15,"samples_with_category":0},{"descriptor":"Relative density","samples_filled":14,"samples_with_category":14},{"descriptor":"Redox mediator in cathode","samples_filled":14,"samples_with_category":0},{"descriptor":"comment","samples_filled":12,"samples_with_category":12},{"descriptor":"Cathode additive","samples_filled":11,"samples_with_category":0},{"descriptor":"Electrolyte additive 3","samples_filled":11,"samples_with_category":0},{"descriptor":"Applied field","samples_filled":9,"samples_with_category":9},{"descriptor":"Material family","samples_filled":5,"samples_with_category":5},{"descriptor":"N/P ratio| A/C ratio","samples_filled":5,"samples_with_category":0},{"descriptor":"Saturation magnetization","samples_filled":4,"samples_with_category":4},{"descriptor":"ThermalMeaasurement","samples_filled":3,"samples_with_category":3},{"descriptor":"Differential thermal analyzer","samples_filled":3,"samples_with_category":3},{"descriptor":"MaterialsFamily","samples_filled":2,"samples_with_category":2},{"descriptor":"MaterialFarmily","samples_filled":2,"samples_with_category":2},{"descriptor":"Measurement axis","samples_filled":2,"samples_with_category":2},{"descriptor":"Grain size","samples_filled":2,"samples_with_category":2},{"descriptor":"laser flash and different thermal analyzer","samples_filled":2,"samples_with_category":2},{"descriptor":"Maximum power","samples_filled":2,"samples_with_category":2},{"descriptor":"Module operated temperature","samples_filled":2,"samples_with_category":2},{"descriptor":"Peak efficiency","samples_filled":2,"samples_with_category":2},{"descriptor":"Materials family","samples_filled":1,"samples_with_category":1},{"descriptor":"Note","samples_filled":1,"samples_with_category":1},{"descriptor":"Other","samples_filled":1,"samples_with_category":1},{"descriptor":"Mn15Si26[001]","samples_filled":1,"samples_with_category":1},{"descriptor":"synthesis","samples_filled":1,"samples_with_category":1},{"descriptor":"2D iron-tetracyanoquinodimethane","samples_filled":1,"samples_with_category":1},{"descriptor":"oercivity","samples_filled":1,"samples_with_category":1},{"descriptor":"6: other sample process info","samples_filled":1,"samples_with_category":1}],"fabrication":[{"category":"PressureSintering","samples":5279},{"category":"Melting","samples":5156},{"category":"Sintering","samples":3578},{"category":"MechanicalAlloying","samples":3067},{"category":"FilmGrowth","samples":2677}],"material_family":[{"category":"Perovskite","samples":2419},{"category":"Bi2Te3","samples":1890},{"category":"Oxide","samples":1805},{"category":"Skutterudite","samples":1738},{"category":"Half-Heusler","samples":1252}],"form":[{"category":"Bulk","samples":18131},{"category":"Powder","samples":6345},{"category":"Film","samples":3436},{"category":"pellets","samples":2640},{"category":"SingleCrystal","samples":1931}]};
 </script>
 <script>
 (function () {
@@ -292,14 +297,130 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
   const D = window.DASHBOARD_DATA;
   const S = D.summary;
   const COL = { curves: "#b07f2e", samples: "#1c8a72", papers: "#3554a8" };
-  const SERIES = [
-    { key: "curves",  label: "カーブ",  color: COL.curves },
-    { key: "samples", label: "サンプル", color: COL.samples },
-    { key: "papers",  label: "論文",   color: COL.papers },
-  ];
-  const fmt = (n) => n == null ? "–" : Number(n).toLocaleString("ja-JP");
 
-  // ---- 翻訳辞書(未知の値は原文のまま表示)----
+  // ---------------------------------------------------------------------
+  // i18n
+  // ---------------------------------------------------------------------
+  const I18N = {
+    en: {
+      title: "Starrydata Dataset Dashboard",
+      h1a: "Materials science data,",
+      h1b: "like stars in the night sky.",
+      lead: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from figures in the literature. Updated daily at 6:00 JST.`,
+      linkAbout: "About · starrydata.org ↗",
+      linkApp: "Web app · starrydata2.org ↗",
+      linkDataset: "Dataset (Google Drive) ↗",
+      linkGitHub: "GitHub ↗",
+      curves: "Curves", samples: "Samples", papers: "Papers",
+      heroPapers: "Papers with data",
+      kpiDataPoints: "Data points", kpiFigures: "Figures",
+      kpiCompositions: "Unique compositions", kpiPapers: "Registered papers (total)",
+      kpiCPP: "Curves per paper (mean)", kpiSPP: "Samples per paper (mean)",
+      kpiPPC: "Data points per curve (mean)", kpiProjects: "Projects (thermoelectric, battery, magnetic, …)",
+      median: (v) => "median " + v,
+      growthH2: "Database growth",
+      yearlyH2: "New registrations by year", yearlySub: "",
+      elementsH2: "Element diversity", elementsSub: "",
+      elementsNote: "Elements appearing in sample compositions, shaded by sample count — darker means more",
+      uniqCompL: "Unique compositions",
+      elemCount: (n) => `${n} elements observed`,
+      scaleFew: "fewer", scaleMany: "more", scaleUnit: "samples",
+      colProjects: "Projects", colProps: "Properties", colJournals: "Journals",
+      metricCurves: "Curves", metricPapers: "Papers",
+      capProjects: (n, total) => `Top ${n} of ${total} projects · bars relative to list max`,
+      capProps: (n) => `By prop_y in curves.csv · top ${n}`,
+      capJournals: (n) => `Top ${n} journals by paper count`,
+      infoH2: "Sample metadata",
+      colDesc: (total) => `Completion (of ${total} samples)`,
+      capDesc: (n) => `Samples with a value per descriptor · top ${n} / bars relative to all samples`,
+      colFab: "Fabrication process", capFab: (n) => `By category · top ${n} (excl. Other)`,
+      colFamily: "Material family", capFamily: (n) => `By category · top ${n}`,
+      colForm: "Form", capForm: (n) => `By category · top ${n}`,
+      viewTable: "VIEW AS TABLE",
+      tipCumulative: (p) => `Cumulative as of ${p}`,
+      tipNewYear: (y) => `New registrations in ${y}`,
+      tipElement: (sym) => `Element ${sym}`,
+      tipFilled: "Filled", tipWithCat: "with category", tipPctAll: "% of all samples",
+      tipDataPoints: "Data points",
+      tblMonth: "Month", tblYear: "Year",
+      tblCurvesCum: "Curves (cum.)", tblSamplesCum: "Samples (cum.)", tblPapersCum: "Papers (cum.)",
+      tblCurvesNew: "Curves (new)", tblSamplesNew: "Samples (new)", tblPapersNew: "Papers (new)",
+      tblElement: "Element", tblProject: "Project", tblProperty: "Property (prop_y)",
+      tblJournal: "Journal", tblDescriptor: "Descriptor", tblCategory: "Category",
+      tblFilled: "Filled", tblWithCat: "With category",
+      capTblProjects: "Projects", capTblProps: "Properties (prop_y)", capTblJournals: "Journals",
+      capTblDesc: "Completion by descriptor", capTblFab: "Fabrication process",
+      capTblFamily: "Material family", capTblForm: "Form",
+      footGen: (d) => `generated ${d} · aggregate_stats.py`,
+    },
+    ja: {
+      title: "Starrydata データセット ダッシュボード",
+      h1a: "材料科学の実験データを、",
+      h1b: "夜空の星のように集める。",
+      lead: (mc, mp) => `論文の図から抽出した${mc}万本のカーブ、${mp}万のデータ点。毎日6:00 JSTに自動更新。`,
+      leadSub: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from the literature. Updated daily.`,
+      linkAbout: "プロジェクト / About · starrydata.org ↗",
+      linkApp: "Webアプリ / App · starrydata2.org ↗",
+      linkDataset: "データセット / Dataset (Google Drive) ↗",
+      linkGitHub: "GitHub ↗",
+      curves: "カーブ", samples: "サンプル", papers: "論文",
+      heroPapers: "論文(データあり)",
+      kpiDataPoints: "データ点数 / Data points", kpiFigures: "図の数 / Figures",
+      kpiCompositions: "ユニーク組成 / Compositions", kpiPapers: "登録論文(全体)/ Registered papers",
+      kpiCPP: "カーブ/論文(平均)", kpiSPP: "サンプル/論文(平均)",
+      kpiPPC: "データ点/カーブ(平均)", kpiProjects: "プロジェクト数(熱電・電池・磁性など)/ Projects",
+      median: (v) => "median " + v,
+      growthH2: "データベースの成長",
+      yearlyH2: "年別の新規登録", yearlySub: "NEW REGISTRATIONS BY YEAR",
+      elementsH2: "収録元素の多様性", elementsSub: "ELEMENT DIVERSITY",
+      elementsNote: "組成(composition)に登場する元素をサンプル数で塗り分け · 濃いほど多い",
+      uniqCompL: "ユニーク組成 / Unique compositions",
+      elemCount: (n) => `収録元素数 ${n} 元素 / elements observed`,
+      scaleFew: "少", scaleMany: "多", scaleUnit: "サンプル数",
+      colProjects: "プロジェクト", colProps: "物性", colJournals: "ジャーナル",
+      metricCurves: "カーブ数 / Curves", metricPapers: "論文数 / Papers",
+      capProjects: (n, total) => `全${total}プロジェクト中 上位${n} · バーは各リスト最大値比 / top ${n} of ${total}`,
+      capProps: (n) => `curves.csv の prop_y 別 · 上位${n} / by prop_y, top ${n}`,
+      capJournals: (n) => `掲載ジャーナル別 · 上位${n} / top ${n} journals`,
+      infoH2: "サンプル詳細情報",
+      colDesc: (total) => `記入状況(全${total}サンプル中)`,
+      capDesc: (n) => `descriptor別・記入ありサンプル数 · 上位${n} / バーは全サンプル比`,
+      colFab: "合成プロセス / Fabrication", capFab: (n) => `category別 · 上位${n}(Other除く)`,
+      colFamily: "材料ファミリー / Family", capFamily: (n) => `category別 · 上位${n}`,
+      colForm: "形状 / Form", capForm: (n) => `category別 · 上位${n}`,
+      viewTable: "表で見る / VIEW AS TABLE",
+      tipCumulative: (p) => `${p} 時点の累積`,
+      tipNewYear: (y) => `${y}年の新規登録`,
+      tipElement: (sym) => `元素 ${sym}`,
+      tipFilled: "記入あり", tipWithCat: "うちcategory選択", tipPctAll: "全サンプル比",
+      tipDataPoints: "データ点",
+      tblMonth: "月", tblYear: "年",
+      tblCurvesCum: "カーブ(累積)", tblSamplesCum: "サンプル(累積)", tblPapersCum: "論文(累積)",
+      tblCurvesNew: "カーブ(新規)", tblSamplesNew: "サンプル(新規)", tblPapersNew: "論文(新規)",
+      tblElement: "元素", tblProject: "プロジェクト", tblProperty: "物性 (prop_y)",
+      tblJournal: "ジャーナル", tblDescriptor: "descriptor", tblCategory: "category",
+      tblFilled: "記入あり", tblWithCat: "うちcategory選択",
+      capTblProjects: "プロジェクト", capTblProps: "物性 (prop_y)", capTblJournals: "ジャーナル",
+      capTblDesc: "記入状況(descriptor別)", capTblFab: "合成プロセス",
+      capTblFamily: "材料ファミリー", capTblForm: "形状",
+      footGen: (d) => `generated ${d} · aggregate_stats.py`,
+    },
+  };
+
+  const VALID_LANGS = ["en", "ja"];
+  let lang = new URLSearchParams(location.search).get("lang");
+  if (!VALID_LANGS.includes(lang)) {
+    try { lang = localStorage.getItem("sd_lang"); } catch (e) { lang = null; }
+  }
+  if (!VALID_LANGS.includes(lang)) lang = "en";
+
+  const t = (key, ...args) => {
+    const v = (I18N[lang] && I18N[lang][key]) ?? I18N.en[key] ?? key;
+    return typeof v === "function" ? v(...args) : v;
+  };
+  const fmt = (n) => n == null ? "–" : Number(n).toLocaleString(lang === "ja" ? "ja-JP" : "en-US");
+
+  // Japanese display names. Unknown keys fall back to the original English label.
   const PROJECT_JA = {
     ThermoelectricMaterials: "熱電材料", BatteryMaterials: "電池材料", MagneticMaterials: "磁性材料",
     DielectricMaterials: "誘電体材料", GeneralDB: "汎用DB", CondensedMatter: "凝縮系物質",
@@ -332,6 +453,16 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     Form: "Form(形状)", FabricationProcess: "FabricationProcess(合成)",
     MaterialFamily: "MaterialFamily(材料系)", Purity: "Purity(純度)",
   };
+  // In English mode show the original label; in Japanese mode show the translation
+  // with the original as a secondary tag (when a translation exists).
+  const local = (dict, key) => lang === "ja" ? (dict[key] || key) : key;
+  const localTag = (dict, key) => (lang === "ja" && dict[key]) ? key : "";
+
+  const SERIES = () => [
+    { key: "curves",  label: t("curves"),  color: COL.curves },
+    { key: "samples", label: t("samples"), color: COL.samples },
+    { key: "papers",  label: t("papers"),  color: COL.papers },
+  ];
 
   const el = (tag, cls, text) => {
     const e = document.createElement(tag);
@@ -349,8 +480,8 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= rough) return m * p;
     return 10 * p;
   }
-  const kFmt = (v) => v >= 1e6 ? (v / 1e6).toLocaleString("ja-JP", { maximumFractionDigits: 1 }) + "M"
-                               : (v / 1e3).toLocaleString("ja-JP", { maximumFractionDigits: 0 }) + "k";
+  const kFmt = (v) => v >= 1e6 ? (v / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 }) + "M"
+                               : (v / 1e3).toLocaleString("en-US", { maximumFractionDigits: 0 }) + "k";
 
   // ---- tooltip ----
   const tip = document.getElementById("tooltip");
@@ -400,59 +531,108 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     box.appendChild(holder);
   }
 
-  // ---- Hero ----
-  const snapDate = (D.snapshot.match(/\d{4}-\d{2}-\d{2}/) || [""])[0];
-  document.getElementById("kicker").textContent =
-    "STARRYDATA — DATASET DASHBOARD · SNAPSHOT " + snapDate + " JST";
-  const manC = Math.round(S.curves / 1e4), manP = Math.round(S.data_points / 1e4);
-  document.getElementById("lead-jp").textContent =
-    `論文の図から抽出した${manC}万本のカーブ、${manP}万のデータ点。毎日6:00 JSTに自動更新。`;
-  document.getElementById("lead-en").textContent =
-    `${Math.round(S.curves / 1e3)}k curves and ${(S.data_points / 1e6).toFixed(1)}M data points, digitized from the literature. Updated daily.`;
-  const heroBox = document.getElementById("hero-nums");
-  for (const [v, l] of [[S.curves, "カーブ / Curves"], [S.samples, "サンプル / Samples"], [S.papers_with_data, "論文 / Papers"]]) {
-    const d = el("div", "hero-num");
-    d.appendChild(el("div", "v", fmt(v)));
-    d.appendChild(el("div", "l", l));
-    heroBox.appendChild(d);
-  }
-
-  // ---- KPI strips ----
-  const kpi = (box, v, label, median) => {
-    const d = el("div", "kpi");
-    const vd = el("div", "v", v);
-    if (median != null) {
-      vd.appendChild(document.createTextNode(" "));
-      vd.appendChild(el("span", "median", "median " + median));
-    }
-    d.appendChild(vd);
-    d.appendChild(el("div", "l", label));
-    box.appendChild(d);
-  };
-  const k1 = document.getElementById("kpi1");
-  kpi(k1, fmt(S.data_points), "データ点数 / Data points");
-  kpi(k1, fmt(S.figures), "図の数 / Figures");
-  kpi(k1, fmt(S.unique_compositions_in_samples), "ユニーク組成 / Compositions");
-  kpi(k1, fmt(S.papers), "登録論文(全体)/ Registered papers");
-  const f1 = (v) => (Math.round(Number(v) * 10 + 1e-9) / 10).toFixed(1);
-  const k2 = document.getElementById("kpi2");
-  kpi(k2, f1(S.curves_per_paper_mean), "カーブ/論文(平均)", fmt(S.curves_per_paper_median));
-  kpi(k2, f1(S.samples_per_paper_mean), "サンプル/論文(平均)", fmt(S.samples_per_paper_median));
-  kpi(k2, f1(S.points_per_curve_mean), "データ点/カーブ(平均)");
-  kpi(k2, String(D.by_project.length), "プロジェクト数(熱電・電池・磁性など)/ Projects");
-
-  // セクション単位の安全網: 1セクションの例外で後続セクションを道連れにしない
+  // Guard each section so one failure cannot blank the rest of the page.
   const safe = (fn) => { try { fn(); } catch (e) { console.error("dashboard section error:", e); } };
 
-  // ---- Growth chart(累積ライン)----
-  safe(function () {
+  const setText = (id, text) => { document.getElementById(id).textContent = text; };
+  const clear = (id) => { document.getElementById(id).textContent = ""; };
+
+  // ---------------------------------------------------------------------
+  // Sections
+  // ---------------------------------------------------------------------
+  function renderHero() {
+    const snapDate = (D.snapshot.match(/\d{4}-\d{2}-\d{2}/) || [""])[0];
+    setText("kicker", "STARRYDATA — DATASET DASHBOARD · SNAPSHOT " + snapDate + " JST");
+    setText("h1a", t("h1a"));
+    setText("h1b", t("h1b"));
+    const ck = Math.round(S.curves / 1e3), mp = (S.data_points / 1e6).toFixed(1);
+    if (lang === "ja") {
+      setText("lead-main", t("lead", Math.round(S.curves / 1e4), Math.round(S.data_points / 1e4)));
+      setText("lead-sub", t("leadSub", ck, mp));
+      document.getElementById("lead-sub-wrap").hidden = false;
+    } else {
+      setText("lead-main", t("lead", ck, mp));
+      document.getElementById("lead-sub-wrap").hidden = true;
+    }
+    const links = document.getElementById("hero-links");
+    links.textContent = "";
+    for (const [key, href] of [
+      ["linkAbout", "https://starrydata.org/"],
+      ["linkApp", "https://www.starrydata2.org/"],
+      ["linkDataset", "https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"],
+      ["linkGitHub", "https://github.com/kumagallium/starrydata-stats"],
+    ]) {
+      const a = el("a", null, t(key));
+      a.href = href; a.target = "_blank"; a.rel = "noopener";
+      links.appendChild(a);
+    }
+    const heroBox = document.getElementById("hero-nums");
+    heroBox.textContent = "";
+    const heroLabel = (key) => lang === "ja" ? `${t(key)} / ${I18N.en[key]}` : I18N.en[key];
+    for (const [v, label] of [
+      [S.curves, heroLabel("curves")],
+      [S.samples, heroLabel("samples")],
+      [S.papers_with_data, lang === "ja" ? t("heroPapers") : t("heroPapers")],
+    ]) {
+      const d = el("div", "hero-num");
+      d.appendChild(el("div", "v", fmt(v)));
+      d.appendChild(el("div", "l", label));
+      heroBox.appendChild(d);
+    }
+  }
+
+  function renderKPIs() {
+    const kpi = (box, v, label, median) => {
+      const d = el("div", "kpi");
+      const vd = el("div", "v", v);
+      if (median != null) {
+        vd.appendChild(document.createTextNode(" "));
+        vd.appendChild(el("span", "median", t("median", median)));
+      }
+      d.appendChild(vd);
+      d.appendChild(el("div", "l", label));
+      box.appendChild(d);
+    };
+    const f1 = (v) => (Math.round(Number(v) * 10 + 1e-9) / 10).toFixed(1);
+    const k1 = document.getElementById("kpi1");
+    k1.textContent = "";
+    kpi(k1, fmt(S.data_points), t("kpiDataPoints"));
+    kpi(k1, fmt(S.figures), t("kpiFigures"));
+    kpi(k1, fmt(S.unique_compositions_in_samples), t("kpiCompositions"));
+    kpi(k1, fmt(S.papers), t("kpiPapers"));
+    const k2 = document.getElementById("kpi2");
+    k2.textContent = "";
+    kpi(k2, f1(S.curves_per_paper_mean), t("kpiCPP"), fmt(S.curves_per_paper_median));
+    kpi(k2, f1(S.samples_per_paper_mean), t("kpiSPP"), fmt(S.samples_per_paper_median));
+    kpi(k2, f1(S.points_per_curve_mean), t("kpiPPC"));
+    kpi(k2, String(D.by_project.length), t("kpiProjects"));
+  }
+
+  function renderLegend(mountId) {
+    const box = document.getElementById(mountId);
+    box.textContent = "";
+    for (const s of SERIES()) {
+      const item = el("span");
+      const chip = el("span", "chip");
+      chip.style.background = s.color;
+      item.appendChild(chip);
+      item.appendChild(el("span", null, s.label));
+      box.appendChild(item);
+    }
+  }
+
+  function renderGrowth() {
     const rows = D.monthly;
+    setText("growth-h2", t("growthH2"));
+    setText("tv-growth-s", t("viewTable"));
+    clear("chart-growth"); clear("table-growth");
+    renderLegend("legend-growth");
     if (!rows.length) return;
     const y0 = rows[0].period.slice(0, 4), y1 = rows[rows.length - 1].period.slice(0, 4);
-    document.getElementById("growth-range").textContent = `CUMULATIVE ${y0}–${y1}`;
+    setText("growth-range", `CUMULATIVE ${y0}–${y1}`);
 
-    const W = 990, H = 296, PW = 860, T = 8, PH = 254, BASE = T + PH; // = 262
-    const series = SERIES.map(s => ({ ...s, key: s.key + "_cum" }));
+    const W = 990, H = 296, PW = 860, T = 8, PH = 254, BASE = T + PH;
+    const series = SERIES().map(s => ({ ...s, key: s.key + "_cum" }));
     const maxV = Math.max(...series.map(s => Math.max(...rows.map(r => +r[s.key] || 0))));
     const step = niceStep(maxV / 3);
     const yMax = Math.ceil(maxV / step) * step;
@@ -462,16 +642,16 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, class: "growth-svg", role: "img" });
     for (let v = step; v <= yMax; v += step) {
       svg.appendChild(svgEl("line", { x1: 0, x2: PW, y1: Y(v), y2: Y(v), stroke: "rgba(26,25,23,0.08)" }));
-      const t = svgEl("text", { x: 0, y: Y(v) - 7, fill: "rgba(26,25,23,0.4)", "font-size": 10 });
-      t.textContent = kFmt(v);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: 0, y: Y(v) - 7, fill: "rgba(26,25,23,0.4)", "font-size": 10 });
+      tk.textContent = kFmt(v);
+      svg.appendChild(tk);
     }
     svg.appendChild(svgEl("line", { x1: 0, x2: PW, y1: BASE, y2: BASE, stroke: "rgba(26,25,23,0.3)" }));
     rows.forEach((r, i) => {
       if (!r.period.endsWith("-01")) return;
-      const t = svgEl("text", { x: X(i).toFixed(1), y: 284, "text-anchor": "middle", fill: "rgba(26,25,23,0.4)", "font-size": 10.5 });
-      t.textContent = r.period.slice(0, 4);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: X(i).toFixed(1), y: 284, "text-anchor": "middle", fill: "rgba(26,25,23,0.4)", "font-size": 10.5 });
+      tk.textContent = r.period.slice(0, 4);
+      svg.appendChild(tk);
     });
     for (const s of series) {
       const d = rows.map((r, i) => (i ? "L" : "M") + X(i).toFixed(1) + "," + Y(+r[s.key] || 0).toFixed(1)).join("");
@@ -481,15 +661,14 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
       }));
     }
     const last = rows[rows.length - 1];
-    const lastX = X(rows.length - 1); // データが1点でも実データ位置に描く(N>=2 では PW と一致)
+    const lastX = X(rows.length - 1); // with a single point, draw at the actual data x (equals PW when N>=2)
     for (const s of series) {
       const y = Y(+last[s.key] || 0);
       svg.appendChild(svgEl("circle", { cx: lastX, cy: y.toFixed(1), r: 4, fill: s.color, stroke: "#faf7f1", "stroke-width": 2 }));
-      const t = svgEl("text", { x: lastX + 12, y: (y + 4).toFixed(1), fill: s.color, "font-size": 12, "font-weight": 600 });
-      t.textContent = fmt(+last[s.key] || 0);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: lastX + 12, y: (y + 4).toFixed(1), fill: s.color, "font-size": 12, "font-weight": 600 });
+      tk.textContent = fmt(+last[s.key] || 0);
+      svg.appendChild(tk);
     }
-    // hover: クロスヘア + 各系列ドット + ツールチップ
     const cross = svgEl("line", { y1: T, y2: BASE, stroke: "rgba(26,25,23,0.3)", visibility: "hidden" });
     svg.appendChild(cross);
     const dots = series.map(s => {
@@ -511,7 +690,7 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
         dots[k].setAttribute("cy", Y(+rows[i][s.key] || 0));
         dots[k].setAttribute("visibility", "visible");
       });
-      showTip(ev.clientX, ev.clientY, rows[i].period + " 時点の累積",
+      showTip(ev.clientX, ev.clientY, t("tipCumulative", rows[i].period),
         series.map(s => ({ name: s.label, value: fmt(+rows[i][s.key] || 0), color: s.color })));
     });
     hit.addEventListener("pointerleave", () => {
@@ -523,17 +702,20 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     document.getElementById("chart-growth").appendChild(svg);
 
     renderTable("table-growth", null,
-      [{ key: "period", label: "月" },
-       { key: "curves_cum", label: "カーブ(累積)", num: true }, { key: "samples_cum", label: "サンプル(累積)", num: true },
-       { key: "papers_cum", label: "論文(累積)", num: true },
-       { key: "curves", label: "カーブ(新規)", num: true }, { key: "samples", label: "サンプル(新規)", num: true },
-       { key: "papers", label: "論文(新規)", num: true }],
+      [{ key: "period", label: t("tblMonth") },
+       { key: "curves_cum", label: t("tblCurvesCum"), num: true }, { key: "samples_cum", label: t("tblSamplesCum"), num: true },
+       { key: "papers_cum", label: t("tblPapersCum"), num: true },
+       { key: "curves", label: t("tblCurvesNew"), num: true }, { key: "samples", label: t("tblSamplesNew"), num: true },
+       { key: "papers", label: t("tblPapersNew"), num: true }],
       [...rows].reverse());
-  });
+  }
 
-  // ---- Yearly bars ----
-  safe(function () {
+  function renderYearly() {
     const rows = D.yearly;
+    setText("yearly-h2", t("yearlyH2"));
+    setText("yearly-sub", t("yearlySub"));
+    setText("tv-yearly-s", t("viewTable"));
+    clear("chart-yearly"); clear("table-yearly");
     if (!rows.length) return;
     const maxV = Math.max(...rows.map(r => Math.max(+r.curves || 0, +r.samples || 0, +r.papers || 0)));
     const step = niceStep(maxV / 2);
@@ -541,7 +723,6 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     const bh = (v) => Math.max(v > 0 ? 2 : 0, Math.round(v / yMax * 160));
     const wrap = document.getElementById("chart-yearly");
     const inner = el("div", "yearly-inner");
-    // y軸グリッド(基線より先に追加し、バーの背面に敷く)
     for (let v = step; v <= yMax; v += step) {
       const g = el("div", "ygrid");
       g.style.bottom = (25 + v / yMax * 160) + "px";
@@ -552,7 +733,7 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     for (const r of rows) {
       const col = el("div", "yearly-col");
       const bars = el("div", "yearly-bars");
-      for (const s of SERIES) {
+      for (const s of SERIES()) {
         const b = el("div");
         b.style.height = bh(+r[s.key] || 0) + "px";
         b.style.background = s.color;
@@ -561,8 +742,8 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
       col.appendChild(bars);
       col.appendChild(el("div", "yl", r.period));
       col.addEventListener("pointermove", (ev) =>
-        showTip(ev.clientX, ev.clientY, r.period + "年の新規登録",
-          SERIES.map(s => ({ name: s.label, value: fmt(+r[s.key] || 0), color: s.color }))));
+        showTip(ev.clientX, ev.clientY, t("tipNewYear", r.period),
+          SERIES().map(s => ({ name: s.label, value: fmt(+r[s.key] || 0), color: s.color }))));
       col.addEventListener("pointerleave", hideTip);
       row.appendChild(col);
     }
@@ -571,15 +752,23 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     wrap.appendChild(inner);
 
     renderTable("table-yearly", null,
-      [{ key: "period", label: "年" },
-       { key: "curves", label: "カーブ", num: true }, { key: "samples", label: "サンプル", num: true },
-       { key: "papers", label: "論文", num: true }],
+      [{ key: "period", label: t("tblYear") },
+       { key: "curves", label: t("curves"), num: true }, { key: "samples", label: t("samples"), num: true },
+       { key: "papers", label: t("papers"), num: true }],
       [...rows].reverse());
-  });
+  }
 
-  // ---- Periodic table ----
-  safe(function () {
-    const ELEM_JA = null; // 元素名ツールチップは記号+サンプル数のみ
+  function renderElements() {
+    setText("elements-h2", t("elementsH2"));
+    setText("elements-sub", t("elementsSub"));
+    setText("elements-note", t("elementsNote"));
+    setText("uniq-comp-l", t("uniqCompL"));
+    setText("scale-few", t("scaleFew"));
+    setText("scale-many", t("scaleMany"));
+    setText("scale-unit", t("scaleUnit"));
+    setText("tv-elements-s", t("viewTable"));
+    clear("ptable"); clear("table-elements");
+
     const L = (syms, row, startCol) => syms.split(" ").map((s, i) => ({ sym: s, row, col: startCol + i }));
     const els = [
       { sym: "H", row: 1, col: 1 }, { sym: "He", row: 1, col: 18 },
@@ -593,7 +782,7 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
       ...L("Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr", 10, 3),
     ];
     const counts = new Map(D.elements.map(e => [e.element, +e.samples]));
-    // log スケールの四分位で 4 段階に塗り分け
+    // Four shades split by log-scale quartiles of the observed counts.
     const logs = D.elements.map(e => Math.log(+e.samples)).sort((a, b) => a - b);
     const q = (p) => logs.length ? logs[Math.min(logs.length - 1, Math.floor(p * logs.length))] : 0;
     const q1 = q(0.25), q2 = q(0.5), q3 = q(0.75);
@@ -608,31 +797,31 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
     }
     for (const e of els) {
       const n = counts.get(e.sym) || 0;
-      const t = tier(n);
+      const tr = tier(n);
       const c = el("div", "pcell", e.sym);
       c.style.gridRow = e.row; c.style.gridColumn = e.col;
-      c.style.background = BG[t];
-      c.style.color = t >= 3 ? "#fff" : t === 0 ? "rgba(26,25,23,.3)" : "#1a1917";
+      c.style.background = BG[tr];
+      c.style.color = tr >= 3 ? "#fff" : tr === 0 ? "rgba(26,25,23,.3)" : "#1a1917";
       c.addEventListener("pointermove", (ev) =>
-        showTip(ev.clientX, ev.clientY, "元素 " + e.sym,
-          [{ name: "サンプル", value: fmt(n), color: COL.samples }]));
+        showTip(ev.clientX, ev.clientY, t("tipElement", e.sym),
+          [{ name: t("samples"), value: fmt(n), color: COL.samples }]));
       c.addEventListener("pointerleave", hideTip);
       grid.appendChild(c);
     }
-    document.getElementById("uniq-comp").textContent = fmt(S.unique_compositions_in_samples);
-    document.getElementById("elem-count").textContent = "収録元素数 " + D.elements.length + " 元素 / elements observed";
+    setText("uniq-comp", fmt(S.unique_compositions_in_samples));
+    setText("elem-count", t("elemCount", D.elements.length));
 
     renderTable("table-elements", null,
-      [{ key: "element", label: "元素" }, { key: "samples", label: "サンプル", num: true }],
+      [{ key: "element", label: t("tblElement") }, { key: "samples", label: t("samples"), num: true }],
       D.elements);
-  });
+  }
 
-  // ---- Ranking columns ----
   function rankCol(mount, cfg) {
     const box = document.getElementById(mount);
+    box.textContent = "";
     if (cfg.title) {
       const h3 = el("h3", null, cfg.title + " ");
-      h3.appendChild(el("span", "metric", cfg.metric));
+      if (cfg.metric) h3.appendChild(el("span", "metric", cfg.metric));
       box.appendChild(h3);
     }
     if (cfg.cap) box.appendChild(el("div", "cap", cfg.cap));
@@ -642,11 +831,11 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
       const rowEl = el("div", "rank-row");
       const l1 = el("div", "line1");
       const name = el("span", "name");
-      const jp = cfg.labelFn(r);
-      name.appendChild(document.createTextNode(jp.jp));
-      if (jp.en) {
+      const label = cfg.labelFn(r);
+      name.appendChild(document.createTextNode(label.jp));
+      if (label.en) {
         name.appendChild(document.createTextNode(" "));
-        name.appendChild(el("span", "en", jp.en));
+        name.appendChild(el("span", "en", label.en));
       }
       l1.appendChild(name);
       l1.appendChild(el("span", "val", fmt(v)));
@@ -659,109 +848,138 @@ window.DASHBOARD_DATA = {"snapshot":"2026-07-21 02:00:01 UTC+0900 (JST)","genera
       rowEl.appendChild(track);
       if (cfg.tipRows) {
         rowEl.addEventListener("pointermove", (ev) =>
-          showTip(ev.clientX, ev.clientY, jp.tipTitle || (jp.jp + (jp.en ? " · " + jp.en : "")), cfg.tipRows(r)));
+          showTip(ev.clientX, ev.clientY, label.tipTitle || (label.jp + (label.en ? " · " + label.en : "")), cfg.tipRows(r)));
         rowEl.addEventListener("pointerleave", hideTip);
       }
       box.appendChild(rowEl);
     }
   }
 
-  const projRows = D.by_project.slice(0, 8);
-  rankCol("rank-projects", {
-    title: "プロジェクト", metric: "カーブ数 / Curves",
-    cap: `全${D.by_project.length}プロジェクト中 上位${projRows.length} · バーは各リスト最大値比 / top ${projRows.length} of ${D.by_project.length}`,
-    rows: projRows, valueKey: "curves", color: COL.curves,
-    labelFn: (r) => ({ jp: PROJECT_JA[r.project] || r.project, en: PROJECT_JA[r.project] ? r.project : "" }),
-    tipRows: (r) => [
-      { name: "カーブ", value: fmt(r.curves), color: COL.curves },
-      { name: "論文", value: fmt(r.papers), color: COL.papers },
-      { name: "データ点", value: fmt(r.data_points) },
-    ],
-  });
-  const propRows = D.by_property.slice(0, 8);
-  rankCol("rank-props", {
-    title: "物性", metric: "カーブ数 / Curves",
-    cap: `curves.csv の prop_y 別 · 上位${propRows.length} / by prop_y, top ${propRows.length}`,
-    rows: propRows, valueKey: "curves", color: COL.curves,
-    labelFn: (r) => ({ jp: PROP_JA[r.prop_y] || r.prop_y, en: "", tipTitle: r.prop_y }),
-    tipRows: (r) => [
-      { name: "カーブ", value: fmt(r.curves), color: COL.curves },
-      { name: "データ点", value: fmt(r.data_points) },
-    ],
-  });
-  const journalRows = D.journals.slice(0, 8);
-  rankCol("rank-journals", {
-    title: "ジャーナル", metric: "論文数 / Papers",
-    cap: `掲載ジャーナル別 · 上位${journalRows.length} / top ${journalRows.length} journals`,
-    rows: journalRows, valueKey: "papers", color: COL.papers,
-    labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
-    tipRows: (r) => [{ name: "論文", value: fmt(r.papers), color: COL.papers }],
-  });
-  safe(function () {
+  function renderRankings() {
+    setText("tv-rankings-s", t("viewTable"));
+    clear("table-rankings");
+    const projRows = D.by_project.slice(0, 8);
+    rankCol("rank-projects", {
+      title: t("colProjects"), metric: t("metricCurves"),
+      cap: t("capProjects", projRows.length, D.by_project.length),
+      rows: projRows, valueKey: "curves", color: COL.curves,
+      labelFn: (r) => ({ jp: local(PROJECT_JA, r.project), en: localTag(PROJECT_JA, r.project) }),
+      tipRows: (r) => [
+        { name: t("curves"), value: fmt(r.curves), color: COL.curves },
+        { name: t("papers"), value: fmt(r.papers), color: COL.papers },
+        { name: t("tipDataPoints"), value: fmt(r.data_points) },
+      ],
+    });
+    const propRows = D.by_property.slice(0, 8);
+    rankCol("rank-props", {
+      title: t("colProps"), metric: t("metricCurves"),
+      cap: t("capProps", propRows.length),
+      rows: propRows, valueKey: "curves", color: COL.curves,
+      labelFn: (r) => ({ jp: local(PROP_JA, r.prop_y), en: "", tipTitle: r.prop_y }),
+      tipRows: (r) => [
+        { name: t("curves"), value: fmt(r.curves), color: COL.curves },
+        { name: t("tipDataPoints"), value: fmt(r.data_points) },
+      ],
+    });
+    const journalRows = D.journals.slice(0, 8);
+    rankCol("rank-journals", {
+      title: t("colJournals"), metric: t("metricPapers"),
+      cap: t("capJournals", journalRows.length),
+      rows: journalRows, valueKey: "papers", color: COL.papers,
+      labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
+      tipRows: (r) => [{ name: t("papers"), value: fmt(r.papers), color: COL.papers }],
+    });
     const box = document.getElementById("table-rankings");
-    renderTable(box, "プロジェクト",
-      [{ label: "プロジェクト", get: r => (PROJECT_JA[r.project] ? PROJECT_JA[r.project] + " " : "") + r.project },
-       { key: "curves", label: "カーブ", num: true }, { key: "papers", label: "論文", num: true },
-       { key: "data_points", label: "データ点", num: true }],
+    renderTable(box, t("capTblProjects"),
+      [{ label: t("tblProject"), get: r => (lang === "ja" && PROJECT_JA[r.project] ? PROJECT_JA[r.project] + " " : "") + r.project },
+       { key: "curves", label: t("curves"), num: true }, { key: "papers", label: t("papers"), num: true },
+       { key: "data_points", label: t("tipDataPoints"), num: true }],
       D.by_project);
-    renderTable(box, "物性 (prop_y)",
-      [{ key: "prop_y", label: "物性" }, { key: "curves", label: "カーブ", num: true },
-       { key: "data_points", label: "データ点", num: true }],
+    renderTable(box, t("capTblProps"),
+      [{ key: "prop_y", label: t("tblProperty") }, { key: "curves", label: t("curves"), num: true },
+       { key: "data_points", label: t("tipDataPoints"), num: true }],
       D.by_property);
-    renderTable(box, "ジャーナル",
-      [{ key: "journal", label: "ジャーナル" }, { key: "papers", label: "論文", num: true }],
+    renderTable(box, t("capTblJournals"),
+      [{ key: "journal", label: t("tblJournal") }, { key: "papers", label: t("papers"), num: true }],
       D.journals);
-  });
+  }
 
-  // ---- sample_info columns ----
-  const descRows = D.sample_info_descriptors.slice(0, 6);
-  rankCol("info-desc", {
-    title: `記入状況(全${fmt(S.samples)}サンプル中)`, metric: "",
-    cap: `descriptor別・記入ありサンプル数 · 上位${descRows.length} / バーは全サンプル比`,
-    rows: descRows, valueKey: "samples_filled", color: COL.samples,
-    maxOverride: S.samples,
-    labelFn: (r) => ({ jp: DESC_JA[r.descriptor] || r.descriptor, en: "", tipTitle: r.descriptor }),
-    tipRows: (r) => [
-      { name: "記入あり", value: fmt(r.samples_filled), color: COL.samples },
-      { name: "うちcategory選択", value: fmt(r.samples_with_category) },
-      { name: "全サンプル比", value: (r.samples_filled / S.samples * 100).toFixed(1) + "%" },
-    ],
-  });
-  rankCol("info-fab", {
-    title: "合成プロセス / Fabrication", metric: "",
-    cap: `category別 · 上位${D.fabrication.length}(Other除く)`,
-    rows: D.fabrication, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FAB_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  rankCol("info-family", {
-    title: "材料ファミリー / Family", metric: "",
-    cap: `category別 · 上位${D.material_family.length}`,
-    rows: D.material_family, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FAMILY_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  rankCol("info-form", {
-    title: "形状 / Form", metric: "",
-    cap: `category別 · 上位${D.form.length}`,
-    rows: D.form, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FORM_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  safe(function () {
+  function renderSampleInfo() {
+    setText("info-h2", t("infoH2"));
+    setText("tv-info-s", t("viewTable"));
+    clear("table-info");
+    const descRows = D.sample_info_descriptors.slice(0, 6);
+    rankCol("info-desc", {
+      title: t("colDesc", fmt(S.samples)), metric: "",
+      cap: t("capDesc", descRows.length),
+      rows: descRows, valueKey: "samples_filled", color: COL.samples,
+      maxOverride: S.samples,
+      labelFn: (r) => ({ jp: local(DESC_JA, r.descriptor), en: "", tipTitle: r.descriptor }),
+      tipRows: (r) => [
+        { name: t("tipFilled"), value: fmt(r.samples_filled), color: COL.samples },
+        { name: t("tipWithCat"), value: fmt(r.samples_with_category) },
+        { name: t("tipPctAll"), value: (r.samples_filled / S.samples * 100).toFixed(1) + "%" },
+      ],
+    });
+    rankCol("info-fab", {
+      title: t("colFab"), metric: "",
+      cap: t("capFab", D.fabrication.length),
+      rows: D.fabrication, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FAB_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
+    rankCol("info-family", {
+      title: t("colFamily"), metric: "",
+      cap: t("capFamily", D.material_family.length),
+      rows: D.material_family, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FAMILY_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
+    rankCol("info-form", {
+      title: t("colForm"), metric: "",
+      cap: t("capForm", D.form.length),
+      rows: D.form, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FORM_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
     const box = document.getElementById("table-info");
-    renderTable(box, "記入状況(descriptor別)",
-      [{ key: "descriptor", label: "descriptor" },
-       { key: "samples_filled", label: "記入あり", num: true },
-       { key: "samples_with_category", label: "うちcategory選択", num: true }],
+    renderTable(box, t("capTblDesc"),
+      [{ key: "descriptor", label: t("tblDescriptor") },
+       { key: "samples_filled", label: t("tblFilled"), num: true },
+       { key: "samples_with_category", label: t("tblWithCat"), num: true }],
       D.sample_info_descriptors);
-    renderTable(box, "合成プロセス", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.fabrication);
-    renderTable(box, "材料ファミリー", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.material_family);
-    renderTable(box, "形状", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.form);
-  });
+    renderTable(box, t("capTblFab"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.fabrication);
+    renderTable(box, t("capTblFamily"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.material_family);
+    renderTable(box, t("capTblForm"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.form);
+  }
 
-  document.getElementById("foot-gen").textContent =
-    "generated " + D.generated_at + " · aggregate_stats.py";
+  // ---------------------------------------------------------------------
+  // Render + language switching
+  // ---------------------------------------------------------------------
+  function renderAll() {
+    document.documentElement.lang = lang;
+    document.title = t("title");
+    safe(renderHero);
+    safe(renderKPIs);
+    safe(renderGrowth);
+    safe(renderYearly);
+    safe(renderElements);
+    safe(renderRankings);
+    safe(renderSampleInfo);
+    setText("foot-gen", t("footGen", D.generated_at));
+    document.querySelectorAll(".lang-switch button").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  }
+
+  document.querySelectorAll(".lang-switch button").forEach(b =>
+    b.addEventListener("click", () => {
+      if (b.dataset.lang === lang) return;
+      lang = b.dataset.lang;
+      try { localStorage.setItem("sd_lang", lang); } catch (e) { /* private mode */ }
+      renderAll();
+    }));
+
+  renderAll();
 })();
 </script>
 </body>

@@ -1,125 +1,118 @@
-# Starrydata データセット集計ツール
+# starrydata-stats
 
-[Starrydata](https://starrydata.org/)(無機材料科学実験データのオープンデータベース構築
-プロジェクト)の Web アプリ [Starrydata2](https://www.starrydata2.org/) が公開する
-データセット(papers / samples / curves)を、さまざまな観点でデータ数集計するツールです。データは日々更新されるため、
-Google Drive の共有フォルダから実行時点の最新データを自動取得して集計できます。
-集計結果は単一 HTML のダッシュボード (`dashboard.html`) でも閲覧できます。
+[![update-dashboard](https://github.com/kumagallium/starrydata-stats/actions/workflows/update-dashboard.yml/badge.svg)](https://github.com/kumagallium/starrydata-stats/actions/workflows/update-dashboard.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**公開ダッシュボード: https://kumagallium.github.io/starrydata-stats/**
+Aggregation toolkit and auto-updating dashboard for the
+[Starrydata](https://starrydata.org/) dataset — an open database of
+experimental materials-science data digitized from figures in the literature
+by the [Starrydata2](https://www.starrydata2.org/) web app.
 
-GitHub Actions が毎日 JST 6:00 に最新データを取得・集計し、ダッシュボードと
-`output/`(history.csv 含む)を自動更新して GitHub Pages にデプロイします
-(ワークフロー: [.github/workflows/update-dashboard.yml](.github/workflows/update-dashboard.yml)。
-手動実行は Actions タブの Run workflow から)。
+**Live dashboard: <https://kumagallium.github.io/starrydata-stats/>**
+(English / Japanese, updated daily at 6:00 JST)
 
-## セットアップ
+[![Dashboard screenshot](docs/screenshot.png)](https://kumagallium.github.io/starrydata-stats/)
 
-[uv](https://docs.astral.sh/uv/) があれば追加のセットアップは不要です(依存を自動解決)。
-pip を使う場合は次でインストールします:
+*日本語版の README は [README.ja.md](README.ja.md) にあります。*
+
+## What it does
+
+1. **Fetches** the latest dataset (papers / samples / curves CSVs) from the
+   official shared [Google Drive folder](https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh) — no authentication required.
+2. **Aggregates** it from multiple angles: headline counts, per-project /
+   per-property / per-journal breakdowns, monthly and yearly registration
+   trends, chemical elements appearing in compositions, and completion of the
+   `sample_info` metadata (fabrication process, material family, form, …).
+3. **Generates** a self-contained, bilingual (EN default / JA) single-file HTML
+   dashboard — no server or build step required to view it.
+4. **Automates** the whole pipeline with GitHub Actions: every day at 6:00 JST
+   it re-aggregates the fresh snapshot, commits the results, and deploys the
+   dashboard to GitHub Pages.
+
+## Quick start
+
+With [uv](https://docs.astral.sh/uv/) (dependencies resolve automatically from
+inline script metadata):
 
 ```bash
-pip install -r requirements.txt   # pandas, gdown
+uv run aggregate_stats.py --download   # fetch latest data → aggregate → build dashboard
 ```
 
-## 使い方
+Or with pip:
 
 ```bash
-# 最新データを Google Drive から取得してから集計(推奨・普段使いはこれ1コマンド)
-uv run aggregate_stats.py --download
-
-# 手元の starrydata_dataset/ をそのまま集計
-uv run aggregate_stats.py
-
-# データ取得のみ
-uv run download_dataset.py
-
-# ダッシュボードの再生成のみ(集計済みの output/ から)
-uv run generate_dashboard.py
+pip install -r requirements.txt        # pandas, gdown
+python aggregate_stats.py --download
 ```
 
-pip 環境の場合は `uv run` を `python` に読み替えてください。
-集計後に `dashboard.html` をブラウザで開くと、サマリ・成長グラフ・各種ランキングを閲覧できます。
+Then open `dashboard.html` in a browser. Useful variants:
 
-## 集計内容
+```bash
+uv run aggregate_stats.py              # aggregate the local starrydata_dataset/ as-is
+uv run download_dataset.py             # download only
+uv run generate_dashboard.py           # rebuild dashboard.html from existing output/
+```
 
-コンソールに主要サマリを表示し、以下のファイルを出力します。
+The dataset itself (~340 MB extracted) is intentionally **not** stored in this
+repository; `--download` fetches it on demand.
 
-### `output/snapshot_YYYY-MM-DD/`(スナップショット日付ごとに保存)
+## Repository layout
 
-| ファイル | 内容 |
+| Path | Role |
 |---|---|
-| `summary.json` | 全体サマリ(登録論文数・データが紐づく論文数・サンプル数・カーブ数・データ点数・図の数・ユニークDOI/組成数・1論文あたり平均など) |
-| `by_project.csv` | プロジェクト別(熱電・電池・磁性など14種)の論文数・カーブ数・データ点数 |
-| `curves_by_property_y.csv` | 物性(prop_y)別のカーブ数・データ点数 |
-| `curves_by_property_pair.csv` | 物性の組み合わせ(prop_x × prop_y)別のカーブ数・データ点数 |
-| `registrations_by_year.csv` | 登録年別の論文/サンプル/カーブ数(累積つき) |
-| `registrations_by_month.csv` | 登録月別の論文/サンプル/カーブ数(累積つき) |
-| `papers_by_issued_year.csv` | 論文の出版年別の論文数 |
-| `papers_by_journal.csv` | ジャーナル別論文数(上位50) |
-| `papers_by_publisher.csv` | 出版社別論文数(上位50) |
-| `top_compositions.csv` | 組成別サンプル数(上位50) |
-| `elements.csv` | 組成に登場する元素別のサンプル数(周期表ヒートマップの元データ) |
-| `sample_info_descriptors.csv` | sample_info(JSON)の descriptor 別記入状況(合成プロセス・形状などの記入数) |
-| `sample_info_categories.csv` | sample_info の descriptor × category 別サンプル数(FabricationProcess / Form / MaterialFamily など全 descriptor) |
+| `download_dataset.py` | Fetch and safely extract the latest dataset zip from Google Drive |
+| `aggregate_stats.py` | All aggregations; writes `output/` and triggers the dashboard build |
+| `generate_dashboard.py` | Injects the aggregated data into the HTML template |
+| `dashboard_template.html` | Dashboard UI (vanilla JS + SVG, i18n EN/JA, no dependencies) |
+| `dashboard.html` | Generated dashboard (committed so Pages can deploy it) |
+| `.github/workflows/update-dashboard.yml` | Daily fetch → aggregate → commit → deploy pipeline |
+| `output/` | Aggregation results (see below) |
 
-### `output/history.csv`(スナップショット横断の推移記録)
+## Outputs
 
-実行のたびに、そのスナップショット日付の主要件数(論文・サンプル・カーブ・データ点数など)を
-1 行追記します(同じ日付は上書き)。ダッシュボードの成長グラフは登録日時 (`created_at`)
-から再構成するため現存レコードしか反映されませんが、こちらは実行日ごとの実測記録なので、
-データの削除・整理があった場合の減少や、ユニーク組成数などの推移を検証できます。
+### `output/snapshot_YYYY-MM-DD/` — one directory per dataset snapshot
 
-### `dashboard.html`(単一 HTML ダッシュボード)
+| File | Contents |
+|---|---|
+| `summary.json` | Headline counts: registered papers, papers with data, samples, curves, data points, figures, unique DOIs / compositions, per-paper averages |
+| `by_project.csv` | Papers, curves, and data points per project (thermoelectric, battery, magnetic, …) |
+| `curves_by_property_y.csv` | Curves and data points per property (`prop_y`) |
+| `curves_by_property_pair.csv` | Same, per `prop_x` × `prop_y` pair |
+| `registrations_by_year.csv` / `registrations_by_month.csv` | New registrations per period, with cumulative columns |
+| `papers_by_issued_year.csv` | Papers per publication year |
+| `papers_by_journal.csv` / `papers_by_publisher.csv` | Top journals / publishers |
+| `top_compositions.csv` | Most frequent sample compositions |
+| `elements.csv` | Samples per chemical element found in compositions (feeds the periodic-table heatmap) |
+| `sample_info_descriptors.csv` | Completion per `sample_info` descriptor |
+| `sample_info_categories.csv` | Category distribution per descriptor (FabricationProcess, Form, …) |
 
-集計実行のたびに自動再生成されます。ブラウザで開くだけで閲覧できる自己完結の単一 HTML です
-(デザイン「Starlight Editorial」— 夜空バンドのヒーロー + ライト紙面のエディトリアル調、
-日本語主体 + 英語補助の併記。テンプレートは `dashboard_template.html`)。
+### `output/history.csv` — cross-snapshot time series
 
-- ヒーローサマリー(カーブ・サンプル・データあり論文数)+ KPI ストリップ 2 段
-- データベースの成長(累積登録数の月次ライングラフ)
-- 年別の新規登録数(グループ棒グラフ)
-- 収録元素の多様性(組成に登場する元素の周期表ヒートマップ)
-- プロジェクト別・物性別・ジャーナル別ランキング
-- サンプル詳細情報(sample_info)の記入状況と、合成プロセス・材料ファミリー・形状の内訳
+One row of headline counts is upserted per snapshot date on every run. Unlike
+the dashboard's growth chart — which is *reconstructed* from `created_at`
+timestamps and therefore only reflects records that still exist — this file is
+a record of what was actually observed on each day, so deletions and cleanups
+in the upstream database remain visible. It is not currently rendered on the
+dashboard; it exists as an audit trail and future data source.
 
-各チャートはホバーで詳細値を表示し、「表で見る」から同じデータを表形式でも確認できます。
+## Automation
 
-## データ取得の仕組み
-
-- 取得元: [Google Drive 共有フォルダ](https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh)(公開フォルダのため認証不要)
-- フォルダ内の zip(現在は `starrydata_dataset.zip` 1つ)を検出してダウンロードします。
-  ファイル名が変わっても、フォルダ内の zip を探すため追従できます。
-- zip の検証・展開に成功してから既存の `starrydata_dataset/` を置き換えるため、
-  ダウンロード失敗で手元のデータが壊れることはありません。
-- ダウンロードした zip は原本として `starrydata_dataset.zip` に保存(上書き)します。
-
-## ファイル構成
+[`update-dashboard.yml`](.github/workflows/update-dashboard.yml) runs daily at
+6:00 JST (the upstream snapshot is generated around 2:00 JST):
 
 ```
-.
-├── aggregate_stats.py      # 集計本体(--download で最新取得込み)
-├── download_dataset.py     # Google Drive から最新データ取得
-├── generate_dashboard.py   # dashboard.html の生成(集計時に自動実行)
-├── dashboard_template.html # ダッシュボードのテンプレート
-├── dashboard.html          # 生成されたダッシュボード(自動生成)
-├── requirements.txt
-├── starrydata_dataset/     # データセット(自動生成・git 管理外)
-│   ├── starrydata_papers.csv
-│   ├── starrydata_samples.csv
-│   ├── starrydata_curves.csv
-│   ├── db_snapshot.txt     # スナップショット日時
-│   └── README.md           # データセット本体の説明
-└── output/                 # 集計結果(自動生成)
-    ├── history.csv
-    └── snapshot_YYYY-MM-DD/
+fetch latest zip → aggregate → commit output/ + dashboard.html → deploy to Pages
 ```
 
-データセット本体 (`starrydata_dataset/`, `starrydata_dataset.zip`) はサイズが大きいため
-git 管理外です。クローン後は `uv run aggregate_stats.py --download` で取得してください。
+Pushes to `main` redeploy the committed `dashboard.html` without
+re-aggregating. Run it manually anytime from the Actions tab ("Run workflow").
 
-## 集計観点の追加方法
+## Data source and licensing
 
-`aggregate_stats.py` は観点ごとに `aggregate_*` 関数に分かれています。
-新しい観点を追加する場合は、関数を 1 つ追加して `main()` の `outputs` 辞書に
-出力ファイル名とともに登録してください。
+- The dataset is created and distributed by the
+  [Starrydata project](https://starrydata.org/)
+  ([web app](https://www.starrydata2.org/) ·
+  [dataset on Google Drive](https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh)).
+  Rights to the data belong to the Starrydata project; consult them for the
+  data's license and citation policy.
+- The code in this repository is released under the [MIT License](LICENSE).

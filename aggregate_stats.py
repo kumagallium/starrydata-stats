@@ -2,20 +2,20 @@
 # requires-python = ">=3.9"
 # dependencies = ["pandas>=1.3", "gdown>=5"]
 # ///
-"""Starrydata データセットをさまざまな観点で集計する。
+"""Aggregate the Starrydata dataset from multiple angles.
 
-starrydata_dataset/ 内の papers / samples / curves の 3 つの CSV を読み込み、
-全体サマリ・プロジェクト別・物性別・年別推移などを集計して、
-コンソール表示と CSV / JSON ファイル出力を行う。
+Reads the three CSVs (papers / samples / curves) in starrydata_dataset/ and
+produces an overall summary plus per-project, per-property, and per-period
+breakdowns, printed to the console and written as CSV / JSON files.
 
-使い方:
-    python aggregate_stats.py               # 手元の starrydata_dataset/ を集計
-    python aggregate_stats.py --download    # Google Drive から最新を取得してから集計
-    uv run aggregate_stats.py --download    # uv を使う場合(依存を自動解決)
+Usage:
+    python aggregate_stats.py               # aggregate the local starrydata_dataset/
+    python aggregate_stats.py --download    # fetch the latest data from Google Drive first
+    uv run aggregate_stats.py --download    # with uv (dependencies resolved automatically)
 
-出力:
-    output/snapshot_YYYY-MM-DD/  に各集計 CSV と summary.json
-    output/history.csv           にスナップショットごとの主要件数を追記(推移の記録)
+Outputs:
+    output/snapshot_YYYY-MM-DD/  per-snapshot CSVs and summary.json
+    output/history.csv           one row of headline counts per snapshot (time series)
 """
 
 import argparse
@@ -31,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_DATA_DIR = BASE_DIR / "starrydata_dataset"
 DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 
-TOP_N = 50  # ランキング系 CSV に出力する上位件数
+TOP_N = 50  # number of rows to keep in ranking CSVs
 
-# 周期表ヒートマップ用の元素集計で使う元素記号の全集合
+# Every element symbol, used by the periodic-table element aggregation.
 ELEMENT_SYMBOLS = {
     "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar",
     "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
@@ -44,44 +44,46 @@ ELEMENT_SYMBOLS = {
     "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og",
 }
 
-# 組成欄に入っている電池系などの「略称」。元素記号の誤検出(例: SIB の S/I/B)を防ぐため除外。
-# top_compositions.csv を見て随時追加する。
+# Battery-style acronyms that appear verbatim in the composition column.
+# Excluded so their letters are not misread as element symbols (e.g. SIB -> S/I/B).
+# Extend this set as new entries show up in top_compositions.csv.
 KNOWN_ABBREVIATIONS = {
     "LMB", "RMB", "SIB", "PIB", "ZIB", "AIB", "LIB", "LAB",
     "ASSLSB", "ASSLB", "ASSSLSB", "PANI", "NAS", "YBCO",
     "undefined", "Unknown",
 }
 
-# 組成文字列中の非元素サブストリング。トークン抽出前に除去する
-# (例: "MWCNTs"/"MWNTs" の残渣が W や Ts(テネシン)に誤検出されるのを防ぐ)。
+# Non-element substrings stripped from composition strings before tokenizing
+# (e.g. the leftovers of "MWCNTs"/"MWNTs" would otherwise be misread as W or Ts).
 COMPOSITION_NOISE = re.compile(r"MWCNTs?|SWCNTs?|DWCNTs?|MWNTs?|SWNTs?|DWNTs?|CNTs?|TsO|Not identified")
 
-# 大文字1字+小文字0〜1字。直後にさらに小文字(x/y/z を除く)が続く場合は
-# 英単語の先頭とみなして除外する(例: "Polyaniline" の Po、"half-Heusler" の He)。
-# x/y/z は "Bi(x)Sb(2-x)" のような組成変数として頻出するため許容する。
+# One capital + optional lowercase letter. A token followed by another lowercase
+# letter (except x/y/z) is treated as the start of an English word and rejected
+# (e.g. "Po" in "Polyaniline", "He" in "half-Heusler"). x/y/z are allowed because
+# they are common stoichiometry variables, as in "Bi(x)Sb(2-x)".
 ELEMENT_TOKEN = re.compile(r"[A-Z][a-z]?(?![a-w])")
 
 
 # ---------------------------------------------------------------------------
-# 読み込みとパース
+# Loading and parsing
 # ---------------------------------------------------------------------------
 
 def parse_created_at(s: pd.Series) -> pd.Series:
-    """'Thu Jan 25 2018 13:56:56 GMT+0900 (Japan Standard Time)' 形式をパースする。
+    """Parse 'Thu Jan 25 2018 13:56:56 GMT+0900 (Japan Standard Time)' timestamps.
 
-    タイムゾーンは全行 GMT+0900 (JST) であることを確認済みのため、
-    先頭の日時部分のみを取り出して JST のローカル時刻として扱う。
+    Every row in the dataset uses GMT+0900 (JST), so only the leading datetime
+    part is extracted and treated as JST local time.
     """
     return pd.to_datetime(s.str.slice(4, 24), format="%b %d %Y %H:%M:%S", errors="coerce")
 
 
 def clean_quoted(s: pd.Series) -> pd.Series:
-    """'\"Journal Name\"' のように値自体に付いた引用符を除去する。"""
+    """Strip quotes embedded in the value itself, as in '\"Journal Name\"'."""
     return s.fillna("").str.strip().str.strip('"').str.strip()
 
 
 def parse_project_names(s: pd.Series) -> pd.Series:
-    """'["A","B"]' 形式の JSON 配列をリストにパースする。"""
+    """Parse '["A","B"]'-style JSON arrays into Python lists."""
 
     def parse_one(v):
         if not isinstance(v, str) or not v.strip():
@@ -96,9 +98,10 @@ def parse_project_names(s: pd.Series) -> pd.Series:
 
 
 def count_points(x: pd.Series) -> pd.Series:
-    """x 列の JSON 配列文字列 '[1.2,3.4,...]' からデータ点数を数える。
+    """Count data points in the x column's JSON array strings '[1.2,3.4,...]'.
 
-    数値のみの配列なのでカンマの数 + 1 が要素数。空配列・欠損は 0。
+    The arrays contain only numbers, so comma count + 1 equals the length.
+    Empty arrays and missing values count as 0.
     """
     x = x.fillna("").str.strip()
     n = x.str.count(",") + 1
@@ -107,18 +110,18 @@ def count_points(x: pd.Series) -> pd.Series:
 
 
 def load_dataset(data_dir: Path):
-    """3 つの CSV を必要な列だけ読み込み、パース済みの DataFrame を返す。"""
+    """Read the three CSVs (needed columns only) and return parsed DataFrames."""
     papers_path = data_dir / "starrydata_papers.csv"
     samples_path = data_dir / "starrydata_samples.csv"
     curves_path = data_dir / "starrydata_curves.csv"
     for p in (papers_path, samples_path, curves_path):
         if not p.exists():
             sys.exit(
-                f"エラー: {p} が見つかりません。"
-                "--download を付けて実行するか、download_dataset.py で最新データを取得してください。"
+                f"Error: {p} not found. "
+                "Run with --download, or fetch the latest data with download_dataset.py."
             )
 
-    print(f"データを読み込んでいます: {data_dir}/")
+    print(f"Loading dataset: {data_dir}/")
 
     papers = pd.read_csv(
         papers_path,
@@ -145,7 +148,7 @@ def load_dataset(data_dir: Path):
     samples["created_dt"] = parse_created_at(samples["created_at"])
     curves["created_dt"] = parse_created_at(curves["created_at"])
 
-    # 論文の出版年: issued 列 '{"date_parts":[[2014,4,15]]}' から年を抽出
+    # Publication year: extracted from the issued column '{"date_parts":[[2014,4,15]]}'
     papers["issued_year"] = (
         papers["issued"].fillna("").str.extract(r"\[\[(\d{4})", expand=False)
     )
@@ -164,7 +167,7 @@ def load_dataset(data_dir: Path):
 
 
 def read_snapshot(data_dir: Path) -> str:
-    """db_snapshot.txt からスナップショット日時文字列を読む。"""
+    """Read the snapshot timestamp string from db_snapshot.txt."""
     p = data_dir / "db_snapshot.txt"
     if p.exists():
         return p.read_text(encoding="utf-8").strip()
@@ -172,7 +175,7 @@ def read_snapshot(data_dir: Path) -> str:
 
 
 def snapshot_date(snapshot: str) -> str:
-    """スナップショット文字列から YYYY-MM-DD を取り出す(無ければ今日の日付)。"""
+    """Extract YYYY-MM-DD from the snapshot string (falls back to today)."""
     m = re.search(r"\d{4}-\d{2}-\d{2}", snapshot)
     if m:
         return m.group(0)
@@ -180,16 +183,16 @@ def snapshot_date(snapshot: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# 各種集計
+# Aggregations
 # ---------------------------------------------------------------------------
 
 def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
-    """全体サマリ(件数系)を dict で返す。"""
+    """Return the overall summary (headline counts) as a dict."""
     n_figures = curves.dropna(subset=["figure_id"]).groupby(["SID", "figure_id"]).ngroups
     per_paper_samples = samples.groupby("SID").size()
     per_paper_curves = curves.groupby("SID").size()
 
-    # 登録論文のうち、サンプルまたはカーブのデータが実際に紐づいている論文数
+    # Registered papers that actually have samples or curves attached.
     sids_with_data = set(samples["SID"].dropna()) | set(curves["SID"].dropna())
     papers_with_data = int(papers["SID"].isin(sids_with_data).sum())
 
@@ -216,7 +219,7 @@ def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
 
 
 def aggregate_by_project(papers, curves) -> pd.DataFrame:
-    """プロジェクト別の論文数・カーブ数・データ点数。"""
+    """Paper, curve, and data-point counts per project."""
     p = (
         papers[["SID", "projects"]].explode("projects").dropna(subset=["projects"])
         .groupby("projects").size().rename("papers")
@@ -231,7 +234,7 @@ def aggregate_by_project(papers, curves) -> pd.DataFrame:
 
 
 def aggregate_by_property(curves) -> tuple:
-    """物性別(prop_y 単独、および prop_x × prop_y の組)のカーブ数・データ点数。"""
+    """Curve and data-point counts per property (prop_y alone and prop_x x prop_y pairs)."""
     by_y = (
         curves.groupby("prop_y")
         .agg(curves=("n_points", "size"), data_points=("n_points", "sum"))
@@ -248,7 +251,7 @@ def aggregate_by_property(curves) -> tuple:
 
 
 def aggregate_by_period(papers, samples, curves, freq: str) -> pd.DataFrame:
-    """登録日時ベースの期間別件数。freq='YS'(年) または 'MS'(月)。"""
+    """Registration counts per period based on created_at. freq='YS' (year) or 'MS' (month)."""
     fmt = "%Y" if freq == "YS" else "%Y-%m"
     parts = []
     for name, df in (("papers", papers), ("samples", samples), ("curves", curves)):
@@ -261,14 +264,14 @@ def aggregate_by_period(papers, samples, curves, freq: str) -> pd.DataFrame:
     out = pd.concat(parts, axis=1, sort=True).fillna(0).astype("int64")
     out.index = out.index.strftime(fmt)
     out.index.name = "period"
-    # 累積列(データベースの成長を追うため)
+    # Cumulative columns, used to track database growth.
     for name in ("papers", "samples", "curves"):
         out[f"{name}_cum"] = out[name].cumsum()
     return out.reset_index()
 
 
 def aggregate_papers_meta(papers) -> tuple:
-    """出版年別・ジャーナル別・出版社別の論文数。"""
+    """Paper counts by publication year, journal, and publisher."""
     by_issued = (
         papers.dropna(subset=["issued_year"]).groupby("issued_year").size()
         .rename("papers").reset_index().rename(columns={"issued_year": "year"})
@@ -287,14 +290,14 @@ def aggregate_papers_meta(papers) -> tuple:
 
 
 def aggregate_sample_info(samples) -> tuple:
-    """sample_info (JSON) から descriptor 別の記入状況とカテゴリ分布を集計する。
+    """Aggregate completion and category distributions from sample_info (JSON).
 
-    sample_info は {descriptor: {category, comment, extracted}} 形式。
-    合成プロセス (FabricationProcess) や形状 (Form)、材料ファミリー
-    (MaterialFamily) などの情報がここに含まれる。
+    sample_info has the shape {descriptor: {category, comment, extracted}} and
+    holds details such as the fabrication process (FabricationProcess), form
+    (Form), and material family (MaterialFamily).
     """
-    desc_filled = Counter()      # category/comment/extracted のいずれかが記入されている数
-    desc_with_cat = Counter()    # category が選択されている数
+    desc_filled = Counter()      # rows where any of category/comment/extracted is filled
+    desc_with_cat = Counter()    # rows where a category is selected
     cat_counts = defaultdict(Counter)
 
     for v in samples["sample_info"].dropna():
@@ -329,7 +332,7 @@ def aggregate_sample_info(samples) -> tuple:
 
 
 def aggregate_compositions(samples) -> pd.DataFrame:
-    """組成別のサンプル数(上位 TOP_N 件)。"""
+    """Sample counts per composition (top TOP_N)."""
     comp = samples["composition"].fillna("").str.strip()
     return (
         comp[comp != ""].to_frame("composition").groupby("composition").size()
@@ -338,10 +341,11 @@ def aggregate_compositions(samples) -> pd.DataFrame:
 
 
 def aggregate_elements(samples) -> pd.DataFrame:
-    """composition 文字列に登場する元素ごとのサンプル数を集計する。
+    """Count samples per chemical element appearing in composition strings.
 
-    1サンプル中に同じ元素が複数回出ても1回として数える(=「その元素を含むサンプル数」)。
-    "Li|S" のような区切り記号は無視されるのでそのまま処理できる。
+    An element repeated within one sample still counts once (i.e. "number of
+    samples containing the element"). Separators such as the "|" in "Li|S" are
+    ignored by the tokenizer, so no special handling is needed.
     """
     counts = Counter()
     for comp in samples["composition"].dropna().astype(str):
@@ -359,11 +363,11 @@ def aggregate_elements(samples) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
-# 出力
+# Output
 # ---------------------------------------------------------------------------
 
 def update_history(output_dir: Path, summary: dict) -> None:
-    """スナップショットごとの主要件数を output/history.csv に upsert する。"""
+    """Upsert the snapshot's headline counts into output/history.csv."""
     history_path = output_dir / "history.csv"
     cols = ["snapshot_date", "papers", "samples", "curves", "data_points",
             "figures", "unique_dois_in_papers", "unique_compositions_in_samples"]
@@ -380,17 +384,10 @@ def update_history(output_dir: Path, summary: dict) -> None:
     hist.to_csv(history_path, index=False)
 
 
-def pad_label(label: str, width: int) -> str:
-    """全角文字を幅 2 として label を width 相当まで空白で埋める。"""
-    import unicodedata
-    w = sum(2 if unicodedata.east_asian_width(ch) in "FWA" else 1 for ch in label)
-    return label + " " * max(width - w, 0)
-
-
 def print_table(df: pd.DataFrame, n: int, title: str, show_top: bool = True) -> None:
-    """上位 n 行を整形してコンソール表示する。"""
-    suffix = f" (上位{n}件)" if show_top else ""
-    print(f"\n■ {title}{suffix}")
+    """Pretty-print the top n rows to the console."""
+    suffix = f" (top {n})" if show_top else ""
+    print(f"\n## {title}{suffix}")
     shown = df.head(n).copy()
     for col in shown.select_dtypes("number").columns:
         shown[col] = shown[col].map("{:,}".format)
@@ -398,18 +395,18 @@ def print_table(df: pd.DataFrame, n: int, title: str, show_top: bool = True) -> 
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Starrydata データセットの各種集計")
+    parser = argparse.ArgumentParser(description="Aggregate the Starrydata dataset")
     parser.add_argument(
         "--download", action="store_true",
-        help="集計前に Google Drive から最新データセットを取得する",
+        help="fetch the latest dataset from Google Drive before aggregating",
     )
     parser.add_argument(
         "--data-dir", type=Path, default=DEFAULT_DATA_DIR,
-        help=f"データセットのディレクトリ (default: {DEFAULT_DATA_DIR.name}/)",
+        help=f"dataset directory (default: {DEFAULT_DATA_DIR.name}/)",
     )
     parser.add_argument(
         "--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR,
-        help=f"集計結果の出力先 (default: {DEFAULT_OUTPUT_DIR.name}/)",
+        help=f"output directory (default: {DEFAULT_OUTPUT_DIR.name}/)",
     )
     args = parser.parse_args()
 
@@ -421,7 +418,7 @@ def main() -> None:
     papers, samples, curves = load_dataset(args.data_dir)
     snapshot = read_snapshot(args.data_dir)
 
-    # --- 集計 ---
+    # --- aggregate ---
     summary = aggregate_summary(papers, samples, curves, snapshot)
     by_project = aggregate_by_project(papers, curves)
     by_prop_y, by_prop_pair = aggregate_by_property(curves)
@@ -432,7 +429,7 @@ def main() -> None:
     elements = aggregate_elements(samples)
     info_descriptors, info_categories = aggregate_sample_info(samples)
 
-    # --- ファイル出力 ---
+    # --- write files ---
     out_dir = args.output_dir / f"snapshot_{snapshot_date(snapshot)}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -458,38 +455,38 @@ def main() -> None:
 
     update_history(args.output_dir, summary)
 
-    # --- コンソール表示 ---
+    # --- console report ---
     line = "=" * 64
-    print(f"\n{line}\n Starrydata データセット集計  (snapshot: {snapshot or '不明'})\n{line}")
-    print("\n■ 全体サマリ")
+    print(f"\n{line}\n Starrydata dataset aggregation  (snapshot: {snapshot or 'unknown'})\n{line}")
+    print("\n## Summary")
     labels = [
-        ("登録論文数", "papers"),
-        ("データあり論文数", "papers_with_data"),
-        ("サンプル数", "samples"),
-        ("カーブ数", "curves"),
-        ("データ点数", "data_points"),
-        ("図の数", "figures"),
-        ("ユニークDOI数", "unique_dois_in_papers"),
-        ("ユニーク組成数", "unique_compositions_in_samples"),
+        ("Registered papers", "papers"),
+        ("Papers with data", "papers_with_data"),
+        ("Samples", "samples"),
+        ("Curves", "curves"),
+        ("Data points", "data_points"),
+        ("Figures", "figures"),
+        ("Unique DOIs", "unique_dois_in_papers"),
+        ("Unique compositions", "unique_compositions_in_samples"),
     ]
     for label, key in labels:
-        print(f"  {pad_label(label, 16)}: {summary[key]:>12,}")
-    print(f"  {pad_label('1論文あたり', 16)}: サンプル 平均{summary['samples_per_paper_mean']} / "
-          f"カーブ 平均{summary['curves_per_paper_mean']}")
-    print(f"  {pad_label('1カーブあたり', 16)}: データ点 平均{summary['points_per_curve_mean']}")
+        print(f"  {label:<20}: {summary[key]:>12,}")
+    print(f"  {'Per paper':<20}: samples mean {summary['samples_per_paper_mean']} / "
+          f"curves mean {summary['curves_per_paper_mean']}")
+    print(f"  {'Per curve':<20}: data points mean {summary['points_per_curve_mean']}")
 
-    print_table(by_project, 14, "プロジェクト別")
-    print_table(by_prop_y, 10, "物性(prop_y)別カーブ数")
-    print_table(info_descriptors, 10, "sample_info 記入状況(descriptor別)")
+    print_table(by_project, 14, "By project")
+    print_table(by_prop_y, 10, "Curves by property (prop_y)")
+    print_table(info_descriptors, 10, "sample_info completion by descriptor")
     print_table(by_year.tail(6).reset_index(drop=True), 6,
-                "登録数の推移(直近6年、*_cum は累積)", show_top=False)
+                "Registrations by year (last 6; *_cum = cumulative)", show_top=False)
 
-    print(f"\n結果を保存しました: {out_dir}/")
-    print(f"推移の記録: {args.output_dir / 'history.csv'}")
+    print(f"\nResults saved to: {out_dir}/")
+    print(f"History: {args.output_dir / 'history.csv'}")
 
     from generate_dashboard import generate_dashboard
     dash = generate_dashboard(output_dir=args.output_dir)
-    print(f"ダッシュボード: {dash} (ブラウザで開いて閲覧)")
+    print(f"Dashboard: {dash} (open in a browser)")
 
 
 if __name__ == "__main__":

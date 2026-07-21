@@ -2,14 +2,14 @@
 # requires-python = ">=3.9"
 # dependencies = ["pandas>=1.3"]
 # ///
-"""集計結果 (output/) から単一 HTML のダッシュボードを生成する。
+"""Generate the single-file HTML dashboard from the aggregation output (output/).
 
-最新の output/snapshot_YYYY-MM-DD/ と output/history.csv を読み込み、
-dashboard_template.html にデータを埋め込んで dashboard.html を出力する。
-生成された HTML は自己完結しており、ブラウザで開くだけで閲覧できる。
+Reads the latest output/snapshot_YYYY-MM-DD/ and injects the data into
+dashboard_template.html to produce dashboard.html. The generated HTML is
+self-contained: opening it in a browser is all that is needed.
 
-使い方:
-    python generate_dashboard.py        # 通常は aggregate_stats.py から自動で呼ばれる
+Usage:
+    python generate_dashboard.py    # normally invoked automatically by aggregate_stats.py
 """
 
 import json
@@ -24,21 +24,21 @@ TEMPLATE_PATH = BASE_DIR / "dashboard_template.html"
 DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 DASHBOARD_PATH = BASE_DIR / "dashboard.html"
 
-TOP_N_DASH = 10  # ダッシュボードのランキング系チャートに表示する件数
+TOP_N_DASH = 10  # rows to expose to the dashboard's ranking charts
 
 
 def latest_snapshot_dir(output_dir: Path) -> Path:
     dirs = sorted(output_dir.glob("snapshot_*"))
     if not dirs:
-        sys.exit(f"エラー: {output_dir}/snapshot_* が見つかりません。先に aggregate_stats.py を実行してください。")
+        sys.exit(f"Error: no {output_dir}/snapshot_* directory found. Run aggregate_stats.py first.")
     return dirs[-1]
 
 
 def records(path: Path, head: int = 0) -> list:
     if not path.exists():
         sys.exit(
-            f"エラー: {path} が見つかりません。"
-            "集計 CSV が古い可能性があります。aggregate_stats.py を再実行してください。"
+            f"Error: {path} not found. "
+            "The aggregation CSVs may be outdated; re-run aggregate_stats.py."
         )
     df = pd.read_csv(path)
     if head:
@@ -56,9 +56,7 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
 
     info_cats_path = snap_dir / "sample_info_categories.csv"
     if not info_cats_path.exists():
-        sys.exit(
-            f"エラー: {info_cats_path} が見つかりません。aggregate_stats.py を再実行してください。"
-        )
+        sys.exit(f"Error: {info_cats_path} not found. Re-run aggregate_stats.py.")
     info_cats = pd.read_csv(info_cats_path)
 
     def cat_top(descriptor: str, n: int = 5, exclude: tuple = ()) -> list:
@@ -84,7 +82,7 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
     }
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    # </script> 等でスクリプトが途切れないようエスケープして埋め込む
+    # Escape "</" so the embedded JSON can never terminate the <script> element.
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     html = template.replace("/*__DATA_JSON__*/", payload, 1)
     dashboard_path.write_text(html, encoding="utf-8")
@@ -93,4 +91,4 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
 
 if __name__ == "__main__":
     path = generate_dashboard()
-    print(f"ダッシュボードを生成しました: {path}")
+    print(f"Dashboard generated: {path}")

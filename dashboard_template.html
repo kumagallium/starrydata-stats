@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Starrydata データセット ダッシュボード</title>
+<title>Starrydata Dataset Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
     --rule-kpi:   rgba(26,25,23,.1);
     --rule-strong:rgba(26,25,23,.12);
     --track:      rgba(26,25,23,.07);
-    --curves:     #b07f2e;  /* カーブ */
-    --samples:    #1c8a72;  /* サンプル */
-    --papers:     #3554a8;  /* 論文 */
+    --curves:     #b07f2e;  /* curves */
+    --samples:    #1c8a72;  /* samples */
+    --papers:     #3554a8;  /* papers */
     --hero-ink:   #f5f6ff;
     --sans: "IBM Plex Sans JP", system-ui, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -50,8 +50,17 @@
     background-size: 380px 220px;
   }
   .hero-inner { position: relative; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
-  .hero-left { max-width: 600px; }
+  .hero-left { max-width: 660px; }
   .kicker { font-family: var(--mono); font-size: 10.5px; letter-spacing: .24em; color: rgba(240,242,255,.55); margin-bottom: 16px; }
+  .lang-switch { position: absolute; top: 20px; right: 24px; font-family: var(--mono); font-size: 10.5px; display: flex; gap: 8px; align-items: baseline; z-index: 2; }
+  .lang-switch button {
+    background: none; border: none; padding: 2px 4px; cursor: pointer;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em;
+    color: rgba(240,242,255,.45); border-bottom: 1px solid transparent;
+  }
+  .lang-switch button[aria-pressed="true"] { color: #fff; border-bottom-color: rgba(255,255,255,.65); }
+  .lang-switch button:hover { color: #fff; }
+  .lang-switch .sep { color: rgba(240,242,255,.3); }
   .hero h1 { font-family: var(--sans); font-weight: 700; font-size: 34px; line-height: 1.4; margin: 0; color: var(--hero-ink); letter-spacing: .01em; }
   .lead { margin: 14px 0 0; font-size: 13px; line-height: 1.8; color: rgba(240,242,255,.6); }
   .lead .en { font-family: var(--mono); font-size: 11px; color: rgba(240,242,255,.45); }
@@ -98,7 +107,7 @@
   .yearly-col:hover { background: color-mix(in srgb, #1a1917 4%, transparent); }
   .yearly-bars { display: flex; gap: 3px; align-items: flex-end; height: 160px; }
   .yearly-bars div { width: 15px; border-radius: 2px 2px 0 0; }
-  /* ラベル高さを固定し、基線・グリッドの bottom 位置(ラベル17px + gap 8px = 25px)を確定させる */
+  /* Fixed label height keeps the baseline/grid offset (label 17px + gap 8px = 25px) deterministic */
   .yearly-col .yl { font-family: var(--mono); font-size: 10.5px; color: rgba(26,25,23,.5); height: 17px; line-height: 17px; }
   .ygrid { position: absolute; left: 0; right: 0; border-top: 1px solid var(--rule); pointer-events: none; }
   .ygrid .ylab { position: absolute; left: 0; top: -14px; font-family: var(--mono); font-size: 10px; color: var(--ink-40); font-variant-numeric: tabular-nums; }
@@ -162,7 +171,7 @@
 
   /* ---- Responsive ---- */
   @media (max-width: 1150px) {
-    /* ヒーロー数値3つ(Mono 40px)が h1 と横並びで共存できない幅では先に縦積みへ */
+    /* Stack the hero once the three Mono-40px counters can no longer share a row with the h1 */
     .hero-inner { flex-direction: column; align-items: flex-start; }
     .hero-nums { text-align: left; flex-wrap: wrap; gap: 24px; }
   }
@@ -192,17 +201,17 @@
 <div class="page">
   <header class="hero">
     <div class="hero-stars"></div>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <span class="sep">/</span>
+      <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+    </nav>
     <div class="hero-inner">
       <div class="hero-left">
         <div class="kicker" id="kicker"></div>
-        <h1>材料科学の実験データを、<br>夜空の星のように集める。</h1>
-        <p class="lead"><span id="lead-jp"></span><br><span class="en" id="lead-en"></span></p>
-        <div class="hero-links">
-          <a href="https://starrydata.org/" target="_blank" rel="noopener">プロジェクト / About · starrydata.org ↗</a>
-          <a href="https://www.starrydata2.org/" target="_blank" rel="noopener">Webアプリ / App · starrydata2.org ↗</a>
-          <a href="https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh" target="_blank" rel="noopener">データセット / Dataset (Google Drive) ↗</a>
-          <a href="https://github.com/kumagallium/starrydata-stats" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
+        <h1><span id="h1a">Materials science data,</span><br><span id="h1b">like stars in the night sky.</span></h1>
+        <p class="lead"><span id="lead-main"></span><span id="lead-sub-wrap" hidden><br><span class="en" id="lead-sub"></span></span></p>
+        <div class="hero-links" id="hero-links"></div>
       </div>
       <div class="hero-nums" id="hero-nums"></div>
     </div>
@@ -213,46 +222,42 @@
 
   <section class="sec">
     <div class="sec-head">
-      <h2>データベースの成長 <span class="sub" id="growth-range"></span></h2>
-      <div class="legend">
-        <span><span class="chip" style="background:var(--curves)"></span>カーブ</span>
-        <span><span class="chip" style="background:var(--samples)"></span>サンプル</span>
-        <span><span class="chip" style="background:var(--papers)"></span>論文</span>
-      </div>
+      <h2><span id="growth-h2">Database growth</span> <span class="sub" id="growth-range"></span></h2>
+      <div class="legend" id="legend-growth"></div>
     </div>
     <div id="chart-growth"></div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-growth"></div></details>
+    <details class="tv"><summary id="tv-growth-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-growth"></div></details>
   </section>
 
   <section class="sec">
-    <h2>年別の新規登録 <span class="sub">NEW REGISTRATIONS BY YEAR</span></h2>
+    <h2><span id="yearly-h2">New registrations by year</span> <span class="sub" id="yearly-sub"></span></h2>
     <div class="yearly-wrap" id="chart-yearly"></div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-yearly"></div></details>
+    <details class="tv"><summary id="tv-yearly-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-yearly"></div></details>
   </section>
 
   <section class="sec">
-    <h2>収録元素の多様性 <span class="sub">ELEMENT DIVERSITY</span></h2>
-    <div class="sec-note">組成(composition)に登場する元素をサンプル数で塗り分け · 濃いほど多い</div>
+    <h2><span id="elements-h2">Element diversity</span> <span class="sub" id="elements-sub"></span></h2>
+    <div class="sec-note" id="elements-note"></div>
     <div class="elements-grid">
       <div class="ptable-scroll"><div class="ptable" id="ptable"></div></div>
       <div>
         <div class="side-panel">
-          <div class="l">ユニーク組成 / Unique compositions</div>
+          <div class="l" id="uniq-comp-l">Unique compositions</div>
           <div class="v num" id="uniq-comp"></div>
           <div class="n" id="elem-count"></div>
           <div class="scale-legend">
-            <span>少</span>
+            <span id="scale-few">fewer</span>
             <span class="sw" style="background:rgba(28,138,114,.14)"></span>
             <span class="sw" style="background:rgba(28,138,114,.32)"></span>
             <span class="sw" style="background:rgba(28,138,114,.58)"></span>
             <span class="sw" style="background:#1c8a72"></span>
-            <span>多</span>
-            <span style="margin-left:6px">サンプル数</span>
+            <span id="scale-many">more</span>
+            <span style="margin-left:6px" id="scale-unit">samples</span>
           </div>
         </div>
       </div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-elements"></div></details>
+    <details class="tv"><summary id="tv-elements-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-elements"></div></details>
   </section>
 
   <section class="sec">
@@ -261,18 +266,18 @@
       <div class="rank-col" id="rank-props"></div>
       <div class="rank-col" id="rank-journals"></div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-rankings"></div></details>
+    <details class="tv"><summary id="tv-rankings-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-rankings"></div></details>
   </section>
 
   <section class="sec" style="padding-bottom:28px">
-    <h2>サンプル詳細情報 <span class="sub">SAMPLE METADATA (sample_info)</span></h2>
+    <h2><span id="info-h2">Sample metadata</span> <span class="sub" id="info-sub">sample_info</span></h2>
     <div class="rank-grid-4">
       <div class="rank-col rank-col-sm" id="info-desc"></div>
       <div class="rank-col rank-col-sm" id="info-fab"></div>
       <div class="rank-col rank-col-sm" id="info-family"></div>
       <div class="rank-col rank-col-sm" id="info-form"></div>
     </div>
-    <details class="tv"><summary>表で見る / VIEW AS TABLE</summary><div class="tv-wrap" id="table-info"></div></details>
+    <details class="tv"><summary id="tv-info-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-info"></div></details>
   </section>
 
   <footer class="foot">
@@ -292,14 +297,130 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   const D = window.DASHBOARD_DATA;
   const S = D.summary;
   const COL = { curves: "#b07f2e", samples: "#1c8a72", papers: "#3554a8" };
-  const SERIES = [
-    { key: "curves",  label: "カーブ",  color: COL.curves },
-    { key: "samples", label: "サンプル", color: COL.samples },
-    { key: "papers",  label: "論文",   color: COL.papers },
-  ];
-  const fmt = (n) => n == null ? "–" : Number(n).toLocaleString("ja-JP");
 
-  // ---- 翻訳辞書(未知の値は原文のまま表示)----
+  // ---------------------------------------------------------------------
+  // i18n
+  // ---------------------------------------------------------------------
+  const I18N = {
+    en: {
+      title: "Starrydata Dataset Dashboard",
+      h1a: "Materials science data,",
+      h1b: "like stars in the night sky.",
+      lead: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from figures in the literature. Updated daily at 6:00 JST.`,
+      linkAbout: "About · starrydata.org ↗",
+      linkApp: "Web app · starrydata2.org ↗",
+      linkDataset: "Dataset (Google Drive) ↗",
+      linkGitHub: "GitHub ↗",
+      curves: "Curves", samples: "Samples", papers: "Papers",
+      heroPapers: "Papers with data",
+      kpiDataPoints: "Data points", kpiFigures: "Figures",
+      kpiCompositions: "Unique compositions", kpiPapers: "Registered papers (total)",
+      kpiCPP: "Curves per paper (mean)", kpiSPP: "Samples per paper (mean)",
+      kpiPPC: "Data points per curve (mean)", kpiProjects: "Projects (thermoelectric, battery, magnetic, …)",
+      median: (v) => "median " + v,
+      growthH2: "Database growth",
+      yearlyH2: "New registrations by year", yearlySub: "",
+      elementsH2: "Element diversity", elementsSub: "",
+      elementsNote: "Elements appearing in sample compositions, shaded by sample count — darker means more",
+      uniqCompL: "Unique compositions",
+      elemCount: (n) => `${n} elements observed`,
+      scaleFew: "fewer", scaleMany: "more", scaleUnit: "samples",
+      colProjects: "Projects", colProps: "Properties", colJournals: "Journals",
+      metricCurves: "Curves", metricPapers: "Papers",
+      capProjects: (n, total) => `Top ${n} of ${total} projects · bars relative to list max`,
+      capProps: (n) => `By prop_y in curves.csv · top ${n}`,
+      capJournals: (n) => `Top ${n} journals by paper count`,
+      infoH2: "Sample metadata",
+      colDesc: (total) => `Completion (of ${total} samples)`,
+      capDesc: (n) => `Samples with a value per descriptor · top ${n} / bars relative to all samples`,
+      colFab: "Fabrication process", capFab: (n) => `By category · top ${n} (excl. Other)`,
+      colFamily: "Material family", capFamily: (n) => `By category · top ${n}`,
+      colForm: "Form", capForm: (n) => `By category · top ${n}`,
+      viewTable: "VIEW AS TABLE",
+      tipCumulative: (p) => `Cumulative as of ${p}`,
+      tipNewYear: (y) => `New registrations in ${y}`,
+      tipElement: (sym) => `Element ${sym}`,
+      tipFilled: "Filled", tipWithCat: "with category", tipPctAll: "% of all samples",
+      tipDataPoints: "Data points",
+      tblMonth: "Month", tblYear: "Year",
+      tblCurvesCum: "Curves (cum.)", tblSamplesCum: "Samples (cum.)", tblPapersCum: "Papers (cum.)",
+      tblCurvesNew: "Curves (new)", tblSamplesNew: "Samples (new)", tblPapersNew: "Papers (new)",
+      tblElement: "Element", tblProject: "Project", tblProperty: "Property (prop_y)",
+      tblJournal: "Journal", tblDescriptor: "Descriptor", tblCategory: "Category",
+      tblFilled: "Filled", tblWithCat: "With category",
+      capTblProjects: "Projects", capTblProps: "Properties (prop_y)", capTblJournals: "Journals",
+      capTblDesc: "Completion by descriptor", capTblFab: "Fabrication process",
+      capTblFamily: "Material family", capTblForm: "Form",
+      footGen: (d) => `generated ${d} · aggregate_stats.py`,
+    },
+    ja: {
+      title: "Starrydata データセット ダッシュボード",
+      h1a: "材料科学の実験データを、",
+      h1b: "夜空の星のように集める。",
+      lead: (mc, mp) => `論文の図から抽出した${mc}万本のカーブ、${mp}万のデータ点。毎日6:00 JSTに自動更新。`,
+      leadSub: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from the literature. Updated daily.`,
+      linkAbout: "プロジェクト / About · starrydata.org ↗",
+      linkApp: "Webアプリ / App · starrydata2.org ↗",
+      linkDataset: "データセット / Dataset (Google Drive) ↗",
+      linkGitHub: "GitHub ↗",
+      curves: "カーブ", samples: "サンプル", papers: "論文",
+      heroPapers: "論文(データあり)",
+      kpiDataPoints: "データ点数 / Data points", kpiFigures: "図の数 / Figures",
+      kpiCompositions: "ユニーク組成 / Compositions", kpiPapers: "登録論文(全体)/ Registered papers",
+      kpiCPP: "カーブ/論文(平均)", kpiSPP: "サンプル/論文(平均)",
+      kpiPPC: "データ点/カーブ(平均)", kpiProjects: "プロジェクト数(熱電・電池・磁性など)/ Projects",
+      median: (v) => "median " + v,
+      growthH2: "データベースの成長",
+      yearlyH2: "年別の新規登録", yearlySub: "NEW REGISTRATIONS BY YEAR",
+      elementsH2: "収録元素の多様性", elementsSub: "ELEMENT DIVERSITY",
+      elementsNote: "組成(composition)に登場する元素をサンプル数で塗り分け · 濃いほど多い",
+      uniqCompL: "ユニーク組成 / Unique compositions",
+      elemCount: (n) => `収録元素数 ${n} 元素 / elements observed`,
+      scaleFew: "少", scaleMany: "多", scaleUnit: "サンプル数",
+      colProjects: "プロジェクト", colProps: "物性", colJournals: "ジャーナル",
+      metricCurves: "カーブ数 / Curves", metricPapers: "論文数 / Papers",
+      capProjects: (n, total) => `全${total}プロジェクト中 上位${n} · バーは各リスト最大値比 / top ${n} of ${total}`,
+      capProps: (n) => `curves.csv の prop_y 別 · 上位${n} / by prop_y, top ${n}`,
+      capJournals: (n) => `掲載ジャーナル別 · 上位${n} / top ${n} journals`,
+      infoH2: "サンプル詳細情報",
+      colDesc: (total) => `記入状況(全${total}サンプル中)`,
+      capDesc: (n) => `descriptor別・記入ありサンプル数 · 上位${n} / バーは全サンプル比`,
+      colFab: "合成プロセス / Fabrication", capFab: (n) => `category別 · 上位${n}(Other除く)`,
+      colFamily: "材料ファミリー / Family", capFamily: (n) => `category別 · 上位${n}`,
+      colForm: "形状 / Form", capForm: (n) => `category別 · 上位${n}`,
+      viewTable: "表で見る / VIEW AS TABLE",
+      tipCumulative: (p) => `${p} 時点の累積`,
+      tipNewYear: (y) => `${y}年の新規登録`,
+      tipElement: (sym) => `元素 ${sym}`,
+      tipFilled: "記入あり", tipWithCat: "うちcategory選択", tipPctAll: "全サンプル比",
+      tipDataPoints: "データ点",
+      tblMonth: "月", tblYear: "年",
+      tblCurvesCum: "カーブ(累積)", tblSamplesCum: "サンプル(累積)", tblPapersCum: "論文(累積)",
+      tblCurvesNew: "カーブ(新規)", tblSamplesNew: "サンプル(新規)", tblPapersNew: "論文(新規)",
+      tblElement: "元素", tblProject: "プロジェクト", tblProperty: "物性 (prop_y)",
+      tblJournal: "ジャーナル", tblDescriptor: "descriptor", tblCategory: "category",
+      tblFilled: "記入あり", tblWithCat: "うちcategory選択",
+      capTblProjects: "プロジェクト", capTblProps: "物性 (prop_y)", capTblJournals: "ジャーナル",
+      capTblDesc: "記入状況(descriptor別)", capTblFab: "合成プロセス",
+      capTblFamily: "材料ファミリー", capTblForm: "形状",
+      footGen: (d) => `generated ${d} · aggregate_stats.py`,
+    },
+  };
+
+  const VALID_LANGS = ["en", "ja"];
+  let lang = new URLSearchParams(location.search).get("lang");
+  if (!VALID_LANGS.includes(lang)) {
+    try { lang = localStorage.getItem("sd_lang"); } catch (e) { lang = null; }
+  }
+  if (!VALID_LANGS.includes(lang)) lang = "en";
+
+  const t = (key, ...args) => {
+    const v = (I18N[lang] && I18N[lang][key]) ?? I18N.en[key] ?? key;
+    return typeof v === "function" ? v(...args) : v;
+  };
+  const fmt = (n) => n == null ? "–" : Number(n).toLocaleString(lang === "ja" ? "ja-JP" : "en-US");
+
+  // Japanese display names. Unknown keys fall back to the original English label.
   const PROJECT_JA = {
     ThermoelectricMaterials: "熱電材料", BatteryMaterials: "電池材料", MagneticMaterials: "磁性材料",
     DielectricMaterials: "誘電体材料", GeneralDB: "汎用DB", CondensedMatter: "凝縮系物質",
@@ -332,6 +453,16 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     Form: "Form(形状)", FabricationProcess: "FabricationProcess(合成)",
     MaterialFamily: "MaterialFamily(材料系)", Purity: "Purity(純度)",
   };
+  // In English mode show the original label; in Japanese mode show the translation
+  // with the original as a secondary tag (when a translation exists).
+  const local = (dict, key) => lang === "ja" ? (dict[key] || key) : key;
+  const localTag = (dict, key) => (lang === "ja" && dict[key]) ? key : "";
+
+  const SERIES = () => [
+    { key: "curves",  label: t("curves"),  color: COL.curves },
+    { key: "samples", label: t("samples"), color: COL.samples },
+    { key: "papers",  label: t("papers"),  color: COL.papers },
+  ];
 
   const el = (tag, cls, text) => {
     const e = document.createElement(tag);
@@ -349,8 +480,8 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= rough) return m * p;
     return 10 * p;
   }
-  const kFmt = (v) => v >= 1e6 ? (v / 1e6).toLocaleString("ja-JP", { maximumFractionDigits: 1 }) + "M"
-                               : (v / 1e3).toLocaleString("ja-JP", { maximumFractionDigits: 0 }) + "k";
+  const kFmt = (v) => v >= 1e6 ? (v / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 }) + "M"
+                               : (v / 1e3).toLocaleString("en-US", { maximumFractionDigits: 0 }) + "k";
 
   // ---- tooltip ----
   const tip = document.getElementById("tooltip");
@@ -400,59 +531,108 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     box.appendChild(holder);
   }
 
-  // ---- Hero ----
-  const snapDate = (D.snapshot.match(/\d{4}-\d{2}-\d{2}/) || [""])[0];
-  document.getElementById("kicker").textContent =
-    "STARRYDATA — DATASET DASHBOARD · SNAPSHOT " + snapDate + " JST";
-  const manC = Math.round(S.curves / 1e4), manP = Math.round(S.data_points / 1e4);
-  document.getElementById("lead-jp").textContent =
-    `論文の図から抽出した${manC}万本のカーブ、${manP}万のデータ点。毎日6:00 JSTに自動更新。`;
-  document.getElementById("lead-en").textContent =
-    `${Math.round(S.curves / 1e3)}k curves and ${(S.data_points / 1e6).toFixed(1)}M data points, digitized from the literature. Updated daily.`;
-  const heroBox = document.getElementById("hero-nums");
-  for (const [v, l] of [[S.curves, "カーブ / Curves"], [S.samples, "サンプル / Samples"], [S.papers_with_data, "論文 / Papers"]]) {
-    const d = el("div", "hero-num");
-    d.appendChild(el("div", "v", fmt(v)));
-    d.appendChild(el("div", "l", l));
-    heroBox.appendChild(d);
-  }
-
-  // ---- KPI strips ----
-  const kpi = (box, v, label, median) => {
-    const d = el("div", "kpi");
-    const vd = el("div", "v", v);
-    if (median != null) {
-      vd.appendChild(document.createTextNode(" "));
-      vd.appendChild(el("span", "median", "median " + median));
-    }
-    d.appendChild(vd);
-    d.appendChild(el("div", "l", label));
-    box.appendChild(d);
-  };
-  const k1 = document.getElementById("kpi1");
-  kpi(k1, fmt(S.data_points), "データ点数 / Data points");
-  kpi(k1, fmt(S.figures), "図の数 / Figures");
-  kpi(k1, fmt(S.unique_compositions_in_samples), "ユニーク組成 / Compositions");
-  kpi(k1, fmt(S.papers), "登録論文(全体)/ Registered papers");
-  const f1 = (v) => (Math.round(Number(v) * 10 + 1e-9) / 10).toFixed(1);
-  const k2 = document.getElementById("kpi2");
-  kpi(k2, f1(S.curves_per_paper_mean), "カーブ/論文(平均)", fmt(S.curves_per_paper_median));
-  kpi(k2, f1(S.samples_per_paper_mean), "サンプル/論文(平均)", fmt(S.samples_per_paper_median));
-  kpi(k2, f1(S.points_per_curve_mean), "データ点/カーブ(平均)");
-  kpi(k2, String(D.by_project.length), "プロジェクト数(熱電・電池・磁性など)/ Projects");
-
-  // セクション単位の安全網: 1セクションの例外で後続セクションを道連れにしない
+  // Guard each section so one failure cannot blank the rest of the page.
   const safe = (fn) => { try { fn(); } catch (e) { console.error("dashboard section error:", e); } };
 
-  // ---- Growth chart(累積ライン)----
-  safe(function () {
+  const setText = (id, text) => { document.getElementById(id).textContent = text; };
+  const clear = (id) => { document.getElementById(id).textContent = ""; };
+
+  // ---------------------------------------------------------------------
+  // Sections
+  // ---------------------------------------------------------------------
+  function renderHero() {
+    const snapDate = (D.snapshot.match(/\d{4}-\d{2}-\d{2}/) || [""])[0];
+    setText("kicker", "STARRYDATA — DATASET DASHBOARD · SNAPSHOT " + snapDate + " JST");
+    setText("h1a", t("h1a"));
+    setText("h1b", t("h1b"));
+    const ck = Math.round(S.curves / 1e3), mp = (S.data_points / 1e6).toFixed(1);
+    if (lang === "ja") {
+      setText("lead-main", t("lead", Math.round(S.curves / 1e4), Math.round(S.data_points / 1e4)));
+      setText("lead-sub", t("leadSub", ck, mp));
+      document.getElementById("lead-sub-wrap").hidden = false;
+    } else {
+      setText("lead-main", t("lead", ck, mp));
+      document.getElementById("lead-sub-wrap").hidden = true;
+    }
+    const links = document.getElementById("hero-links");
+    links.textContent = "";
+    for (const [key, href] of [
+      ["linkAbout", "https://starrydata.org/"],
+      ["linkApp", "https://www.starrydata2.org/"],
+      ["linkDataset", "https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"],
+      ["linkGitHub", "https://github.com/kumagallium/starrydata-stats"],
+    ]) {
+      const a = el("a", null, t(key));
+      a.href = href; a.target = "_blank"; a.rel = "noopener";
+      links.appendChild(a);
+    }
+    const heroBox = document.getElementById("hero-nums");
+    heroBox.textContent = "";
+    const heroLabel = (key) => lang === "ja" ? `${t(key)} / ${I18N.en[key]}` : I18N.en[key];
+    for (const [v, label] of [
+      [S.curves, heroLabel("curves")],
+      [S.samples, heroLabel("samples")],
+      [S.papers_with_data, lang === "ja" ? t("heroPapers") : t("heroPapers")],
+    ]) {
+      const d = el("div", "hero-num");
+      d.appendChild(el("div", "v", fmt(v)));
+      d.appendChild(el("div", "l", label));
+      heroBox.appendChild(d);
+    }
+  }
+
+  function renderKPIs() {
+    const kpi = (box, v, label, median) => {
+      const d = el("div", "kpi");
+      const vd = el("div", "v", v);
+      if (median != null) {
+        vd.appendChild(document.createTextNode(" "));
+        vd.appendChild(el("span", "median", t("median", median)));
+      }
+      d.appendChild(vd);
+      d.appendChild(el("div", "l", label));
+      box.appendChild(d);
+    };
+    const f1 = (v) => (Math.round(Number(v) * 10 + 1e-9) / 10).toFixed(1);
+    const k1 = document.getElementById("kpi1");
+    k1.textContent = "";
+    kpi(k1, fmt(S.data_points), t("kpiDataPoints"));
+    kpi(k1, fmt(S.figures), t("kpiFigures"));
+    kpi(k1, fmt(S.unique_compositions_in_samples), t("kpiCompositions"));
+    kpi(k1, fmt(S.papers), t("kpiPapers"));
+    const k2 = document.getElementById("kpi2");
+    k2.textContent = "";
+    kpi(k2, f1(S.curves_per_paper_mean), t("kpiCPP"), fmt(S.curves_per_paper_median));
+    kpi(k2, f1(S.samples_per_paper_mean), t("kpiSPP"), fmt(S.samples_per_paper_median));
+    kpi(k2, f1(S.points_per_curve_mean), t("kpiPPC"));
+    kpi(k2, String(D.by_project.length), t("kpiProjects"));
+  }
+
+  function renderLegend(mountId) {
+    const box = document.getElementById(mountId);
+    box.textContent = "";
+    for (const s of SERIES()) {
+      const item = el("span");
+      const chip = el("span", "chip");
+      chip.style.background = s.color;
+      item.appendChild(chip);
+      item.appendChild(el("span", null, s.label));
+      box.appendChild(item);
+    }
+  }
+
+  function renderGrowth() {
     const rows = D.monthly;
+    setText("growth-h2", t("growthH2"));
+    setText("tv-growth-s", t("viewTable"));
+    clear("chart-growth"); clear("table-growth");
+    renderLegend("legend-growth");
     if (!rows.length) return;
     const y0 = rows[0].period.slice(0, 4), y1 = rows[rows.length - 1].period.slice(0, 4);
-    document.getElementById("growth-range").textContent = `CUMULATIVE ${y0}–${y1}`;
+    setText("growth-range", `CUMULATIVE ${y0}–${y1}`);
 
-    const W = 990, H = 296, PW = 860, T = 8, PH = 254, BASE = T + PH; // = 262
-    const series = SERIES.map(s => ({ ...s, key: s.key + "_cum" }));
+    const W = 990, H = 296, PW = 860, T = 8, PH = 254, BASE = T + PH;
+    const series = SERIES().map(s => ({ ...s, key: s.key + "_cum" }));
     const maxV = Math.max(...series.map(s => Math.max(...rows.map(r => +r[s.key] || 0))));
     const step = niceStep(maxV / 3);
     const yMax = Math.ceil(maxV / step) * step;
@@ -462,16 +642,16 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, class: "growth-svg", role: "img" });
     for (let v = step; v <= yMax; v += step) {
       svg.appendChild(svgEl("line", { x1: 0, x2: PW, y1: Y(v), y2: Y(v), stroke: "rgba(26,25,23,0.08)" }));
-      const t = svgEl("text", { x: 0, y: Y(v) - 7, fill: "rgba(26,25,23,0.4)", "font-size": 10 });
-      t.textContent = kFmt(v);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: 0, y: Y(v) - 7, fill: "rgba(26,25,23,0.4)", "font-size": 10 });
+      tk.textContent = kFmt(v);
+      svg.appendChild(tk);
     }
     svg.appendChild(svgEl("line", { x1: 0, x2: PW, y1: BASE, y2: BASE, stroke: "rgba(26,25,23,0.3)" }));
     rows.forEach((r, i) => {
       if (!r.period.endsWith("-01")) return;
-      const t = svgEl("text", { x: X(i).toFixed(1), y: 284, "text-anchor": "middle", fill: "rgba(26,25,23,0.4)", "font-size": 10.5 });
-      t.textContent = r.period.slice(0, 4);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: X(i).toFixed(1), y: 284, "text-anchor": "middle", fill: "rgba(26,25,23,0.4)", "font-size": 10.5 });
+      tk.textContent = r.period.slice(0, 4);
+      svg.appendChild(tk);
     });
     for (const s of series) {
       const d = rows.map((r, i) => (i ? "L" : "M") + X(i).toFixed(1) + "," + Y(+r[s.key] || 0).toFixed(1)).join("");
@@ -481,15 +661,14 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       }));
     }
     const last = rows[rows.length - 1];
-    const lastX = X(rows.length - 1); // データが1点でも実データ位置に描く(N>=2 では PW と一致)
+    const lastX = X(rows.length - 1); // with a single point, draw at the actual data x (equals PW when N>=2)
     for (const s of series) {
       const y = Y(+last[s.key] || 0);
       svg.appendChild(svgEl("circle", { cx: lastX, cy: y.toFixed(1), r: 4, fill: s.color, stroke: "#faf7f1", "stroke-width": 2 }));
-      const t = svgEl("text", { x: lastX + 12, y: (y + 4).toFixed(1), fill: s.color, "font-size": 12, "font-weight": 600 });
-      t.textContent = fmt(+last[s.key] || 0);
-      svg.appendChild(t);
+      const tk = svgEl("text", { x: lastX + 12, y: (y + 4).toFixed(1), fill: s.color, "font-size": 12, "font-weight": 600 });
+      tk.textContent = fmt(+last[s.key] || 0);
+      svg.appendChild(tk);
     }
-    // hover: クロスヘア + 各系列ドット + ツールチップ
     const cross = svgEl("line", { y1: T, y2: BASE, stroke: "rgba(26,25,23,0.3)", visibility: "hidden" });
     svg.appendChild(cross);
     const dots = series.map(s => {
@@ -511,7 +690,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
         dots[k].setAttribute("cy", Y(+rows[i][s.key] || 0));
         dots[k].setAttribute("visibility", "visible");
       });
-      showTip(ev.clientX, ev.clientY, rows[i].period + " 時点の累積",
+      showTip(ev.clientX, ev.clientY, t("tipCumulative", rows[i].period),
         series.map(s => ({ name: s.label, value: fmt(+rows[i][s.key] || 0), color: s.color })));
     });
     hit.addEventListener("pointerleave", () => {
@@ -523,17 +702,20 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     document.getElementById("chart-growth").appendChild(svg);
 
     renderTable("table-growth", null,
-      [{ key: "period", label: "月" },
-       { key: "curves_cum", label: "カーブ(累積)", num: true }, { key: "samples_cum", label: "サンプル(累積)", num: true },
-       { key: "papers_cum", label: "論文(累積)", num: true },
-       { key: "curves", label: "カーブ(新規)", num: true }, { key: "samples", label: "サンプル(新規)", num: true },
-       { key: "papers", label: "論文(新規)", num: true }],
+      [{ key: "period", label: t("tblMonth") },
+       { key: "curves_cum", label: t("tblCurvesCum"), num: true }, { key: "samples_cum", label: t("tblSamplesCum"), num: true },
+       { key: "papers_cum", label: t("tblPapersCum"), num: true },
+       { key: "curves", label: t("tblCurvesNew"), num: true }, { key: "samples", label: t("tblSamplesNew"), num: true },
+       { key: "papers", label: t("tblPapersNew"), num: true }],
       [...rows].reverse());
-  });
+  }
 
-  // ---- Yearly bars ----
-  safe(function () {
+  function renderYearly() {
     const rows = D.yearly;
+    setText("yearly-h2", t("yearlyH2"));
+    setText("yearly-sub", t("yearlySub"));
+    setText("tv-yearly-s", t("viewTable"));
+    clear("chart-yearly"); clear("table-yearly");
     if (!rows.length) return;
     const maxV = Math.max(...rows.map(r => Math.max(+r.curves || 0, +r.samples || 0, +r.papers || 0)));
     const step = niceStep(maxV / 2);
@@ -541,7 +723,6 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     const bh = (v) => Math.max(v > 0 ? 2 : 0, Math.round(v / yMax * 160));
     const wrap = document.getElementById("chart-yearly");
     const inner = el("div", "yearly-inner");
-    // y軸グリッド(基線より先に追加し、バーの背面に敷く)
     for (let v = step; v <= yMax; v += step) {
       const g = el("div", "ygrid");
       g.style.bottom = (25 + v / yMax * 160) + "px";
@@ -552,7 +733,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     for (const r of rows) {
       const col = el("div", "yearly-col");
       const bars = el("div", "yearly-bars");
-      for (const s of SERIES) {
+      for (const s of SERIES()) {
         const b = el("div");
         b.style.height = bh(+r[s.key] || 0) + "px";
         b.style.background = s.color;
@@ -561,8 +742,8 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       col.appendChild(bars);
       col.appendChild(el("div", "yl", r.period));
       col.addEventListener("pointermove", (ev) =>
-        showTip(ev.clientX, ev.clientY, r.period + "年の新規登録",
-          SERIES.map(s => ({ name: s.label, value: fmt(+r[s.key] || 0), color: s.color }))));
+        showTip(ev.clientX, ev.clientY, t("tipNewYear", r.period),
+          SERIES().map(s => ({ name: s.label, value: fmt(+r[s.key] || 0), color: s.color }))));
       col.addEventListener("pointerleave", hideTip);
       row.appendChild(col);
     }
@@ -571,15 +752,23 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     wrap.appendChild(inner);
 
     renderTable("table-yearly", null,
-      [{ key: "period", label: "年" },
-       { key: "curves", label: "カーブ", num: true }, { key: "samples", label: "サンプル", num: true },
-       { key: "papers", label: "論文", num: true }],
+      [{ key: "period", label: t("tblYear") },
+       { key: "curves", label: t("curves"), num: true }, { key: "samples", label: t("samples"), num: true },
+       { key: "papers", label: t("papers"), num: true }],
       [...rows].reverse());
-  });
+  }
 
-  // ---- Periodic table ----
-  safe(function () {
-    const ELEM_JA = null; // 元素名ツールチップは記号+サンプル数のみ
+  function renderElements() {
+    setText("elements-h2", t("elementsH2"));
+    setText("elements-sub", t("elementsSub"));
+    setText("elements-note", t("elementsNote"));
+    setText("uniq-comp-l", t("uniqCompL"));
+    setText("scale-few", t("scaleFew"));
+    setText("scale-many", t("scaleMany"));
+    setText("scale-unit", t("scaleUnit"));
+    setText("tv-elements-s", t("viewTable"));
+    clear("ptable"); clear("table-elements");
+
     const L = (syms, row, startCol) => syms.split(" ").map((s, i) => ({ sym: s, row, col: startCol + i }));
     const els = [
       { sym: "H", row: 1, col: 1 }, { sym: "He", row: 1, col: 18 },
@@ -593,7 +782,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       ...L("Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr", 10, 3),
     ];
     const counts = new Map(D.elements.map(e => [e.element, +e.samples]));
-    // log スケールの四分位で 4 段階に塗り分け
+    // Four shades split by log-scale quartiles of the observed counts.
     const logs = D.elements.map(e => Math.log(+e.samples)).sort((a, b) => a - b);
     const q = (p) => logs.length ? logs[Math.min(logs.length - 1, Math.floor(p * logs.length))] : 0;
     const q1 = q(0.25), q2 = q(0.5), q3 = q(0.75);
@@ -608,31 +797,31 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     }
     for (const e of els) {
       const n = counts.get(e.sym) || 0;
-      const t = tier(n);
+      const tr = tier(n);
       const c = el("div", "pcell", e.sym);
       c.style.gridRow = e.row; c.style.gridColumn = e.col;
-      c.style.background = BG[t];
-      c.style.color = t >= 3 ? "#fff" : t === 0 ? "rgba(26,25,23,.3)" : "#1a1917";
+      c.style.background = BG[tr];
+      c.style.color = tr >= 3 ? "#fff" : tr === 0 ? "rgba(26,25,23,.3)" : "#1a1917";
       c.addEventListener("pointermove", (ev) =>
-        showTip(ev.clientX, ev.clientY, "元素 " + e.sym,
-          [{ name: "サンプル", value: fmt(n), color: COL.samples }]));
+        showTip(ev.clientX, ev.clientY, t("tipElement", e.sym),
+          [{ name: t("samples"), value: fmt(n), color: COL.samples }]));
       c.addEventListener("pointerleave", hideTip);
       grid.appendChild(c);
     }
-    document.getElementById("uniq-comp").textContent = fmt(S.unique_compositions_in_samples);
-    document.getElementById("elem-count").textContent = "収録元素数 " + D.elements.length + " 元素 / elements observed";
+    setText("uniq-comp", fmt(S.unique_compositions_in_samples));
+    setText("elem-count", t("elemCount", D.elements.length));
 
     renderTable("table-elements", null,
-      [{ key: "element", label: "元素" }, { key: "samples", label: "サンプル", num: true }],
+      [{ key: "element", label: t("tblElement") }, { key: "samples", label: t("samples"), num: true }],
       D.elements);
-  });
+  }
 
-  // ---- Ranking columns ----
   function rankCol(mount, cfg) {
     const box = document.getElementById(mount);
+    box.textContent = "";
     if (cfg.title) {
       const h3 = el("h3", null, cfg.title + " ");
-      h3.appendChild(el("span", "metric", cfg.metric));
+      if (cfg.metric) h3.appendChild(el("span", "metric", cfg.metric));
       box.appendChild(h3);
     }
     if (cfg.cap) box.appendChild(el("div", "cap", cfg.cap));
@@ -642,11 +831,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       const rowEl = el("div", "rank-row");
       const l1 = el("div", "line1");
       const name = el("span", "name");
-      const jp = cfg.labelFn(r);
-      name.appendChild(document.createTextNode(jp.jp));
-      if (jp.en) {
+      const label = cfg.labelFn(r);
+      name.appendChild(document.createTextNode(label.jp));
+      if (label.en) {
         name.appendChild(document.createTextNode(" "));
-        name.appendChild(el("span", "en", jp.en));
+        name.appendChild(el("span", "en", label.en));
       }
       l1.appendChild(name);
       l1.appendChild(el("span", "val", fmt(v)));
@@ -659,109 +848,138 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       rowEl.appendChild(track);
       if (cfg.tipRows) {
         rowEl.addEventListener("pointermove", (ev) =>
-          showTip(ev.clientX, ev.clientY, jp.tipTitle || (jp.jp + (jp.en ? " · " + jp.en : "")), cfg.tipRows(r)));
+          showTip(ev.clientX, ev.clientY, label.tipTitle || (label.jp + (label.en ? " · " + label.en : "")), cfg.tipRows(r)));
         rowEl.addEventListener("pointerleave", hideTip);
       }
       box.appendChild(rowEl);
     }
   }
 
-  const projRows = D.by_project.slice(0, 8);
-  rankCol("rank-projects", {
-    title: "プロジェクト", metric: "カーブ数 / Curves",
-    cap: `全${D.by_project.length}プロジェクト中 上位${projRows.length} · バーは各リスト最大値比 / top ${projRows.length} of ${D.by_project.length}`,
-    rows: projRows, valueKey: "curves", color: COL.curves,
-    labelFn: (r) => ({ jp: PROJECT_JA[r.project] || r.project, en: PROJECT_JA[r.project] ? r.project : "" }),
-    tipRows: (r) => [
-      { name: "カーブ", value: fmt(r.curves), color: COL.curves },
-      { name: "論文", value: fmt(r.papers), color: COL.papers },
-      { name: "データ点", value: fmt(r.data_points) },
-    ],
-  });
-  const propRows = D.by_property.slice(0, 8);
-  rankCol("rank-props", {
-    title: "物性", metric: "カーブ数 / Curves",
-    cap: `curves.csv の prop_y 別 · 上位${propRows.length} / by prop_y, top ${propRows.length}`,
-    rows: propRows, valueKey: "curves", color: COL.curves,
-    labelFn: (r) => ({ jp: PROP_JA[r.prop_y] || r.prop_y, en: "", tipTitle: r.prop_y }),
-    tipRows: (r) => [
-      { name: "カーブ", value: fmt(r.curves), color: COL.curves },
-      { name: "データ点", value: fmt(r.data_points) },
-    ],
-  });
-  const journalRows = D.journals.slice(0, 8);
-  rankCol("rank-journals", {
-    title: "ジャーナル", metric: "論文数 / Papers",
-    cap: `掲載ジャーナル別 · 上位${journalRows.length} / top ${journalRows.length} journals`,
-    rows: journalRows, valueKey: "papers", color: COL.papers,
-    labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
-    tipRows: (r) => [{ name: "論文", value: fmt(r.papers), color: COL.papers }],
-  });
-  safe(function () {
+  function renderRankings() {
+    setText("tv-rankings-s", t("viewTable"));
+    clear("table-rankings");
+    const projRows = D.by_project.slice(0, 8);
+    rankCol("rank-projects", {
+      title: t("colProjects"), metric: t("metricCurves"),
+      cap: t("capProjects", projRows.length, D.by_project.length),
+      rows: projRows, valueKey: "curves", color: COL.curves,
+      labelFn: (r) => ({ jp: local(PROJECT_JA, r.project), en: localTag(PROJECT_JA, r.project) }),
+      tipRows: (r) => [
+        { name: t("curves"), value: fmt(r.curves), color: COL.curves },
+        { name: t("papers"), value: fmt(r.papers), color: COL.papers },
+        { name: t("tipDataPoints"), value: fmt(r.data_points) },
+      ],
+    });
+    const propRows = D.by_property.slice(0, 8);
+    rankCol("rank-props", {
+      title: t("colProps"), metric: t("metricCurves"),
+      cap: t("capProps", propRows.length),
+      rows: propRows, valueKey: "curves", color: COL.curves,
+      labelFn: (r) => ({ jp: local(PROP_JA, r.prop_y), en: "", tipTitle: r.prop_y }),
+      tipRows: (r) => [
+        { name: t("curves"), value: fmt(r.curves), color: COL.curves },
+        { name: t("tipDataPoints"), value: fmt(r.data_points) },
+      ],
+    });
+    const journalRows = D.journals.slice(0, 8);
+    rankCol("rank-journals", {
+      title: t("colJournals"), metric: t("metricPapers"),
+      cap: t("capJournals", journalRows.length),
+      rows: journalRows, valueKey: "papers", color: COL.papers,
+      labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
+      tipRows: (r) => [{ name: t("papers"), value: fmt(r.papers), color: COL.papers }],
+    });
     const box = document.getElementById("table-rankings");
-    renderTable(box, "プロジェクト",
-      [{ label: "プロジェクト", get: r => (PROJECT_JA[r.project] ? PROJECT_JA[r.project] + " " : "") + r.project },
-       { key: "curves", label: "カーブ", num: true }, { key: "papers", label: "論文", num: true },
-       { key: "data_points", label: "データ点", num: true }],
+    renderTable(box, t("capTblProjects"),
+      [{ label: t("tblProject"), get: r => (lang === "ja" && PROJECT_JA[r.project] ? PROJECT_JA[r.project] + " " : "") + r.project },
+       { key: "curves", label: t("curves"), num: true }, { key: "papers", label: t("papers"), num: true },
+       { key: "data_points", label: t("tipDataPoints"), num: true }],
       D.by_project);
-    renderTable(box, "物性 (prop_y)",
-      [{ key: "prop_y", label: "物性" }, { key: "curves", label: "カーブ", num: true },
-       { key: "data_points", label: "データ点", num: true }],
+    renderTable(box, t("capTblProps"),
+      [{ key: "prop_y", label: t("tblProperty") }, { key: "curves", label: t("curves"), num: true },
+       { key: "data_points", label: t("tipDataPoints"), num: true }],
       D.by_property);
-    renderTable(box, "ジャーナル",
-      [{ key: "journal", label: "ジャーナル" }, { key: "papers", label: "論文", num: true }],
+    renderTable(box, t("capTblJournals"),
+      [{ key: "journal", label: t("tblJournal") }, { key: "papers", label: t("papers"), num: true }],
       D.journals);
-  });
+  }
 
-  // ---- sample_info columns ----
-  const descRows = D.sample_info_descriptors.slice(0, 6);
-  rankCol("info-desc", {
-    title: `記入状況(全${fmt(S.samples)}サンプル中)`, metric: "",
-    cap: `descriptor別・記入ありサンプル数 · 上位${descRows.length} / バーは全サンプル比`,
-    rows: descRows, valueKey: "samples_filled", color: COL.samples,
-    maxOverride: S.samples,
-    labelFn: (r) => ({ jp: DESC_JA[r.descriptor] || r.descriptor, en: "", tipTitle: r.descriptor }),
-    tipRows: (r) => [
-      { name: "記入あり", value: fmt(r.samples_filled), color: COL.samples },
-      { name: "うちcategory選択", value: fmt(r.samples_with_category) },
-      { name: "全サンプル比", value: (r.samples_filled / S.samples * 100).toFixed(1) + "%" },
-    ],
-  });
-  rankCol("info-fab", {
-    title: "合成プロセス / Fabrication", metric: "",
-    cap: `category別 · 上位${D.fabrication.length}(Other除く)`,
-    rows: D.fabrication, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FAB_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  rankCol("info-family", {
-    title: "材料ファミリー / Family", metric: "",
-    cap: `category別 · 上位${D.material_family.length}`,
-    rows: D.material_family, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FAMILY_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  rankCol("info-form", {
-    title: "形状 / Form", metric: "",
-    cap: `category別 · 上位${D.form.length}`,
-    rows: D.form, valueKey: "samples", color: COL.samples,
-    labelFn: (r) => ({ jp: FORM_JA[r.category] || r.category, en: "", tipTitle: r.category }),
-    tipRows: (r) => [{ name: "サンプル", value: fmt(r.samples), color: COL.samples }],
-  });
-  safe(function () {
+  function renderSampleInfo() {
+    setText("info-h2", t("infoH2"));
+    setText("tv-info-s", t("viewTable"));
+    clear("table-info");
+    const descRows = D.sample_info_descriptors.slice(0, 6);
+    rankCol("info-desc", {
+      title: t("colDesc", fmt(S.samples)), metric: "",
+      cap: t("capDesc", descRows.length),
+      rows: descRows, valueKey: "samples_filled", color: COL.samples,
+      maxOverride: S.samples,
+      labelFn: (r) => ({ jp: local(DESC_JA, r.descriptor), en: "", tipTitle: r.descriptor }),
+      tipRows: (r) => [
+        { name: t("tipFilled"), value: fmt(r.samples_filled), color: COL.samples },
+        { name: t("tipWithCat"), value: fmt(r.samples_with_category) },
+        { name: t("tipPctAll"), value: (r.samples_filled / S.samples * 100).toFixed(1) + "%" },
+      ],
+    });
+    rankCol("info-fab", {
+      title: t("colFab"), metric: "",
+      cap: t("capFab", D.fabrication.length),
+      rows: D.fabrication, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FAB_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
+    rankCol("info-family", {
+      title: t("colFamily"), metric: "",
+      cap: t("capFamily", D.material_family.length),
+      rows: D.material_family, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FAMILY_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
+    rankCol("info-form", {
+      title: t("colForm"), metric: "",
+      cap: t("capForm", D.form.length),
+      rows: D.form, valueKey: "samples", color: COL.samples,
+      labelFn: (r) => ({ jp: local(FORM_JA, r.category), en: "", tipTitle: r.category }),
+      tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
+    });
     const box = document.getElementById("table-info");
-    renderTable(box, "記入状況(descriptor別)",
-      [{ key: "descriptor", label: "descriptor" },
-       { key: "samples_filled", label: "記入あり", num: true },
-       { key: "samples_with_category", label: "うちcategory選択", num: true }],
+    renderTable(box, t("capTblDesc"),
+      [{ key: "descriptor", label: t("tblDescriptor") },
+       { key: "samples_filled", label: t("tblFilled"), num: true },
+       { key: "samples_with_category", label: t("tblWithCat"), num: true }],
       D.sample_info_descriptors);
-    renderTable(box, "合成プロセス", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.fabrication);
-    renderTable(box, "材料ファミリー", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.material_family);
-    renderTable(box, "形状", [{ key: "category", label: "category" }, { key: "samples", label: "サンプル", num: true }], D.form);
-  });
+    renderTable(box, t("capTblFab"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.fabrication);
+    renderTable(box, t("capTblFamily"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.material_family);
+    renderTable(box, t("capTblForm"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.form);
+  }
 
-  document.getElementById("foot-gen").textContent =
-    "generated " + D.generated_at + " · aggregate_stats.py";
+  // ---------------------------------------------------------------------
+  // Render + language switching
+  // ---------------------------------------------------------------------
+  function renderAll() {
+    document.documentElement.lang = lang;
+    document.title = t("title");
+    safe(renderHero);
+    safe(renderKPIs);
+    safe(renderGrowth);
+    safe(renderYearly);
+    safe(renderElements);
+    safe(renderRankings);
+    safe(renderSampleInfo);
+    setText("foot-gen", t("footGen", D.generated_at));
+    document.querySelectorAll(".lang-switch button").forEach(b =>
+      b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  }
+
+  document.querySelectorAll(".lang-switch button").forEach(b =>
+    b.addEventListener("click", () => {
+      if (b.dataset.lang === lang) return;
+      lang = b.dataset.lang;
+      try { localStorage.setItem("sd_lang", lang); } catch (e) { /* private mode */ }
+      renderAll();
+    }));
+
+  renderAll();
 })();
 </script>
 </body>
