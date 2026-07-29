@@ -1,0 +1,170 @@
+prop_y,curves,data_points
+Seebeck coefficient,37638,724961
+Thermal conductivity,25575,394051
+Voltage,23652,491281
+Electrical resistivity,23023,565523
+Electrical conductivity,21360,330560
+ZT,20721,286007
+Power factor,17494,253322
+magnetization_per_weight,13767,446926
+Dielectric permittivity (ε’),9997,340043
+Discharge capacity,9796,258231
+Lattice thermal conductivity,6763,91303
+Dielectric loss (tanδ),5298,163089
+Carrier concentration,2031,27484
+log(Electrical conductivity),1989,34779
+magnetization_per_volume,1564,54763
+Magnetization,1511,53142
+Carrier mobility,1355,15489
+Coulombic efficiency,958,35919
+Hall coefficient,713,14936
+Electronic thermal conductivity,653,8079
+Dielectric loss (unknown),607,19139
+thermopower,559,17111
+Figure of merit Z,501,6019
+Hall mobility,487,6970
+Magnetic susceptibility_per_weight,449,14079
+polarization,438,22435
+Dielectric loss (ε’’),423,13890
+Current density,402,18726
+Strain,337,19130
+Temperature Coefficient of Resistivity,319,658
+absorbance,202,4805
+log(Electrical resistivity),190,3984
+magnetic susceptibility,172,5134
+Discharge capacity (based on sulfur weight),165,5220
+ln(Electrical resistivity),157,2930
+total thermal conductivity,149,1965
+ln(Electrical conductivity),148,2501
+Specific heat,148,4152
+Log(row),136,2970
+lnσT,121,1145
+logσT,113,1169
+Carrier thermal conductivity,102,1454
+electron thermal conductivity,99,1665
+Thermal diffusivity,88,971
+Cp,80,1792
+Magnetic susceptibility_per mol,76,1684
+Electric current,72,3163
+S,72,2390
+Magnetic Moment,71,2407
+Resistance,64,2644
+Coercivity Field,61,679
+Hysteresis,59,1242
+-,56,40
+Thermopower,54,718
+Displacement,49,3126
+magnetization_Wb*m/kg,42,1443
+Inverse magnetic susceptibility,41,1270
+Specific heat_K,40,814
+Figure of merit,40,519
+Lattice contribution,35,486
+Magnetic field,32,618
+phonon thermal conductance,31,589
+Electronic contribution,27,1016
+Temperature,27,549
+Specific heat capacity,26,1478
+inverse magnetic susceptibility_mol,26,674
+surface resistance,24,320
+log(sigma),23,492
+Mobility,22,229
+hall density,20,192
+RH,20,768
+Specific heat capacity (J/gK),19,138
+Thermoelectric power,19,620
+Effective thermal conductivity,17,220
+Seebeck  coefficient,16,139
+Electrical thermal conductivity,16,181
+Conductivity,16,130
+magnetization_per_mol,15,553
+Mass susceptibility,15,400
+Density,14,55
+Thermoelectric voltage,14,679
+Resistivity,14,343
+dc magnetization(mass),13,373
+Lattice+bipolar thermal conductivity,12,84
+Magnetic susceptibility_volume,12,406
+Liquid state thermal conductivity,10,60
+Hall concentration,10,88
+Discharge capacity (based on cathode weight),10,229
+Current,9,328
+ln(T/ρ),9,58
+TEP,9,266
+ln σ,9,140
+S/L0T,9,251
+Max Efficiency,9,104
+Electro Motive Force,9,132
+Specific heat capacity_K^(-2),9,330
+Open circuit voltage,8,327
+delta T,8,310
+Magnetic Susceptibility per weight,7,235
+normalized absorbance,6,205
+Calculated Seebeck coefficient,6,36
+Contact resistivity,6,104
+σT,6,124
+phonon contribution,6,54
+Electrical conductivity0,5,110
+Lorenz values,5,51
+Lorenz number,5,79
+Micro Volts,5,49
+Saturation Magnetization,5,279
+Nernst coefficient,5,55
+luminescence intensity,5,315
+σ/τ,4,0
+ρ,4,28
+hierarchy of energies of cluster models,4,0
+Fermi energy,4,73
+minority carrier concentration,4,20
+Magnetic Susceptibility_metre_weight,4,153
+Magnetic field strength (H),4,103
+Magnetic susceptibility_volume_weight,4,250
+Figure of merit Zt,4,141
+K,4,110
+majority carrier concentration,4,20
+yield (%),4,15
+magnetoresistance,4,73
+T^(-1),4,48
+Surface Conductivity,3,132
+Specific Heat K^2,3,21
+"A, |T|, |R|",3,96
+Conversion Voltage,3,58
+-log(T+R),3,65
+Phonon transmission function,3,407
+Magnetic Field,3,25
+Thermal expansion,2,50
+Carrier Density n,2,60
+--,2,2
+Thermo gravimetry,2,138
+Elastic modulus,2,175
+Linewidth,2,41
+Ohm,2,87
+Power/frequency,2,261
+remanence_weight,2,62
+conductivity,2,22
+SPL,2,40
+O2,2,10
+Sab,2,80
+Conversion voltage,1,20
+Difference Absorbance,1,23
+Capacity,1,9
+Hall effect,1,28
+Figure of merit Z 1000,1,0
+Normalised PL Integrated Intensity,1,20
+N Concentration(mol%),1,6
+Luminescence lifetime,1,41
+"Sr concentration, x",1,4
+Specific heat capacity_per g,1,46
+Seebeck coefficient at 550 K,1,6
+Short-circuit current,1,20
+Maximum output power,1,20
+conductance,1,5
+Temperture Difference,1,0
+Thickness,1,4
+latice contribution,1,14
+lattice thermal conductance,1,5
+hole mobility,1,21
+Voltage response,1,95
+ln(Hall coefficient),1,35
+mol %,1,8
+rho*d,1,9
+zero-B thermopower,1,25
