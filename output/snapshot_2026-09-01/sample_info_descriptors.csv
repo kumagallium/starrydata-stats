@@ -1,0 +1,122 @@
+descriptor,samples_filled,samples_with_category
+DataType,48244,48244
+Form,39956,39890
+FabricationProcess,32776,31500
+MaterialFamily,22033,22025
+Purity,20569,20507
+MagneticMeasurement,16079,16079
+ElectricalMeasurement,14177,14033
+Solvent 1,13992,13711
+Solute 1,13942,12985
+Anode active material,13656,12165
+Measurement temperature,11991,11913
+Cathode active material,10173,9152
+ThermalMeasurement,10089,10066
+Solvent 2,9874,9721
+Cathode conductive agent,8500,8189
+Separator,8477,8104
+Cathode binder 1,8394,8162
+Cell type,7616,5662
+Cathode areal density (cathode loading),7608,7195
+Solute 2,6034,5625
+Cathode additive 1,4088,4014
+Cathode current collector,4014,1422
+Lower voltage limit,3728,3012
+Upper voltage limit,3682,2983
+Electrolyte additive 1,3321,2775
+Anode areal capacity,3021,2118
+Current density,2591,2344
+RelativeDensity,2553,2421
+Ratio of electrolyte to cathode active material,2451,2190
+Anode current collector,2320,2044
+Counter electrode,2137,1859
+FabricationProcess 2,1777,1748
+GrainSize,1661,1488
+coercivity,1543,1416
+Anode binder 1,1408,1353
+Anode conductive agent,1371,1321
+saturation magnetization,1310,1183
+Reference electrode,1207,960
+Solvent 3,1101,1070
+remanence magnetion,1032,914
+AC/QC type,1030,1030
+magnetic field,867,862
+other sample process info,617,616
+composition type,599,599
+Working electrode,548,426
+measurement condition,520,511
+Cathode catalyst material,433,0
+Solute 3,415,159
+Anode additive 1,408,399
+sample info,389,387
+annealing condition,386,386
+Cathode binder 2,377,369
+Coulombic efficiency,376,355
+Scan rate,374,0
+N/P ratio|A/C ratio,346,0
+Catalyst loading,257,0
+Cathode additive 2,251,217
+AbsoluteDensity,133,133
+Electrolyte additive 2,120,30
+Measurement method1,114,0
+Hysteresis,112,0
+Starting material,108,0
+Synthesis method1,107,0
+Measurement method2,106,0
+Sintering temperature,104,0
+FabricationProcess 3,103,88
+Measurement method3,98,0
+Sintering time,95,0
+Porosity,93,93
+Chemical composition,93,0
+Sample form,88,0
+Final product,81,0
+Synthesis method2,69,0
+Sintering method,57,0
+Synthesis method3,51,0
+Redox mediator in electrolyte,50,0
+lattice parameter,47,47
+direction,43,43
+Cathode areal capacity,41,0
+other sample process info 2,33,33
+sintering temperature,32,24
+Material Family,31,31
+Anode additive 2,30,25
+PoreSize,25,25
+Data Type,25,25
+Electrical Measurement,25,25
+DifferentialThermalAnalyzer,21,21
+Anode binder 2,21,21
+Composition conversion,16,2
+LaserFlash,16,16
+Cathode volumetric density,15,0
+Relative density,14,14
+Redox mediator in cathode,14,0
+Organic Material Family,13,13
+Organic Fabrication Process,13,13
+comment,12,12
+Thermal Measurement,12,12
+Cathode additive,11,0
+Electrolyte additive 3,11,0
+Applied field,9,9
+Material family,5,5
+N/P ratio| A/C ratio,5,0
+Saturation magnetization,4,4
+ThermalMeaasurement,3,3
+Differential thermal analyzer,3,3
+MaterialsFamily,2,2
+MaterialFarmily,2,2
+Measurement axis,2,2
+Grain size,2,2
+laser flash and different thermal analyzer,2,2
+Maximum power,2,2
+Module operated temperature,2,2
+Peak efficiency,2,2
+Materials family,1,1
+Note,1,1
+Other,1,1
+Mn15Si26[001],1,1
+synthesis,1,1
+2D iron-tetracyanoquinodimethane,1,1
+oercivity,1,1
+6: other sample process info,1,1
