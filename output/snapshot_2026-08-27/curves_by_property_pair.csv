@@ -1,0 +1,522 @@
+prop_x,prop_y,curves,data_points
+Temperature,Seebeck coefficient,36547,707772
+Temperature,Thermal conductivity,25472,392238
+Temperature,Electrical resistivity,21617,534901
+Temperature,ZT,20635,285958
+Temperature,Electrical conductivity,18949,278143
+Temperature,Power factor,17704,253997
+Temperature,Dielectric permittivity (ε’),9997,340043
+Discharge capacity,Voltage,9020,181910
+Charge capacity,Voltage,8813,177275
+Magnetic field strength (H),magnetization_per_weight,8369,300522
+Temperature,Lattice thermal conductivity,6686,90665
+Cycle number,Discharge capacity,6400,233572
+Temperature,Dielectric loss (tanδ),5298,163089
+Magnetic field,magnetization_per_weight,4090,110339
+C rate,Discharge capacity,2674,19151
+Inverse temperature,Electrical conductivity,2314,44830
+Time,Voltage,2177,52364
+Cycle number,Voltage,2136,52297
+Temperature,Carrier concentration,1918,26127
+Inverse temperature,log(Electrical conductivity),1808,32555
+Magnetic field strength (H),Magnetization,1306,45790
+Temperature,Carrier mobility,1235,14817
+Magnetic field strength (H),magnetization_per_volume,1228,43256
+Temperature,magnetization_per_weight,1035,28544
+Cycle number,Coulombic efficiency,954,35769
+Areal capacity,Voltage,906,15704
+Inverse temperature,Seebeck coefficient,756,13109
+Rate,Discharge capacity,722,5508
+Temperature,Electronic thermal conductivity,651,8065
+Inverse temperature,Electrical resistivity,631,12381
+Temperature,Dielectric loss (unknown),607,19139
+Temperature,Hall coefficient,600,13250
+Carrier concentration,Seebeck coefficient,548,1849
+Temperature,Figure of merit Z,500,6004
+Temperature,thermopower,496,16031
+Electric field,polarization,432,22228
+Temperature,Dielectric loss (ε’’),423,13890
+Temperature,Hall mobility,404,6340
+Voltage,Current density,402,18726
+Temperature,Magnetic susceptibility_per_weight,341,9800
+Electric field,Strain,337,19130
+Magnetic field,magnetization_per_volume,297,10342
+Electrical resistivity,Temperature Coefficient of Resistivity,271,324
+Magnetic field,Electrical resistivity,257,4924
+T,Electrical resistivity,239,9227
+Magnetic Field,magnetization_per_weight,233,6304
+Discharge capacity (based on sulfur weight),Voltage,209,3750
+Charge capacity (based on sulfur weight),Voltage,202,4269
+wavelength,absorbance,201,4791
+Inversed Temperature,Electrical conductivity,174,2940
+Temperature,total thermal conductivity,149,1965
+Inverse temperature,log(Electrical resistivity),138,2554
+Temperature,magnetic susceptibility,133,3615
+1000/T,Electrical conductivity,131,2299
+Inverse temperature,ln(Electrical conductivity),127,2077
+Inverse temperature,lnσT,121,1145
+Inversed Temperature,Electrical resistivity,120,1909
+Inverse temperature,ln(Electrical resistivity),114,1921
+Inverse temperature,logσT,113,1169
+Cycle number,Discharge capacity (based on sulfur weight),111,4881
+Temperature,Specific heat,105,3025
+Temperature,Carrier thermal conductivity,102,1454
+Temperature,electron thermal conductivity,99,1665
+Carrier concentration,Carrier mobility,97,245
+Carrier concentration,ZT,94,322
+Magnetic field,Magnetization,91,3299
+1000/T,Electrical resistivity,91,1668
+Magnetic Field,Magnetization,87,3405
+Capacity,Voltage,87,1476
+1000/T,Log(row),81,1747
+Temperature,Cp,80,1792
+Temperature,Magnetic susceptibility_per mol,76,1684
+Temperature,log(Electrical conductivity),76,1344
+Inverse temperature,Thermal conductivity,73,891
+Temperature,Thermal diffusivity,73,853
+Voltage,Electric current,72,3163
+Temperature,S,71,2368
+Inverse temperature,Lattice thermal conductivity,67,945
+T,ZT,64,1049
+Inverse temperature,Carrier concentration,63,950
+Magnetic field,Magnetic susceptibility_per_weight,62,2631
+Carrier concentration,Hall mobility,61,278
+Temperature,Coercivity Field,61,679
+-,-,56,40
+T,Seebeck coefficient,55,2362
+1000/T,Seebeck coefficient,55,1131
+T,Thermal conductivity,52,1916
+Inverse temperature,Hall coefficient,51,860
+Temperature,Resistance,51,2138
+Cycle number,Hysteresis,51,1185
+C rate,Discharge capacity (based on sulfur weight),49,315
+Temperature,Thermopower,47,669
+Magnetic field strength (H),Magnetic Moment,46,1582
+Voltage,Displacement,45,2840
+1000/T,thermopower,42,870
+Magnetic field strength (H),magnetization_Wb*m/kg,42,1443
+Temperature,Log(row),41,893
+(10^3/T)^(1/4),Electrical conductivity,41,1326
+Temperature,log(Electrical resistivity),40,1242
+Temperature,Specific heat_K,38,726
+T,Electrical conductivity,38,813
+T,Hall coefficient,37,527
+Temperature,Figure of merit,36,519
+Temperature,Lattice contribution,35,486
+1000/T,log(Electrical conductivity),33,438
+T,magnetic susceptibility,31,1322
+Temperature,ln(Electrical resistivity),30,700
+T,Lattice thermal conductivity,28,356
+Carrier concentration,Electrical conductivity,28,211
+Temperature,Voltage,28,764
+Temperature,Electronic contribution,27,1016
+Carrier concentration,Power factor,27,423
+T^2,Specific heat,27,650
+Temperature,inverse magnetic susceptibility_mol,26,674
+Magnetic field strength (H),Magnetic susceptibility_per_weight,26,802
+Temperature,Magnetization,25,605
+Temperature,phonon thermal conductance,25,269
+Electrical conductivity,Power factor,24,132
+Charge capacity (based on cathode weight),Voltage,23,497
+Discharge capacity (based on cathode weight),Voltage,23,517
+Temperature,Magnetic field,22,271
+Temperature,Mobility,22,229
+1000/T,log(sigma),22,474
+Temperature,Inverse magnetic susceptibility,22,728
+Temperature,surface resistance,21,270
+Inverse temperature,Power factor,21,327
+Temperature,RH,20,768
+Temperature,magnetization_per_volume,20,492
+Temperature,hall density,20,192
+Temperature,Thermoelectric power,19,620
+Temperature (oC),Electrical resistivity,19,411
+Magnetic Field,magnetization_per_volume,19,673
+Temperature,ln(Electrical conductivity),18,267
+Time,Electrical conductivity,18,310
+Temperature,Specific heat capacity (J/gK),18,132
+T,Inverse magnetic susceptibility,18,529
+T^(-1/4),Electrical resistivity,18,573
+Pressure,Effective thermal conductivity,17,220
+Growth-pO2,log(Electrical conductivity),16,128
+T,Magnetic susceptibility_per_weight,16,731
+1000/T,Carrier concentration,16,213
+WO3,log(Electrical conductivity),15,75
+Temperture Difference,Voltage,15,365
+T^(1/2),Electrical conductivity,15,251
+Electrical conductivity,Seebeck coefficient,15,142
+Temperature,Mass susceptibility,15,400
+Time,Temperature,14,346
+1/T,Log(row),14,330
+T,Specific heat capacity,14,885
+Concentration of Cu,Temperature Coefficient of Resistivity,14,71
+Inverse temperature,Carrier mobility,14,302
+Temperature,Resistivity,14,343
+Temperature,Electrical thermal conductivity,13,101
+Temperature,dc magnetization(mass),13,373
+T,Specific heat,12,369
+Temperature,Specific heat capacity,12,593
+Temperature,Lattice+bipolar thermal conductivity,12,84
+Concentration,Power factor,12,228
+1/T^(-1/4),Electrical resistivity,12,103
+content,Carrier concentration,12,34
+Magnetic Field,Magnetic Moment,11,433
+Temperature,magnetization_per_mol,11,382
+1000/T,Hall mobility,11,180
+1000/T,Hall coefficient,11,126
+Applied Field,magnetization_per_weight,11,340
+log(P(O2)),log(Electrical conductivity),11,10
+Temperature,Seebeck  coefficient,11,68
+1000/T,log(Electrical resistivity),10,180
+Inversed Temperature,Hall coefficient,10,134
+Temperature,Magnetic susceptibility_volume,10,339
+magnetic field,magnetization_per_weight,10,399
+Magnetic field strength (H),Magnetic field,10,347
+Temperature,Conductivity,10,97
+1000/T.,Electrical conductivity,10,121
+1000/T,ln(Electrical resistivity),10,260
+Sintering-pO2,log(Electrical conductivity),10,40
+T^(-1/4),log(Electrical conductivity),10,179
+T,magnetization_per_weight,10,187
+Temperature,Liquid state thermal conductivity,10,60
+Temperature,Hall concentration,10,88
+Temperature,Max Efficiency,9,104
+Temperature,S/L0T,9,251
+hall density,Seebeck coefficient,9,102
+1000/T,ln σ,9,140
+Annealing Temperature,Temperature Coefficient of Resistivity,9,46
+Temperature,Thermoelectric voltage,9,354
+Voltage,Current,9,328
+Temperature,Electro Motive Force,9,132
+Voltage,Temperature,8,128
+annealing time,Temperature Coefficient of Resistivity,8,55
+"Doping concentration, mol%",Electrical conductivity,8,73
+Inverse temperature,thermopower,8,86
+Nanowire diameter,Thermal diffusivity,8,48
+Carrier concentration,thermopower,8,95
+Temperature,Magnetic Moment,8,190
+Time,Hysteresis,8,57
+Annealing Temperature,Seebeck coefficient,8,33
+Time,delta T,8,310
+Voltage,Resistance,7,388
+"Doping concentration, mol%",Power factor,7,65
+"Doping concentration, mol%",Seebeck coefficient,7,65
+Temperature (oC),Seebeck coefficient,7,48
+T^(-1),Electrical conductivity,7,79
+Magnetic field strength (H),Electrical resistivity,7,233
+T,Magnetic Susceptibility per weight,7,235
+Seebeck coefficient,Seebeck coefficient,7,1
+PRESSURE,Voltage,7,42
+composition x,log(Electrical conductivity),6,6
+concentrations,Carrier concentration,6,30
+ratio of intensity,Thermal conductivity,6,1
+ratio of intensity,ZT,6,1
+mol %,Lattice thermal conductivity,6,27
+wavelength,normalized absorbance,6,205
+Inverse temperature,ZT,6,187
+Inverse temperature,σT,6,124
+T,phonon thermal conductance,6,320
+Magnetic field,Magnetic Moment,6,202
+Temperature,phonon contribution,6,54
+Doping concentration,Temperature Coefficient of Resistivity,6,95
+Electronic thermal conductivity,Lattice thermal conductivity,6,0
+Magnetization,magnetization_per_weight,6,257
+Nanowire diameter,Seebeck coefficient,6,30
+Vg,Electrical conductivity,6,251
+ratio of intensity,Electrical resistivity,6,0
+ratio of intensity,Seebeck coefficient,6,0
+Temperature,Calculated Seebeck coefficient,6,36
+content,Carrier mobility,6,26
+deltaVg,Seebeck coefficient,6,359
+Magnetic field,polarization,6,207
+Temperature,Contact resistivity,6,104
+Inverse temperature,ln(T/ρ),6,32
+Inversed Temperature,Hall mobility,6,92
+Temperature,Lorenz values,5,51
+Temperture Difference,Micro Volts,5,49
+stress,Thermal conductivity,5,65
+frequency,Voltage,5,35
+wavelength,luminescence intensity,5,315
+Annealing Temperature,Power factor,5,23
+Temperature,Density,5,0
+Temperature,Nernst coefficient,5,55
+T^2,Specific heat capacity_K^(-2),5,202
+Applied Field,Saturation Magnetization,5,279
+Ca2.7Yb0.3Co4O9,Electrical resistivity,5,40
+Cycle number,Discharge capacity (based on cathode weight),5,204
+C rate,Discharge capacity (based on cathode weight),5,25
+R of R-DDM-R,Density,5,34
+Pressure,Thermal conductivity,5,40
+PRESSURE,TEP,5,122
+Rate,Discharge capacity (based on sulfur weight),5,24
+Temperture Difference,Thermoelectric voltage,5,325
+Magnetic field strength (H),magnetic susceptibility,5,146
+"Sr concentration, x",Seebeck coefficient,5,59
+concentrations,Seebeck coefficient,4,228
+PEI,Thermopower,4,19
+sample name,Thermal conductivity,4,5
+ZT,Figure of merit,4,0
+Electric field,Displacement,4,286
+1/T,Electrical resistivity,4,113
+hall density,ZT,4,17
+Temperature,Figure of merit Zt,4,141
+1/T,Electrical conductivity,4,52
+Thickness,Electrical resistivity,4,24
+"Gate voltage, Vg",Seebeck coefficient,4,76
+Hall concentration,Lattice thermal conductivity,4,13
+Temperature,minority carrier concentration,4,20
+Doping level,Electrical conductivity,4,16
+Doping level,log(Electrical conductivity),4,4
+Temperature,Magnetic susceptibility_volume_weight,4,250
+1000/T,Carrier mobility,4,173
+CNT volume fraction (%),Thermal conductivity,4,74
+Temperature,Open circuit voltage,4,18
+Temperature,Specific heat capacity_K^(-2),4,128
+Duration,Electrical conductivity,4,52
+T^(-1/2),Electrical resistivity,4,99
+"Na concentration, x",hierarchy of energies of cluster models,4,0
+Time,Coulombic efficiency,4,150
+Temperature,majority carrier concentration,4,20
+Temperature,σ/τ,4,0
+T,K,4,110
+"Sr concentration, x",Thermal diffusivity,4,48
+Temperature,ρ,4,28
+T,Magnetic Susceptibility_metre_weight,4,153
+Time,Carrier concentration,4,38
+Time (h),yield (%),4,15
+N2(Ar+N2),Temperature Coefficient of Resistivity,4,20
+N2(Ar+N2),Electrical resistivity,4,18
+SWCNTs content (wt%),Electrical conductivity,4,21
+Filler content,Thermal conductivity,4,24
+Voltage,Seebeck coefficient,4,378
+Temperature,TEP,4,144
+Carrier concentration,Fermi energy,4,73
+Temperature,T^(-1),4,48
+Temperature,Lorenz number,4,79
+Log(row),Temperature,4,69
+Duration,Power factor,4,12
+Days,Seebeck coefficient,4,40
+Concentration of Cu,Electrical resistivity,4,20
+PEI,Electrical conductivity,3,12
+wavelength,-log(T+R),3,65
+PRESSURE,Power factor,3,9
+PRESSURE,Electrical conductivity,3,9
+T,Resistance,3,0
+Nb content,Temperature Coefficient of Resistivity,3,19
+Nb content,Electrical resistivity,3,12
+Temperature,Temperature Coefficient of Resistivity,3,28
+Micro diamond content [vol%],Thermal conductivity,3,12
+PRESSURE,Seebeck coefficient,3,9
+1000/T,ln(T/ρ),3,26
+SWCNTs content (wt%),Power factor,3,16
+Time Lapse,Conversion Voltage,3,58
+position,Seebeck coefficient,3,37
+Proportion of interface layer (%),Thermal conductivity,3,15
+GNF content (wt%),Thermal conductivity,3,3
+Time,Open circuit voltage,3,287
+1000/T,Conductivity,3,24
+Magnetization,magnetic susceptibility,3,51
+Temperature (oC),Hall coefficient,3,32
+SWCNTs content (wt%),Seebeck coefficient,3,16
+Seebeck coefficient,Electrical conductivity,3,9
+Expanded graphite content (vol),Thermal conductivity,3,29
+Electrical conductivity,ZT,3,15
+BFCZO1 at 20K  Zoomed,magnetization_per_weight,3,34
+BN content (wt%),Density,3,15
+Bi2Te3 nanoparticle fraction (vol %),Electrical conductivity,3,18
+Dopant Concentration,Power factor,3,22
+Bi2Te3 nanoparticle fraction (vol %),Power factor,3,18
+Density,Electrical conductivity,3,1
+T^(-1),Thermal conductivity,3,22
+Temperature,Phonon transmission function,3,407
+Annealing Temperature,Electrical resistivity,3,18
+Annealing Temperature,Electrical conductivity,3,16
+Annealing Temperature,ZT,3,16
+Annealing Temperature,Thermal conductivity,3,16
+Carrier concentration,Electrical thermal conductivity,3,80
+Carrier concentration,Lattice thermal conductivity,3,24
+Carrier concentration,Thermal conductivity,3,26
+T^(-1/4),ln(Electrical conductivity),3,157
+Bi2Te3 nanoparticle fraction (vol %),Thermal conductivity,3,19
+Bi2Te3 nanoparticle fraction (vol %),Seebeck coefficient,3,18
+Bi2Te3 nanoparticle fraction (vol %),ZT,3,18
+Inversed Temperature,surface resistance,3,50
+T^2,Specific Heat K^2,3,21
+T^2/1000,Magnetic susceptibility_per_weight,3,98
+Carrier concentration,Carrier concentration,3,34
+Temperature,Electrical conductivity0,3,51
+"Lattice constant, d","A, |T|, |R|",3,96
+diameter,Electrical conductivity,3,26
+distance,ZT,3,30
+energy,Electrical conductivity,3,165
+Temperature,Magnetic Field,3,25
+diameter,Seebeck coefficient,3,25
+concentrations,thermopower,3,10
+1/T^(-1/4),ln(Electrical resistivity),3,49
+1/3 Octave Band Freqency,SPL,2,40
+1/T,Carrier Density n,2,60
+Conductivity,Seebeck  coefficient,2,27
+Magnetic Field,Magnetic field strength (H),2,84
+Temperature,Magnetic field strength (H),2,19
+Temperature,Linewidth,2,41
+deposition temperature,log(Electrical resistivity),2,8
+diameter,Carrier mobility,2,23
+Carrier concentration,Electrical conductivity0,2,59
+Temperature,Elastic modulus,2,175
+Doping level,Seebeck coefficient,2,6
+Doping level,Power factor,2,6
+Pressure,Electrical resistivity,2,28
+T^(-1/2),Electrical conductivity,2,21
+T,magnetization_per_mol,2,106
+Magnetic field,Thermal conductivity,2,38
+Temperature (oC),Thermal conductivity,2,20
+T,Specific heat_K,2,88
+Magnetic field,Magnetic susceptibility_volume,2,67
+Dopant Concentration,Carrier concentration,2,7
+Magnetic field,Specific heat,2,41
+Temperature,remanence_weight,2,62
+Magnetic field,magnetization_per_mol,2,65
+Temperature,conductivity,2,22
+BN content (wt %),Thermal conductivity,2,10
+Hall concentration,Hall mobility,2,66
+Inverse temperature,Electronic thermal conductivity,2,14
+Dopant Concentration,Electrical conductivity,2,22
+Doping level,Carrier concentration,2,13
+Dopant Concentration,Seebeck  coefficient,2,22
+Temperature,Thermo gravimetry,2,138
+Temperature,Thermal expansion,2,50
+Temperature,magnetoresistance,2,17
+T,Thermal diffusivity,2,16
+Annealing Temperature,Conductivity,2,9
+Magnetization,Magnetization,2,43
+Magnetic field strength (H),Specific heat,2,67
+Magnetic field,magnetoresistance,2,56
+Temperature,Ohm,2,87
+Inverse temperature,Hall mobility,2,14
+--,--,2,2
+width,Electrical conductivity,2,8
+width,Seebeck coefficient,2,8
+wt% F4TCNQ:P3HT,Electrical conductivity,2,22
+wt% F4TCNQ:P3HT,Seebeck coefficient,2,24
+wt% F4TCNQ:P3HT,Power factor,2,23
+energy,Surface Conductivity,2,132
+SDBS,Thermopower,2,6
+Time,O2,2,10
+Time,Resistance,2,115
+PRESSURE,Sab,2,80
+composition x,Carrier mobility,2,11
+SDBS,Electrical conductivity,2,6
+Nanowire diameter,Electrical conductivity,2,6
+Filler content (phr),Thermal conductivity,2,5
+Frequency,Power/frequency,2,261
+m,lattice thermal conductance,1,5
+hot-press tenperature,Thermal conductivity,1,6
+magnetic field,Hall effect,1,28
+content,Conductivity,1,0
+delta T,Voltage,1,16
+diameter,Carrier concentration,1,16
+1/T^(-1/4),Electrical conductivity,1,11
+mol% F4TCNQ,Seebeck coefficient,1,9
+1/T,log(sigma),1,18
+1/T^(-1/2),Electrical resistivity,1,25
+1/3 Octave Band Freqency,"Sr concentration, x",1,4
+1/T,Seebeck coefficient,1,11
+diameter,ZT,1,4
+diameter,Thermal conductivity,1,4
+Temperature,Figure of merit Z 1000,1,0
+Temperature,Luminescence lifetime,1,41
+La content,Seebeck coefficient,1,4
+La content,Power factor,1,4
+La content,Electrical conductivity,1,4
+C rate,Capacity,1,9
+Carrier concentration,Electrical resistivity,1,4
+Carbon fiber loading [vol%],Thermal conductivity,1,0
+Creep Strain,thermopower,1,10
+DMSO doping percent,Electrical conductivity,1,8
+Draw ratio,Thermal conductivity,1,10
+Lattice thermal conductivity,Temperature,1,6
+diameter,Hall coefficient,1,7
+diameter,Power factor,1,6
+Temperature,zero-B thermopower,1,25
+Temperture Difference,Maximum output power,1,20
+Temperture Difference,Open circuit voltage,1,22
+T^(-1/4),Electrical conductivity,1,10
+Temperature,hole mobility,1,21
+Temperature,latice contribution,1,14
+Temperature,conductance,1,5
+Doping concentration,Electrical resistivity,1,0
+I/A,Resistance,1,3
+T^(1/2),Magnetic susceptibility_per_weight,1,17
+Temperature,Normalised PL Integrated Intensity,1,20
+La content,Thermal conductivity,1,4
+Temperature,Surface Conductivity,1,0
+Temperature,Specific heat capacity_per g,1,46
+T^(-1),Inverse magnetic susceptibility,1,13
+T^(3/2),Electrical resistivity,1,48
+Carrier concentration,mol %,1,8
+Temperature,Seebeck coefficient at 550 K,1,6
+T^2,Electrical resistivity,1,30
+Carrier mobility,Carrier concentration,1,0
+Electrical conductivity,Thermal conductivity,1,12
+Thermal conductivity,Density,1,6
+Temperture Difference,ZT,1,10
+Temperture Difference,Thermopower,1,24
+T,Lorenz number,1,0
+T,Hall mobility,1,0
+"Sr concentration, x",Power factor,1,18
+"Sr concentration, x",Electrical conductivity,1,19
+Nb content,Carrier mobility,1,0
+Spherulite size [um],Thermal conductivity,1,3
+Solid content (mg/mL),Thickness,1,4
+No. of BL,Electrical conductivity,1,8
+Temperture Difference,Short-circuit current,1,20
+Temperture Difference,Thermal conductivity,1,10
+Temperture Difference,Seebeck coefficient,1,22
+Temperture Difference,Seebeck  coefficient,1,22
+T^(-1/3),Electrical resistivity,1,56
+"Gate voltage, Vg",Electrical conductivity,1,16
+GQD (wt%),Thermal diffusivity,1,6
+GQD (wt%),Thermal conductivity,1,5
+GQD (wt%),Specific heat capacity (J/gK),1,6
+Nb content,Carrier concentration,1,6
+Time (hour),Electrical conductivity,1,5
+1000/T,ln(Hall coefficient),1,35
+"Gate voltage, Vg",Power factor,1,16
+N2(Ar+N2),N Concentration(mol%),1,6
+N2 flow ratio,Electrical resistivity,1,6
+Electrical resistivity,Power factor,1,23
+Solid content (mg/mL),Electrical conductivity,1,4
+Solid content (mg/mL),Power factor,1,4
+Solid content (mg/mL),Seebeck coefficient,1,4
+Electrical resistivity,Figure of merit Z,1,15
+Vg,Voltage response,1,95
+Time Lapse,Conversion voltage,1,20
+RGO content (wt.%),Power factor,1,7
+RGO content (wt.%),Seebeck coefficient,1,7
+RGO content (wt.%),Electrical conductivity,1,7
+Time (hour),Power factor,1,5
+Time (hour),Seebeck coefficient,1,5
+PRESSURE,Thermal conductivity,1,18
+Wavenumber,Difference Absorbance,1,23
+nm,absorbance,1,14
+substrate temperature,Electrical resistivity,1,0
+substrate temperature,Temperature Coefficient of Resistivity,1,0
+magnetic field,Thermal conductivity,1,15
+mol %,Carrier concentration,1,5
+mol %,Electrical conductivity,1,5
+mol %,Power factor,1,5
+thickness,thermopower,1,9
+thickness,rho*d,1,9
+thermopower,Carrier concentration,1,11
+PRESSURE,S,1,22
+No. of BL,Seebeck coefficient,1,8
+No. of BL,Power factor,1,8
+mol% F4TCNQ,Electrical conductivity,1,12
+mol %,Seebeck coefficient,1,5
+amount of Ag,Power factor,1,5
+amount of Ag,Seebeck coefficient,1,5
+Wt.% SWCNT,Seebeck coefficient,1,4
+amount of Ag,Electrical resistivity,1,5
+Wt.% SWCNT,Power factor,1,4
+Wt.% SWCNT,Electrical conductivity,1,4
+frequency,Temperture Difference,1,0
+μ,Power factor,1,0

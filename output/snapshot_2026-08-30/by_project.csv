@@ -1,0 +1,15 @@
+project,papers,curves,data_points
+ThermoelectricMaterials,31019,156469,2684921
+BatteryMaterials,3188,32586,759553
+MagneticMaterials,8767,16912,559033
+DielectricMaterials,4699,16555,545159
+GeneralDB,1812,7507,104502
+CondensedMatter,1345,6848,146308
+Resistor,1370,4597,84857
+LowThermalConductivityMaterials,2891,3518,57458
+HighThermalConductivityMaterials,422,2638,46702
+Hypermaterial,338,2591,76720
+OrganicThermoelectricMaterials,213,2208,7082
+SolidStateBatteryMaterials,157,2002,43207
+PiezoelectricMaterials,2401,1772,93264
+AirBatteryMaterials,55,1176,25280

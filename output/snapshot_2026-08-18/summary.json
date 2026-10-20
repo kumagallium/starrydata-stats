@@ -1,0 +1,18 @@
+{
+  "snapshot": "2026-08-18 02:00:01 UTC+0900 (JST)",
+  "papers": 56523,
+  "papers_with_data": 17403,
+  "samples": 105412,
+  "curves": 234421,
+  "data_points": 4813427,
+  "figures": 60306,
+  "unique_dois_in_papers": 56501,
+  "unique_compositions_in_samples": 42538,
+  "samples_per_paper_mean": 6.06,
+  "samples_per_paper_median": 5.0,
+  "samples_per_paper_max": 160,
+  "curves_per_paper_mean": 13.47,
+  "curves_per_paper_median": 8.0,
+  "curves_per_paper_max": 246,
+  "points_per_curve_mean": 20.53
+}
