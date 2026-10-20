@@ -416,7 +416,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       scaleFew: "fewer", scaleMany: "more", scaleUnit: "samples",
       colProjects: "Projects", colProps: "Properties", colJournals: "Journals",
       metricCurves: "Curves", metricPapers: "Papers",
-      capProjects: (n, total) => `Top ${n} of ${total} projects · click a row to filter`,
+      capProjects: (n, total) => `${n === total ? `All ${total}` : `Top ${n} of ${total}`} projects · click a row to filter`,
       capProps: (n, total) => total == null ? `Top ${n} · by prop_y in curves.csv` : `Top ${n} of ${fmt(total)} properties · by prop_y in curves.csv`,
       capJournals: (n, total) => total == null ? `Top ${n} journals · by paper count` : `Top ${n} of ${fmt(total)} journals · by paper count`,
       filterAll: "All projects", filterClear: "Clear project filter", pickerLabel: "Filter by project",
@@ -476,7 +476,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       scaleFew: "少", scaleMany: "多", scaleUnit: "サンプル数",
       colProjects: "プロジェクト", colProps: "物性", colJournals: "ジャーナル",
       metricCurves: "カーブ数 / Curves", metricPapers: "論文数 / Papers",
-      capProjects: (n, total) => `全${total}プロジェクト中 上位${n} · 行をクリックで絞り込み`,
+      capProjects: (n, total) => `${n === total ? `全${total}プロジェクト` : `全${total}プロジェクト中 上位${n}`} · 行をクリックで絞り込み`,
       capProps: (n, total) => total == null ? `上位${n} · prop_y 別` : `全${fmt(total)}物性中 上位${n} · prop_y 別 / top ${n} of ${fmt(total)}`,
       capJournals: (n, total) => total == null ? `上位${n} · 論文数順` : `全${fmt(total)}ジャーナル中 上位${n} · 論文数順 / top ${n} of ${fmt(total)}`,
       filterAll: "全プロジェクト", filterClear: "プロジェクト絞り込みを解除", pickerLabel: "プロジェクトで絞り込み",
@@ -981,7 +981,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
   function renderRankings() {
     setText("tv-rankings-s", t("viewTable"));
     clear("table-rankings");
-    const projRows = D.by_project.slice(0, 8);
+    const projRows = D.by_project;  // all projects; the other columns match this length
     const canFilter = Object.keys(D.by_property_by_project || {}).length > 0;
     if (rankProject && !D.by_project.some(p => p.project === rankProject)) rankProject = null;
     const projInfo = rankProject ? D.by_project.find(p => p.project === rankProject) : null;
@@ -1032,7 +1032,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     const allJours = projInfo ? ((D.journals_by_project || {})[rankProject] || []) : D.journals;
     const nProps = projInfo ? projInfo.n_properties : S.n_properties;
     const nJours = projInfo ? projInfo.n_journals : S.n_journals;
-    const propRows = allProps.slice(0, 8);
+    const propRows = allProps.slice(0, projRows.length);
     rankCol("rank-props", {
       filterBar: canFilter ? filterBar : null,
       title: t("colProps"), metric: t("metricCurves"),
@@ -1044,7 +1044,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
         { name: t("tipDataPoints"), value: fmt(r.data_points) },
       ],
     });
-    const journalRows = allJours.slice(0, 8);
+    const journalRows = allJours.slice(0, projRows.length);
     rankCol("rank-journals", {
       filterBar: canFilter ? filterBar : null,
       title: t("colJournals"), metric: t("metricPapers"),

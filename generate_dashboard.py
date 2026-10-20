@@ -24,7 +24,7 @@ TEMPLATE_PATH = BASE_DIR / "dashboard_template.html"
 DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 DASHBOARD_PATH = BASE_DIR / "dashboard.html"
 
-TOP_N_DASH = 10  # rows to expose to the dashboard's ranking charts
+TOP_N_DASH = 10  # minimum rows to expose to the dashboard's ranking charts
 
 
 def latest_snapshot_dir(output_dir: Path) -> Path:
@@ -74,14 +74,19 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         except (OSError, json.JSONDecodeError) as e:
             print(f"Warning: could not read {citations_path}: {e}", file=sys.stderr)
 
+    # Every project is listed, and the property / journal columns show the same
+    # number of rows so the three ranking columns line up.
+    by_project = records(snap_dir / "by_project.csv")
+    top_n = max(TOP_N_DASH, len(by_project))
+
     def by_project_top(filename: str) -> dict:
-        """{project: top TOP_N_DASH records}; empty dict for older snapshots lacking the CSV."""
+        """{project: top top_n records}; empty dict for older snapshots lacking the CSV."""
         path = snap_dir / filename
         if not path.exists():
             return {}
         df = pd.read_csv(path)
         return {
-            proj: g.head(TOP_N_DASH).drop(columns=["project"]).to_dict(orient="records")
+            proj: g.head(top_n).drop(columns=["project"]).to_dict(orient="records")
             for proj, g in df.groupby("project", sort=False)
         }
 
@@ -91,11 +96,11 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "summary": summary,
         "monthly": monthly,
         "yearly": yearly,
-        "by_project": records(snap_dir / "by_project.csv"),
-        "by_property": records(snap_dir / "curves_by_property_y.csv", head=TOP_N_DASH),
+        "by_project": by_project,
+        "by_property": records(snap_dir / "curves_by_property_y.csv", head=top_n),
         "by_property_by_project": by_project_top("curves_by_property_y_by_project.csv"),
         "journals_by_project": by_project_top("papers_by_journal_by_project.csv"),
-        "journals": records(snap_dir / "papers_by_journal.csv", head=TOP_N_DASH),
+        "journals": records(snap_dir / "papers_by_journal.csv", head=top_n),
         "elements": records(snap_dir / "elements.csv"),
         "sample_info_descriptors": records(snap_dir / "sample_info_descriptors.csv"),
         "fabrication": cat_top("FabricationProcess", exclude=("Other", "Unknown")),
