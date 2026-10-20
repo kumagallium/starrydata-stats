@@ -344,6 +344,10 @@
 
   <section class="sec" style="padding-bottom:28px">
     <h2><span id="info-h2">Sample metadata</span> <span class="sub" id="info-sub">sample_info</span></h2>
+    <div class="rank-picker" id="info-picker" hidden style="margin-top:14px">
+      <label for="info-select" id="info-select-l">Filter by project</label>
+      <select id="info-select"></select>
+    </div>
     <div class="rank-grid-4">
       <div class="rank-col rank-col-sm" id="info-desc"></div>
       <div class="rank-col rank-col-sm" id="info-fab"></div>
@@ -421,7 +425,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       capJournals: (n, total) => total == null ? `Top ${n} journals · by paper count` : `Top ${n} of ${fmt(total)} journals · by paper count`,
       filterAll: "All projects", filterClear: "Clear project filter", pickerLabel: "Filter by project",
       totalProps: (n) => `Total: ${fmt(n)} properties`, totalJournals: (n) => `Total: ${fmt(n)} journals`,
-      infoH2: "Sample metadata",
+      infoH2: "Sample metadata", noData: "No data",
       colDesc: (total) => `Completion (of ${total} samples)`,
       capDesc: (n) => `Samples with a value per descriptor · top ${n} / bars relative to all samples`,
       colFab: "Fabrication process", capFab: (n) => `By category · top ${n} (excl. Other)`,
@@ -481,7 +485,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       capJournals: (n, total) => total == null ? `上位${n} · 論文数順` : `全${fmt(total)}ジャーナル中 上位${n} · 論文数順 / top ${n} of ${fmt(total)}`,
       filterAll: "全プロジェクト", filterClear: "プロジェクト絞り込みを解除", pickerLabel: "プロジェクトで絞り込み",
       totalProps: (n) => `合計: ${fmt(n)} 物性`, totalJournals: (n) => `合計: ${fmt(n)} ジャーナル`,
-      infoH2: "サンプル詳細情報",
+      infoH2: "サンプル詳細情報", noData: "データなし",
       colDesc: (total) => `記入状況(全${total}サンプル中)`,
       capDesc: (n) => `descriptor別・記入ありサンプル数 · 上位${n} / バーは全サンプル比`,
       colFab: "合成プロセス / Fabrication", capFab: (n) => `category別 · 上位${n}(Other除く)`,
@@ -973,24 +977,21 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
 
   // Selected project for the Properties / Journals columns (null = all). Survives language / tab switches.
   let rankProject = null;
-  document.getElementById("rank-select").addEventListener("change", (ev) => {
-    rankProject = ev.target.value || null;
-    renderRankings();
-  });
-
-  function renderRankings() {
-    setText("tv-rankings-s", t("viewTable"));
-    clear("table-rankings");
-    const projRows = D.by_project;  // all projects; the other columns match this length
-    const canFilter = Object.keys(D.by_property_by_project || {}).length > 0;
-    if (rankProject && !D.by_project.some(p => p.project === rankProject)) rankProject = null;
-    const projInfo = rankProject ? D.by_project.find(p => p.project === rankProject) : null;
-    // Project picker: the discoverable entry point (row clicks are a shortcut)
-    const picker = document.getElementById("rank-picker");
-    picker.hidden = !canFilter;
-    if (canFilter) {
-      setText("rank-select-l", t("pickerLabel"));
-      const sel = document.getElementById("rank-select");
+  const renderProjectViews = () => { safe(renderRankings); safe(renderSampleInfo); };
+  for (const id of ["rank-select", "info-select"]) {
+    document.getElementById(id).addEventListener("change", (ev) => {
+      rankProject = ev.target.value || null;
+      renderProjectViews();
+    });
+  }
+  // Fill both project pickers (rankings + sample metadata) from the same state.
+  function fillPickers(visible) {
+    for (const pre of ["rank", "info"]) {
+      const picker = document.getElementById(pre + "-picker");
+      picker.hidden = !visible;
+      if (!visible) continue;
+      setText(pre + "-select-l", t("pickerLabel"));
+      const sel = document.getElementById(pre + "-select");
       sel.textContent = "";
       const optAll = el("option", null, t("filterAll"));
       optAll.value = "";
@@ -1002,21 +1003,34 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       }
       sel.value = rankProject || "";
     }
-    const filterBar = () => {
-      const d = el("div", "rank-filter");
-      d.appendChild(el("span", "fv", projInfo ? local(PROJECT_JA, projInfo.project) : t("filterAll")));
-      if (projInfo) {
-        const x = el("button", null, "\u00d7");
-        x.type = "button";
-        x.setAttribute("aria-label", t("filterClear"));
-        x.title = t("filterClear");
-        x.addEventListener("click", () => { rankProject = null; renderRankings(); });
-        d.appendChild(x);
-      }
-      return d;
-    };
+  }
+  const projectVisible = () => Object.keys(D.by_property_by_project || {}).length > 0 ||
+                               Object.keys(D.sample_info_by_project || {}).length > 0;
+  const makeFilterBar = () => {
+    const d = el("div", "rank-filter");
+    d.appendChild(el("span", "fv", rankProject ? local(PROJECT_JA, rankProject) : t("filterAll")));
+    if (rankProject) {
+      const x = el("button", null, "\u00d7");
+      x.type = "button";
+      x.setAttribute("aria-label", t("filterClear"));
+      x.title = t("filterClear");
+      x.addEventListener("click", () => { rankProject = null; renderProjectViews(); });
+      d.appendChild(x);
+    }
+    return d;
+  };
+
+  function renderRankings() {
+    setText("tv-rankings-s", t("viewTable"));
+    clear("table-rankings");
+    const projRows = D.by_project;  // all projects; the other columns match this length
+    const canFilter = Object.keys(D.by_property_by_project || {}).length > 0;
+    if (rankProject && !D.by_project.some(p => p.project === rankProject)) rankProject = null;
+    const projInfo = rankProject ? D.by_project.find(p => p.project === rankProject) : null;
+    fillPickers(projectVisible());
+    const filterBar = makeFilterBar;
     rankCol("rank-projects", {
-      onSelect: canFilter ? (r) => { rankProject = rankProject === r.project ? null : r.project; renderRankings(); } : null,
+      onSelect: canFilter ? (r) => { rankProject = rankProject === r.project ? null : r.project; renderProjectViews(); } : null,
       isSelected: (r) => r.project === rankProject,
       title: t("colProjects"), metric: t("metricCurves"),
       cap: t("capProjects", projRows.length, D.by_project.length),
@@ -1074,37 +1088,57 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     setText("info-h2", t("infoH2"));
     setText("tv-info-s", t("viewTable"));
     clear("table-info");
-    const descRows = D.sample_info_descriptors.slice(0, 6);
-    rankCol("info-desc", {
-      title: t("colDesc", fmt(S.samples)), metric: "",
+    const byProj = D.sample_info_by_project || {};
+    const canInfo = Object.keys(byProj).length > 0;
+    fillPickers(projectVisible());
+    const projInfo = (canInfo && rankProject) ? D.by_project.find(p => p.project === rankProject) : null;
+    const sel = projInfo ? (byProj[rankProject] || { descriptors: [], fabrication: [], material_family: [], form: [] }) : null;
+    const nSamples = projInfo ? (+projInfo.n_samples || 0) : S.samples;
+    const descAll = sel ? sel.descriptors : D.sample_info_descriptors;
+    const fabAll = sel ? sel.fabrication : D.fabrication;
+    const famAll = sel ? sel.material_family : D.material_family;
+    const formAll = sel ? sel.form : D.form;
+    const descRows = descAll.slice(0, 6);
+    const bar = canInfo ? makeFilterBar : null;
+    // Empty lists show a "No data" note instead of a bare column.
+    const col = (mount, cfg) => {
+      rankCol(mount, cfg);
+      if (!cfg.rows.length) document.getElementById(mount).appendChild(el("div", "cap", t("noData")));
+    };
+    col("info-desc", {
+      filterBar: bar,
+      title: t("colDesc", fmt(nSamples)), metric: "",
       cap: t("capDesc", descRows.length),
       rows: descRows, valueKey: "samples_filled", color: COL.samples,
-      maxOverride: S.samples,
+      maxOverride: nSamples || 1,
       labelFn: (r) => ({ jp: local(DESC_JA, r.descriptor), en: "", tipTitle: r.descriptor }),
       tipRows: (r) => [
         { name: t("tipFilled"), value: fmt(r.samples_filled), color: COL.samples },
         { name: t("tipWithCat"), value: fmt(r.samples_with_category) },
-        { name: t("tipPctAll"), value: (r.samples_filled / S.samples * 100).toFixed(1) + "%" },
+        { name: t("tipPctAll"), value: nSamples ? (r.samples_filled / nSamples * 100).toFixed(1) + "%" : "–" },
       ],
     });
-    rankCol("info-fab", {
+    col("info-fab", {
+      filterBar: bar,
       title: t("colFab"), metric: "",
-      cap: t("capFab", D.fabrication.length),
-      rows: D.fabrication, valueKey: "samples", color: COL.samples,
+      cap: fabAll.length ? t("capFab", fabAll.length) : "",
+      rows: fabAll, valueKey: "samples", color: COL.samples,
       labelFn: (r) => ({ jp: local(FAB_JA, r.category), en: "", tipTitle: r.category }),
       tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
     });
-    rankCol("info-family", {
+    col("info-family", {
+      filterBar: bar,
       title: t("colFamily"), metric: "",
-      cap: t("capFamily", D.material_family.length),
-      rows: D.material_family, valueKey: "samples", color: COL.samples,
+      cap: famAll.length ? t("capFamily", famAll.length) : "",
+      rows: famAll, valueKey: "samples", color: COL.samples,
       labelFn: (r) => ({ jp: local(FAMILY_JA, r.category), en: "", tipTitle: r.category }),
       tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
     });
-    rankCol("info-form", {
+    col("info-form", {
+      filterBar: bar,
       title: t("colForm"), metric: "",
-      cap: t("capForm", D.form.length),
-      rows: D.form, valueKey: "samples", color: COL.samples,
+      cap: formAll.length ? t("capForm", formAll.length) : "",
+      rows: formAll, valueKey: "samples", color: COL.samples,
       labelFn: (r) => ({ jp: local(FORM_JA, r.category), en: "", tipTitle: r.category }),
       tipRows: (r) => [{ name: t("samples"), value: fmt(r.samples), color: COL.samples }],
     });
@@ -1113,10 +1147,10 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       [{ key: "descriptor", label: t("tblDescriptor") },
        { key: "samples_filled", label: t("tblFilled"), num: true },
        { key: "samples_with_category", label: t("tblWithCat"), num: true }],
-      D.sample_info_descriptors);
-    renderTable(box, t("capTblFab"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.fabrication);
-    renderTable(box, t("capTblFamily"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.material_family);
-    renderTable(box, t("capTblForm"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.form);
+      descAll);
+    renderTable(box, t("capTblFab"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], fabAll);
+    renderTable(box, t("capTblFamily"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], famAll);
+    renderTable(box, t("capTblForm"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], formAll);
   }
 
   // ---- Cited by ----

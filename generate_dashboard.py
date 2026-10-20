@@ -90,6 +90,29 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
             for proj, g in df.groupby("project", sort=False)
         }
 
+    def sample_info_by_project() -> dict:
+        """{project: {descriptors, fabrication, material_family, form}}; {} for older snapshots."""
+        dpath = snap_dir / "sample_info_descriptors_by_project.csv"
+        cpath = snap_dir / "sample_info_categories_by_project.csv"
+        if not (dpath.exists() and cpath.exists()):
+            return {}
+        descs, cats = pd.read_csv(dpath), pd.read_csv(cpath)
+        out = {}
+        for proj, g in descs.groupby("project", sort=False):
+            c = cats[cats["project"] == proj]
+
+            def top(descriptor, n=5):
+                df = c[(c["descriptor"] == descriptor) & ~c["category"].isin(("Other", "Unknown"))]
+                return df.head(n)[["category", "samples"]].to_dict(orient="records")
+
+            out[proj] = {
+                "descriptors": g.head(6).drop(columns=["project"]).to_dict(orient="records"),
+                "fabrication": top("FabricationProcess"),
+                "material_family": top("MaterialFamily"),
+                "form": top("Form"),
+            }
+        return out
+
     data = {
         "snapshot": summary.get("snapshot", ""),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -106,6 +129,7 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "fabrication": cat_top("FabricationProcess", exclude=("Other", "Unknown")),
         "material_family": cat_top("MaterialFamily", exclude=("Other", "Unknown")),
         "form": cat_top("Form", exclude=("Other", "Unknown")),
+        "sample_info_by_project": sample_info_by_project(),
         "citations": citations,
     }
 

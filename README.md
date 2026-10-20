@@ -76,7 +76,7 @@ repository; `--download` fetches it on demand.
 | File | Contents |
 |---|---|
 | `summary.json` | Headline counts (incl. unique properties / journals): registered papers, papers with data, samples, curves, data points, figures, unique DOIs / compositions, per-paper averages |
-| `by_project.csv` | Papers, curves, and data points per project, plus unique property / journal counts (thermoelectric, battery, magnetic, …) |
+| `by_project.csv` | Papers, curves, and data points per project, plus unique property / journal / sample counts |
 | `curves_by_property_y.csv` | Curves and data points per property (`prop_y`) |
 | `curves_by_property_pair.csv` | Same, per `prop_x` × `prop_y` pair |
 | `registrations_by_year.csv` / `registrations_by_month.csv` | New registrations per period, with cumulative columns |
@@ -87,6 +87,7 @@ repository; `--download` fetches it on demand.
 | `elements.csv` | Samples per chemical element found in compositions (feeds the periodic-table heatmap) |
 | `sample_info_descriptors.csv` | Completion per `sample_info` descriptor |
 | `sample_info_categories.csv` | Category distribution per descriptor (FabricationProcess, Form, …) |
+| `sample_info_descriptors_by_project.csv` / `sample_info_categories_by_project.csv` | Same, per project (samples are linked via their curves; a sample in several projects counts in each; categories capped at top 10 per descriptor) |
 
 ### `output/history.csv` — cross-snapshot time series
 

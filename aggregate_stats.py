@@ -228,7 +228,32 @@ def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
     }
 
 
-def aggregate_by_project(papers, curves) -> pd.DataFrame:
+def sample_project_links(samples, curves) -> pd.DataFrame:
+    """(sample_id, projects, sample_info) rows. samples has no project column, so
+    projects come from the curves that reference each sample; a sample used in
+    several projects appears once per project, and samples without curves drop out."""
+    links = (
+        curves[["sample_id", "projects"]].explode("projects")
+        .dropna().drop_duplicates()
+    )
+    return samples[["sample_id", "sample_info"]].merge(links, on="sample_id")
+
+
+def aggregate_sample_info_by_project(samples, curves, top_cats: int = 10) -> tuple:
+    """Per-project version of aggregate_sample_info (same rules).
+    Categories are limited to the top `top_cats` per project x descriptor."""
+    merged = sample_project_links(samples, curves)
+    descs, cats = [], []
+    for proj, g in merged.groupby("projects"):
+        d, c = aggregate_sample_info(g)
+        d.insert(0, "project", proj)
+        c.insert(0, "project", proj)
+        descs.append(d)
+        cats.append(c.groupby("descriptor", sort=False).head(top_cats))
+    return pd.concat(descs, ignore_index=True), pd.concat(cats, ignore_index=True)
+
+
+def aggregate_by_project(papers, curves, samples=None) -> pd.DataFrame:
     """Paper, curve, and data-point counts per project."""
     p = (
         papers[["SID", "projects"]].explode("projects").dropna(subset=["projects"])
@@ -248,7 +273,13 @@ def aggregate_by_project(papers, curves) -> pd.DataFrame:
         .explode("projects").dropna(subset=["projects"])
         .groupby("projects")["journal"].nunique().rename("n_journals")
     )
-    df = pd.concat([p, c, n_prop, n_jour], axis=1).fillna(0).astype("int64")
+    parts = [p, c, n_prop, n_jour]
+    if samples is not None:
+        parts.append(
+            sample_project_links(samples, curves).groupby("projects")["sample_id"]
+            .nunique().rename("n_samples")
+        )
+    df = pd.concat(parts, axis=1).fillna(0).astype("int64")
     df.index.name = "project"
     return df.sort_values("curves", ascending=False).reset_index()
 
@@ -460,7 +491,7 @@ def main() -> None:
 
     # --- aggregate ---
     summary = aggregate_summary(papers, samples, curves, snapshot)
-    by_project = aggregate_by_project(papers, curves)
+    by_project = aggregate_by_project(papers, curves, samples)
     by_prop_y, by_prop_pair = aggregate_by_property(curves)
     props_by_project, journals_by_project = aggregate_by_project_rankings(papers, curves)
     by_year = aggregate_by_period(papers, samples, curves, freq="YS")
@@ -469,6 +500,7 @@ def main() -> None:
     compositions = aggregate_compositions(samples)
     elements = aggregate_elements(samples)
     info_descriptors, info_categories = aggregate_sample_info(samples)
+    info_desc_proj, info_cat_proj = aggregate_sample_info_by_project(samples, curves)
 
     # --- write files ---
     out_dir = args.output_dir / f"snapshot_{snapshot_date(snapshot)}"
@@ -492,6 +524,8 @@ def main() -> None:
         "elements.csv": elements,
         "sample_info_descriptors.csv": info_descriptors,
         "sample_info_categories.csv": info_categories,
+        "sample_info_descriptors_by_project.csv": info_desc_proj,
+        "sample_info_categories_by_project.csv": info_cat_proj,
     }
     for name, df in outputs.items():
         df.to_csv(out_dir / name, index=False)
