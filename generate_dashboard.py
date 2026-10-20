@@ -74,6 +74,17 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         except (OSError, json.JSONDecodeError) as e:
             print(f"Warning: could not read {citations_path}: {e}", file=sys.stderr)
 
+    def by_project_top(filename: str) -> dict:
+        """{project: top TOP_N_DASH records}; empty dict for older snapshots lacking the CSV."""
+        path = snap_dir / filename
+        if not path.exists():
+            return {}
+        df = pd.read_csv(path)
+        return {
+            proj: g.head(TOP_N_DASH).drop(columns=["project"]).to_dict(orient="records")
+            for proj, g in df.groupby("project", sort=False)
+        }
+
     data = {
         "snapshot": summary.get("snapshot", ""),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -82,6 +93,8 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "yearly": yearly,
         "by_project": records(snap_dir / "by_project.csv"),
         "by_property": records(snap_dir / "curves_by_property_y.csv", head=TOP_N_DASH),
+        "by_property_by_project": by_project_top("curves_by_property_y_by_project.csv"),
+        "journals_by_project": by_project_top("papers_by_journal_by_project.csv"),
         "journals": records(snap_dir / "papers_by_journal.csv", head=TOP_N_DASH),
         "elements": records(snap_dir / "elements.csv"),
         "sample_info_descriptors": records(snap_dir / "sample_info_descriptors.csv"),

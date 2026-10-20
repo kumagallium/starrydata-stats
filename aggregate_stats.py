@@ -19,6 +19,7 @@ Outputs:
 """
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -78,8 +79,9 @@ def parse_created_at(s: pd.Series) -> pd.Series:
 
 
 def clean_quoted(s: pd.Series) -> pd.Series:
-    """Strip quotes embedded in the value itself, as in '\"Journal Name\"'."""
-    return s.fillna("").str.strip().str.strip('"').str.strip()
+    """Strip quotes embedded in the value itself, as in '\"Journal Name\"', and decode
+    HTML entities (some titles arrive as 'Materials &amp; Interfaces')."""
+    return s.fillna("").str.strip().str.strip('"').str.strip().map(html.unescape)
 
 
 def parse_project_names(s: pd.Series) -> pd.Series:
@@ -219,6 +221,10 @@ def aggregate_summary(papers, samples, curves, snapshot: str) -> dict:
         "curves_per_paper_median": float(per_paper_curves.median()),
         "curves_per_paper_max": int(per_paper_curves.max()),
         "points_per_curve_mean": round(float(curves["n_points"].mean()), 2),
+        # Unique counts, same exclusion rules as the property / journal rankings
+        # (prop_y NaN and empty journal are excluded).
+        "n_properties": int(curves["prop_y"].dropna().nunique()),
+        "n_journals": int(papers.loc[papers["journal"] != "", "journal"].nunique()),
     }
 
 
@@ -232,7 +238,17 @@ def aggregate_by_project(papers, curves) -> pd.DataFrame:
     c = c_exploded.groupby("projects").agg(
         curves=("n_points", "size"), data_points=("n_points", "sum")
     )
-    df = pd.concat([p, c], axis=1).fillna(0).astype("int64")
+    # Unique property / journal counts per project (same exclusions as the rankings).
+    n_prop = (
+        curves[["projects", "prop_y"]].explode("projects").dropna(subset=["projects", "prop_y"])
+        .groupby("projects")["prop_y"].nunique().rename("n_properties")
+    )
+    n_jour = (
+        papers.loc[papers["journal"] != "", ["projects", "journal"]]
+        .explode("projects").dropna(subset=["projects"])
+        .groupby("projects")["journal"].nunique().rename("n_journals")
+    )
+    df = pd.concat([p, c, n_prop, n_jour], axis=1).fillna(0).astype("int64")
     df.index.name = "project"
     return df.sort_values("curves", ascending=False).reset_index()
 
@@ -252,6 +268,26 @@ def aggregate_by_property(curves) -> tuple:
         .reset_index()
     )
     return by_y, by_pair
+
+
+def aggregate_by_project_rankings(papers, curves) -> tuple:
+    """Top TOP_N properties (prop_y) and journals within each project."""
+    cx = curves[["projects", "prop_y", "n_points"]].explode("projects").dropna(subset=["projects"])
+    props = (
+        cx.groupby(["projects", "prop_y"])
+        .agg(curves=("n_points", "size"), data_points=("n_points", "sum"))
+        .reset_index().rename(columns={"projects": "project"})
+        .sort_values(["project", "curves"], ascending=[True, False], kind="stable")
+        .groupby("project").head(TOP_N).reset_index(drop=True)
+    )
+    px = papers.loc[papers["journal"] != "", ["projects", "journal"]].explode("projects").dropna(subset=["projects"])
+    jours = (
+        px.groupby(["projects", "journal"]).size().rename("papers").reset_index()
+        .rename(columns={"projects": "project"})
+        .sort_values(["project", "papers"], ascending=[True, False], kind="stable")
+        .groupby("project").head(TOP_N).reset_index(drop=True)
+    )
+    return props, jours
 
 
 def aggregate_by_period(papers, samples, curves, freq: str) -> pd.DataFrame:
@@ -426,6 +462,7 @@ def main() -> None:
     summary = aggregate_summary(papers, samples, curves, snapshot)
     by_project = aggregate_by_project(papers, curves)
     by_prop_y, by_prop_pair = aggregate_by_property(curves)
+    props_by_project, journals_by_project = aggregate_by_project_rankings(papers, curves)
     by_year = aggregate_by_period(papers, samples, curves, freq="YS")
     by_month = aggregate_by_period(papers, samples, curves, freq="MS")
     by_issued, journals, publishers = aggregate_papers_meta(papers)
@@ -444,6 +481,8 @@ def main() -> None:
         "by_project.csv": by_project,
         "curves_by_property_y.csv": by_prop_y,
         "curves_by_property_pair.csv": by_prop_pair,
+        "curves_by_property_y_by_project.csv": props_by_project,
+        "papers_by_journal_by_project.csv": journals_by_project,
         "registrations_by_year.csv": by_year,
         "registrations_by_month.csv": by_month,
         "papers_by_issued_year.csv": by_issued,
