@@ -164,6 +164,39 @@
   .tv td { border-bottom: 1px solid var(--rule); padding: 3px 14px 3px 0; }
   .tv th.r, .tv td.r { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
+  /* ---- Cited by ---- */
+  .cite-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .cite-badge { font-family: var(--mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--rule-strong); border-radius: 999px; color: var(--ink-55); }
+  .cite-badge b { color: var(--ink); font-weight: 600; }
+  .cite-badge .dot, .cite-tag .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .seg button { font-family: var(--mono); font-size: 11px; padding: 4px 12px; cursor: pointer; background: none; color: var(--ink-55); border: 1px solid var(--rule-strong); border-radius: 4px; }
+  .seg button:hover { color: var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .cite-chart { margin-top: 18px; padding: 0 8px; overflow-x: auto; }
+  .cite-chart .yearly-bars { height: 80px; }
+  .cite-chart .yearly-bars div { width: 18px; }
+  .cite-list { margin-top: 14px; }
+  .cite-row { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  .cite-row .yr { font-family: var(--mono); font-size: 11.5px; color: var(--ink-55); padding-top: 1px; }
+  .cite-row .ttl { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+  .cite-row a.ttl:hover { text-decoration: underline; text-underline-offset: 2px; }
+  .cite-row .meta { font-size: 11px; color: var(--ink-55); margin-top: 1px; overflow-wrap: anywhere; }
+  .cite-tag { display: inline-block; font-family: var(--mono); font-size: 9.5px; color: var(--ink-55); border: 1px solid var(--rule-strong); border-radius: 3px; padding: 0 6px; margin: 3px 6px 0 0; }
+  .cite-tag .dot { margin-right: 4px; }
+
+  /* ---- Page tabs ---- */
+  .tabbar { display: flex; gap: 4px; padding: 14px 60px 0; border-bottom: 1px solid var(--rule-strong); overflow-x: auto; }
+  .tabbar[hidden], [role="tabpanel"][hidden] { display: none; }
+  .tabbar button {
+    font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap;
+    padding: 8px 16px; background: none; color: var(--ink-55);
+    border: 1px solid transparent; border-bottom: none; border-radius: 6px 6px 0 0; margin-bottom: -1px;
+  }
+  .tabbar button:hover { color: var(--ink); }
+  .tabbar button[aria-selected="true"] { color: var(--ink); background: var(--paper); border-color: var(--rule-strong); }
+  .tabbar .tab-count { font-family: var(--mono); font-size: 10.5px; font-weight: 500; margin-left: 6px; padding: 0 6px; border-radius: 999px; background: var(--track); color: var(--ink-55); }
+
   /* ---- Footer ---- */
   .foot { padding: 14px 60px; border-top: 1px solid var(--rule-strong); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 10px; color: var(--ink-40); }
   .foot a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
@@ -186,6 +219,7 @@
     .rank-grid, .rank-grid-4 { grid-template-columns: 1fr; gap: 8px; }
     .elements-grid { grid-template-columns: 1fr; }
     .foot { padding: 14px 28px; }
+    .tabbar { padding: 12px 28px 0; }
   }
   @media (max-width: 560px) {
     .hero h1 { font-size: 26px; }
@@ -217,6 +251,12 @@
     </div>
   </header>
 
+  <div class="tabbar" id="tabbar" role="tablist" hidden>
+    <button type="button" role="tab" id="tab-dataset" data-tab="dataset" aria-controls="panel-dataset" aria-selected="true" tabindex="0"><span id="tab-dataset-l">Dataset</span></button>
+    <button type="button" role="tab" id="tab-citations" data-tab="citations" aria-controls="panel-citations" aria-selected="false" tabindex="-1"><span id="tab-citations-l">Cited by</span><span class="tab-count" id="tab-citations-n"></span></button>
+  </div>
+
+  <div id="panel-dataset" role="tabpanel" aria-labelledby="tab-dataset">
   <div class="kpis" id="kpi1"></div>
   <div class="kpis small" id="kpi2"></div>
 
@@ -280,8 +320,23 @@
     <details class="tv"><summary id="tv-info-s">VIEW AS TABLE</summary><div class="tv-wrap" id="table-info"></div></details>
   </section>
 
+  </div>
+
+  <div id="panel-citations" role="tabpanel" aria-labelledby="tab-citations" hidden>
+  <section class="sec" id="sec-cited" style="padding-bottom:28px" hidden>
+    <div class="sec-head">
+      <h2><span id="cited-h2">Cited by</span> <span class="sub" id="cited-sub"></span></h2>
+    </div>
+    <div class="cite-badges" id="cite-badges"></div>
+    <div class="seg" id="cite-seg" role="group"></div>
+    <div class="cite-chart" id="cite-chart"></div>
+    <div class="cite-list" id="cite-list"></div>
+    <div class="sec-note" id="cited-note" style="margin-bottom:14px"></div>
+  </section>
+  </div>
+
   <footer class="foot">
-    <span><a href="https://starrydata.org/" target="_blank" rel="noopener">starrydata.org</a> · <a href="https://www.starrydata2.org/" target="_blank" rel="noopener">starrydata2.org</a> — open dataset (<a href="https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh" target="_blank" rel="noopener">download</a>), updated daily at 6:00 JST</span>
+    <span><a href="https://starrydata.org/" target="_blank" rel="noopener">starrydata.org</a> · <a href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">Starrydata2 web app</a> — open dataset (<a href="https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh" target="_blank" rel="noopener">download</a>), updated daily at 6:00 JST</span>
     <span id="foot-gen"></span>
   </footer>
 </div>
@@ -308,7 +363,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       h1b: "like stars in the night sky.",
       lead: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from figures in the literature. Updated daily at 6:00 JST.`,
       linkAbout: "About · starrydata.org ↗",
-      linkApp: "Web app · starrydata2.org ↗",
+      linkApp: "Web app · Starrydata2 ↗",
       linkDataset: "Dataset (Google Drive) ↗",
       linkGitHub: "GitHub ↗",
       curves: "Curves", samples: "Samples", papers: "Papers",
@@ -352,6 +407,12 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       capTblDesc: "Completion by descriptor", capTblFab: "Fabrication process",
       capTblFamily: "Material family", capTblForm: "Form",
       footGen: (d) => `generated ${d} · aggregate_stats.py`,
+      citedH2: "Cited by", citedSub: "PAPERS CITING STARRYDATA",
+      citeAll: "All", citeTotal: (n) => `Total unique ${n}`,
+      tabDataset: "Dataset", tabCited: "Cited by",
+      citeNone: "No citing papers.",
+      citeEtAl: "et al.", citeYearTip: (y) => `Citing papers in ${y}`, citeCount: "Papers",
+      citeNote: (d) => `Source: OpenAlex, retrieved ${d}. Counts may be lower than Google Scholar.`,
     },
     ja: {
       title: "Starrydata データセット ダッシュボード",
@@ -360,7 +421,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       lead: (mc, mp) => `論文の図から抽出した${mc}万本のカーブ、${mp}万のデータ点。毎日6:00 JSTに自動更新。`,
       leadSub: (ck, mp) => `${ck}k curves and ${mp}M data points, digitized from the literature. Updated daily.`,
       linkAbout: "プロジェクト / About · starrydata.org ↗",
-      linkApp: "Webアプリ / App · starrydata2.org ↗",
+      linkApp: "Webアプリ / App · Starrydata2 ↗",
       linkDataset: "データセット / Dataset (Google Drive) ↗",
       linkGitHub: "GitHub ↗",
       curves: "カーブ", samples: "サンプル", papers: "論文",
@@ -404,6 +465,12 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       capTblDesc: "記入状況(descriptor別)", capTblFab: "合成プロセス",
       capTblFamily: "材料ファミリー", capTblForm: "形状",
       footGen: (d) => `generated ${d} · aggregate_stats.py`,
+      citedH2: "被引用論文", citedSub: "PAPERS CITING STARRYDATA",
+      citeAll: "すべて", citeTotal: (n) => `ユニーク合計 ${n}`,
+      tabDataset: "データセット", tabCited: "被引用論文",
+      citeNone: "引用論文はありません。",
+      citeEtAl: "ほか", citeYearTip: (y) => `${y}年の被引用論文`, citeCount: "論文数",
+      citeNote: (d) => `出典: OpenAlex(取得日 ${d})。件数は Google Scholar より少なくなる場合があります。`,
     },
   };
 
@@ -558,7 +625,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     links.textContent = "";
     for (const [key, href] of [
       ["linkAbout", "https://starrydata.org/"],
-      ["linkApp", "https://www.starrydata2.org/"],
+      ["linkApp", "https://starrydata.nims.go.jp/starrydata2/"],
       ["linkDataset", "https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"],
       ["linkGitHub", "https://github.com/kumagallium/starrydata-stats"],
     ]) {
@@ -953,6 +1020,169 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     renderTable(box, t("capTblForm"), [{ key: "category", label: t("tblCategory") }, { key: "samples", label: t("samples"), num: true }], D.form);
   }
 
+  // ---- Cited by ----
+  const CITE_COLORS = { starrydata2025: COL.curves, pbte2019: COL.papers };
+  const citeState = { filter: "all" };
+  const safeUrl = (u) => /^https:\/\//.test(u) ? u : null;
+
+  function renderCitations() {
+    const C = D.citations;
+    const sec = document.getElementById("sec-cited");
+    if (!C || !Array.isArray(C.works) || !C.works.length) { sec.hidden = true; return; }
+    sec.hidden = false;
+    setText("cited-h2", t("citedH2"));
+    setText("cited-sub", t("citedSub"));
+    setText("cited-note", t("citeNote", C.fetched_at));
+    const papers = C.papers;
+    const shortOf = (k) => (papers.find(p => p.key === k) || { short: k }).short;
+    const colorOf = (k) => CITE_COLORS[k] || "#888";
+
+    const badges = document.getElementById("cite-badges");
+    badges.textContent = "";
+    for (const p of papers) {
+      const b = el("span", "cite-badge");
+      const dot = el("span", "dot"); dot.style.background = colorOf(p.key);
+      b.appendChild(dot);
+      b.appendChild(document.createTextNode(p.short + " · "));
+      b.appendChild(el("b", null, fmt(p.count)));
+      badges.appendChild(b);
+    }
+    const tot = el("span", "cite-badge");
+    tot.appendChild(el("b", null, t("citeTotal", fmt(C.works.length))));
+    badges.appendChild(tot);
+
+    const seg = document.getElementById("cite-seg");
+    seg.textContent = "";
+    for (const [key, label] of [["all", t("citeAll")], ...papers.map(p => [p.key, p.short])]) {
+      const b = el("button", null, label);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(citeState.filter === key));
+      b.addEventListener("click", () => {
+        citeState.filter = key;
+        renderCitations();
+      });
+      seg.appendChild(b);
+    }
+
+    const works = C.works.filter(w => citeState.filter === "all" || (w.cites || []).includes(citeState.filter));
+
+    // Yearly bar chart (follows the filter)
+    const chart = document.getElementById("cite-chart");
+    chart.textContent = "";
+    const byYear = new Map();
+    for (const w of works) if (w.year) byYear.set(w.year, (byYear.get(w.year) || 0) + 1);
+    if (byYear.size) {
+      const ys = [...byYear.keys()];
+      const y0 = Math.min(...ys), y1 = Math.max(...ys);
+      const maxV = Math.max(...byYear.values());
+      const inner = el("div", "yearly-inner");
+      inner.style.minWidth = "0";
+      const row = el("div", "yearly-row");
+      row.style.gap = "2px";
+      const color = citeState.filter === "all" ? COL.samples : colorOf(citeState.filter);
+      for (let y = y0; y <= y1; y++) {
+        const n = byYear.get(y) || 0;
+        const col = el("div", "yearly-col");
+        col.style.padding = "0 2px";
+        const bars = el("div", "yearly-bars");
+        const b = el("div");
+        b.style.height = (n ? Math.max(2, Math.round(n / maxV * 80)) : 0) + "px";
+        b.style.background = color;
+        bars.appendChild(b);
+        col.appendChild(bars);
+        col.appendChild(el("div", "yl", String(y)));
+        col.addEventListener("pointermove", (ev) =>
+          showTip(ev.clientX, ev.clientY, t("citeYearTip", y), [{ name: t("citeCount"), value: fmt(n), color }]));
+        col.addEventListener("pointerleave", hideTip);
+        row.appendChild(col);
+      }
+      inner.appendChild(row);
+      inner.appendChild(el("div", "yearly-axis"));
+      chart.appendChild(inner);
+    }
+
+    // List
+    const list = document.getElementById("cite-list");
+    list.textContent = "";
+    if (!works.length) list.appendChild(el("div", "sec-note", t("citeNone")));
+    for (const w of works) {
+      const row = el("div", "cite-row");
+      row.appendChild(el("div", "yr", w.year != null ? String(w.year) : "–"));
+      const body = el("div");
+      const href = w.doi ? safeUrl("https://doi.org/" + encodeURI(w.doi)) : safeUrl(w.id);
+      let ttl;
+      if (href) {
+        ttl = el("a", "ttl", w.title);
+        ttl.href = href; ttl.target = "_blank"; ttl.rel = "noopener";
+      } else {
+        ttl = el("span", "ttl", w.title);
+      }
+      body.appendChild(ttl);
+      const authors = (w.authors || []).join(", ") + ((w.n_authors || 0) > (w.authors || []).length ? " " + t("citeEtAl") : "");
+      const meta = [authors, w.venue].filter(Boolean).join(" · ");
+      if (meta) body.appendChild(el("div", "meta", meta));
+      const tags = el("div");
+      for (const k of (w.cites || [])) {
+        const tag = el("span", "cite-tag");
+        const dot = el("span", "dot"); dot.style.background = colorOf(k);
+        tag.appendChild(dot);
+        tag.appendChild(document.createTextNode(shortOf(k)));
+        tags.appendChild(tag);
+      }
+      body.appendChild(tags);
+      row.appendChild(body);
+      list.appendChild(row);
+    }
+  }
+
+  // ---- Page tabs (URL hash: #dataset / #citations) ----
+  const TABS = ["dataset", "citations"];
+  const hasCites = () => !!(D.citations && Array.isArray(D.citations.works) && D.citations.works.length);
+  const tabFromHash = () => {
+    const h = location.hash.replace(/^#/, "");
+    return TABS.includes(h) && (h !== "citations" || hasCites()) ? h : "dataset";
+  };
+  let curTab = null;  // kept so re-renders (e.g. language switch) stay on the same tab
+  function applyTab(cur) {
+    curTab = cur;
+    for (const k of TABS) {
+      const b = document.getElementById("tab-" + k);
+      b.setAttribute("aria-selected", String(k === cur));
+      b.tabIndex = k === cur ? 0 : -1;
+      document.getElementById("panel-" + k).hidden = k !== cur;
+    }
+    if (cur === "citations") safe(renderCitations);
+  }
+  function renderTabs() {
+    const bar = document.getElementById("tabbar");
+    bar.hidden = !hasCites();
+    if (!hasCites()) { document.getElementById("panel-citations").hidden = true; document.getElementById("panel-dataset").hidden = false; return; }
+    setText("tab-dataset-l", t("tabDataset"));
+    setText("tab-citations-l", t("tabCited"));
+    setText("tab-citations-n", fmt(D.citations.works.length));
+    applyTab(curTab || tabFromHash());
+  }
+  // Switch directly, then record the tab in the URL. The hash is only a bonus:
+  // it may not be writable (e.g. when the page is opened from a data: URL).
+  function selectTab(k) {
+    applyTab(k);
+    try { if (location.hash !== "#" + k) history.pushState(null, "", "#" + k); } catch (e) { /* ignore */ }
+  }
+  document.querySelectorAll("#tabbar button").forEach(b => {
+    b.addEventListener("click", () => selectTab(b.dataset.tab));
+    b.addEventListener("keydown", (ev) => {
+      if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+      ev.preventDefault();
+      const i = TABS.indexOf(b.dataset.tab);
+      const next = TABS[(i + (ev.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length];
+      selectTab(next);
+      document.getElementById("tab-" + next).focus();
+    });
+  });
+  // Back/forward (pushState entries) and manual hash edits.
+  window.addEventListener("popstate", () => { if (hasCites()) applyTab(tabFromHash()); });
+  window.addEventListener("hashchange", () => { if (hasCites()) applyTab(tabFromHash()); });
+
   // ---------------------------------------------------------------------
   // Render + language switching
   // ---------------------------------------------------------------------
@@ -966,6 +1196,8 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     safe(renderElements);
     safe(renderRankings);
     safe(renderSampleInfo);
+    safe(renderCitations);
+    safe(renderTabs);
     setText("foot-gen", t("footGen", D.generated_at));
     document.querySelectorAll(".lang-switch button").forEach(b =>
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));

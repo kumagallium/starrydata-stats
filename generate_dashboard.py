@@ -65,6 +65,15 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
             df = df[~df["category"].isin(exclude)]
         return df.head(n)[["category", "samples"]].to_dict(orient="records")
 
+    # Optional: citing-works list written by fetch_citations.py (None when absent).
+    citations_path = output_dir / "citations.json"
+    citations = None
+    if citations_path.exists():
+        try:
+            citations = json.loads(citations_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as e:
+            print(f"Warning: could not read {citations_path}: {e}", file=sys.stderr)
+
     data = {
         "snapshot": summary.get("snapshot", ""),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -79,6 +88,7 @@ def generate_dashboard(output_dir: Path = DEFAULT_OUTPUT_DIR,
         "fabrication": cat_top("FabricationProcess", exclude=("Other", "Unknown")),
         "material_family": cat_top("MaterialFamily", exclude=("Other", "Unknown")),
         "form": cat_top("Form", exclude=("Other", "Unknown")),
+        "citations": citations,
     }
 
     template = TEMPLATE_PATH.read_text(encoding="utf-8")

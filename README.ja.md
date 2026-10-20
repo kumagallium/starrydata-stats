@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [Starrydata](https://starrydata.org/)(無機材料科学実験データのオープンデータベース構築
-プロジェクト)の Web アプリ [Starrydata2](https://www.starrydata2.org/) が公開する
+プロジェクト)の Web アプリ [Starrydata2](https://starrydata.nims.go.jp/starrydata2/) が公開する
 データセット(papers / samples / curves)の集計ツールと、自動更新ダッシュボードです。
 
 **公開ダッシュボード: <https://kumagallium.github.io/starrydata-stats/>**
@@ -58,6 +58,10 @@ uv run generate_dashboard.py           # 既存の output/ からダッシュボ
   しか反映されませんが、こちらは各日の実測値なので、上流データベースでの
   削除・整理も検出できます(現在ダッシュボードには表示していません。
   監査用の記録です)
+- `output/citations.json` — `fetch_citations.py` が OpenAlex から取得した、
+  Starrydata 論文 2 本を引用する論文の一覧(ダッシュボードの「被引用論文」
+  セクションに表示)。取得失敗時は前回のファイルを保持します。件数は
+  Google Scholar より少なくなることがあります
 
 ## ライセンスとデータの出所
 
