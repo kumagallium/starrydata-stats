@@ -165,6 +165,16 @@
   .tv th.r, .tv td.r { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
   /* ---- Cited by ---- */
+  .cite-papers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 12px; margin-top: 14px; }
+  .cite-paper { border: 1px solid var(--rule-strong); border-radius: 6px; padding: 12px 14px; min-width: 0; }
+  .cp-head { display: flex; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-55); }
+  .cp-head .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+  .cp-count { margin-left: auto; }
+  .cp-count b { color: var(--ink); font-weight: 600; font-size: 13px; }
+  .cp-title { display: block; margin-top: 6px; font-weight: 600; font-size: 14px; line-height: 1.4; color: var(--ink); text-decoration: none; }
+  a.cp-title:hover { text-decoration: underline; }
+  .cp-meta { margin-top: 4px; font-size: 12px; line-height: 1.5; color: var(--ink-55); overflow-wrap: anywhere; }
+  .cite-total { margin-top: 10px; font-family: var(--mono); font-size: 11px; color: var(--ink-55); }
   .cite-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .cite-badge { font-family: var(--mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--rule-strong); border-radius: 999px; color: var(--ink-55); }
   .cite-badge b { color: var(--ink); font-weight: 600; }
@@ -174,8 +184,12 @@
   .seg button:hover { color: var(--ink); }
   .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .cite-chart { margin-top: 18px; padding: 0 8px; overflow-x: auto; }
-  .cite-chart .yearly-bars { height: 80px; }
-  .cite-chart .yearly-bars div { width: 18px; }
+  .cite-chart .yearly-col { flex: 1 1 0; padding: 0 2px; }
+  .cite-bars { display: flex; justify-content: center; align-items: flex-end; height: 80px; width: 100%; }
+  .cite-stack { display: flex; flex-direction: column; width: 56%; max-width: 44px; min-width: 8px; }
+  .cite-stack div:first-child { border-radius: 2px 2px 0 0; }
+  .cite-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; font-family: var(--mono); font-size: 10.5px; color: var(--ink-55); }
+  .cite-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
   .cite-list { margin-top: 14px; }
   .cite-row { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
   .cite-row .yr { font-family: var(--mono); font-size: 11.5px; color: var(--ink-55); padding-top: 1px; }
@@ -327,7 +341,8 @@
     <div class="sec-head">
       <h2><span id="cited-h2">Cited by</span> <span class="sub" id="cited-sub"></span></h2>
     </div>
-    <div class="cite-badges" id="cite-badges"></div>
+    <div class="cite-papers" id="cite-badges"></div>
+    <div class="cite-total" id="cite-total"></div>
     <div class="seg" id="cite-seg" role="group"></div>
     <div class="cite-chart" id="cite-chart"></div>
     <div class="cite-list" id="cite-list"></div>
@@ -411,7 +426,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       citeAll: "All", citeTotal: (n) => `Total unique ${n}`,
       tabDataset: "Dataset", tabCited: "Cited by",
       citeNone: "No citing papers.",
-      citeEtAl: "et al.", citeYearTip: (y) => `Citing papers in ${y}`, citeCount: "Papers",
+      citeEtAl: "et al.", citeYearTip: (y) => `Citing papers in ${y}`, citeCount: "Papers", citeBoth: "Cites both", citeCitedBy: "citations",
       citeNote: (d) => `Source: OpenAlex, retrieved ${d}. Counts may be lower than Google Scholar.`,
     },
     ja: {
@@ -469,7 +484,7 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       citeAll: "すべて", citeTotal: (n) => `ユニーク合計 ${n}`,
       tabDataset: "データセット", tabCited: "被引用論文",
       citeNone: "引用論文はありません。",
-      citeEtAl: "ほか", citeYearTip: (y) => `${y}年の被引用論文`, citeCount: "論文数",
+      citeEtAl: "ほか", citeYearTip: (y) => `${y}年の被引用論文`, citeCount: "論文数", citeBoth: "両方を引用", citeCitedBy: "件の被引用",
       citeNote: (d) => `出典: OpenAlex(取得日 ${d})。件数は Google Scholar より少なくなる場合があります。`,
     },
   };
@@ -1037,19 +1052,29 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     const shortOf = (k) => (papers.find(p => p.key === k) || { short: k }).short;
     const colorOf = (k) => CITE_COLORS[k] || "#888";
 
+    // Source papers: full reference + citation count
     const badges = document.getElementById("cite-badges");
     badges.textContent = "";
     for (const p of papers) {
-      const b = el("span", "cite-badge");
+      const card = el("div", "cite-paper");
+      const head = el("div", "cp-head");
       const dot = el("span", "dot"); dot.style.background = colorOf(p.key);
-      b.appendChild(dot);
-      b.appendChild(document.createTextNode(p.short + " · "));
-      b.appendChild(el("b", null, fmt(p.count)));
-      badges.appendChild(b);
+      head.appendChild(dot);
+      head.appendChild(document.createTextNode(p.short));
+      const cnt = el("span", "cp-count");
+      cnt.appendChild(el("b", null, fmt(p.count)));
+      cnt.appendChild(document.createTextNode(" " + t("citeCitedBy")));
+      head.appendChild(cnt);
+      card.appendChild(head);
+      const href = p.doi ? "https://doi.org/" + p.doi : null;
+      const ttl = el(href ? "a" : "div", "cp-title", p.title);
+      if (href) { ttl.href = href; ttl.target = "_blank"; ttl.rel = "noopener"; }
+      card.appendChild(ttl);
+      if (p.authors) card.appendChild(el("div", "cp-meta", p.authors));
+      card.appendChild(el("div", "cp-meta", [p.journal, p.doi ? "DOI: " + p.doi : ""].filter(Boolean).join(" · ")));
+      badges.appendChild(card);
     }
-    const tot = el("span", "cite-badge");
-    tot.appendChild(el("b", null, t("citeTotal", fmt(C.works.length))));
-    badges.appendChild(tot);
+    setText("cite-total", t("citeTotal", fmt(C.works.length)));
 
     const seg = document.getElementById("cite-seg");
     seg.textContent = "";
@@ -1066,39 +1091,76 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
 
     const works = C.works.filter(w => citeState.filter === "all" || (w.cites || []).includes(citeState.filter));
 
-    // Yearly bar chart (follows the filter)
+    // Yearly stacked bar chart (follows the filter). Segments are exclusive so the
+    // stack height equals the number of unique citing papers in that year.
     const chart = document.getElementById("cite-chart");
     chart.textContent = "";
+    const BOTH = "__both";
+    const segKey = (w) => {
+      const c = (w.cites || []).filter(k => citeState.filter === "all" || k === citeState.filter);
+      return c.length > 1 ? BOTH : c[0];
+    };
+    const segColor = (k) => k === BOTH
+      ? `repeating-linear-gradient(135deg, ${colorOf(papers[0].key)} 0 4px, ${colorOf(papers[1].key)} 4px 8px)`
+      : colorOf(k);
+    const segName = (k) => k === BOTH ? t("citeBoth") : shortOf(k);
+    // Stack order, bottom to top: the larger paper first, "both" in the middle.
+    const order = citeState.filter === "all"
+      ? [...papers].sort((x, y) => y.count - x.count).map(p => p.key).flatMap((k, i) => i === 0 ? [k, BOTH] : [k])
+      : [citeState.filter];
     const byYear = new Map();
-    for (const w of works) if (w.year) byYear.set(w.year, (byYear.get(w.year) || 0) + 1);
+    for (const w of works) {
+      if (!w.year) continue;
+      const m = byYear.get(w.year) || {};
+      const k = segKey(w);
+      m[k] = (m[k] || 0) + 1;
+      byYear.set(w.year, m);
+    }
     if (byYear.size) {
       const ys = [...byYear.keys()];
       const y0 = Math.min(...ys), y1 = Math.max(...ys);
-      const maxV = Math.max(...byYear.values());
+      const total = (m) => Object.values(m).reduce((s, v) => s + v, 0);
+      const maxV = Math.max(...[...byYear.values()].map(total));
+      const H = 80;
       const inner = el("div", "yearly-inner");
       inner.style.minWidth = "0";
       const row = el("div", "yearly-row");
-      row.style.gap = "2px";
-      const color = citeState.filter === "all" ? COL.samples : colorOf(citeState.filter);
       for (let y = y0; y <= y1; y++) {
-        const n = byYear.get(y) || 0;
+        const m = byYear.get(y) || {};
         const col = el("div", "yearly-col");
-        col.style.padding = "0 2px";
-        const bars = el("div", "yearly-bars");
-        const b = el("div");
-        b.style.height = (n ? Math.max(2, Math.round(n / maxV * 80)) : 0) + "px";
-        b.style.background = color;
-        bars.appendChild(b);
+        const bars = el("div", "cite-bars");
+        const stack = el("div", "cite-stack");
+        for (const k of [...order].reverse()) {  // DOM is top to bottom
+          const n = m[k] || 0;
+          if (!n) continue;
+          const sgm = el("div");
+          sgm.style.height = Math.max(2, Math.round(n / maxV * H)) + "px";
+          sgm.style.background = segColor(k);
+          stack.appendChild(sgm);
+        }
+        bars.appendChild(stack);
         col.appendChild(bars);
         col.appendChild(el("div", "yl", String(y)));
-        col.addEventListener("pointermove", (ev) =>
-          showTip(ev.clientX, ev.clientY, t("citeYearTip", y), [{ name: t("citeCount"), value: fmt(n), color }]));
+        const rows = order.filter(k => m[k]).map(k => ({ name: segName(k), value: fmt(m[k]), color: k === BOTH ? "#888" : colorOf(k) }));
+        if (order.length > 1) rows.push({ name: t("citeCount"), value: fmt(total(m)), color: "transparent" });
+        col.addEventListener("pointermove", (ev) => showTip(ev.clientX, ev.clientY, t("citeYearTip", y), rows));
         col.addEventListener("pointerleave", hideTip);
         row.appendChild(col);
       }
       inner.appendChild(row);
       inner.appendChild(el("div", "yearly-axis"));
       chart.appendChild(inner);
+      if (order.length > 1) {
+        const lg = el("div", "cite-legend");
+        for (const k of order) {
+          const it = el("span");
+          const sw = el("i"); sw.style.background = segColor(k);
+          it.appendChild(sw);
+          it.appendChild(document.createTextNode(segName(k)));
+          lg.appendChild(it);
+        }
+        chart.appendChild(lg);
+      }
     }
 
     // List

@@ -44,10 +44,17 @@ SELECT = "id,doi,title,publication_year,publication_date,authorships,primary_loc
 PAPERS = [
     {"key": "starrydata2025", "doi": "10.1080/27660400.2025.2506976", "openalex": "W4410542656",
      "title": "Starrydata: from published plots to shared materials data",
-     "short": "Starrydata (2025)", "year": 2025},
+     "short": "Starrydata (2025)", "year": 2025,
+     "authors": "Y. Katsura, M. Kumagai, T. Mato, Y. Takada, Y. Ando, E. Fujita, F. Hosono, E. Koyama, "
+                "F. Mudasar, T. N. T. Phuong, N. Saito, Y. Sakamoto, A. Tanaka, D. Yana, K. Kimura, "
+                "K. Tsuda, M. Demura",
+     "journal": "Science and Technology of Advanced Materials: Methods 5, 1 (2025) 2506976"},
     {"key": "pbte2019", "doi": "10.1080/14686996.2019.1603885", "openalex": "W2948233954",
      "title": "Data-driven analysis of electron relaxation times in PbTe-type thermoelectric materials",
-     "short": "PbTe τ (2019)", "year": 2019},
+     "short": "PbTe τ (2019)", "year": 2019,
+     "authors": "Y. Katsura, M. Kumagai, T. Kodani, M. Kaneshige, Y. Ando, S. Gunji, Y. Imai, H. Ouchi, "
+                "K. Tobita, K. Kimura, K. Tsuda",
+     "journal": "Science and Technology of Advanced Materials 20 (2019) 511–520"},
 ]
 
 TAG_RE = re.compile(r"<[^>]+>")
@@ -129,6 +136,7 @@ def main() -> int:
         "fetched_at": date.today().isoformat(),
         "source": "OpenAlex",
         "papers": [{"key": p["key"], "doi": p["doi"], "title": p["title"], "short": p["short"],
+                    "authors": p["authors"], "journal": p["journal"],
                     "count": counts[p["key"]]} for p in PAPERS],
         "works": works,
     }
