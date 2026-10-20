@@ -136,7 +136,22 @@
   .rank-row { padding: 6px 0; border-radius: 4px; }
   .rank-row:hover { background: color-mix(in srgb, #1a1917 4%, transparent); }
   .rank-row .line1 { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--ink); }
-  .rank-row .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank-row.clickable { cursor: pointer; padding-left: 6px; padding-right: 6px; margin: 0 -6px; }
+  .rank-row.clickable:focus-visible { outline: 2px solid var(--papers); outline-offset: 1px; }
+  .rank-row[aria-pressed="true"] { background: color-mix(in srgb, #3554a8 10%, transparent); box-shadow: inset 3px 0 0 var(--papers); }
+  .rank-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 22px; }
+  .rank-picker label { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-55); }
+  .rank-picker select { font-family: var(--sans); font-size: 13px; color: var(--ink); background: transparent; border: 1px solid var(--rule-strong); border-radius: 4px; padding: 5px 28px 5px 10px; max-width: 100%; cursor: pointer; }
+  .rank-picker select:focus-visible { outline: 2px solid var(--papers); outline-offset: 1px; }
+  .rank-picker[hidden] { display: none; }
+  .rank-row.clickable:hover .val::after, .rank-row.clickable:focus-visible .val::after { content: " \203A"; color: var(--papers); }
+  .rank-filter { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font-family: var(--mono); font-size: 10.5px; color: var(--ink-55); min-width: 0; }
+  .rank-filter .fv { color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rank-filter button { flex: none; background: none; border: 1px solid var(--rule-strong); border-radius: 999px; width: 18px; height: 18px; line-height: 14px; padding: 0; cursor: pointer; color: var(--ink-55); font-size: 12px; }
+  .rank-filter button:hover { color: var(--ink); }
+  /* min-width: 0 lets long names ellipsize instead of widening the grid column */
+  .rank-col { min-width: 0; }
+  .rank-row .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .rank-row .name .en { font-family: var(--mono); font-size: 9.5px; color: var(--ink-40); }
   .rank-row .val { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; flex: none; }
   .rank-row .track { height: 5px; background: var(--track); margin-top: 4px; border-radius: 2px; }
@@ -315,6 +330,10 @@
   </section>
 
   <section class="sec">
+    <div class="rank-picker" id="rank-picker" hidden>
+      <label for="rank-select" id="rank-select-l">Filter by project</label>
+      <select id="rank-select"></select>
+    </div>
     <div class="rank-grid">
       <div class="rank-col" id="rank-projects"></div>
       <div class="rank-col" id="rank-props"></div>
@@ -397,9 +416,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       scaleFew: "fewer", scaleMany: "more", scaleUnit: "samples",
       colProjects: "Projects", colProps: "Properties", colJournals: "Journals",
       metricCurves: "Curves", metricPapers: "Papers",
-      capProjects: (n, total) => `Top ${n} of ${total} projects · bars relative to list max`,
-      capProps: (n) => `By prop_y in curves.csv · top ${n}`,
-      capJournals: (n) => `Top ${n} journals by paper count`,
+      capProjects: (n, total) => `Top ${n} of ${total} projects · click a row to filter`,
+      capProps: (n, total) => total == null ? `Top ${n} · by prop_y in curves.csv` : `Top ${n} of ${fmt(total)} properties · by prop_y in curves.csv`,
+      capJournals: (n, total) => total == null ? `Top ${n} journals · by paper count` : `Top ${n} of ${fmt(total)} journals · by paper count`,
+      filterAll: "All projects", filterClear: "Clear project filter", pickerLabel: "Filter by project",
+      totalProps: (n) => `Total: ${fmt(n)} properties`, totalJournals: (n) => `Total: ${fmt(n)} journals`,
       infoH2: "Sample metadata",
       colDesc: (total) => `Completion (of ${total} samples)`,
       capDesc: (n) => `Samples with a value per descriptor · top ${n} / bars relative to all samples`,
@@ -455,9 +476,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       scaleFew: "少", scaleMany: "多", scaleUnit: "サンプル数",
       colProjects: "プロジェクト", colProps: "物性", colJournals: "ジャーナル",
       metricCurves: "カーブ数 / Curves", metricPapers: "論文数 / Papers",
-      capProjects: (n, total) => `全${total}プロジェクト中 上位${n} · バーは各リスト最大値比 / top ${n} of ${total}`,
-      capProps: (n) => `curves.csv の prop_y 別 · 上位${n} / by prop_y, top ${n}`,
-      capJournals: (n) => `掲載ジャーナル別 · 上位${n} / top ${n} journals`,
+      capProjects: (n, total) => `全${total}プロジェクト中 上位${n} · 行をクリックで絞り込み`,
+      capProps: (n, total) => total == null ? `上位${n} · prop_y 別` : `全${fmt(total)}物性中 上位${n} · prop_y 別 / top ${n} of ${fmt(total)}`,
+      capJournals: (n, total) => total == null ? `上位${n} · 論文数順` : `全${fmt(total)}ジャーナル中 上位${n} · 論文数順 / top ${n} of ${fmt(total)}`,
+      filterAll: "全プロジェクト", filterClear: "プロジェクト絞り込みを解除", pickerLabel: "プロジェクトで絞り込み",
+      totalProps: (n) => `合計: ${fmt(n)} 物性`, totalJournals: (n) => `合計: ${fmt(n)} ジャーナル`,
       infoH2: "サンプル詳細情報",
       colDesc: (total) => `記入状況(全${total}サンプル中)`,
       capDesc: (n) => `descriptor別・記入ありサンプル数 · 上位${n} / バーは全サンプル比`,
@@ -906,8 +929,9 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
       if (cfg.metric) h3.appendChild(el("span", "metric", cfg.metric));
       box.appendChild(h3);
     }
+    if (cfg.filterBar) box.appendChild(cfg.filterBar());
     if (cfg.cap) box.appendChild(el("div", "cap", cfg.cap));
-    const maxV = cfg.maxOverride || Math.max(...cfg.rows.map(r => +r[cfg.valueKey] || 0));
+    const maxV = cfg.maxOverride || Math.max(1, ...cfg.rows.map(r => +r[cfg.valueKey] || 0));
     for (const r of cfg.rows) {
       const v = +r[cfg.valueKey] || 0;
       const rowEl = el("div", "rank-row");
@@ -933,15 +957,67 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
           showTip(ev.clientX, ev.clientY, label.tipTitle || (label.jp + (label.en ? " · " + label.en : "")), cfg.tipRows(r)));
         rowEl.addEventListener("pointerleave", hideTip);
       }
+      if (cfg.onSelect) {
+        rowEl.classList.add("clickable");
+        rowEl.setAttribute("role", "button");
+        rowEl.tabIndex = 0;
+        rowEl.setAttribute("aria-pressed", String(!!cfg.isSelected && cfg.isSelected(r)));
+        rowEl.addEventListener("click", () => cfg.onSelect(r));
+        rowEl.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); cfg.onSelect(r); }
+        });
+      }
       box.appendChild(rowEl);
     }
   }
+
+  // Selected project for the Properties / Journals columns (null = all). Survives language / tab switches.
+  let rankProject = null;
+  document.getElementById("rank-select").addEventListener("change", (ev) => {
+    rankProject = ev.target.value || null;
+    renderRankings();
+  });
 
   function renderRankings() {
     setText("tv-rankings-s", t("viewTable"));
     clear("table-rankings");
     const projRows = D.by_project.slice(0, 8);
+    const canFilter = Object.keys(D.by_property_by_project || {}).length > 0;
+    if (rankProject && !D.by_project.some(p => p.project === rankProject)) rankProject = null;
+    const projInfo = rankProject ? D.by_project.find(p => p.project === rankProject) : null;
+    // Project picker: the discoverable entry point (row clicks are a shortcut)
+    const picker = document.getElementById("rank-picker");
+    picker.hidden = !canFilter;
+    if (canFilter) {
+      setText("rank-select-l", t("pickerLabel"));
+      const sel = document.getElementById("rank-select");
+      sel.textContent = "";
+      const optAll = el("option", null, t("filterAll"));
+      optAll.value = "";
+      sel.appendChild(optAll);
+      for (const p of D.by_project) {
+        const o = el("option", null, `${local(PROJECT_JA, p.project)} (${fmt(p.curves)})`);
+        o.value = p.project;
+        sel.appendChild(o);
+      }
+      sel.value = rankProject || "";
+    }
+    const filterBar = () => {
+      const d = el("div", "rank-filter");
+      d.appendChild(el("span", "fv", projInfo ? local(PROJECT_JA, projInfo.project) : t("filterAll")));
+      if (projInfo) {
+        const x = el("button", null, "\u00d7");
+        x.type = "button";
+        x.setAttribute("aria-label", t("filterClear"));
+        x.title = t("filterClear");
+        x.addEventListener("click", () => { rankProject = null; renderRankings(); });
+        d.appendChild(x);
+      }
+      return d;
+    };
     rankCol("rank-projects", {
+      onSelect: canFilter ? (r) => { rankProject = rankProject === r.project ? null : r.project; renderRankings(); } : null,
+      isSelected: (r) => r.project === rankProject,
       title: t("colProjects"), metric: t("metricCurves"),
       cap: t("capProjects", projRows.length, D.by_project.length),
       rows: projRows, valueKey: "curves", color: COL.curves,
@@ -952,10 +1028,15 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
         { name: t("tipDataPoints"), value: fmt(r.data_points) },
       ],
     });
-    const propRows = D.by_property.slice(0, 8);
+    const allProps = projInfo ? ((D.by_property_by_project || {})[rankProject] || []) : D.by_property;
+    const allJours = projInfo ? ((D.journals_by_project || {})[rankProject] || []) : D.journals;
+    const nProps = projInfo ? projInfo.n_properties : S.n_properties;
+    const nJours = projInfo ? projInfo.n_journals : S.n_journals;
+    const propRows = allProps.slice(0, 8);
     rankCol("rank-props", {
+      filterBar: canFilter ? filterBar : null,
       title: t("colProps"), metric: t("metricCurves"),
-      cap: t("capProps", propRows.length),
+      cap: t("capProps", propRows.length, nProps),
       rows: propRows, valueKey: "curves", color: COL.curves,
       labelFn: (r) => ({ jp: local(PROP_JA, r.prop_y), en: "", tipTitle: r.prop_y }),
       tipRows: (r) => [
@@ -963,10 +1044,11 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
         { name: t("tipDataPoints"), value: fmt(r.data_points) },
       ],
     });
-    const journalRows = D.journals.slice(0, 8);
+    const journalRows = allJours.slice(0, 8);
     rankCol("rank-journals", {
+      filterBar: canFilter ? filterBar : null,
       title: t("colJournals"), metric: t("metricPapers"),
-      cap: t("capJournals", journalRows.length),
+      cap: t("capJournals", journalRows.length, nJours),
       rows: journalRows, valueKey: "papers", color: COL.papers,
       labelFn: (r) => ({ jp: r.journal, en: "", tipTitle: r.journal }),
       tipRows: (r) => [{ name: t("papers"), value: fmt(r.papers), color: COL.papers }],
@@ -980,10 +1062,12 @@ window.DASHBOARD_DATA = /*__DATA_JSON__*/;
     renderTable(box, t("capTblProps"),
       [{ key: "prop_y", label: t("tblProperty") }, { key: "curves", label: t("curves"), num: true },
        { key: "data_points", label: t("tipDataPoints"), num: true }],
-      D.by_property);
+      allProps);
+    if (nProps != null) box.lastChild.appendChild(el("div", "sec-note", t("totalProps", nProps)));
     renderTable(box, t("capTblJournals"),
       [{ key: "journal", label: t("tblJournal") }, { key: "papers", label: t("papers"), num: true }],
-      D.journals);
+      allJours);
+    if (nJours != null) box.lastChild.appendChild(el("div", "sec-note", t("totalJournals", nJours)));
   }
 
   function renderSampleInfo() {
