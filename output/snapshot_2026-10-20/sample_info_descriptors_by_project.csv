@@ -1,0 +1,337 @@
+project,descriptor,samples_filled,samples_with_category
+AirBatteryMaterials,Anode active material,529,467
+AirBatteryMaterials,Cathode active material,529,529
+AirBatteryMaterials,Solvent 1,515,451
+AirBatteryMaterials,Solute 1,515,428
+AirBatteryMaterials,Separator,512,361
+AirBatteryMaterials,Cell type,503,0
+AirBatteryMaterials,Cathode current collector,484,0
+AirBatteryMaterials,Cathode conductive agent,437,338
+AirBatteryMaterials,Cathode catalyst material,433,0
+AirBatteryMaterials,Lower voltage limit,385,323
+AirBatteryMaterials,Cathode binder 1,383,314
+AirBatteryMaterials,Upper voltage limit,358,311
+AirBatteryMaterials,Cathode areal density (cathode loading),259,204
+AirBatteryMaterials,Catalyst loading,257,0
+AirBatteryMaterials,Current density,227,65
+AirBatteryMaterials,Hysteresis,112,0
+AirBatteryMaterials,Ratio of electrolyte to cathode active material,102,0
+AirBatteryMaterials,Solvent 2,94,59
+AirBatteryMaterials,Solute 2,54,27
+AirBatteryMaterials,Anode current collector,53,37
+AirBatteryMaterials,Coulombic efficiency,51,38
+AirBatteryMaterials,Redox mediator in electrolyte,50,0
+AirBatteryMaterials,Electrolyte additive 1,40,0
+AirBatteryMaterials,Redox mediator in cathode,14,0
+AirBatteryMaterials,Cathode additive,11,0
+AirBatteryMaterials,N/P ratio| A/C ratio,5,0
+AirBatteryMaterials,Anode areal capacity,5,0
+AirBatteryMaterials,Solvent 3,2,2
+BatteryMaterials,Solvent 1,13670,13389
+BatteryMaterials,Solute 1,13620,12688
+BatteryMaterials,Anode active material,13334,11843
+BatteryMaterials,Cathode active material,9851,8830
+BatteryMaterials,Solvent 2,9820,9686
+BatteryMaterials,Cathode conductive agent,8264,7982
+BatteryMaterials,Cathode binder 1,8196,7987
+BatteryMaterials,Separator,8172,7881
+BatteryMaterials,Cathode areal density (cathode loading),7479,7075
+BatteryMaterials,Cell type,7312,5662
+BatteryMaterials,Solute 2,6001,5600
+BatteryMaterials,Cathode additive 1,4088,4014
+BatteryMaterials,Cathode current collector,3730,1422
+BatteryMaterials,Lower voltage limit,3521,2805
+BatteryMaterials,Upper voltage limit,3480,2781
+BatteryMaterials,Electrolyte additive 1,3282,2775
+BatteryMaterials,Anode areal capacity,3021,2118
+BatteryMaterials,Current density,2522,2322
+BatteryMaterials,Ratio of electrolyte to cathode active material,2436,2190
+BatteryMaterials,Anode current collector,2308,2032
+BatteryMaterials,Counter electrode,2137,1859
+BatteryMaterials,Anode binder 1,1408,1353
+BatteryMaterials,Anode conductive agent,1371,1321
+BatteryMaterials,Reference electrode,1207,960
+BatteryMaterials,Solvent 3,1101,1070
+BatteryMaterials,Working electrode,548,426
+BatteryMaterials,Solute 3,415,159
+BatteryMaterials,Anode additive 1,408,399
+BatteryMaterials,Cathode binder 2,377,369
+BatteryMaterials,Coulombic efficiency,376,355
+BatteryMaterials,Scan rate,374,0
+BatteryMaterials,N/P ratio|A/C ratio,346,0
+BatteryMaterials,Cathode additive 2,251,217
+BatteryMaterials,Cathode catalyst material,162,0
+BatteryMaterials,Catalyst loading,147,0
+BatteryMaterials,Electrolyte additive 2,120,30
+BatteryMaterials,Hysteresis,112,0
+BatteryMaterials,Cathode areal capacity,41,0
+BatteryMaterials,Anode additive 2,30,25
+BatteryMaterials,Anode binder 2,21,21
+BatteryMaterials,Cathode volumetric density,15,0
+BatteryMaterials,Cathode additive,11,0
+BatteryMaterials,Electrolyte additive 3,11,0
+BatteryMaterials,N/P ratio| A/C ratio,5,0
+BatteryMaterials,Redox mediator in electrolyte,3,0
+BatteryMaterials,Redox mediator in cathode,3,0
+CondensedMatter,DataType,773,773
+CondensedMatter,Form,588,588
+CondensedMatter,MaterialFamily,487,487
+CondensedMatter,FabricationProcess,401,397
+CondensedMatter,ElectricalMeasurement,360,360
+CondensedMatter,ThermalMeasurement,202,202
+CondensedMatter,Purity,126,126
+CondensedMatter,RelativeDensity,89,89
+CondensedMatter,GrainSize,57,54
+CondensedMatter,Measurement temperature,4,4
+CondensedMatter,MagneticMeasurement,4,4
+CondensedMatter,FabricationProcess 2,4,4
+CondensedMatter,2D iron-tetracyanoquinodimethane,1,1
+DielectricMaterials,Measurement method1,114,0
+DielectricMaterials,Starting material,108,0
+DielectricMaterials,Synthesis method1,107,0
+DielectricMaterials,Measurement method2,106,0
+DielectricMaterials,Sintering temperature,104,0
+DielectricMaterials,Measurement method3,98,0
+DielectricMaterials,Sintering time,95,0
+DielectricMaterials,Chemical composition,93,0
+DielectricMaterials,Sample form,88,0
+DielectricMaterials,Final product,81,0
+DielectricMaterials,Synthesis method2,69,0
+DielectricMaterials,Sintering method,57,0
+DielectricMaterials,DataType,52,52
+DielectricMaterials,Form,51,51
+DielectricMaterials,FabricationProcess,51,51
+DielectricMaterials,Purity,51,51
+DielectricMaterials,Synthesis method3,51,0
+DielectricMaterials,MagneticMeasurement,50,50
+DielectricMaterials,Measurement temperature,48,48
+DielectricMaterials,coercivity,10,10
+DielectricMaterials,remanence magnetion,10,10
+DielectricMaterials,MaterialFamily,2,2
+DielectricMaterials,ThermalMeasurement,1,1
+GeneralDB,DataType,1400,1400
+GeneralDB,MaterialFamily,1236,1236
+GeneralDB,Form,452,452
+GeneralDB,FabricationProcess,366,366
+GeneralDB,ElectricalMeasurement,297,297
+GeneralDB,ThermalMeasurement,273,273
+GeneralDB,Purity,180,180
+GeneralDB,RelativeDensity,55,55
+GeneralDB,GrainSize,32,25
+GeneralDB,MagneticMeasurement,16,16
+GeneralDB,FabricationProcess 2,14,5
+GeneralDB,Measurement temperature,9,9
+GeneralDB,coercivity,3,3
+GeneralDB,saturation magnetization,3,3
+GeneralDB,Material Family,2,2
+GeneralDB,MaterialFarmily,2,2
+GeneralDB,AC/QC type,2,2
+GeneralDB,MaterialsFamily,1,1
+GeneralDB,Composition conversion,1,1
+GeneralDB,Measurement axis,1,1
+HighThermalConductivityMaterials,DataType,247,247
+HighThermalConductivityMaterials,Form,181,181
+HighThermalConductivityMaterials,ElectricalMeasurement,168,168
+HighThermalConductivityMaterials,FabricationProcess,167,167
+HighThermalConductivityMaterials,ThermalMeasurement,159,159
+HighThermalConductivityMaterials,MaterialFamily,114,114
+HighThermalConductivityMaterials,Purity,42,42
+HighThermalConductivityMaterials,AC/QC type,16,16
+HighThermalConductivityMaterials,RelativeDensity,14,14
+HighThermalConductivityMaterials,composition type,10,10
+HighThermalConductivityMaterials,other sample process info,10,10
+HighThermalConductivityMaterials,Porosity,7,7
+HighThermalConductivityMaterials,AbsoluteDensity,4,4
+HighThermalConductivityMaterials,GrainSize,2,2
+HighThermalConductivityMaterials,sample info,1,1
+Hypermaterial,AC/QC type,1030,1030
+Hypermaterial,other sample process info,617,616
+Hypermaterial,composition type,599,599
+Hypermaterial,measurement condition,520,511
+Hypermaterial,sample info,389,387
+Hypermaterial,annealing condition,386,386
+Hypermaterial,DataType,102,102
+Hypermaterial,FabricationProcess,75,75
+Hypermaterial,ElectricalMeasurement,72,72
+Hypermaterial,Form,66,66
+Hypermaterial,ThermalMeasurement,66,66
+Hypermaterial,MaterialFamily,48,47
+Hypermaterial,lattice parameter,47,47
+Hypermaterial,direction,43,43
+Hypermaterial,other sample process info 2,33,33
+Hypermaterial,sintering temperature,32,24
+Hypermaterial,Purity,9,9
+Hypermaterial,Applied field,9,9
+Hypermaterial,GrainSize,1,0
+Hypermaterial,6: other sample process info,1,1
+LowThermalConductivityMaterials,DataType,1128,1128
+LowThermalConductivityMaterials,Form,958,958
+LowThermalConductivityMaterials,ThermalMeasurement,695,695
+LowThermalConductivityMaterials,MaterialFamily,194,194
+LowThermalConductivityMaterials,FabricationProcess,164,164
+LowThermalConductivityMaterials,RelativeDensity,141,141
+LowThermalConductivityMaterials,ElectricalMeasurement,135,135
+LowThermalConductivityMaterials,AbsoluteDensity,133,133
+LowThermalConductivityMaterials,Porosity,93,93
+LowThermalConductivityMaterials,Purity,85,85
+LowThermalConductivityMaterials,GrainSize,77,74
+LowThermalConductivityMaterials,PoreSize,25,25
+LowThermalConductivityMaterials,DifferentialThermalAnalyzer,18,18
+LowThermalConductivityMaterials,FabricationProcess 2,5,5
+LowThermalConductivityMaterials,Material Family,2,2
+MagneticMaterials,Form,16192,16192
+MagneticMaterials,FabricationProcess,16175,16175
+MagneticMaterials,MagneticMeasurement,16077,16077
+MagneticMaterials,Purity,15897,15897
+MagneticMaterials,DataType,13924,13924
+MagneticMaterials,Measurement temperature,11977,11918
+MagneticMaterials,coercivity,1541,1414
+MagneticMaterials,saturation magnetization,1309,1182
+MagneticMaterials,remanence magnetion,1032,914
+MagneticMaterials,magnetic field,867,862
+MagneticMaterials,GrainSize,665,659
+MagneticMaterials,RelativeDensity,45,39
+MagneticMaterials,MaterialFamily,4,4
+MagneticMaterials,Saturation magnetization,4,4
+MagneticMaterials,oercivity,1,1
+MagneticMaterials,Final product,1,0
+MagneticMaterials,Synthesis method1,1,0
+MagneticMaterials,Measurement method3,1,0
+MagneticMaterials,Sintering temperature,1,0
+MagneticMaterials,Measurement method1,1,0
+MagneticMaterials,Chemical composition,1,0
+MagneticMaterials,Sintering time,1,0
+MagneticMaterials,Synthesis method2,1,0
+MagneticMaterials,Synthesis method3,1,0
+MagneticMaterials,Measurement method2,1,0
+MagneticMaterials,Starting material,1,0
+OrganicThermoelectricMaterials,DataType,1251,1251
+OrganicThermoelectricMaterials,Form,1244,1244
+OrganicThermoelectricMaterials,ElectricalMeasurement,1013,1013
+OrganicThermoelectricMaterials,FabricationProcess,731,731
+OrganicThermoelectricMaterials,MaterialFamily,711,711
+OrganicThermoelectricMaterials,OrganicMaterialFamily,539,539
+OrganicThermoelectricMaterials,OrganicFabricationProcess,514,510
+OrganicThermoelectricMaterials,ThermalMeasurement,257,257
+OrganicThermoelectricMaterials,FabricationProcess 2,184,184
+OrganicThermoelectricMaterials,OrganicFabricationProcess 2,141,137
+OrganicThermoelectricMaterials,Data Type,16,16
+OrganicThermoelectricMaterials,Organic Material Family,16,16
+OrganicThermoelectricMaterials,Organic Fabrication Process,16,16
+OrganicThermoelectricMaterials,Electrical Measurement,16,16
+OrganicThermoelectricMaterials,Purity,4,4
+OrganicThermoelectricMaterials,FabricationProcess 3,4,4
+PiezoelectricMaterials,Form,6,6
+PiezoelectricMaterials,FabricationProcess,6,6
+PiezoelectricMaterials,DataType,6,6
+PiezoelectricMaterials,MagneticMeasurement,6,6
+PiezoelectricMaterials,Purity,6,6
+PiezoelectricMaterials,Measurement temperature,4,4
+PiezoelectricMaterials,coercivity,2,2
+PiezoelectricMaterials,saturation magnetization,2,2
+Resistor,DataType,261,261
+Resistor,Form,219,219
+Resistor,MaterialFamily,193,193
+Resistor,FabricationProcess,175,175
+Resistor,ElectricalMeasurement,163,163
+Resistor,ThermalMeasurement,120,120
+Resistor,RelativeDensity,38,38
+Resistor,Purity,37,37
+Resistor,GrainSize,20,20
+Resistor,DifferentialThermalAnalyzer,18,18
+Resistor,Material family,3,3
+SolidStateBatteryMaterials,Anode active material,15,15
+SolidStateBatteryMaterials,Cathode active material,15,15
+SolidStateBatteryMaterials,Cathode conductive agent,14,14
+SolidStateBatteryMaterials,Solvent 1,14,2
+SolidStateBatteryMaterials,Cathode additive 1,13,13
+SolidStateBatteryMaterials,Cathode areal density (cathode loading),12,12
+SolidStateBatteryMaterials,Ratio of electrolyte to cathode active material,12,12
+SolidStateBatteryMaterials,Solvent 2,2,2
+SolidStateBatteryMaterials,Solute 1,2,2
+SolidStateBatteryMaterials,Separator,2,2
+SolidStateBatteryMaterials,Solute 2,1,1
+ThermoelectricMaterials,DataType,33277,33277
+ThermoelectricMaterials,Form,22782,22716
+ThermoelectricMaterials,MaterialFamily,21582,21574
+ThermoelectricMaterials,FabricationProcess,16176,14900
+ThermoelectricMaterials,ElectricalMeasurement,13781,13637
+ThermoelectricMaterials,ThermalMeasurement,9463,9434
+ThermoelectricMaterials,Purity,4739,4677
+ThermoelectricMaterials,RelativeDensity,2428,2302
+ThermoelectricMaterials,FabricationProcess 2,1720,1676
+ThermoelectricMaterials,GrainSize,931,764
+ThermoelectricMaterials,Anode active material,359,317
+ThermoelectricMaterials,Solvent 1,359,359
+ThermoelectricMaterials,Solute 1,355,335
+ThermoelectricMaterials,Cathode active material,316,295
+ThermoelectricMaterials,Cathode conductive agent,296,296
+ThermoelectricMaterials,Solvent 2,268,268
+ThermoelectricMaterials,Cathode binder 1,262,262
+ThermoelectricMaterials,Solute 2,254,253
+ThermoelectricMaterials,Cathode additive 1,213,210
+ThermoelectricMaterials,Cathode areal density (cathode loading),209,151
+ThermoelectricMaterials,AC/QC type,176,176
+ThermoelectricMaterials,Separator,171,155
+ThermoelectricMaterials,FabricationProcess 3,144,129
+ThermoelectricMaterials,composition type,111,111
+ThermoelectricMaterials,Cell type,107,69
+ThermoelectricMaterials,Cathode current collector,103,39
+ThermoelectricMaterials,Ratio of electrolyte to cathode active material,85,75
+ThermoelectricMaterials,Upper voltage limit,81,81
+ThermoelectricMaterials,Lower voltage limit,81,81
+ThermoelectricMaterials,other sample process info,77,77
+ThermoelectricMaterials,sample info,74,74
+ThermoelectricMaterials,annealing condition,65,65
+ThermoelectricMaterials,Electrolyte additive 1,65,37
+ThermoelectricMaterials,Data Type,62,62
+ThermoelectricMaterials,Counter electrode,57,50
+ThermoelectricMaterials,Anode binder 1,48,33
+ThermoelectricMaterials,Anode conductive agent,48,33
+ThermoelectricMaterials,measurement condition,47,47
+ThermoelectricMaterials,Reference electrode,43,36
+ThermoelectricMaterials,Anode current collector,40,40
+ThermoelectricMaterials,Material Family,31,31
+ThermoelectricMaterials,Solute 3,26,25
+ThermoelectricMaterials,Cathode additive 2,26,23
+ThermoelectricMaterials,DifferentialThermalAnalyzer,21,21
+ThermoelectricMaterials,Electrical Measurement,18,18
+ThermoelectricMaterials,Thermal Measurement,18,12
+ThermoelectricMaterials,LaserFlash,16,16
+ThermoelectricMaterials,Composition conversion,15,1
+ThermoelectricMaterials,Relative density,14,14
+ThermoelectricMaterials,Anode additive 1,14,14
+ThermoelectricMaterials,comment,12,12
+ThermoelectricMaterials,direction,12,12
+ThermoelectricMaterials,OrganicMaterialFamily,12,12
+ThermoelectricMaterials,OrganicFabricationProcess,12,12
+ThermoelectricMaterials,MagneticMeasurement,11,11
+ThermoelectricMaterials,lattice parameter,9,9
+ThermoelectricMaterials,Anode areal capacity,9,0
+ThermoelectricMaterials,Electrolyte additive 2,8,0
+ThermoelectricMaterials,Measurement temperature,7,7
+ThermoelectricMaterials,saturation magnetization,7,7
+ThermoelectricMaterials,Solvent 3,7,3
+ThermoelectricMaterials,Cathode volumetric density,6,0
+ThermoelectricMaterials,Cathode binder 2,6,6
+ThermoelectricMaterials,Scan rate,6,0
+ThermoelectricMaterials,Working electrode,6,6
+ThermoelectricMaterials,Material family,5,5
+ThermoelectricMaterials,Cathode areal capacity,4,0
+ThermoelectricMaterials,ThermalMeaasurement,3,3
+ThermoelectricMaterials,Differential thermal analyzer,3,3
+ThermoelectricMaterials,MaterialsFamily,2,2
+ThermoelectricMaterials,MaterialFarmily,2,2
+ThermoelectricMaterials,Grain size,2,2
+ThermoelectricMaterials,laser flash and different thermal analyzer,2,2
+ThermoelectricMaterials,Maximum power,2,2
+ThermoelectricMaterials,Module operated temperature,2,2
+ThermoelectricMaterials,Peak efficiency,2,2
+ThermoelectricMaterials,sintering temperature,2,2
+ThermoelectricMaterials,OrganicFabricationProcess 2,2,2
+ThermoelectricMaterials,Materials family,1,1
+ThermoelectricMaterials,Note,1,1
+ThermoelectricMaterials,Measurement axis,1,1
+ThermoelectricMaterials,Other,1,1
+ThermoelectricMaterials,Mn15Si26[001],1,1
+ThermoelectricMaterials,synthesis,1,1

@@ -1,0 +1,1235 @@
+project,descriptor,category,samples
+AirBatteryMaterials,Anode active material,Li|Lithium metal,463
+AirBatteryMaterials,Anode active material,Lithium alloy,4
+AirBatteryMaterials,Anode current collector,SUS|SS|Stainless Steel,28
+AirBatteryMaterials,Anode current collector,Cu|Copper,9
+AirBatteryMaterials,Cathode active material,O2,508
+AirBatteryMaterials,Cathode active material,CO2,20
+AirBatteryMaterials,Cathode active material,Ar,1
+AirBatteryMaterials,Cathode areal density (cathode loading),mg*cm^(-2),204
+AirBatteryMaterials,Cathode binder 1,PVDF|Polyvinylidene difluoride,208
+AirBatteryMaterials,Cathode binder 1,PTFE|Polytetrafluoroethylene,106
+AirBatteryMaterials,Cathode conductive agent,KB|Ketjen black,118
+AirBatteryMaterials,Cathode conductive agent,Super P,93
+AirBatteryMaterials,Cathode conductive agent,CNT|Carbon nanotube,38
+AirBatteryMaterials,Cathode conductive agent,MWCNT|MWNT|Multi wall carbon nanotube,29
+AirBatteryMaterials,Cathode conductive agent,Ketjen EC-600 JD,21
+AirBatteryMaterials,Cathode conductive agent,Vulcan XC-72,19
+AirBatteryMaterials,Cathode conductive agent,AB|Acetylene black,5
+AirBatteryMaterials,Cathode conductive agent,CF|CNF|Carbon fiber/Carbon nanofiber,5
+AirBatteryMaterials,Cathode conductive agent,Ketjen EC-300 J,5
+AirBatteryMaterials,Cathode conductive agent,CMK-3,2
+AirBatteryMaterials,Coulombic efficiency,%,38
+AirBatteryMaterials,Current density,mA*cm^(-2),65
+AirBatteryMaterials,Lower voltage limit,V,323
+AirBatteryMaterials,Separator,Other glass fiber separator,286
+AirBatteryMaterials,Separator,Whatman GF-B,28
+AirBatteryMaterials,Separator,Celgard 2400,18
+AirBatteryMaterials,Separator,Celgard 2500,13
+AirBatteryMaterials,Separator,Other Celgard,11
+AirBatteryMaterials,Separator,Other polypropylene membrane,5
+AirBatteryMaterials,Solute 1,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,301
+AirBatteryMaterials,Solute 1,LiCF3SO3|Lithium trifluoromethanesulfonate,78
+AirBatteryMaterials,Solute 1,LiClO4|Lithium perchlorate,29
+AirBatteryMaterials,Solute 1,LiPF6|Lithium hexafluorophosphate,19
+AirBatteryMaterials,Solute 1,LiNO3|Lithium nitrate,1
+AirBatteryMaterials,Solute 2,LiClO4|Lithium perchlorate,19
+AirBatteryMaterials,Solute 2,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,8
+AirBatteryMaterials,Solvent 1,G4|Tetraglyme|Tetraethylene glycol dimethyl ether,262
+AirBatteryMaterials,Solvent 1,DMSO|Dimethyl sulfoxide,82
+AirBatteryMaterials,Solvent 1,G3|TEGDME|Triglyme|Triethylene glycol dimethyl ether,37
+AirBatteryMaterials,Solvent 1,PC|Propylene carbonate,19
+AirBatteryMaterials,Solvent 1,EC|Ethylene carbonate,18
+AirBatteryMaterials,Solvent 1,Other Ethers,18
+AirBatteryMaterials,Solvent 1,Other Sulfones,12
+AirBatteryMaterials,Solvent 1,"DMA|N,N-Dimethylacetamide",3
+AirBatteryMaterials,Solvent 2,IL|Ionic liquid,21
+AirBatteryMaterials,Solvent 2,"DMA|N,N-Dimethylacetamide",8
+AirBatteryMaterials,Solvent 2,H2O|Water,8
+AirBatteryMaterials,Solvent 2,PC|Propylene carbonate,7
+AirBatteryMaterials,Solvent 2,DMC|Dimethyl carbonate,6
+AirBatteryMaterials,Solvent 2,DEC|Diethyl carbonate,5
+AirBatteryMaterials,Solvent 2,G4|Tetraglyme|Tetraethylene glycol dimethyl ether,2
+AirBatteryMaterials,Solvent 2,EC|Ethylene carbonate,2
+AirBatteryMaterials,Solvent 3,DEC|Diethyl carbonate,2
+AirBatteryMaterials,Upper voltage limit,V,311
+BatteryMaterials,Anode active material,Li|Lithium metal,8913
+BatteryMaterials,Anode active material,Mg|Magnesium metal,2337
+BatteryMaterials,Anode active material,Alloy,160
+BatteryMaterials,Anode active material,Zn|Zinc metal,109
+BatteryMaterials,Anode active material,Al|Aluminum metal,87
+BatteryMaterials,Anode active material,Na|Sodium metal,72
+BatteryMaterials,Anode active material,Organic compounds,36
+BatteryMaterials,Anode active material,K|Potassium metal,34
+BatteryMaterials,Anode active material,Sn|Tin,24
+BatteryMaterials,Anode active material,Gr|Graphite,21
+BatteryMaterials,Anode additive 1,rGO|Reduced graphene oxide,83
+BatteryMaterials,Anode additive 1,Carbon material,60
+BatteryMaterials,Anode additive 1,Graphene,50
+BatteryMaterials,Anode additive 1,N-doped carbon|Nitrogen-doped carbon,25
+BatteryMaterials,Anode additive 1,Selenide,24
+BatteryMaterials,Anode additive 1,GO|Graphene oxide,20
+BatteryMaterials,Anode additive 1,Metal,18
+BatteryMaterials,Anode additive 1,CF|CNF|Carbon fiber|Carbon nanofiber,15
+BatteryMaterials,Anode additive 1,MoS2,14
+BatteryMaterials,Anode additive 1,Sulfide,14
+BatteryMaterials,Anode additive 2,Co,15
+BatteryMaterials,Anode additive 2,CNT|Carbon nanotube,4
+BatteryMaterials,Anode additive 2,Nitride,4
+BatteryMaterials,Anode additive 2,Nitrogen-doped graphene,1
+BatteryMaterials,Anode additive 2,Ag,1
+BatteryMaterials,Anode areal capacity,mAh*cm^(-2),2118
+BatteryMaterials,Anode binder 1,PVDF|Polyvinylidene difluoride,697
+BatteryMaterials,Anode binder 1,CMC|Carboxyl methyl cellulose,536
+BatteryMaterials,Anode binder 1,SA|Sodium alginate,71
+BatteryMaterials,Anode binder 1,PTFE|Polytetrafluoroethylene,34
+BatteryMaterials,Anode binder 1,PAA|Polyacrylic acid,15
+BatteryMaterials,Anode binder 2,SBR|Styrene butadien rubber,21
+BatteryMaterials,Anode conductive agent,Super P,647
+BatteryMaterials,Anode conductive agent,CB|Carbon black,372
+BatteryMaterials,Anode conductive agent,AB|Acetylene black,269
+BatteryMaterials,Anode conductive agent,KB|Ketjen black,17
+BatteryMaterials,Anode conductive agent,MWCNT|MWNT|Multi wall carbon nanotube,14
+BatteryMaterials,Anode conductive agent,CNT|Carbon nanotube,2
+BatteryMaterials,Anode current collector,Cu|Copper,1862
+BatteryMaterials,Anode current collector,SUS|SS|Stainless Steel,100
+BatteryMaterials,Anode current collector,Al|Aluminum,62
+BatteryMaterials,Anode current collector,Ni|Nickel,7
+BatteryMaterials,Anode current collector,Na|Sodium,1
+BatteryMaterials,Cathode active material,S|S8|Sulfur|Sublimated sulfur,4481
+BatteryMaterials,Cathode active material,PANS|SPAN|Polyacrylonitrile sulfur,800
+BatteryMaterials,Cathode active material,LFP|Lithium iron phosphate,769
+BatteryMaterials,Cathode active material,NMC811,292
+BatteryMaterials,Cathode active material,Organic compounds,287
+BatteryMaterials,Cathode active material,O2,207
+BatteryMaterials,Cathode active material,Mo6S8|Molybdenum sulfide,174
+BatteryMaterials,Cathode active material,CuS|Copper sulfide,165
+BatteryMaterials,Cathode active material,V2O5|Vanadium oxide,149
+BatteryMaterials,Cathode active material,MoS2|Molybdenum sulfide,136
+BatteryMaterials,Cathode additive 1,Carbon material,1335
+BatteryMaterials,Cathode additive 1,CNT|Carbon nanotube,401
+BatteryMaterials,Cathode additive 1,rGO|Reduced graphene oxide,242
+BatteryMaterials,Cathode additive 1,N-doped carbon|Nitrogen-doped carbon,215
+BatteryMaterials,Cathode additive 1,Graphene,181
+BatteryMaterials,Cathode additive 1,Oxide,173
+BatteryMaterials,Cathode additive 1,CF|CNF|Carbon fiber|Carbon nanofiber,134
+BatteryMaterials,Cathode additive 1,TiO2,117
+BatteryMaterials,Cathode additive 1,Sulfide,109
+BatteryMaterials,Cathode additive 1,Co,93
+BatteryMaterials,Cathode additive 2,CNT|Carbon nanotube,33
+BatteryMaterials,Cathode additive 2,Carbon material,24
+BatteryMaterials,Cathode additive 2,CF|CNF|Carbon fiber|Carbon nanofiber,20
+BatteryMaterials,Cathode additive 2,Graphene,19
+BatteryMaterials,Cathode additive 2,Co,18
+BatteryMaterials,Cathode additive 2,N-doped carbon|Nitrogen-doped carbon,16
+BatteryMaterials,Cathode additive 2,Sulfide,15
+BatteryMaterials,Cathode additive 2,Oxide,12
+BatteryMaterials,Cathode additive 2,Graphite,10
+BatteryMaterials,Cathode additive 2,rGO|Reduced graphene oxide,10
+BatteryMaterials,Cathode areal density (cathode loading),mg*cm^(-2),7075
+BatteryMaterials,Cathode binder 1,PVDF|Polyvinylidene difluoride,6182
+BatteryMaterials,Cathode binder 1,PTFE|Polytetrafluoroethylene,695
+BatteryMaterials,Cathode binder 1,CMC|Carboxyl methyl cellulose,607
+BatteryMaterials,Cathode binder 1,LA 133,210
+BatteryMaterials,Cathode binder 1,PAA|Polyacrylic acid,109
+BatteryMaterials,Cathode binder 1,LA-132,61
+BatteryMaterials,Cathode binder 1,SA|Sodium alginate,36
+BatteryMaterials,Cathode binder 1,guar binder,30
+BatteryMaterials,Cathode binder 1,SBR|Styrene butadien rubber,28
+BatteryMaterials,Cathode binder 1,PVP|Polyvinyl pyrrolidone,12
+BatteryMaterials,Cathode binder 2,SBR|Styrene butadien rubber,291
+BatteryMaterials,Cathode binder 2,CMC|Carboxyl methyl cellulose,30
+BatteryMaterials,Cathode binder 2,guar binder,27
+BatteryMaterials,Cathode binder 2,PAA|Polyacrylic acid,10
+BatteryMaterials,Cathode binder 2,SBR|Styrene butadiene rubber,6
+BatteryMaterials,Cathode binder 2,PSS|Polystyrenesulfonate,4
+BatteryMaterials,Cathode binder 2,PVDF|Polyvinylidene difluoride,1
+BatteryMaterials,Cathode conductive agent,Super P,3246
+BatteryMaterials,Cathode conductive agent,CB|Carbon black,2293
+BatteryMaterials,Cathode conductive agent,AB|Acetylene black,1192
+BatteryMaterials,Cathode conductive agent,KB|Ketjen black,769
+BatteryMaterials,Cathode conductive agent,CNT|Carbon nanotube,238
+BatteryMaterials,Cathode conductive agent,MWCNT|MWNT|Multi wall carbon nanotube,157
+BatteryMaterials,Cathode conductive agent,Ketjen EC-600 JD,22
+BatteryMaterials,Cathode conductive agent,CNovel,11
+BatteryMaterials,Cathode conductive agent,MPC|Mesoporous carbon,10
+BatteryMaterials,Cathode conductive agent,AC|Activated carbon,9
+BatteryMaterials,Cathode current collector,Al,1422
+BatteryMaterials,Cell type,Mg|other full cell,1711
+BatteryMaterials,Cell type,Li|Cu half cell,1078
+BatteryMaterials,Cell type,Li|Li symmetric cell,992
+BatteryMaterials,Cell type,Li|LFP full cell,587
+BatteryMaterials,Cell type,Li|NMC full cell,329
+BatteryMaterials,Cell type,Mg|other half cell,252
+BatteryMaterials,Cell type,CV,234
+BatteryMaterials,Cell type,LSV,134
+BatteryMaterials,Cell type,Li|Other half cell,105
+BatteryMaterials,Cell type,Mg|Mg symmetric cell,88
+BatteryMaterials,Coulombic efficiency,%,355
+BatteryMaterials,Counter electrode,Na|Sodium,1114
+BatteryMaterials,Counter electrode,Mg|Magnesium,657
+BatteryMaterials,Counter electrode,Li|Lithium,64
+BatteryMaterials,Counter electrode,Cu|Copper,24
+BatteryMaterials,Current density,mA*cm^(-2),2322
+BatteryMaterials,Electrolyte additive 1,LiNO3|Lithium nitrate,1624
+BatteryMaterials,Electrolyte additive 1,FEC|Fluoro ethylene carbonate,880
+BatteryMaterials,Electrolyte additive 1,VC|Vinylene carbonate,93
+BatteryMaterials,Electrolyte additive 1,FEC|Fuluoro ethylene carbonate,91
+BatteryMaterials,Electrolyte additive 1,Li2S8|Lithium octasulfide,14
+BatteryMaterials,Electrolyte additive 1,MgCl2|Magnesium chloride,14
+BatteryMaterials,Electrolyte additive 1,LiTfO|Lithium triflate|Lithium Trifluoromethanesulfonate,10
+BatteryMaterials,Electrolyte additive 1,MgHMDS2|Magnesium bis(hexamethyldisilazido),10
+BatteryMaterials,Electrolyte additive 1,"1,2-dfBen | 1,2-Difluorobenzene",8
+BatteryMaterials,Electrolyte additive 1,GA | glutaric anhydride,6
+BatteryMaterials,Electrolyte additive 2,LiNO3|Lithium nitrate,14
+BatteryMaterials,Electrolyte additive 2,Li2S8|Lithium octasulfide,10
+BatteryMaterials,Electrolyte additive 2,LiBOB|Lithium bis(oxalato)borate,3
+BatteryMaterials,Electrolyte additive 2,VC|Vinylene carbonate,2
+BatteryMaterials,Electrolyte additive 2,FEC|Fluoro ethylene carbonate,1
+BatteryMaterials,Lower voltage limit,V,2805
+BatteryMaterials,Ratio of electrolyte to cathode active material,muL*mg^(-1),2190
+BatteryMaterials,Reference electrode,Mg|Magnesium,543
+BatteryMaterials,Reference electrode,Na|Sodium,313
+BatteryMaterials,Reference electrode,Li|Lithium,58
+BatteryMaterials,Reference electrode,SCE|Saturated Calomel Electrode,28
+BatteryMaterials,Reference electrode,Ag/AgCl|Silver-Silver Chloride Electrode,18
+BatteryMaterials,Separator,Other glass fiber separator,3478
+BatteryMaterials,Separator,Celgard 2400,2029
+BatteryMaterials,Separator,Celgard 2325,645
+BatteryMaterials,Separator,Other polypropylene membrane,449
+BatteryMaterials,Separator,Other Celgard,408
+BatteryMaterials,Separator,Celgard 2500,401
+BatteryMaterials,Separator,Celgard 3501,180
+BatteryMaterials,Separator,Whatman GF-B,150
+BatteryMaterials,Separator,Other polymer membrane,141
+BatteryMaterials,Solute 1,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,6165
+BatteryMaterials,Solute 1,LiPF6|Lithium hexafluorophosphate,1872
+BatteryMaterials,Solute 1,NaClO4|Sodium perchlorate,863
+BatteryMaterials,Solute 1,MgTFSI2|MgTFSA2|Magnesium bis(trifluoromethanesulfonyl)imide,724
+BatteryMaterials,Solute 1,LiFSI|LiFSA|Lithium Bis(fluorosulfonyl)imide,547
+BatteryMaterials,Solute 1,AlCl3|Aluminium chloride,489
+BatteryMaterials,Solute 1,PhMgCl|Phenyl magnesium chloride,450
+BatteryMaterials,Solute 1,NaPF6|Sodium hexafluorophosphate,420
+BatteryMaterials,Solute 1,Mg[B(hfip)4]2|Magnesium tetrakis(hexafluoroisopropyloxy) borate,324
+BatteryMaterials,Solute 1,MgCl2|Magnesium chloride,125
+BatteryMaterials,Solute 2,LiNO3|Lithium nitrate,4030
+BatteryMaterials,Solute 2,AlCl3|Aluminium chloride,587
+BatteryMaterials,Solute 2,MgCl2|Magnesium chloride,369
+BatteryMaterials,Solute 2,PhMgCl|Phenyl magnesium chloride,312
+BatteryMaterials,Solute 2,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,81
+BatteryMaterials,Solute 2,Other alkyl magnesium chloride,69
+BatteryMaterials,Solute 2,LiDFOB|Lithium difluoro(oxalato)borate,25
+BatteryMaterials,Solute 2,MgI2|Magnesium iodide,22
+BatteryMaterials,Solute 2,LiFSI|LiFSA|Lithium Bis(fluorosulfonyl)imide,19
+BatteryMaterials,Solute 2,LiPF6|Lithium hexafluorophosphate,15
+BatteryMaterials,Solute 3,MgCl2|Magnesium chloride,45
+BatteryMaterials,Solute 3,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,37
+BatteryMaterials,Solute 3,LiNO3|Lithium nitrate,26
+BatteryMaterials,Solute 3,AlCl3|Aluminium chloride,21
+BatteryMaterials,Solute 3,Li2S8|Lithium octasulfide,12
+BatteryMaterials,Solute 3,MgTfO2|Magnesium triflate,6
+BatteryMaterials,Solute 3,I2,6
+BatteryMaterials,Solute 3,Li2S5|Lithium pentasulfide,4
+BatteryMaterials,Solute 3,"PSD-90|Poly(sulfur-random-1,3-diisopropenylbenzene)",1
+BatteryMaterials,Solute 3,LiPF6|Lithium hexafluorophosphate,1
+BatteryMaterials,Solvent 1,"DOL|1,3-Dioxolane",4053
+BatteryMaterials,Solvent 1,"DME|1,2-Dimethoxyethane",3208
+BatteryMaterials,Solvent 1,EC|Ethylene carbonate,2815
+BatteryMaterials,Solvent 1,THF|Tetrahydrofuran,1113
+BatteryMaterials,Solvent 1,G2|DEGDME|Diglyme|Diethylene glycol dimethyl ether,683
+BatteryMaterials,Solvent 1,PC|Propylene carbonate,241
+BatteryMaterials,Solvent 1,H2O|Water,191
+BatteryMaterials,Solvent 1,G3|TEGDME|Triglyme|Triethylene glycol dimethyl ether,158
+BatteryMaterials,Solvent 1,ACN|AN|Acetonitrile,154
+BatteryMaterials,Solvent 1,G4|Tetraglyme|Tetraethylene glycol dimethyl ether,131
+BatteryMaterials,Solvent 2,"DME|1,2-Dimethoxyethane",4122
+BatteryMaterials,Solvent 2,"DOL|1,3-Dioxolane",2105
+BatteryMaterials,Solvent 2,DEC|Diethyl carbonate,1326
+BatteryMaterials,Solvent 2,DMC|Dimethyl carbonate,838
+BatteryMaterials,Solvent 2,EMC|Ethyl methyl carbonate,345
+BatteryMaterials,Solvent 2,PC|Propylene carbonate,300
+BatteryMaterials,Solvent 2,EC|Ethylene carbonate,129
+BatteryMaterials,Solvent 2,"TTE|Tetrafluoroethyl 2,2,3,3-tetrafluoropropyl ether",84
+BatteryMaterials,Solvent 2,Other Ethers,53
+BatteryMaterials,Solvent 2,FEC|Fuluoro ethylene carbonate,51
+BatteryMaterials,Solvent 3,DEC|Diethyl carbonate,210
+BatteryMaterials,Solvent 3,FEC|Fluoro ethylene carbonate,196
+BatteryMaterials,Solvent 3,DMC|Dimethyl carbonate,184
+BatteryMaterials,Solvent 3,EMC|Ethyl methyl carbonate,172
+BatteryMaterials,Solvent 3,FEC|Fuluoro ethylene carbonate,139
+BatteryMaterials,Solvent 3,G3|TEGDME|Triglyme|Triethylene glycol dimethyl ether,24
+BatteryMaterials,Solvent 3,"DOL|1,3-Dioxolane",18
+BatteryMaterials,Solvent 3,EC|Ethylene carbonate,15
+BatteryMaterials,Solvent 3,VC|Vinylene carbonate,14
+BatteryMaterials,Solvent 3,"TTE|Tetrafluoroethyl 2,2,3,3-tetrafluoropropyl ether",13
+BatteryMaterials,Upper voltage limit,V,2781
+BatteryMaterials,Working electrode,Pt|Platinum,220
+BatteryMaterials,Working electrode,Cu|Copper,59
+BatteryMaterials,Working electrode,SUS|SS|Stainless Steel,51
+BatteryMaterials,Working electrode,Al|Aluminum,23
+BatteryMaterials,Working electrode,Carbon,22
+BatteryMaterials,Working electrode,Graphite,21
+BatteryMaterials,Working electrode,Au|Gold,15
+BatteryMaterials,Working electrode,SUS304,9
+BatteryMaterials,Working electrode,Ni|Nickel,4
+BatteryMaterials,Working electrode,SUS316,2
+CondensedMatter,2D iron-tetracyanoquinodimethane,FeTCNQ,1
+CondensedMatter,DataType,Experiment,762
+CondensedMatter,DataType,Unknown,9
+CondensedMatter,DataType,Reference,2
+CondensedMatter,ElectricalMeasurement,SteadyState+4P,300
+CondensedMatter,ElectricalMeasurement,PPMS-TTO,19
+CondensedMatter,ElectricalMeasurement,Other,16
+CondensedMatter,ElectricalMeasurement,PPMS,14
+CondensedMatter,ElectricalMeasurement,SteadyState+2P,9
+CondensedMatter,ElectricalMeasurement,SteadyState+vdP,2
+CondensedMatter,FabricationProcess,Sintering,155
+CondensedMatter,FabricationProcess,PressureSintering,94
+CondensedMatter,FabricationProcess,FluxGrowth,23
+CondensedMatter,FabricationProcess,FilmGrowth,22
+CondensedMatter,FabricationProcess,HighPressureSynthesis,21
+CondensedMatter,FabricationProcess,MeltGrowth,18
+CondensedMatter,FabricationProcess,Other,17
+CondensedMatter,FabricationProcess,Melting,12
+CondensedMatter,FabricationProcess,VaporGrowth,10
+CondensedMatter,FabricationProcess,SoftChemical,8
+CondensedMatter,FabricationProcess 2,Sintering,4
+CondensedMatter,Form,Bulk,443
+CondensedMatter,Form,SingleCrystal,50
+CondensedMatter,Form,Film,41
+CondensedMatter,Form,Polycrystal,30
+CondensedMatter,Form,pellets,10
+CondensedMatter,Form,EpitaxialFilm,8
+CondensedMatter,Form,rod-shaped,3
+CondensedMatter,Form,Module,1
+CondensedMatter,Form,Other,1
+CondensedMatter,Form,disk,1
+CondensedMatter,GrainSize,um,25
+CondensedMatter,GrainSize,nm,13
+CondensedMatter,GrainSize,100nm,6
+CondensedMatter,GrainSize,1um,5
+CondensedMatter,GrainSize,mm,4
+CondensedMatter,GrainSize,100um,1
+CondensedMatter,MagneticMeasurement,VSM,3
+CondensedMatter,MagneticMeasurement,PPMS,1
+CondensedMatter,MaterialFamily,Oxide,160
+CondensedMatter,MaterialFamily,Cobaltite,121
+CondensedMatter,MaterialFamily,Perovskite,118
+CondensedMatter,MaterialFamily,ZnO,28
+CondensedMatter,MaterialFamily,Skutterudite,12
+CondensedMatter,MaterialFamily,Heavy-Fermion,11
+CondensedMatter,MaterialFamily,Sulfide,9
+CondensedMatter,MaterialFamily,Bi2Te3,9
+CondensedMatter,MaterialFamily,Mg2Si,7
+CondensedMatter,MaterialFamily,Chalcogenide,6
+CondensedMatter,Measurement temperature,room,4
+CondensedMatter,Purity,SinglePhase,80
+CondensedMatter,Purity,MainPhase,35
+CondensedMatter,Purity,Unknown,7
+CondensedMatter,Purity,Composite,3
+CondensedMatter,Purity,Precipitates,1
+CondensedMatter,RelativeDensity,%,65
+CondensedMatter,RelativeDensity,>=90%,6
+CondensedMatter,RelativeDensity,>=40%,5
+CondensedMatter,RelativeDensity,=95%,5
+CondensedMatter,RelativeDensity,>=60%,4
+CondensedMatter,RelativeDensity,>=50%,2
+CondensedMatter,RelativeDensity,>=80%,2
+CondensedMatter,ThermalMeasurement,LaserFlash+DSC,100
+CondensedMatter,ThermalMeasurement,LaserFlash,39
+CondensedMatter,ThermalMeasurement,PPMS,25
+CondensedMatter,ThermalMeasurement,PPMS-TTO,18
+CondensedMatter,ThermalMeasurement,Other,10
+CondensedMatter,ThermalMeasurement,LaserFlash+3R,4
+CondensedMatter,ThermalMeasurement,Disc,3
+CondensedMatter,ThermalMeasurement,Hot Disk,3
+DielectricMaterials,DataType,Experiment,52
+DielectricMaterials,FabricationProcess,MechanicalAlloying,18
+DielectricMaterials,FabricationProcess,Other,12
+DielectricMaterials,FabricationProcess,Sol-gel,11
+DielectricMaterials,FabricationProcess,Sintering,9
+DielectricMaterials,FabricationProcess,PressureSintering,1
+DielectricMaterials,Form,Plate,23
+DielectricMaterials,Form,Powder,8
+DielectricMaterials,Form,Unknown,8
+DielectricMaterials,Form,Bulk,6
+DielectricMaterials,Form,pellets,4
+DielectricMaterials,Form,Module,1
+DielectricMaterials,Form,Ribbon,1
+DielectricMaterials,MagneticMeasurement,SQUID,24
+DielectricMaterials,MagneticMeasurement,VSM,22
+DielectricMaterials,MagneticMeasurement,MPMS,4
+DielectricMaterials,MaterialFamily,Oxide,1
+DielectricMaterials,MaterialFamily,Perovskite,1
+DielectricMaterials,Measurement temperature,room,25
+DielectricMaterials,Measurement temperature,300,17
+DielectricMaterials,Measurement temperature,2,2
+DielectricMaterials,Measurement temperature,100,2
+DielectricMaterials,Measurement temperature,200,1
+DielectricMaterials,Measurement temperature,5,1
+DielectricMaterials,Purity,MainPhase,34
+DielectricMaterials,Purity,SinglePhase,10
+DielectricMaterials,Purity,Composite,6
+DielectricMaterials,Purity,MetalComposite,1
+DielectricMaterials,ThermalMeasurement,PPMS,1
+DielectricMaterials,coercivity,17675,1
+DielectricMaterials,coercivity,37261,1
+DielectricMaterials,coercivity,124204,1
+DielectricMaterials,coercivity,272134,1
+DielectricMaterials,coercivity,423567,1
+DielectricMaterials,coercivity,6768,1
+DielectricMaterials,coercivity,5334,1
+DielectricMaterials,coercivity,29220,1
+DielectricMaterials,coercivity,57484,1
+DielectricMaterials,coercivity,144904,1
+DielectricMaterials,remanence magnetion,0.0018,2
+DielectricMaterials,remanence magnetion,0.0052,1
+DielectricMaterials,remanence magnetion,0.0159,1
+DielectricMaterials,remanence magnetion,0.0366,1
+DielectricMaterials,remanence magnetion,0.0614,1
+DielectricMaterials,remanence magnetion,0.0008,1
+DielectricMaterials,remanence magnetion,0.0043,1
+DielectricMaterials,remanence magnetion,0.0071,1
+DielectricMaterials,remanence magnetion,0.0175,1
+GeneralDB,AC/QC type,IAC,2
+GeneralDB,Composition conversion,formula unit,1
+GeneralDB,DataType,Experiment,1343
+GeneralDB,DataType,Reference,49
+GeneralDB,DataType,Unknown,8
+GeneralDB,ElectricalMeasurement,SteadyState+4P,217
+GeneralDB,ElectricalMeasurement,SteadyState+2P,33
+GeneralDB,ElectricalMeasurement,PPMS-TTO,26
+GeneralDB,ElectricalMeasurement,Other,10
+GeneralDB,ElectricalMeasurement,SteadyState+vdP,6
+GeneralDB,ElectricalMeasurement,MicroProbe,5
+GeneralDB,FabricationProcess,PressureSintering,178
+GeneralDB,FabricationProcess,HighPressureSynthesis,53
+GeneralDB,FabricationProcess,Melting,37
+GeneralDB,FabricationProcess,Sintering,23
+GeneralDB,FabricationProcess,MeltGrowth,22
+GeneralDB,FabricationProcess,FilmGrowth,22
+GeneralDB,FabricationProcess,Other,11
+GeneralDB,FabricationProcess,MeltQuench,8
+GeneralDB,FabricationProcess,Organic,4
+GeneralDB,FabricationProcess,Drop casting,3
+GeneralDB,FabricationProcess 2,MechanicalAlloying,5
+GeneralDB,Form,Bulk,343
+GeneralDB,Form,Film,38
+GeneralDB,Form,Polycrystal,28
+GeneralDB,Form,Ribbon,9
+GeneralDB,Form,SingleCrystal,8
+GeneralDB,Form,compact,8
+GeneralDB,Form,Powder,7
+GeneralDB,Form,pellets,6
+GeneralDB,Form,Other,5
+GeneralDB,GrainSize,10um,7
+GeneralDB,GrainSize,100nm,6
+GeneralDB,GrainSize,nm,5
+GeneralDB,GrainSize,Unknown,4
+GeneralDB,GrainSize,1um,3
+GeneralDB,MagneticMeasurement,MPMS,9
+GeneralDB,MagneticMeasurement,SQUID,4
+GeneralDB,MagneticMeasurement,VSM,3
+GeneralDB,Material Family,Layered Bi2Se3 Nanoplate/Polyvinylidene Fluoride,1
+GeneralDB,Material Family,Cu2Se,1
+GeneralDB,MaterialFamily,Telluride,165
+GeneralDB,MaterialFamily,Selenide,159
+GeneralDB,MaterialFamily,PbTe,152
+GeneralDB,MaterialFamily,Polymer,152
+GeneralDB,MaterialFamily,Half-Heusler,97
+GeneralDB,MaterialFamily,Antimonide,92
+GeneralDB,MaterialFamily,Skutterudite,57
+GeneralDB,MaterialFamily,Sulfide,57
+GeneralDB,MaterialFamily,Organic,56
+GeneralDB,MaterialFamily,Zintl,38
+GeneralDB,MaterialFarmily,Zintl,1
+GeneralDB,MaterialFarmily,Selenide,1
+GeneralDB,MaterialsFamily,Zintl,1
+GeneralDB,Measurement axis,c,1
+GeneralDB,Measurement temperature,300,5
+GeneralDB,Measurement temperature,400,4
+GeneralDB,Purity,SinglePhase,119
+GeneralDB,Purity,MainPhase,26
+GeneralDB,Purity,Composite,22
+GeneralDB,Purity,MetalComposite,13
+GeneralDB,RelativeDensity,=95%,41
+GeneralDB,RelativeDensity,>=90%,6
+GeneralDB,RelativeDensity,%,5
+GeneralDB,RelativeDensity,Unknown,3
+GeneralDB,ThermalMeasurement,LaserFlash+DSC,119
+GeneralDB,ThermalMeasurement,LaserFlash,97
+GeneralDB,ThermalMeasurement,PPMS-TTO,26
+GeneralDB,ThermalMeasurement,SteadyStateMethod,9
+GeneralDB,ThermalMeasurement,Other,8
+GeneralDB,ThermalMeasurement,LampFlash,6
+GeneralDB,ThermalMeasurement,LaserFlash+3R,5
+GeneralDB,ThermalMeasurement,3omega,3
+GeneralDB,coercivity,15518,1
+GeneralDB,coercivity,11778,1
+GeneralDB,coercivity,4933,1
+GeneralDB,saturation magnetization,122.5,1
+GeneralDB,saturation magnetization,86.5,1
+GeneralDB,saturation magnetization,95.79,1
+HighThermalConductivityMaterials,AC/QC type,IAC,10
+HighThermalConductivityMaterials,AC/QC type,DAC,3
+HighThermalConductivityMaterials,AC/QC type,crystal,3
+HighThermalConductivityMaterials,AbsoluteDensity,g/cm^3,4
+HighThermalConductivityMaterials,DataType,Experiment,234
+HighThermalConductivityMaterials,DataType,Reference,10
+HighThermalConductivityMaterials,DataType,Unknown,3
+HighThermalConductivityMaterials,ElectricalMeasurement,SteadyState+4P,138
+HighThermalConductivityMaterials,ElectricalMeasurement,PPMS-TTO,14
+HighThermalConductivityMaterials,ElectricalMeasurement,SteadyState+2P,12
+HighThermalConductivityMaterials,ElectricalMeasurement,Other,4
+HighThermalConductivityMaterials,FabricationProcess,PressureSintering,89
+HighThermalConductivityMaterials,FabricationProcess,Sintering,27
+HighThermalConductivityMaterials,FabricationProcess,HighPressureSynthesis,20
+HighThermalConductivityMaterials,FabricationProcess,Melting,15
+HighThermalConductivityMaterials,FabricationProcess,MeltGrowth,11
+HighThermalConductivityMaterials,FabricationProcess,Other,4
+HighThermalConductivityMaterials,FabricationProcess,MechanicalAlloying,1
+HighThermalConductivityMaterials,Form,Bulk,149
+HighThermalConductivityMaterials,Form,Other,12
+HighThermalConductivityMaterials,Form,SingleCrystal,8
+HighThermalConductivityMaterials,Form,Polycrystal,8
+HighThermalConductivityMaterials,Form,FoamedBulk,4
+HighThermalConductivityMaterials,GrainSize,10um,1
+HighThermalConductivityMaterials,GrainSize,1um,1
+HighThermalConductivityMaterials,MaterialFamily,Heavy-Fermion,19
+HighThermalConductivityMaterials,MaterialFamily,Oxide,19
+HighThermalConductivityMaterials,MaterialFamily,Antimonide,18
+HighThermalConductivityMaterials,MaterialFamily,Alloy,16
+HighThermalConductivityMaterials,MaterialFamily,Half-Heusler,8
+HighThermalConductivityMaterials,MaterialFamily,PbTe,6
+HighThermalConductivityMaterials,MaterialFamily,Aluminide,5
+HighThermalConductivityMaterials,MaterialFamily,Chalcogenide,5
+HighThermalConductivityMaterials,MaterialFamily,Zintl,5
+HighThermalConductivityMaterials,MaterialFamily,Mg2Si,5
+HighThermalConductivityMaterials,Porosity,%,4
+HighThermalConductivityMaterials,Porosity,-,3
+HighThermalConductivityMaterials,Purity,SinglePhase,30
+HighThermalConductivityMaterials,Purity,MainPhase,11
+HighThermalConductivityMaterials,Purity,Precipitates,1
+HighThermalConductivityMaterials,RelativeDensity,>=80%,6
+HighThermalConductivityMaterials,RelativeDensity,=95%,6
+HighThermalConductivityMaterials,RelativeDensity,>=90%,1
+HighThermalConductivityMaterials,RelativeDensity,-,1
+HighThermalConductivityMaterials,ThermalMeasurement,LaserFlash,87
+HighThermalConductivityMaterials,ThermalMeasurement,Other,30
+HighThermalConductivityMaterials,ThermalMeasurement,LaserFlash+DSC,25
+HighThermalConductivityMaterials,ThermalMeasurement,PPMS-TTO,14
+HighThermalConductivityMaterials,ThermalMeasurement,LaserFlash+3R,2
+HighThermalConductivityMaterials,ThermalMeasurement,SteadyStateMethod,1
+HighThermalConductivityMaterials,composition type,nominal composition,10
+HighThermalConductivityMaterials,other sample process info,arc-melting,6
+HighThermalConductivityMaterials,other sample process info,hot-pressing,4
+HighThermalConductivityMaterials,sample info,-,1
+Hypermaterial,6: other sample process info,hammer and anvil method,1
+Hypermaterial,AC/QC type,IQC,681
+Hypermaterial,AC/QC type,IAC,278
+Hypermaterial,AC/QC type,DQC,27
+Hypermaterial,AC/QC type,DAC,18
+Hypermaterial,AC/QC type,other,15
+Hypermaterial,AC/QC type,both DQC and IQC,5
+Hypermaterial,AC/QC type,crystal,3
+Hypermaterial,AC/QC type,amorphous,3
+Hypermaterial,Applied field,-,9
+Hypermaterial,DataType,Experiment,95
+Hypermaterial,DataType,Reference,4
+Hypermaterial,DataType,Unknown,3
+Hypermaterial,ElectricalMeasurement,SteadyState+4P,71
+Hypermaterial,ElectricalMeasurement,PPMS-TTO,1
+Hypermaterial,FabricationProcess,Melting,36
+Hypermaterial,FabricationProcess,PressureSintering,20
+Hypermaterial,FabricationProcess,MeltGrowth,11
+Hypermaterial,FabricationProcess,HighPressureSynthesis,7
+Hypermaterial,FabricationProcess,FluxGrowth,1
+Hypermaterial,Form,Bulk,66
+Hypermaterial,MaterialFamily,Alloy,33
+Hypermaterial,MaterialFamily,Bi2Te3,7
+Hypermaterial,MaterialFamily,Boron,7
+Hypermaterial,Purity,SinglePhase,8
+Hypermaterial,Purity,MainPhase,1
+Hypermaterial,ThermalMeasurement,LaserFlash,46
+Hypermaterial,ThermalMeasurement,SteadyStateMethod,11
+Hypermaterial,ThermalMeasurement,LaserFlash+DSC,7
+Hypermaterial,ThermalMeasurement,LaserFlash+3R,1
+Hypermaterial,ThermalMeasurement,PPMS-TTO,1
+Hypermaterial,annealing condition,"temp, time",386
+Hypermaterial,composition type,nominal composition,349
+Hypermaterial,composition type,alloy,137
+Hypermaterial,composition type,analyzed,95
+Hypermaterial,composition type,not described,9
+Hypermaterial,composition type,ingot,4
+Hypermaterial,composition type,melt,3
+Hypermaterial,composition type,estimated,2
+Hypermaterial,direction,-,21
+Hypermaterial,direction,periodic direction,7
+Hypermaterial,direction,quasicrystalline plane,6
+Hypermaterial,direction,quasiperiodic direction,3
+Hypermaterial,direction,3-fold symmetry direction,2
+Hypermaterial,direction,2-fold symmetry direction,2
+Hypermaterial,direction,5-fold symmetry direction,2
+Hypermaterial,lattice parameter,lattice parameter,19
+Hypermaterial,lattice parameter,6d-lattice parameter,17
+Hypermaterial,lattice parameter,lattice constant,6
+Hypermaterial,lattice parameter,primitive cubic lattice,3
+Hypermaterial,lattice parameter,face-centered cubic lattice,1
+Hypermaterial,lattice parameter,quasi-lattice constant,1
+Hypermaterial,measurement condition,-,465
+Hypermaterial,measurement condition,electrical resistivity,46
+Hypermaterial,other sample process info,arc-melting,157
+Hypermaterial,other sample process info,induction-melting,58
+Hypermaterial,other sample process info,-,53
+Hypermaterial,other sample process info,water quenched,48
+Hypermaterial,other sample process info,Bridgman technique,30
+Hypermaterial,other sample process info,SPS,30
+Hypermaterial,other sample process info,rapidly quenched,27
+Hypermaterial,other sample process info,melt-spinning,26
+Hypermaterial,other sample process info,Czochralski method,25
+Hypermaterial,other sample process info,melt spun,24
+Hypermaterial,other sample process info 2,rapidly solidified,12
+Hypermaterial,other sample process info 2,melt-spinning,10
+Hypermaterial,other sample process info 2,rapidly quenched,7
+Hypermaterial,other sample process info 2,-,2
+Hypermaterial,other sample process info 2,as-cast,1
+Hypermaterial,other sample process info 2,arc furnace,1
+Hypermaterial,sample info,-,387
+Hypermaterial,sintering temperature,-,18
+Hypermaterial,sintering temperature,830,1
+Hypermaterial,sintering temperature,840,1
+Hypermaterial,sintering temperature,780,1
+Hypermaterial,sintering temperature,805,1
+Hypermaterial,sintering temperature,770,1
+Hypermaterial,sintering temperature,1223K,1
+LowThermalConductivityMaterials,AbsoluteDensity,g/cm^3,118
+LowThermalConductivityMaterials,AbsoluteDensity,kg/m^3,15
+LowThermalConductivityMaterials,DataType,Experiment,1030
+LowThermalConductivityMaterials,DataType,Reference,98
+LowThermalConductivityMaterials,DifferentialThermalAnalyzer,Specific heat capacity,18
+LowThermalConductivityMaterials,ElectricalMeasurement,SteadyState+4P,77
+LowThermalConductivityMaterials,ElectricalMeasurement,Other,37
+LowThermalConductivityMaterials,ElectricalMeasurement,PPMS-TTO,14
+LowThermalConductivityMaterials,ElectricalMeasurement,SteadyState+vdP,5
+LowThermalConductivityMaterials,ElectricalMeasurement,PPMS,2
+LowThermalConductivityMaterials,FabricationProcess,PressureSintering,79
+LowThermalConductivityMaterials,FabricationProcess,Sintering,54
+LowThermalConductivityMaterials,FabricationProcess,HighPressureSynthesis,18
+LowThermalConductivityMaterials,FabricationProcess,FilmGrowth,6
+LowThermalConductivityMaterials,FabricationProcess,Melting,5
+LowThermalConductivityMaterials,FabricationProcess,HotDeformed,1
+LowThermalConductivityMaterials,FabricationProcess,Cold pressing,1
+LowThermalConductivityMaterials,FabricationProcess 2,Sintering,5
+LowThermalConductivityMaterials,Form,Bulk,627
+LowThermalConductivityMaterials,Form,SingleCrystal,102
+LowThermalConductivityMaterials,Form,Polycrystal,78
+LowThermalConductivityMaterials,Form,Film,44
+LowThermalConductivityMaterials,Form,Coating,42
+LowThermalConductivityMaterials,Form,Other,26
+LowThermalConductivityMaterials,Form,Composite,11
+LowThermalConductivityMaterials,Form,Powder,10
+LowThermalConductivityMaterials,Form,pellets,8
+LowThermalConductivityMaterials,Form,FoamedBulk,4
+LowThermalConductivityMaterials,GrainSize,um,63
+LowThermalConductivityMaterials,GrainSize,nm,7
+LowThermalConductivityMaterials,GrainSize,Unknown,2
+LowThermalConductivityMaterials,GrainSize,1um,2
+LowThermalConductivityMaterials,Material Family,Oxide,2
+LowThermalConductivityMaterials,MaterialFamily,Oxide,62
+LowThermalConductivityMaterials,MaterialFamily,Cobaltite,43
+LowThermalConductivityMaterials,MaterialFamily,Antimonide,22
+LowThermalConductivityMaterials,MaterialFamily,Chalcogenide,19
+LowThermalConductivityMaterials,MaterialFamily,Sulfide,15
+LowThermalConductivityMaterials,MaterialFamily,Half-Heusler,7
+LowThermalConductivityMaterials,MaterialFamily,Telluride,7
+LowThermalConductivityMaterials,MaterialFamily,Perovskite,5
+LowThermalConductivityMaterials,MaterialFamily,Heusler,5
+LowThermalConductivityMaterials,MaterialFamily,Selenide,4
+LowThermalConductivityMaterials,PoreSize,nm,18
+LowThermalConductivityMaterials,PoreSize,um,7
+LowThermalConductivityMaterials,Porosity,%,86
+LowThermalConductivityMaterials,Porosity,-,7
+LowThermalConductivityMaterials,Purity,SinglePhase,45
+LowThermalConductivityMaterials,Purity,Composite,22
+LowThermalConductivityMaterials,Purity,MainPhase,6
+LowThermalConductivityMaterials,Purity,Precipitates,5
+LowThermalConductivityMaterials,Purity,Other,4
+LowThermalConductivityMaterials,Purity,Unknown,3
+LowThermalConductivityMaterials,RelativeDensity,%,108
+LowThermalConductivityMaterials,RelativeDensity,=95%,24
+LowThermalConductivityMaterials,RelativeDensity,-,9
+LowThermalConductivityMaterials,ThermalMeasurement,LaserFlash,257
+LowThermalConductivityMaterials,ThermalMeasurement,Other,108
+LowThermalConductivityMaterials,ThermalMeasurement,LaserFlash + Neumann-Kopp rule,99
+LowThermalConductivityMaterials,ThermalMeasurement,SteadyStateMethod,74
+LowThermalConductivityMaterials,ThermalMeasurement,LaserFlash+DSC,67
+LowThermalConductivityMaterials,ThermalMeasurement,PPMS,26
+LowThermalConductivityMaterials,ThermalMeasurement,PPMS-TTO,16
+LowThermalConductivityMaterials,ThermalMeasurement,Hot Disk,12
+LowThermalConductivityMaterials,ThermalMeasurement,Transient plane source,12
+LowThermalConductivityMaterials,ThermalMeasurement,ThermoReflectance,9
+MagneticMaterials,DataType,Experiment,13899
+MagneticMaterials,DataType,Reference,25
+MagneticMaterials,FabricationProcess,Melting,3416
+MagneticMaterials,FabricationProcess,MechanicalAlloying,2969
+MagneticMaterials,FabricationProcess,Other,2746
+MagneticMaterials,FabricationProcess,Sol-gel,1982
+MagneticMaterials,FabricationProcess,FilmGrowth,1695
+MagneticMaterials,FabricationProcess,Sintering,801
+MagneticMaterials,FabricationProcess,SoftChemical,639
+MagneticMaterials,FabricationProcess,Hydrothermal,465
+MagneticMaterials,FabricationProcess,co-precipitation,406
+MagneticMaterials,FabricationProcess,Unknown,223
+MagneticMaterials,Form,Powder,6272
+MagneticMaterials,Form,pellets,2029
+MagneticMaterials,Form,Bulk,1890
+MagneticMaterials,Form,Film,1777
+MagneticMaterials,Form,Ribbon,1388
+MagneticMaterials,Form,Unknown,1308
+MagneticMaterials,Form,SingleCrystal,387
+MagneticMaterials,Form,Plate,337
+MagneticMaterials,Form,EpitaxialFilm,127
+MagneticMaterials,Form,disk,105
+MagneticMaterials,GrainSize,nm,236
+MagneticMaterials,GrainSize,10nm,184
+MagneticMaterials,GrainSize,100nm,78
+MagneticMaterials,GrainSize,mm,62
+MagneticMaterials,GrainSize,um,60
+MagneticMaterials,GrainSize,1um,23
+MagneticMaterials,GrainSize,10um,10
+MagneticMaterials,GrainSize,1mm,5
+MagneticMaterials,GrainSize,100um,1
+MagneticMaterials,MagneticMeasurement,VSM,9001
+MagneticMaterials,MagneticMeasurement,SQUID,3478
+MagneticMaterials,MagneticMeasurement,PPMS,1852
+MagneticMaterials,MagneticMeasurement,Unknown,772
+MagneticMaterials,MagneticMeasurement,MPMS,596
+MagneticMaterials,MagneticMeasurement,Other,272
+MagneticMaterials,MagneticMeasurement,BH-tracer,44
+MagneticMaterials,MagneticMeasurement,PulseBH-tracer,29
+MagneticMaterials,MagneticMeasurement,PFM,16
+MagneticMaterials,MagneticMeasurement,AGM,13
+MagneticMaterials,MaterialFamily,Bi2Te3,4
+MagneticMaterials,Measurement temperature,room,4382
+MagneticMaterials,Measurement temperature,300,1396
+MagneticMaterials,Measurement temperature,5,520
+MagneticMaterials,Measurement temperature,10,445
+MagneticMaterials,Measurement temperature,100,264
+MagneticMaterials,Measurement temperature,200,217
+MagneticMaterials,Measurement temperature,2,145
+MagneticMaterials,Measurement temperature,50,103
+MagneticMaterials,Measurement temperature,20,101
+MagneticMaterials,Measurement temperature,150,95
+MagneticMaterials,Purity,SinglePhase,7333
+MagneticMaterials,Purity,MainPhase,6025
+MagneticMaterials,Purity,Unknown,1602
+MagneticMaterials,Purity,Composite,468
+MagneticMaterials,Purity,MetalComposite,121
+MagneticMaterials,Purity,Precipitates,112
+MagneticMaterials,Purity,Other,107
+MagneticMaterials,Purity,Layer,87
+MagneticMaterials,Purity,EutecticComposite,20
+MagneticMaterials,Purity,core shell,18
+MagneticMaterials,RelativeDensity,=95%,15
+MagneticMaterials,RelativeDensity,>=60%,8
+MagneticMaterials,RelativeDensity,>=70%,6
+MagneticMaterials,RelativeDensity,>=90%,5
+MagneticMaterials,RelativeDensity,%,4
+MagneticMaterials,RelativeDensity,>=80%,1
+MagneticMaterials,Saturation magnetization,72.96,1
+MagneticMaterials,Saturation magnetization,30,1
+MagneticMaterials,Saturation magnetization,47.272,1
+MagneticMaterials,Saturation magnetization,120,1
+MagneticMaterials,coercivity,low,8
+MagneticMaterials,coercivity,0,4
+MagneticMaterials,coercivity,55732,4
+MagneticMaterials,coercivity,4.38*10^3,3
+MagneticMaterials,coercivity,13.93*10^3,3
+MagneticMaterials,coercivity,27866,3
+MagneticMaterials,coercivity,11943,3
+MagneticMaterials,coercivity,1.1,3
+MagneticMaterials,coercivity,15916,3
+MagneticMaterials,coercivity,23885,3
+MagneticMaterials,magnetic field,100,160
+MagneticMaterials,magnetic field,0.05,69
+MagneticMaterials,magnetic field,500,67
+MagneticMaterials,magnetic field,5T,61
+MagneticMaterials,magnetic field,50,45
+MagneticMaterials,magnetic field,1000,42
+MagneticMaterials,magnetic field,0.1,38
+MagneticMaterials,magnetic field,5,31
+MagneticMaterials,magnetic field,1,27
+MagneticMaterials,magnetic field,0.01,23
+MagneticMaterials,oercivity,5826,1
+MagneticMaterials,remanence magnetion,0.02,8
+MagneticMaterials,remanence magnetion,0.2,6
+MagneticMaterials,remanence magnetion,low,5
+MagneticMaterials,remanence magnetion,22,5
+MagneticMaterials,remanence magnetion,28,5
+MagneticMaterials,remanence magnetion,32,5
+MagneticMaterials,remanence magnetion,33,5
+MagneticMaterials,remanence magnetion,0.3,5
+MagneticMaterials,remanence magnetion,0.004,5
+MagneticMaterials,remanence magnetion,37,5
+MagneticMaterials,saturation magnetization,67,6
+MagneticMaterials,saturation magnetization,37,5
+MagneticMaterials,saturation magnetization,42,5
+MagneticMaterials,saturation magnetization,71,4
+MagneticMaterials,saturation magnetization,68,4
+MagneticMaterials,saturation magnetization,52,4
+MagneticMaterials,saturation magnetization,60,4
+MagneticMaterials,saturation magnetization,90,4
+MagneticMaterials,saturation magnetization,79,4
+MagneticMaterials,saturation magnetization,74,4
+OrganicThermoelectricMaterials,Data Type,Experiment,16
+OrganicThermoelectricMaterials,DataType,Experiment,1251
+OrganicThermoelectricMaterials,Electrical Measurement,Custom-built Seebeck measurement,13
+OrganicThermoelectricMaterials,Electrical Measurement,SteadyState+4P,3
+OrganicThermoelectricMaterials,ElectricalMeasurement,SteadyState+4P,774
+OrganicThermoelectricMaterials,ElectricalMeasurement,Other,111
+OrganicThermoelectricMaterials,ElectricalMeasurement,SteadyState+2P,69
+OrganicThermoelectricMaterials,ElectricalMeasurement,SteadyState+vdP,52
+OrganicThermoelectricMaterials,ElectricalMeasurement,Custom-built Seebeck measurement,7
+OrganicThermoelectricMaterials,FabricationProcess,Organic,265
+OrganicThermoelectricMaterials,FabricationProcess,FilmGrowth,264
+OrganicThermoelectricMaterials,FabricationProcess,Drop casting,94
+OrganicThermoelectricMaterials,FabricationProcess,SoftChemical,57
+OrganicThermoelectricMaterials,FabricationProcess,Other,36
+OrganicThermoelectricMaterials,FabricationProcess,Hydrothermal,9
+OrganicThermoelectricMaterials,FabricationProcess,Pressing,4
+OrganicThermoelectricMaterials,FabricationProcess,PressureSintering,2
+OrganicThermoelectricMaterials,FabricationProcess 2,Organic,90
+OrganicThermoelectricMaterials,FabricationProcess 2,FilmGrowth,36
+OrganicThermoelectricMaterials,FabricationProcess 2,Drop casting,24
+OrganicThermoelectricMaterials,FabricationProcess 2,VaporGrowth,15
+OrganicThermoelectricMaterials,FabricationProcess 2,Pressing,13
+OrganicThermoelectricMaterials,FabricationProcess 2,HotDeformed,6
+OrganicThermoelectricMaterials,FabricationProcess 3,Other,4
+OrganicThermoelectricMaterials,Form,Film,1065
+OrganicThermoelectricMaterials,Form,fibers,94
+OrganicThermoelectricMaterials,Form,pellets,33
+OrganicThermoelectricMaterials,Form,Aerogel,20
+OrganicThermoelectricMaterials,Form,Bulk,17
+OrganicThermoelectricMaterials,Form,Composite,8
+OrganicThermoelectricMaterials,Form,multilayer film,4
+OrganicThermoelectricMaterials,Form,Other,2
+OrganicThermoelectricMaterials,Form,Sponge,1
+OrganicThermoelectricMaterials,MaterialFamily,Polymer,638
+OrganicThermoelectricMaterials,MaterialFamily,Organic,70
+OrganicThermoelectricMaterials,MaterialFamily,Nitride,2
+OrganicThermoelectricMaterials,MaterialFamily,Telluride,1
+OrganicThermoelectricMaterials,Organic Fabrication Process,Spin Coating,12
+OrganicThermoelectricMaterials,Organic Fabrication Process,Inkjet Printing,3
+OrganicThermoelectricMaterials,Organic Fabrication Process,Drop Coating,1
+OrganicThermoelectricMaterials,Organic Material Family,Polymer,13
+OrganicThermoelectricMaterials,Organic Material Family,Organic,3
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Spin Coating,303
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Drop Casting,76
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Other,34
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Solution Casting,29
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Solution Growth,17
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Pressing,13
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Organic,13
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Blade Coating,8
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Spray Coating,7
+OrganicThermoelectricMaterials,OrganicFabricationProcess,Vapor Growth,6
+OrganicThermoelectricMaterials,OrganicFabricationProcess 2,Annealing,132
+OrganicThermoelectricMaterials,OrganicFabricationProcess 2,Sol-gel,4
+OrganicThermoelectricMaterials,OrganicFabricationProcess 2,Other,1
+OrganicThermoelectricMaterials,OrganicMaterialFamily,Organic,423
+OrganicThermoelectricMaterials,OrganicMaterialFamily,Polymer,116
+OrganicThermoelectricMaterials,Purity,Other,2
+OrganicThermoelectricMaterials,Purity,SinglePhase,2
+OrganicThermoelectricMaterials,ThermalMeasurement,3omega,88
+OrganicThermoelectricMaterials,ThermalMeasurement,Other,53
+OrganicThermoelectricMaterials,ThermalMeasurement,SteadyStateMethod,43
+OrganicThermoelectricMaterials,ThermalMeasurement,LaserFlash,40
+OrganicThermoelectricMaterials,ThermalMeasurement,LaserFlash+DSC,13
+OrganicThermoelectricMaterials,ThermalMeasurement,Transient plane source,9
+OrganicThermoelectricMaterials,ThermalMeasurement,PPMS,6
+OrganicThermoelectricMaterials,ThermalMeasurement,ThermoReflectance,5
+PiezoelectricMaterials,DataType,Experiment,6
+PiezoelectricMaterials,FabricationProcess,Sol-gel,4
+PiezoelectricMaterials,FabricationProcess,FilmGrowth,2
+PiezoelectricMaterials,Form,Powder,4
+PiezoelectricMaterials,Form,Film,2
+PiezoelectricMaterials,MagneticMeasurement,VSM,6
+PiezoelectricMaterials,Measurement temperature,300,2
+PiezoelectricMaterials,Measurement temperature,5,2
+PiezoelectricMaterials,Purity,Composite,4
+PiezoelectricMaterials,Purity,Unknown,2
+PiezoelectricMaterials,coercivity,1448356,1
+PiezoelectricMaterials,coercivity,986792,1
+PiezoelectricMaterials,saturation magnetization,22.1,1
+PiezoelectricMaterials,saturation magnetization,57.8,1
+Resistor,DataType,Experiment,254
+Resistor,DataType,Reference,6
+Resistor,DataType,Unknown,1
+Resistor,DifferentialThermalAnalyzer,Specific heat capacity,18
+Resistor,ElectricalMeasurement,SteadyState+4P,99
+Resistor,ElectricalMeasurement,SteadyState+vdP,26
+Resistor,ElectricalMeasurement,Other,25
+Resistor,ElectricalMeasurement,PPMS-TTO,8
+Resistor,ElectricalMeasurement,PPMS,5
+Resistor,FabricationProcess,Sintering,73
+Resistor,FabricationProcess,PressureSintering,42
+Resistor,FabricationProcess,FilmGrowth,16
+Resistor,FabricationProcess,Melting,9
+Resistor,FabricationProcess,VaporGrowth,9
+Resistor,FabricationProcess,HighPressureSynthesis,7
+Resistor,FabricationProcess,Other,6
+Resistor,FabricationProcess,Pressing,6
+Resistor,FabricationProcess,MeltGrowth,5
+Resistor,FabricationProcess,SoftChemical,1
+Resistor,Form,Bulk,135
+Resistor,Form,Polycrystal,33
+Resistor,Form,Film,29
+Resistor,Form,SingleCrystal,17
+Resistor,Form,Unknown,2
+Resistor,Form,EpitaxialFilm,1
+Resistor,Form,Powder,1
+Resistor,Form,Composite,1
+Resistor,GrainSize,um,18
+Resistor,GrainSize,100nm,2
+Resistor,Material family,InGaZnO,3
+Resistor,MaterialFamily,Perovskite,53
+Resistor,MaterialFamily,Oxide,53
+Resistor,MaterialFamily,ZnO,43
+Resistor,MaterialFamily,Cobaltite,16
+Resistor,MaterialFamily,Silicide,16
+Resistor,MaterialFamily,Half-Heusler,7
+Resistor,MaterialFamily,Nitride,4
+Resistor,MaterialFamily,d-silicide,1
+Resistor,Purity,SinglePhase,28
+Resistor,Purity,Other,5
+Resistor,Purity,MainPhase,2
+Resistor,Purity,Precipitates,1
+Resistor,Purity,Unknown,1
+Resistor,RelativeDensity,%,37
+Resistor,RelativeDensity,>=90%,1
+Resistor,ThermalMeasurement,LaserFlash,70
+Resistor,ThermalMeasurement,LaserFlash+DSC,19
+Resistor,ThermalMeasurement,Other,17
+Resistor,ThermalMeasurement,PPMS-TTO,6
+Resistor,ThermalMeasurement,SteadyStateMethod,5
+Resistor,ThermalMeasurement,3omega,3
+SolidStateBatteryMaterials,Anode active material,Li|Lithium metal,15
+SolidStateBatteryMaterials,Cathode active material,S|S8|Sulfur|Sublimated sulfur,15
+SolidStateBatteryMaterials,Cathode additive 1,CNT|Carbon nanotube,6
+SolidStateBatteryMaterials,Cathode additive 1,MWCNT|MWNT|Multi wall carbon nanotube,6
+SolidStateBatteryMaterials,Cathode additive 1,Modified,1
+SolidStateBatteryMaterials,Cathode areal density (cathode loading),mg*cm^(-2),12
+SolidStateBatteryMaterials,Cathode conductive agent,MWCNT|MWNT|Multi wall carbon nanotube,12
+SolidStateBatteryMaterials,Cathode conductive agent,CB|Carbon black,2
+SolidStateBatteryMaterials,Ratio of electrolyte to cathode active material,muL*mg^(-1),12
+SolidStateBatteryMaterials,Separator,Other polypropylene membrane,1
+SolidStateBatteryMaterials,Separator,Other Celgard,1
+SolidStateBatteryMaterials,Solute 1,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,2
+SolidStateBatteryMaterials,Solute 2,LiNO3|Lithium nitrate,1
+SolidStateBatteryMaterials,Solvent 1,"DOL|1,3-Dioxolane",2
+SolidStateBatteryMaterials,Solvent 2,"DME|1,2-Dimethoxyethane",2
+ThermoelectricMaterials,AC/QC type,IQC,113
+ThermoelectricMaterials,AC/QC type,IAC,40
+ThermoelectricMaterials,AC/QC type,DAC,12
+ThermoelectricMaterials,AC/QC type,other,8
+ThermoelectricMaterials,AC/QC type,crystal,3
+ThermoelectricMaterials,Anode active material,Li|Lithium metal,244
+ThermoelectricMaterials,Anode active material,Mg|Magnesium metal,52
+ThermoelectricMaterials,Anode active material,Alloy,19
+ThermoelectricMaterials,Anode active material,Sb|Antimony,2
+ThermoelectricMaterials,Anode additive 1,MoS2,8
+ThermoelectricMaterials,Anode additive 1,rGO|Reduced graphene oxide,5
+ThermoelectricMaterials,Anode additive 1,Carbon material,1
+ThermoelectricMaterials,Anode binder 1,PVDF|Polyvinylidene difluoride,23
+ThermoelectricMaterials,Anode binder 1,CMC|Carboxyl methyl cellulose,10
+ThermoelectricMaterials,Anode conductive agent,Super P,31
+ThermoelectricMaterials,Anode conductive agent,CB|Carbon black,2
+ThermoelectricMaterials,Anode current collector,Cu|Copper,40
+ThermoelectricMaterials,Cathode active material,S|S8|Sulfur|Sublimated sulfur,246
+ThermoelectricMaterials,Cathode active material,O2,13
+ThermoelectricMaterials,Cathode active material,TiO2|Titanium oxide,9
+ThermoelectricMaterials,Cathode active material,MoS2|Molybdenum sulfide,8
+ThermoelectricMaterials,Cathode active material,MVO4|Vanadate,7
+ThermoelectricMaterials,Cathode active material,VS4|Vanadium sulfide,7
+ThermoelectricMaterials,Cathode active material,TiSe2|Titanium selenide,4
+ThermoelectricMaterials,Cathode active material,Organosulfur|Organic sulfur compounds,1
+ThermoelectricMaterials,Cathode additive 1,Carbon material,121
+ThermoelectricMaterials,Cathode additive 1,CNT|Carbon nanotube,17
+ThermoelectricMaterials,Cathode additive 1,Ni,11
+ThermoelectricMaterials,Cathode additive 1,Graphene,9
+ThermoelectricMaterials,Cathode additive 1,GO|Graphene oxide,8
+ThermoelectricMaterials,Cathode additive 1,TiO2,8
+ThermoelectricMaterials,Cathode additive 1,Mn3O4,8
+ThermoelectricMaterials,Cathode additive 1,Ti4O7,8
+ThermoelectricMaterials,Cathode additive 1,rGO|Reduced graphene oxide,5
+ThermoelectricMaterials,Cathode additive 1,Nitrogen-doped graphene,3
+ThermoelectricMaterials,Cathode additive 2,Graphite,10
+ThermoelectricMaterials,Cathode additive 2,CF|CNF|Carbon fiber|Carbon nanofiber,8
+ThermoelectricMaterials,Cathode additive 2,CNT|Carbon nanotube,5
+ThermoelectricMaterials,Cathode areal density (cathode loading),mg*cm^(-2),151
+ThermoelectricMaterials,Cathode binder 1,PVDF|Polyvinylidene difluoride,200
+ThermoelectricMaterials,Cathode binder 1,LA 133,18
+ThermoelectricMaterials,Cathode binder 1,PTFE|Polytetrafluoroethylene,15
+ThermoelectricMaterials,Cathode binder 1,CMC|Carboxyl methyl cellulose,13
+ThermoelectricMaterials,Cathode binder 1,PBI|Stacked perylene bisimide,4
+ThermoelectricMaterials,Cathode binder 1,SA|Sodium alginate,4
+ThermoelectricMaterials,Cathode binder 1,PEI|Polyethylenimin,3
+ThermoelectricMaterials,Cathode binder 1,PANI|Polyaniline,3
+ThermoelectricMaterials,Cathode binder 1,SBR|Styrene butadien rubber,2
+ThermoelectricMaterials,Cathode binder 2,PAA|Polyacrylic acid,3
+ThermoelectricMaterials,Cathode binder 2,SBR|Styrene butadien rubber,2
+ThermoelectricMaterials,Cathode binder 2,PVDF|Polyvinylidene difluoride,1
+ThermoelectricMaterials,Cathode conductive agent,Super P,130
+ThermoelectricMaterials,Cathode conductive agent,CB|Carbon black,83
+ThermoelectricMaterials,Cathode conductive agent,CNT|Carbon nanotube,30
+ThermoelectricMaterials,Cathode conductive agent,AB|Acetylene black,24
+ThermoelectricMaterials,Cathode conductive agent,KB|Ketjen black,23
+ThermoelectricMaterials,Cathode conductive agent,CNovel,4
+ThermoelectricMaterials,Cathode conductive agent,CF|CNF|Carbon fiber/Carbon nanofiber,2
+ThermoelectricMaterials,Cathode current collector,Al,39
+ThermoelectricMaterials,Cell type,Mg|other full cell,63
+ThermoelectricMaterials,Cell type,CV,6
+ThermoelectricMaterials,Composition conversion,formula unit,1
+ThermoelectricMaterials,Counter electrode,Na|Sodium,37
+ThermoelectricMaterials,Counter electrode,Mg|Magnesium,13
+ThermoelectricMaterials,Data Type,Experiment,62
+ThermoelectricMaterials,DataType,Experiment,32494
+ThermoelectricMaterials,DataType,Reference,590
+ThermoelectricMaterials,DataType,Unknown,170
+ThermoelectricMaterials,DataType,NeedCheck,13
+ThermoelectricMaterials,DataType,Other,10
+ThermoelectricMaterials,Differential thermal analyzer,Specific heat capacity,3
+ThermoelectricMaterials,DifferentialThermalAnalyzer,Specific heat capacity,21
+ThermoelectricMaterials,Electrical Measurement,SteadyState+4P,18
+ThermoelectricMaterials,ElectricalMeasurement,SteadyState+4P,10729
+ThermoelectricMaterials,ElectricalMeasurement,Other,959
+ThermoelectricMaterials,ElectricalMeasurement,PPMS-TTO,871
+ThermoelectricMaterials,ElectricalMeasurement,SteadyState+vdP,428
+ThermoelectricMaterials,ElectricalMeasurement,SteadyState+2P,270
+ThermoelectricMaterials,ElectricalMeasurement,MicroProbe,186
+ThermoelectricMaterials,ElectricalMeasurement,PPMS,159
+ThermoelectricMaterials,ElectricalMeasurement,Harman,35
+ThermoelectricMaterials,Electrolyte additive 1,FEC|Fluoro ethylene carbonate,37
+ThermoelectricMaterials,FabricationProcess,PressureSintering,5338
+ThermoelectricMaterials,FabricationProcess,Sintering,2763
+ThermoelectricMaterials,FabricationProcess,Melting,1844
+ThermoelectricMaterials,FabricationProcess,HighPressureSynthesis,995
+ThermoelectricMaterials,FabricationProcess,MeltGrowth,909
+ThermoelectricMaterials,FabricationProcess,FilmGrowth,906
+ThermoelectricMaterials,FabricationProcess,Other,599
+ThermoelectricMaterials,FabricationProcess,MeltQuench,387
+ThermoelectricMaterials,FabricationProcess,FluxGrowth,282
+ThermoelectricMaterials,FabricationProcess,VaporGrowth,237
+ThermoelectricMaterials,FabricationProcess 2,Sintering,1318
+ThermoelectricMaterials,FabricationProcess 2,MechanicalAlloying,123
+ThermoelectricMaterials,FabricationProcess 2,PressureSintering,71
+ThermoelectricMaterials,FabricationProcess 2,Organic,39
+ThermoelectricMaterials,FabricationProcess 2,Melting,29
+ThermoelectricMaterials,FabricationProcess 2,Other,27
+ThermoelectricMaterials,FabricationProcess 2,Calcination,21
+ThermoelectricMaterials,FabricationProcess 2,Pressing,15
+ThermoelectricMaterials,FabricationProcess 2,FluxGrowth,7
+ThermoelectricMaterials,FabricationProcess 2,Cold pressing,6
+ThermoelectricMaterials,FabricationProcess 3,Melting,73
+ThermoelectricMaterials,FabricationProcess 3,Sintering,32
+ThermoelectricMaterials,FabricationProcess 3,PressureSintering,8
+ThermoelectricMaterials,FabricationProcess 3,Other,6
+ThermoelectricMaterials,FabricationProcess 3,MechanicalAlloying,5
+ThermoelectricMaterials,FabricationProcess 3,Pressing,4
+ThermoelectricMaterials,FabricationProcess 3,HighPressureSynthesis,1
+ThermoelectricMaterials,Form,Bulk,15978
+ThermoelectricMaterials,Form,Film,1517
+ThermoelectricMaterials,Form,SingleCrystal,1453
+ThermoelectricMaterials,Form,Polycrystal,917
+ThermoelectricMaterials,Form,rod-shaped,716
+ThermoelectricMaterials,Form,pellets,689
+ThermoelectricMaterials,Form,Other,307
+ThermoelectricMaterials,Form,disk,118
+ThermoelectricMaterials,Form,Powder,116
+ThermoelectricMaterials,Form,EpitaxialFilm,115
+ThermoelectricMaterials,Grain size,few millimters,1
+ThermoelectricMaterials,Grain size,Few micrometers,1
+ThermoelectricMaterials,GrainSize,um,257
+ThermoelectricMaterials,GrainSize,1um,107
+ThermoelectricMaterials,GrainSize,Unknown,91
+ThermoelectricMaterials,GrainSize,nm,86
+ThermoelectricMaterials,GrainSize,100nm,74
+ThermoelectricMaterials,GrainSize,10um,45
+ThermoelectricMaterials,GrainSize,mm,42
+ThermoelectricMaterials,GrainSize,100um,29
+ThermoelectricMaterials,GrainSize,10nm,27
+ThermoelectricMaterials,GrainSize,1mm,6
+ThermoelectricMaterials,LaserFlash,thermal diffusivity,16
+ThermoelectricMaterials,Lower voltage limit,V,81
+ThermoelectricMaterials,MagneticMeasurement,VSM,7
+ThermoelectricMaterials,MagneticMeasurement,MPMS,4
+ThermoelectricMaterials,Material Family,Oxide,24
+ThermoelectricMaterials,Material Family,Sulfide,3
+ThermoelectricMaterials,Material Family,Layered Bi2Se3 Nanoplate/Polyvinylidene Fluoride,1
+ThermoelectricMaterials,Material Family,Cu2Se,1
+ThermoelectricMaterials,Material Family,Pyrite,1
+ThermoelectricMaterials,Material Family,Aluminide,1
+ThermoelectricMaterials,Material family,InGaZnO,3
+ThermoelectricMaterials,Material family,SiGe,1
+ThermoelectricMaterials,Material family,Oxides,1
+ThermoelectricMaterials,MaterialFamily,Perovskite,2419
+ThermoelectricMaterials,MaterialFamily,Bi2Te3,1890
+ThermoelectricMaterials,MaterialFamily,Oxide,1805
+ThermoelectricMaterials,MaterialFamily,Skutterudite,1737
+ThermoelectricMaterials,MaterialFamily,Half-Heusler,1347
+ThermoelectricMaterials,MaterialFamily,PbTe,1059
+ThermoelectricMaterials,MaterialFamily,Cobaltite,1047
+ThermoelectricMaterials,MaterialFamily,Telluride,930
+ThermoelectricMaterials,MaterialFamily,Heavy-Fermion,886
+ThermoelectricMaterials,MaterialFamily,Alloy,885
+ThermoelectricMaterials,MaterialFarmily,Zintl,1
+ThermoelectricMaterials,MaterialFarmily,Selenide,1
+ThermoelectricMaterials,Materials family,SiGe,1
+ThermoelectricMaterials,MaterialsFamily,Zintl,1
+ThermoelectricMaterials,MaterialsFamily,Ceramics,1
+ThermoelectricMaterials,Maximum power,0.14 watt,1
+ThermoelectricMaterials,Maximum power,0.14 Watt,1
+ThermoelectricMaterials,Measurement axis,c,1
+ThermoelectricMaterials,Measurement temperature,room,7
+ThermoelectricMaterials,Mn15Si26[001],Mn15Si26[001],1
+ThermoelectricMaterials,Module operated temperature,hot side at 220 degree centigrade,2
+ThermoelectricMaterials,Note,This sample is from literature.,1
+ThermoelectricMaterials,OrganicFabricationProcess,Solution Casting,9
+ThermoelectricMaterials,OrganicFabricationProcess,Spin Coating,2
+ThermoelectricMaterials,OrganicFabricationProcess,Drop Casting,1
+ThermoelectricMaterials,OrganicFabricationProcess 2,Annealing,2
+ThermoelectricMaterials,OrganicMaterialFamily,Organic,10
+ThermoelectricMaterials,OrganicMaterialFamily,Polymer,2
+ThermoelectricMaterials,Other,Paper,1
+ThermoelectricMaterials,Peak efficiency,3.1 percent,2
+ThermoelectricMaterials,Purity,SinglePhase,3090
+ThermoelectricMaterials,Purity,MainPhase,878
+ThermoelectricMaterials,Purity,Composite,287
+ThermoelectricMaterials,Purity,Other,186
+ThermoelectricMaterials,Purity,Unknown,106
+ThermoelectricMaterials,Purity,MetalComposite,101
+ThermoelectricMaterials,Purity,Precipitates,28
+ThermoelectricMaterials,Purity,Layer,1
+ThermoelectricMaterials,Ratio of electrolyte to cathode active material,muL*mg^(-1),75
+ThermoelectricMaterials,Reference electrode,Na|Sodium,23
+ThermoelectricMaterials,Reference electrode,Mg|Magnesium,13
+ThermoelectricMaterials,Relative density,80,2
+ThermoelectricMaterials,Relative density,79,2
+ThermoelectricMaterials,Relative density,92,2
+ThermoelectricMaterials,Relative density,91,2
+ThermoelectricMaterials,Relative density,78,1
+ThermoelectricMaterials,Relative density,90,1
+ThermoelectricMaterials,Relative density,85,1
+ThermoelectricMaterials,Relative density,81,1
+ThermoelectricMaterials,Relative density,95,1
+ThermoelectricMaterials,Relative density,94,1
+ThermoelectricMaterials,RelativeDensity,=95%,878
+ThermoelectricMaterials,RelativeDensity,%,791
+ThermoelectricMaterials,RelativeDensity,>=90%,288
+ThermoelectricMaterials,RelativeDensity,>=80%,144
+ThermoelectricMaterials,RelativeDensity,Unknown,78
+ThermoelectricMaterials,RelativeDensity,-,50
+ThermoelectricMaterials,RelativeDensity,>=70%,29
+ThermoelectricMaterials,RelativeDensity,>=60%,23
+ThermoelectricMaterials,RelativeDensity,>=50%,11
+ThermoelectricMaterials,RelativeDensity,>=40%,6
+ThermoelectricMaterials,Separator,Other glass fiber separator,62
+ThermoelectricMaterials,Separator,Celgard 2400,36
+ThermoelectricMaterials,Separator,Celgard 3501,14
+ThermoelectricMaterials,Separator,Celgard 2500,14
+ThermoelectricMaterials,Separator,Other polymer membrane,11
+ThermoelectricMaterials,Separator,Other polypropylene membrane,10
+ThermoelectricMaterials,Separator,Other Celgard,8
+ThermoelectricMaterials,Solute 1,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,214
+ThermoelectricMaterials,Solute 1,PhMgCl|Phenyl magnesium chloride,34
+ThermoelectricMaterials,Solute 1,NaClO4|Sodium perchlorate,30
+ThermoelectricMaterials,Solute 1,MgTFSI2|MgTFSA2|Magnesium bis(trifluoromethanesulfonyl)imide,18
+ThermoelectricMaterials,Solute 1,LiCF3SO3|Lithium trifluoromethanesulfonate,13
+ThermoelectricMaterials,Solute 1,NaPF6|Sodium hexafluorophosphate,7
+ThermoelectricMaterials,Solute 1,Mg(ClO4)2|Magnesium perchlorate,6
+ThermoelectricMaterials,Solute 1,LiNO3|Lithium nitrate,6
+ThermoelectricMaterials,Solute 1,LiPF6|Lithium hexafluorophosphate,5
+ThermoelectricMaterials,Solute 1,LiFSI|LiFSA|Lithium Bis(fluorosulfonyl)imide,1
+ThermoelectricMaterials,Solute 2,LiNO3|Lithium nitrate,190
+ThermoelectricMaterials,Solute 2,AlCl3|Aluminium chloride,54
+ThermoelectricMaterials,Solute 2,LiTFSI|LiTFSA|Lithium Bis(trifluoromethanesulfonyl)imide,9
+ThermoelectricMaterials,Solute 3,MgCl2|Magnesium chloride,20
+ThermoelectricMaterials,Solute 3,Li2S5|Lithium pentasulfide,4
+ThermoelectricMaterials,Solute 3,"PSD-90|Poly(sulfur-random-1,3-diisopropenylbenzene)",1
+ThermoelectricMaterials,Solvent 1,"DME|1,2-Dimethoxyethane",139
+ThermoelectricMaterials,Solvent 1,"DOL|1,3-Dioxolane",87
+ThermoelectricMaterials,Solvent 1,THF|Tetrahydrofuran,54
+ThermoelectricMaterials,Solvent 1,ACN|AN|Acetonitrile,24
+ThermoelectricMaterials,Solvent 1,EC|Ethylene carbonate,22
+ThermoelectricMaterials,Solvent 1,PC|Propylene carbonate,20
+ThermoelectricMaterials,Solvent 1,G4|Tetraglyme|Tetraethylene glycol dimethyl ether,13
+ThermoelectricMaterials,Solvent 2,"DOL|1,3-Dioxolane",139
+ThermoelectricMaterials,Solvent 2,"DME|1,2-Dimethoxyethane",78
+ThermoelectricMaterials,Solvent 2,G4|Tetraglyme|Tetraethylene glycol dimethyl ether,20
+ThermoelectricMaterials,Solvent 2,DEC|Diethyl carbonate,9
+ThermoelectricMaterials,Solvent 2,PC|Propylene carbonate,8
+ThermoelectricMaterials,Solvent 2,Other Sulfoxides,8
+ThermoelectricMaterials,Solvent 2,DMC|Dimethyl carbonate,5
+ThermoelectricMaterials,Solvent 2,Other Ethers,1
+ThermoelectricMaterials,Solvent 3,Other Ethers,2
+ThermoelectricMaterials,Solvent 3,PYR14TFSI|N-butylN-methylpyrrolidinium bis(trifluoromethane sulfonyl)imide,1
+ThermoelectricMaterials,Thermal Measurement,LaserFlash,12
+ThermoelectricMaterials,ThermalMeaasurement,Other,2
+ThermoelectricMaterials,ThermalMeaasurement,LaserFlash,1
+ThermoelectricMaterials,ThermalMeasurement,LaserFlash,5168
+ThermoelectricMaterials,ThermalMeasurement,LaserFlash+DSC,1806
+ThermoelectricMaterials,ThermalMeasurement,Other,824
+ThermoelectricMaterials,ThermalMeasurement,PPMS-TTO,772
+ThermoelectricMaterials,ThermalMeasurement,LaserFlash+3R,375
+ThermoelectricMaterials,ThermalMeasurement,3omega,131
+ThermoelectricMaterials,ThermalMeasurement,Disc,92
+ThermoelectricMaterials,ThermalMeasurement,PPMS,91
+ThermoelectricMaterials,ThermalMeasurement,SteadyStateMethod,52
+ThermoelectricMaterials,ThermalMeasurement,LampFlash,40
+ThermoelectricMaterials,Upper voltage limit,V,81
+ThermoelectricMaterials,Working electrode,Pt|Platinum,3
+ThermoelectricMaterials,Working electrode,SUS|SS|Stainless Steel,1
+ThermoelectricMaterials,Working electrode,Cu|Copper,1
+ThermoelectricMaterials,Working electrode,Al|Aluminum,1
+ThermoelectricMaterials,annealing condition,"temp, time",65
+ThermoelectricMaterials,comment,Measurement,2
+ThermoelectricMaterials,comment,thermal conductivity,1
+ThermoelectricMaterials,comment,Sample a*,1
+ThermoelectricMaterials,comment,Sample c*,1
+ThermoelectricMaterials,comment,Sample b*,1
+ThermoelectricMaterials,comment,Sample c,1
+ThermoelectricMaterials,comment,Sample e,1
+ThermoelectricMaterials,comment,Sample d*,1
+ThermoelectricMaterials,comment,Sample b,1
+ThermoelectricMaterials,comment,Sample d,1
+ThermoelectricMaterials,composition type,nominal composition,90
+ThermoelectricMaterials,composition type,analyzed,13
+ThermoelectricMaterials,composition type,alloy,5
+ThermoelectricMaterials,composition type,not described,3
+ThermoelectricMaterials,direction,-,9
+ThermoelectricMaterials,direction,3-fold symmetry direction,1
+ThermoelectricMaterials,direction,2-fold symmetry direction,1
+ThermoelectricMaterials,direction,5-fold symmetry direction,1
+ThermoelectricMaterials,laser flash and different thermal analyzer,thermal diffusivity and specific heat capacity,2
+ThermoelectricMaterials,lattice parameter,lattice parameter,9
+ThermoelectricMaterials,measurement condition,-,47
+ThermoelectricMaterials,other sample process info,arc-melting,32
+ThermoelectricMaterials,other sample process info,-,14
+ThermoelectricMaterials,other sample process info,Czochralski method,9
+ThermoelectricMaterials,other sample process info,Bridgman technique,5
+ThermoelectricMaterials,other sample process info,melt grown,4
+ThermoelectricMaterials,other sample process info,hot-pressing,4
+ThermoelectricMaterials,other sample process info,SPS,3
+ThermoelectricMaterials,other sample process info,water quenched,3
+ThermoelectricMaterials,other sample process info,conventional casting,2
+ThermoelectricMaterials,other sample process info,as quenched,1
+ThermoelectricMaterials,sample info,-,74
+ThermoelectricMaterials,saturation magnetization,9.77,1
+ThermoelectricMaterials,saturation magnetization,32.22,1
+ThermoelectricMaterials,saturation magnetization,28.50,1
+ThermoelectricMaterials,saturation magnetization,26.28,1
+ThermoelectricMaterials,saturation magnetization,24.90,1
+ThermoelectricMaterials,saturation magnetization,23.86,1
+ThermoelectricMaterials,saturation magnetization,13.62,1
+ThermoelectricMaterials,sintering temperature,-,2
+ThermoelectricMaterials,synthesis,arc-melting and Bridgman method,1
