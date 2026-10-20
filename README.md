@@ -6,7 +6,7 @@
 Aggregation toolkit and auto-updating dashboard for the
 [Starrydata](https://starrydata.org/) dataset — an open database of
 experimental materials-science data digitized from figures in the literature
-by the [Starrydata2](https://www.starrydata2.org/) web app.
+by the [Starrydata2](https://starrydata.nims.go.jp/starrydata2/) web app.
 
 **Live dashboard: <https://kumagallium.github.io/starrydata-stats/>**
 (English / Japanese, updated daily at 6:00 JST)
@@ -62,6 +62,7 @@ repository; `--download` fetches it on demand.
 |---|---|
 | `download_dataset.py` | Fetch and safely extract the latest dataset zip from Google Drive |
 | `aggregate_stats.py` | All aggregations; writes `output/` and triggers the dashboard build |
+| `fetch_citations.py` | Fetch works citing the Starrydata papers from OpenAlex into `output/citations.json` (stdlib only; optional `OPENALEX_API_KEY`) |
 | `generate_dashboard.py` | Injects the aggregated data into the HTML template |
 | `dashboard_template.html` | Dashboard UI (vanilla JS + SVG, i18n EN/JA, no dependencies) |
 | `dashboard.html` | Generated dashboard (committed so Pages can deploy it) |
@@ -95,13 +96,19 @@ a record of what was actually observed on each day, so deletions and cleanups
 in the upstream database remain visible. It is not currently rendered on the
 dashboard; it exists as an audit trail and future data source.
 
+### `output/citations.json` — papers citing Starrydata
+
+Written by `fetch_citations.py`: the de-duplicated list of works that cite the
+two Starrydata papers (OpenAlex), shown in the dashboard's "Cited by" section.
+If the fetch fails, the previous file is kept. Counts may be lower than Google Scholar.
+
 ## Automation
 
 [`update-dashboard.yml`](.github/workflows/update-dashboard.yml) runs daily at
 6:00 JST (the upstream snapshot is generated around 2:00 JST):
 
 ```
-fetch latest zip → aggregate → commit output/ + dashboard.html → deploy to Pages
+fetch citations → fetch latest zip → aggregate → commit output/ + dashboard.html → deploy to Pages
 ```
 
 Pushes to `main` redeploy the committed `dashboard.html` without
@@ -111,7 +118,7 @@ re-aggregating. Run it manually anytime from the Actions tab ("Run workflow").
 
 - The dataset is created and distributed by the
   [Starrydata project](https://starrydata.org/)
-  ([web app](https://www.starrydata2.org/) ·
+  ([web app](https://starrydata.nims.go.jp/starrydata2/) ·
   [dataset on Google Drive](https://drive.google.com/drive/folders/1OVMP7j61CJFwLtJ-qZFef9ko40Othayh)).
   Rights to the data belong to the Starrydata project; consult them for the
   data's license and citation policy.

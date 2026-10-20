@@ -29,6 +29,13 @@ jobs:
         if: github.event_name != 'push'
         uses: astral-sh/setup-uv@v5
 
+      - name: Fetch citing papers (OpenAlex)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: uv run fetch_citations.py
+
       - name: Fetch the latest dataset and aggregate
         if: github.event_name != 'push'
         run: uv run aggregate_stats.py --download
