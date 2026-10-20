@@ -14,5 +14,7 @@
   "curves_per_paper_mean": 13.58,
   "curves_per_paper_median": 9.0,
   "curves_per_paper_max": 246,
-  "points_per_curve_mean": 20.34
+  "points_per_curve_mean": 20.34,
+  "n_properties": 169,
+  "n_journals": 3037
 }
