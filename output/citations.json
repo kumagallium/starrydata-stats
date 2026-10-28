@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-27",
+ "fetched_at": "2026-10-28",
  "source": "OpenAlex",
  "papers": [
   {
@@ -338,7 +338,7 @@
    ],
    "n_authors": 4,
    "venue": "Journal of Physics Condensed Matter",
-   "type": "article",
+   "type": "review",
    "cites": [
     "starrydata2025",
     "pbte2019"
@@ -427,7 +427,7 @@
    ],
    "n_authors": 4,
    "venue": "Advanced Materials",
-   "type": "article",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -481,7 +481,7 @@
    ],
    "n_authors": 3,
    "venue": "RSC Advances",
-   "type": "article",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1072,7 +1072,7 @@
    ],
    "n_authors": 5,
    "venue": "Science and Technology of Advanced Materials",
-   "type": "article",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1108,7 +1108,7 @@
    ],
    "n_authors": 5,
    "venue": "Science and Technology of Advanced Materials",
-   "type": "article",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1212,7 +1212,7 @@
     "Yuji Miyawaki",
     "Masaya Kumagai"
    ],
-   "n_authors": 8,
+   "n_authors": 7,
    "venue": "Journal of Nuclear Materials",
    "type": "article",
    "cites": [
