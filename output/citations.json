@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-28",
+ "fetched_at": "2026-10-29",
  "source": "OpenAlex",
  "papers": [
   {
@@ -9,7 +9,7 @@
    "short": "Starrydata (2025)",
    "authors": "Y. Katsura, M. Kumagai, T. Mato, Y. Takada, Y. Ando, E. Fujita, F. Hosono, E. Koyama, F. Mudasar, T. N. T. Phuong, N. Saito, Y. Sakamoto, A. Tanaka, D. Yana, K. Kimura, K. Tsuda, M. Demura",
    "journal": "Science and Technology of Advanced Materials: Methods 5, 1 (2025) 2506976",
-   "count": 13
+   "count": 14
   },
   {
    "key": "pbte2019",
@@ -22,6 +22,24 @@
   }
  ],
  "works": [
+  {
+   "id": "https://openalex.org/W7223819027",
+   "doi": "10.1002/advs.78519",
+   "title": "Steric‐Pressure‐Driven Topological Reconstruction for High‐Performance Zintl Phase Thermoelectrics with Machine‐Learning Validation",
+   "year": 2026,
+   "date": "2026-10-26",
+   "authors": [
+    "Siyeon Kim",
+    "Aziz Ahmed",
+    "Juwon Lee"
+   ],
+   "n_authors": 8,
+   "venue": "Advanced Science",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
   {
    "id": "https://openalex.org/W7223047850",
    "doi": "10.12688/openreseurope.24147.2",
