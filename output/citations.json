@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-29",
+ "fetched_at": "2026-10-30",
  "source": "OpenAlex",
  "papers": [
   {
@@ -18,7 +18,7 @@
    "short": "PbTe τ (2019)",
    "authors": "Y. Katsura, M. Kumagai, T. Kodani, M. Kaneshige, Y. Ando, S. Gunji, Y. Imai, H. Ouchi, K. Tobita, K. Kimura, K. Tsuda",
    "journal": "Science and Technology of Advanced Materials 20 (2019) 511–520",
-   "count": 108
+   "count": 109
   }
  ],
  "works": [
@@ -89,6 +89,24 @@
    ],
    "n_authors": 7,
    "venue": "Inorganic Chemistry",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7224094438",
+   "doi": "10.1016/j.compstruct.2026.121031",
+   "title": "Data driven prediction model of effective thermal conductivity of random composites",
+   "year": 2026,
+   "date": "2026-10-01",
+   "authors": [
+    "Yao Luo",
+    "Yixiang Liu",
+    "Yuxiang He"
+   ],
+   "n_authors": 4,
+   "venue": "Composite Structures",
    "type": "article",
    "cites": [
     "pbte2019"
