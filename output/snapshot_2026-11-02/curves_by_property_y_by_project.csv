@@ -1,0 +1,292 @@
+project,prop_y,curves,data_points
+AirBatteryMaterials,Voltage,1134,24410
+AirBatteryMaterials,Discharge capacity,42,870
+BatteryMaterials,Voltage,21461,448196
+BatteryMaterials,Discharge capacity,9463,247053
+BatteryMaterials,Coulombic efficiency,958,35919
+BatteryMaterials,Current density,402,18726
+BatteryMaterials,Discharge capacity (based on sulfur weight),165,5220
+BatteryMaterials,Electric current,72,3163
+BatteryMaterials,Hysteresis,59,1242
+BatteryMaterials,Discharge capacity (based on cathode weight),5,25
+BatteryMaterials,Capacity,1,9
+CondensedMatter,Electrical resistivity,3067,75536
+CondensedMatter,Seebeck coefficient,694,13496
+CondensedMatter,Electrical conductivity,495,8309
+CondensedMatter,Thermal conductivity,411,7425
+CondensedMatter,Power factor,364,5841
+CondensedMatter,ZT,326,4384
+CondensedMatter,log(Electrical conductivity),320,4030
+CondensedMatter,Magnetic susceptibility_per_weight,190,5811
+CondensedMatter,magnetic susceptibility,138,3761
+CondensedMatter,lnσT,113,1063
+CondensedMatter,Specific heat,109,3133
+CondensedMatter,logσT,83,737
+CondensedMatter,Cp,80,1792
+CondensedMatter,ln(Electrical resistivity),60,1194
+CondensedMatter,Lattice thermal conductivity,56,912
+CondensedMatter,Dielectric loss (tanδ),28,683
+CondensedMatter,thermopower,27,459
+CondensedMatter,Dielectric permittivity (ε’),26,1714
+CondensedMatter,Resistance,26,1314
+CondensedMatter,inverse magnetic susceptibility_mol,25,633
+CondensedMatter,ln(Electrical conductivity),23,359
+CondensedMatter,Magnetic field,22,271
+CondensedMatter,Carrier concentration,21,373
+CondensedMatter,log(Electrical resistivity),21,355
+CondensedMatter,RH,20,768
+CondensedMatter,Carrier mobility,16,115
+CondensedMatter,Hall coefficient,13,209
+CondensedMatter,dc magnetization(mass),13,373
+CondensedMatter,Magnetic susceptibility_volume,12,406
+CondensedMatter,magnetization_per_weight,11,267
+CondensedMatter,ln σ,9,140
+CondensedMatter,ln(T/ρ),9,58
+CondensedMatter,Dielectric loss (ε’’),7,222
+CondensedMatter,electron thermal conductivity,5,122
+CondensedMatter,σ/τ,4,0
+CondensedMatter,Hall mobility,2,24
+CondensedMatter,Magnetic field strength (H),2,19
+DielectricMaterials,Dielectric permittivity (ε’),9997,340043
+DielectricMaterials,Dielectric loss (tanδ),5298,163089
+DielectricMaterials,Dielectric loss (unknown),607,19139
+DielectricMaterials,Dielectric loss (ε’’),423,13890
+DielectricMaterials,polarization,60,2882
+DielectricMaterials,magnetization_per_weight,52,1586
+DielectricMaterials,Strain,48,2902
+DielectricMaterials,Electrical resistivity,30,503
+DielectricMaterials,Electrical conductivity,11,338
+DielectricMaterials,log(Electrical conductivity),11,267
+DielectricMaterials,ln(Electrical conductivity),9,179
+DielectricMaterials,Displacement,3,203
+DielectricMaterials,Seebeck coefficient,3,45
+DielectricMaterials,ln σ,2,25
+DielectricMaterials,Thermal conductivity,1,68
+GeneralDB,Seebeck coefficient,1577,24003
+GeneralDB,ZT,1260,16033
+GeneralDB,Thermal conductivity,1137,13368
+GeneralDB,Electrical conductivity,859,11531
+GeneralDB,Power factor,628,9181
+GeneralDB,Electrical resistivity,586,10220
+GeneralDB,Lattice thermal conductivity,446,5539
+GeneralDB,Carrier concentration,251,2208
+GeneralDB,Hall mobility,232,3182
+GeneralDB,absorbance,201,4791
+GeneralDB,Carrier mobility,197,1622
+GeneralDB,Hall coefficient,44,705
+GeneralDB,total thermal conductivity,33,446
+GeneralDB,hall density,19,180
+GeneralDB,Resistivity,12,206
+GeneralDB,Magnetization,10,386
+GeneralDB,Carrier Density n,9,9
+GeneralDB,Density,9,55
+GeneralDB,thermopower,8,203
+GeneralDB,magnetization_per_weight,7,302
+GeneralDB,Current,6,242
+GeneralDB,Voltage,6,60
+GeneralDB,electron thermal conductivity,6,24
+GeneralDB,normalized absorbance,6,205
+GeneralDB,Figure of merit Z,5,0
+GeneralDB,luminescence intensity,5,315
+GeneralDB,Hall concentration,4,52
+GeneralDB,yield (%),4,15
+GeneralDB,-log(T+R),3,65
+GeneralDB,"A, |T|, |R|",3,96
+GeneralDB,Electronic thermal conductivity,3,12
+GeneralDB,Elastic modulus,2,175
+GeneralDB,O2,2,10
+GeneralDB,Power/frequency,2,261
+GeneralDB,SPL,2,40
+GeneralDB,Difference Absorbance,1,23
+GeneralDB,Specific heat capacity (J/gK),1,6
+GeneralDB,"Sr concentration, x",1,4
+GeneralDB,Thermal diffusivity,1,6
+GeneralDB,mol %,1,8
+HighThermalConductivityMaterials,Thermal conductivity,1688,29437
+HighThermalConductivityMaterials,Seebeck coefficient,264,5079
+HighThermalConductivityMaterials,ZT,176,3284
+HighThermalConductivityMaterials,Electrical conductivity,131,1772
+HighThermalConductivityMaterials,Electrical resistivity,131,2896
+HighThermalConductivityMaterials,Power factor,108,1815
+HighThermalConductivityMaterials,Lattice thermal conductivity,76,1448
+HighThermalConductivityMaterials,Lattice contribution,25,253
+HighThermalConductivityMaterials,Figure of merit Z,12,160
+HighThermalConductivityMaterials,Electrical thermal conductivity,10,78
+HighThermalConductivityMaterials,Hall coefficient,7,106
+HighThermalConductivityMaterials,magnetic susceptibility,6,264
+HighThermalConductivityMaterials,K,4,110
+Hypermaterial,Electrical resistivity,592,23874
+Hypermaterial,Electrical conductivity,402,10936
+Hypermaterial,Seebeck coefficient,270,7469
+Hypermaterial,Magnetic susceptibility_per_weight,259,8268
+Hypermaterial,Thermal conductivity,255,7063
+Hypermaterial,magnetization_per_weight,244,5192
+Hypermaterial,ZT,84,776
+Hypermaterial,Magnetic susceptibility_per mol,76,1684
+Hypermaterial,Hall coefficient,53,862
+Hypermaterial,Specific heat,45,1373
+Hypermaterial,Inverse magnetic susceptibility,41,1270
+Hypermaterial,Specific heat_K,40,814
+Hypermaterial,magnetic susceptibility,38,1621
+Hypermaterial,Power factor,36,414
+Hypermaterial,Specific heat capacity,26,1478
+Hypermaterial,Thermal diffusivity,20,155
+Hypermaterial,Mass susceptibility,15,400
+Hypermaterial,Magnetic Susceptibility per weight,14,470
+Hypermaterial,magnetization_per_mol,14,533
+Hypermaterial,Specific heat capacity (J/gK),12,84
+Hypermaterial,thermopower,10,429
+Hypermaterial,Specific heat capacity_K^(-2),9,330
+Hypermaterial,Magnetic Susceptibility_metre_weight,8,306
+Hypermaterial,Specific Heat K^2,6,42
+Hypermaterial,phonon thermal conductance,6,320
+Hypermaterial,Magnetic susceptibility_volume_weight,4,250
+Hypermaterial,S,4,202
+Hypermaterial,Resistance,3,0
+Hypermaterial,Thermoelectric power,3,18
+Hypermaterial,Specific heat capacity_per g,1,46
+Hypermaterial,inverse magnetic susceptibility_mol,1,41
+LowThermalConductivityMaterials,Thermal conductivity,1252,25229
+LowThermalConductivityMaterials,Seebeck coefficient,505,7283
+LowThermalConductivityMaterials,ZT,473,6232
+LowThermalConductivityMaterials,Electrical conductivity,352,4576
+LowThermalConductivityMaterials,Power factor,326,4026
+LowThermalConductivityMaterials,Lattice thermal conductivity,243,3052
+LowThermalConductivityMaterials,Electrical resistivity,195,4878
+LowThermalConductivityMaterials,Electronic thermal conductivity,45,631
+LowThermalConductivityMaterials,Carrier concentration,42,465
+LowThermalConductivityMaterials,Carrier mobility,29,206
+LowThermalConductivityMaterials,Effective thermal conductivity,17,220
+LowThermalConductivityMaterials,total thermal conductivity,15,220
+LowThermalConductivityMaterials,log(Electrical conductivity),12,176
+LowThermalConductivityMaterials,Liquid state thermal conductivity,10,60
+LowThermalConductivityMaterials,Seebeck  coefficient,10,48
+LowThermalConductivityMaterials,Hall mobility,8,133
+LowThermalConductivityMaterials,thermopower,6,179
+LowThermalConductivityMaterials,-,3,0
+LowThermalConductivityMaterials,Dielectric permittivity (ε’),3,33
+LowThermalConductivityMaterials,Electrical thermal conductivity,3,23
+LowThermalConductivityMaterials,Hall coefficient,2,58
+LowThermalConductivityMaterials,electron thermal conductivity,2,16
+MagneticMaterials,magnetization_per_weight,13571,444320
+MagneticMaterials,magnetization_per_volume,1564,54763
+MagneticMaterials,Magnetization,1511,53142
+MagneticMaterials,Magnetic Moment,71,2407
+MagneticMaterials,Coercivity Field,54,637
+MagneticMaterials,Dielectric permittivity (ε’),44,1267
+MagneticMaterials,magnetization_Wb*m/kg,42,1443
+MagneticMaterials,Electrical resistivity,30,936
+MagneticMaterials,Dielectric loss (tanδ),22,538
+MagneticMaterials,Strain,15,498
+MagneticMaterials,polarization,12,404
+MagneticMaterials,Magnetic field,10,347
+MagneticMaterials,Seebeck coefficient,9,520
+MagneticMaterials,Saturation Magnetization,5,279
+MagneticMaterials,Thermal conductivity,5,277
+MagneticMaterials,Power factor,4,229
+MagneticMaterials,Magnetic Field,3,25
+MagneticMaterials,Displacement,2,200
+MagneticMaterials,Magnetic field strength (H),2,84
+MagneticMaterials,Resistance,2,44
+MagneticMaterials,remanence_weight,2,62
+MagneticMaterials,-,1,0
+MagneticMaterials,magnetization_per_mol,1,20
+OrganicThermoelectricMaterials,Electrical conductivity,1476,5648
+OrganicThermoelectricMaterials,Seebeck coefficient,1390,5499
+OrganicThermoelectricMaterials,Power factor,1057,2775
+OrganicThermoelectricMaterials,Thermal conductivity,177,1121
+OrganicThermoelectricMaterials,ZT,137,1036
+OrganicThermoelectricMaterials,Electrical resistivity,10,201
+OrganicThermoelectricMaterials,Carrier mobility,7,74
+OrganicThermoelectricMaterials,Resistance,3,0
+OrganicThermoelectricMaterials,Voltage,3,0
+OrganicThermoelectricMaterials,Carrier concentration,2,16
+OrganicThermoelectricMaterials,total thermal conductivity,1,9
+PiezoelectricMaterials,polarization,814,41931
+PiezoelectricMaterials,Strain,627,35825
+PiezoelectricMaterials,Dielectric permittivity (ε’),155,6498
+PiezoelectricMaterials,Displacement,85,5599
+PiezoelectricMaterials,Dielectric loss (tanδ),81,3050
+PiezoelectricMaterials,magnetization_per_weight,8,280
+PiezoelectricMaterials,magnetization_per_volume,2,81
+Resistor,Electrical resistivity,2456,53829
+Resistor,Electrical conductivity,644,8946
+Resistor,Seebeck coefficient,320,7035
+Resistor,Temperature Coefficient of Resistivity,319,658
+Resistor,Thermal conductivity,197,3338
+Resistor,ZT,178,2581
+Resistor,Power factor,161,2120
+Resistor,Log(row),136,2970
+Resistor,ln(Electrical resistivity),33,643
+Resistor,log(Electrical conductivity),31,663
+Resistor,surface resistance,24,320
+Resistor,Lattice thermal conductivity,23,267
+Resistor,log(sigma),23,492
+Resistor,Carrier concentration,20,315
+Resistor,Hall coefficient,12,171
+Resistor,Hall mobility,11,128
+Resistor,Electronic thermal conductivity,9,91
+Resistor,Carrier mobility,5,20
+Resistor,Dielectric permittivity (ε’),5,137
+Resistor,Dielectric loss (tanδ),4,130
+Resistor,Temperature,4,69
+Resistor,log(Electrical resistivity),4,116
+Resistor,Ohm,2,87
+Resistor,Resistance,2,44
+Resistor,Dielectric loss (ε’’),1,11
+Resistor,N Concentration(mol%),1,6
+Resistor,hole mobility,1,21
+Resistor,rho*d,1,9
+SolidStateBatteryMaterials,Voltage,1639,30959
+SolidStateBatteryMaterials,Discharge capacity,358,12044
+SolidStateBatteryMaterials,Discharge capacity (based on cathode weight),5,204
+ThermoelectricMaterials,Seebeck coefficient,37809,728124
+ThermoelectricMaterials,Thermal conductivity,23711,357146
+ThermoelectricMaterials,ZT,20927,289987
+ThermoelectricMaterials,Electrical conductivity,20513,312745
+ThermoelectricMaterials,Electrical resistivity,19411,479738
+ThermoelectricMaterials,Power factor,17688,258113
+ThermoelectricMaterials,Lattice thermal conductivity,6901,93512
+ThermoelectricMaterials,Carrier concentration,2126,27699
+ThermoelectricMaterials,log(Electrical conductivity),1689,31146
+ThermoelectricMaterials,Carrier mobility,1464,16018
+ThermoelectricMaterials,Hall coefficient,687,14516
+ThermoelectricMaterials,Electronic thermal conductivity,647,7874
+ThermoelectricMaterials,Voltage,647,13970
+ThermoelectricMaterials,thermopower,552,16735
+ThermoelectricMaterials,Hall mobility,504,7052
+ThermoelectricMaterials,Figure of merit Z,501,6019
+ThermoelectricMaterials,Discharge capacity,344,8796
+ThermoelectricMaterials,log(Electrical resistivity),189,3962
+ThermoelectricMaterials,ln(Electrical resistivity),150,2845
+ThermoelectricMaterials,ln(Electrical conductivity),133,2209
+ThermoelectricMaterials,total thermal conductivity,133,1736
+ThermoelectricMaterials,Carrier thermal conductivity,102,1454
+ThermoelectricMaterials,electron thermal conductivity,99,1665
+ThermoelectricMaterials,S,71,2341
+ThermoelectricMaterials,Thermal diffusivity,67,810
+ThermoelectricMaterials,Thermopower,54,718
+ThermoelectricMaterials,-,52,40
+ThermoelectricMaterials,Magnetic susceptibility_per_weight,48,961
+ThermoelectricMaterials,logσT,45,527
+ThermoelectricMaterials,Resistance,42,1634
+ThermoelectricMaterials,Figure of merit,40,519
+ThermoelectricMaterials,Specific heat,39,975
+ThermoelectricMaterials,Lattice contribution,35,486
+ThermoelectricMaterials,phonon thermal conductance,31,589
+ThermoelectricMaterials,Carrier Density n,27,187
+ThermoelectricMaterials,Electronic contribution,27,1016
+ThermoelectricMaterials,magnetization_per_weight,27,331
+ThermoelectricMaterials,magnetic susceptibility,25,1003
+ThermoelectricMaterials,Temperature,23,480
+ThermoelectricMaterials,Mobility,22,229
+ThermoelectricMaterials,RH,20,768
+ThermoelectricMaterials,hall density,20,192
+ThermoelectricMaterials,Magnetic susceptibility_per mol,19,0
+ThermoelectricMaterials,Conductivity,16,130
+ThermoelectricMaterials,Thermoelectric power,16,602
+ThermoelectricMaterials,Log(row),15,320
+ThermoelectricMaterials,Resistivity,14,343
+ThermoelectricMaterials,Thermoelectric voltage,14,679
+ThermoelectricMaterials,Lattice+bipolar thermal conductivity,12,84
+ThermoelectricMaterials,Dielectric permittivity (ε’),11,515
