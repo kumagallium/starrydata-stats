@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-03",
+ "fetched_at": "2026-11-04",
  "source": "OpenAlex",
  "papers": [
   {
@@ -22,6 +22,24 @@
   }
  ],
  "works": [
+  {
+   "id": "https://openalex.org/W7224094438",
+   "doi": "10.1016/j.compstruct.2026.121031",
+   "title": "Data driven prediction model of effective thermal conductivity of random composites",
+   "year": 2026,
+   "date": "2026-10-29",
+   "authors": [
+    "Yao Luo",
+    "Yixiang Liu",
+    "Yuxiang He"
+   ],
+   "n_authors": 4,
+   "venue": "Composite Structures",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
   {
    "id": "https://openalex.org/W7223819027",
    "doi": "10.1002/advs.78519",
@@ -89,24 +107,6 @@
    ],
    "n_authors": 7,
    "venue": "Inorganic Chemistry",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W7224094438",
-   "doi": "10.1016/j.compstruct.2026.121031",
-   "title": "Data driven prediction model of effective thermal conductivity of random composites",
-   "year": 2026,
-   "date": "2026-10-01",
-   "authors": [
-    "Yao Luo",
-    "Yixiang Liu",
-    "Yuxiang He"
-   ],
-   "n_authors": 4,
-   "venue": "Composite Structures",
    "type": "article",
    "cites": [
     "pbte2019"
