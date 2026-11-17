@@ -15,11 +15,14 @@ Usage:
 """
 
 import argparse
+import html
+import re
 import shutil
 import sys
 import tempfile
 import zipfile
 from pathlib import Path
+from typing import NamedTuple
 
 # Shared Google Drive folder that holds the latest Starrydata dataset.
 FOLDER_ID = "1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"
@@ -27,6 +30,49 @@ FOLDER_ID = "1OVMP7j61CJFwLtJ-qZFef9ko40Othayh"
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_DATA_DIR = BASE_DIR / "starrydata_dataset"
 DEFAULT_ZIP_PATH = BASE_DIR / "starrydata_dataset.zip"
+
+
+class DriveFile(NamedTuple):
+    id: str
+    path: str
+
+
+# One entry of Drive's embedded folder view: a link to a regular (uploaded)
+# file followed by its title. Google Docs/Sheets/Slides link to docs.google.com
+# and subfolders to /drive/folders/, so neither matches.
+_ENTRY_RE = re.compile(
+    r'<a href="https://drive\.google\.com/file/d/([-\w]{25,})/view[^"]*"'
+    r'.*?<div class="flip-entry-title">(.*?)</div>',
+    re.DOTALL,
+)
+
+
+def list_folder_files(folder_id: str) -> list[DriveFile]:
+    """List the regular files directly inside a public Google Drive folder.
+
+    gdown.download_folder(skip_download=True) is not used for this because it
+    probes every Google Docs/Sheets/Slides file in the folder to resolve its
+    export name, and aborts the whole listing when one of them cannot be
+    fetched -- even though only the dataset zip is needed. Notices posted in
+    the folder as Google Docs must not break the download.
+    """
+    import requests  # a dependency of gdown
+
+    res = requests.get(
+        "https://drive.google.com/embeddedfolderview",
+        params={"id": folder_id},
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=60,
+    )
+    if res.status_code != 200:
+        sys.exit(
+            f"Error: could not list the folder (HTTP {res.status_code}). "
+            "Check the sharing settings and URL."
+        )
+    return [
+        DriveFile(id=file_id, path=html.unescape(title).strip())
+        for file_id, title in _ENTRY_RE.findall(res.text)
+    ]
 
 
 def download_latest(
@@ -41,7 +87,7 @@ def download_latest(
     import gdown  # deferred so aggregation-only runs do not require gdown
 
     print(f"Listing the Google Drive folder ({FOLDER_ID})...")
-    entries = gdown.download_folder(id=FOLDER_ID, skip_download=True, quiet=True)
+    entries = list_folder_files(FOLDER_ID)
     if not entries:
         sys.exit("Error: could not list the folder. Check the sharing settings and URL.")
 
