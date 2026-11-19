@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-04",
+ "fetched_at": "2026-11-19",
  "source": "OpenAlex",
  "papers": [
   {
@@ -9,7 +9,7 @@
    "short": "Starrydata (2025)",
    "authors": "Y. Katsura, M. Kumagai, T. Mato, Y. Takada, Y. Ando, E. Fujita, F. Hosono, E. Koyama, F. Mudasar, T. N. T. Phuong, N. Saito, Y. Sakamoto, A. Tanaka, D. Yana, K. Kimura, K. Tsuda, M. Demura",
    "journal": "Science and Technology of Advanced Materials: Methods 5, 1 (2025) 2506976",
-   "count": 14
+   "count": 28
   },
   {
    "key": "pbte2019",
@@ -18,10 +18,81 @@
    "short": "PbTe τ (2019)",
    "authors": "Y. Katsura, M. Kumagai, T. Kodani, M. Kaneshige, Y. Ando, S. Gunji, Y. Imai, H. Ouchi, K. Tobita, K. Kimura, K. Tsuda",
    "journal": "Science and Technology of Advanced Materials 20 (2019) 511–520",
-   "count": 109
+   "count": 309
   }
  ],
  "works": [
+  {
+   "id": "https://openalex.org/W7225770325",
+   "doi": "10.26434/chemrxiv.15011944/v1",
+   "title": "TEBench: a source-labelled thermoelectric data collection with leakage-safe splits and baselines for machine learning",
+   "year": 2026,
+   "date": "2026-11-10",
+   "authors": [
+    "Rapaka S. C. Bose"
+   ],
+   "n_authors": 1,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7213273154",
+   "doi": "10.1080/27660400.2026.2756911",
+   "title": "Quantitative control and recording of materials-synthesis processes using an automated experimentation platform",
+   "year": 2026,
+   "date": "2026-11-05",
+   "authors": [
+    "Yusuke Hashimoto",
+    "Takaya Muramoto",
+    "寺田光"
+   ],
+   "n_authors": 6,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7225177501",
+   "doi": "10.48550/arxiv.2611.00627",
+   "title": "Autonomous Analysis of Thermoelectric Materials Big Data by Multi-Agentic AI and Construction of a Knowledge Base and Specialized AI",
+   "year": 2026,
+   "date": "2026-10-31",
+   "authors": [
+    "Yusuke Hashimoto",
+    "Takaaki Tomai"
+   ],
+   "n_authors": 2,
+   "venue": "arXiv (Cornell University)",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7221764227",
+   "doi": "10.1039/d6ra07584c",
+   "title": "Anomalous correlations between ionic conductivity isotherms and phase diagrams in hydrofluoric and acetic acid aqueous systems",
+   "year": 2026,
+   "date": "2026-10-29",
+   "authors": [
+    "Hilal Al-Salih",
+    "Asefeh Poshtchioskuei",
+    "Yaser Abu‐Lebdeh"
+   ],
+   "n_authors": 3,
+   "venue": "RSC Advances",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
   {
    "id": "https://openalex.org/W7224094438",
    "doi": "10.1016/j.compstruct.2026.121031",
@@ -37,6 +108,7 @@
    "venue": "Composite Structures",
    "type": "article",
    "cites": [
+    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -59,19 +131,51 @@
    ]
   },
   {
-   "id": "https://openalex.org/W7223047850",
-   "doi": "10.12688/openreseurope.24147.2",
-   "title": "Hidden processing drivers of thermoelectric performance in tetrahedrites",
+   "id": "https://openalex.org/W7223086249",
+   "doi": "10.26434/chemrxiv.15010913/v2",
+   "title": "Benchmarking thermoelectric property extraction from scientific text",
    "year": 2026,
-   "date": "2026-10-20",
+   "date": "2026-10-22",
    "authors": [
-    "Catarina Quitério",
-    "Kalpna Rajput",
-    "Konstantina Iordanidou"
+    "Berna Uyanık"
    ],
-   "n_authors": 14,
-   "venue": "Open Research Europe",
-   "type": "article",
+   "n_authors": 1,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7222478302",
+   "doi": "10.26434/chemrxiv.15010668/v1",
+   "title": "Hash-committed pre-registration and exact unlearning make belief revisions in autonomous SiGeC semiconductor campaigns checkable",
+   "year": 2026,
+   "date": "2026-10-19",
+   "authors": [
+    "Ka Chun WONG",
+    "Taylor D. Sparks"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7222482602",
+   "doi": "10.26434/chemrxiv.15010670/v1",
+   "title": "Provenance records predict which multi-scale conclusions a foundation-potential release can change in SiGeC semiconductors",
+   "year": 2026,
+   "date": "2026-10-19",
+   "authors": [
+    "Ka Chun WONG",
+    "Taylor D. Sparks"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
    "cites": [
     "starrydata2025"
    ]
@@ -91,6 +195,7 @@
    "venue": "Science and Technology of Advanced Materials Methods",
    "type": "article",
    "cites": [
+    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -108,6 +213,24 @@
    "n_authors": 7,
    "venue": "Inorganic Chemistry",
    "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7207597369",
+   "doi": "10.1039/d6ra04804h",
+   "title": "Functionally graded thermoelectric materials/devices: a review on experimental techniques and computational modelling for performance improvement",
+   "year": 2026,
+   "date": "2026-09-23",
+   "authors": [
+    "Shardul Rai",
+    "Abhishek Tewari",
+    "Ankit Gupta"
+   ],
+   "n_authors": 3,
+   "venue": "RSC Advances",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -202,6 +325,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W7171619607",
+   "doi": "10.48550/arxiv.2607.25039",
+   "title": "Citrine Informatics: Chemical & Materials Development Platform",
+   "year": 2026,
+   "date": "2026-07-27",
+   "authors": [
+    "Maxwell C. Venetos",
+    "Steven J. Brown",
+    "Kenneth Kroenlein"
+   ],
+   "n_authors": 9,
+   "venue": "arXiv (Cornell University)",
+   "type": "preprint",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W7170043676",
    "doi": "10.1016/j.jnucmat.2026.156924",
    "title": "Thermophysical properties of spark plasma sintered UCo: a comparison with machine learning predictions",
@@ -235,6 +376,24 @@
    "type": "article",
    "cites": [
     "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4416786396",
+   "doi": "10.1016/j.mtphys.2026.102166",
+   "title": "Lattice-to-total thermal conductivity ratio: A phonon-glass electron-crystal descriptor for data-driven thermoelectric design",
+   "year": 2026,
+   "date": "2026-07-16",
+   "authors": [
+    "Yifan Sun",
+    "Zhi Li",
+    "Tetsuya Imamura"
+   ],
+   "n_authors": 6,
+   "venue": "Materials Today Physics",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
    ]
   },
   {
@@ -292,7 +451,7 @@
   },
   {
    "id": "https://openalex.org/W7166734494",
-   "doi": "10.12688/openreseurope.24147.1",
+   "doi": "10.12688/openreseurope.24147.2",
    "title": "Hidden processing drivers of thermoelectric performance in tetrahedrites",
    "year": 2026,
    "date": "2026-06-30",
@@ -326,6 +485,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4413956711",
+   "doi": "10.1088/2632-2153/ae6416",
+   "title": "Multi-task attention for doped thermoelectric properties prediction",
+   "year": 2026,
+   "date": "2026-04-23",
+   "authors": [
+    "Leng Ze Tang",
+    "Trupti Mohanty",
+    "Sterling G. Baird"
+   ],
+   "n_authors": 5,
+   "venue": "Machine Learning Science and Technology",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
+  {
    "id": "https://openalex.org/W7154689044",
    "doi": "10.1080/15421406.2026.2651923",
    "title": "Magnetoelectric properties of nanostructured extruded samples of solid solution Bi 0.85 Sb 0.15 doped with tellurium",
@@ -340,6 +517,42 @@
    "type": "article",
    "cites": [
     "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4410374811",
+   "doi": "10.1038/s41524-026-02033-w",
+   "title": "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations",
+   "year": 2026,
+   "date": "2026-04-13",
+   "authors": [
+    "Masato Ohnishi",
+    "Tianqi Deng",
+    "Pol Torres"
+   ],
+   "n_authors": 20,
+   "venue": "npj Computational Materials",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7147423892",
+   "doi": "10.1016/j.mser.2026.101213",
+   "title": "Data-driven approaches for functional ceramics",
+   "year": 2026,
+   "date": "2026-04-01",
+   "authors": [
+    "Jincheng Qin",
+    "Faqiang Zhang",
+    "Mingsheng Ma"
+   ],
+   "n_authors": 5,
+   "venue": "Materials Science and Engineering R Reports",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
    ]
   },
   {
@@ -430,6 +643,25 @@
    "venue": "Scientific Reports",
    "type": "article",
    "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7127299318",
+   "doi": "10.48550/arxiv.2602.01149",
+   "title": "A Generalizable Machine Learning Framework for Half-Heusler Thermoelectrics",
+   "year": 2026,
+   "date": "2026-02-01",
+   "authors": [
+    "Shoeb Athar",
+    "Adrien Mecibah",
+    "Philippe Jund"
+   ],
+   "n_authors": 3,
+   "venue": "arXiv (Cornell University)",
+   "type": "preprint",
+   "cites": [
     "pbte2019"
    ]
   },
@@ -505,19 +737,37 @@
    ]
   },
   {
-   "id": "https://openalex.org/W7207597369",
-   "doi": "10.1039/d6ra04804h",
-   "title": "Functionally graded thermoelectric materials/devices: a review on experimental techniques and computational modelling for performance improvement",
+   "id": "https://openalex.org/W4417180472",
+   "doi": "10.1039/d5ta08841k",
+   "title": "Deep learning framework for accurate prediction and high-throughput search of the thermoelectric figure of merit in skutterudites",
    "year": 2026,
    "date": "2026-01-01",
    "authors": [
-    "Shardul Rai",
-    "Abhishek Tewari",
-    "Ankit Gupta"
+    "Víctor Posligua",
+    "Karina Landivar",
+    "Elena R. Remesal"
+   ],
+   "n_authors": 9,
+   "venue": "Journal of Materials Chemistry A",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7126276461",
+   "doi": "10.6084/m9.figshare.31222873",
+   "title": "20260201_starrydata2",
+   "year": 2026,
+   "date": "2026-01-01",
+   "authors": [
+    "Tomoya Mato",
+    "Masaya Kumagai",
+    "Yukari Katsura"
    ],
    "n_authors": 3,
-   "venue": "RSC Advances",
-   "type": "review",
+   "venue": "Figshare",
+   "type": "dataset",
    "cites": [
     "pbte2019"
    ]
@@ -610,6 +860,7 @@
    "venue": "Science and Technology of Advanced Materials Methods",
    "type": "article",
    "cites": [
+    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -722,6 +973,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4416686870",
+   "doi": "10.48550/arxiv.2509.01042",
+   "title": "MatPROV: A Provenance Graph Dataset of Material Synthesis Extracted from Scientific Literature",
+   "year": 2025,
+   "date": "2025-09-01",
+   "authors": [
+    "Hirofumi Tsuruta",
+    "Masaya Kumagai"
+   ],
+   "n_authors": 2,
+   "venue": "arXiv (Cornell University)",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4413841090",
    "doi": "10.1016/j.mtphys.2025.101845",
    "title": "Revisiting Pisarenko’s formula: Effective mass estimation, thermopower–conductivity relation, and maximum power factor prediction",
@@ -824,6 +1093,25 @@
    "venue": "npj Computational Materials",
    "type": "article",
    "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4417262147",
+   "doi": "10.48550/arxiv.2505.19150",
+   "title": "A High-Quality Thermoelectric Material Database with Self-Consistent ZT Filtering",
+   "year": 2025,
+   "date": "2025-05-25",
+   "authors": [
+    "Byungki Ryu",
+    "Ji Hui Son",
+    "Park, Sungjin"
+   ],
+   "n_authors": 8,
+   "venue": "arXiv (Cornell University)",
+   "type": "preprint",
+   "cites": [
+    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -1060,6 +1348,42 @@
    ]
   },
   {
+   "id": "https://openalex.org/W7108093745",
+   "doi": "10.6084/m9.figshare.30747185",
+   "title": "20251201_starrydata2",
+   "year": 2025,
+   "date": "2025-01-01",
+   "authors": [
+    "Mato, Tomoya",
+    "Kumagai, Masaya",
+    "Katsura, Yukari"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7117887775",
+   "doi": "10.6084/m9.figshare.30979714",
+   "title": "20260101_starrydata2",
+   "year": 2025,
+   "date": "2025-01-01",
+   "authors": [
+    "Tomoya Mato",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4405547791",
    "doi": "10.1039/d4tc03784g",
    "title": "Antibonding Cu (d)–Te (p) states and bonding inhomogeneity in inducing low lattice thermal conductivity and extraordinary thermoelectric properties of the layered heteroanionic NdCuOTe material: a first-principles study",
@@ -1150,9 +1474,26 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4402380373",
+   "doi": "10.26434/chemrxiv-2024-p6d7s-v4",
+   "title": "Unsupervised machine learning-based image recognition of raw IR spectra: Toward chemist-like chemical structural classification",
+   "year": 2024,
+   "date": "2024-09-08",
+   "authors": [
+    "Kentaro Fuku",
+    "Takefumi Yoshida"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4402084234",
    "doi": "10.1541/ieejfms.144.350",
-   "title": "Natural Language Processing for Materials Informatics of Literature Data",
+   "title": "Natural Language Processing for Materials Informatics of Literature Data: Examples in the Superconducting Material Development",
    "year": 2024,
    "date": "2024-08-31",
    "authors": [
@@ -1220,6 +1561,23 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4399789294",
+   "doi": "10.26434/chemrxiv-2024-p6d7s-v2",
+   "title": "Unsupervised Raw IR Spectra Images Recognition: Toward Chemist-Like Chemical Structure Classification",
+   "year": 2024,
+   "date": "2024-06-17",
+   "authors": [
+    "Kentaro Fuku",
+    "Takefumi Yoshida"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4399446094",
    "doi": "10.1038/s41427-024-00549-5",
    "title": "Superstrength permanent magnets with iron-based superconductors by data- and researcher-driven process design",
@@ -1256,6 +1614,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4392811395",
+   "doi": "10.1051/epjconf/202429212003",
+   "title": "Developing a New Web Service for Experimental Nuclear Reaction Database (EXFOR) Using RESTful API and JSON",
+   "year": 2024,
+   "date": "2024-03-14",
+   "authors": [
+    "Shin Okumura",
+    "Georg Schnabel",
+    "A. J. Koning"
+   ],
+   "n_authors": 3,
+   "venue": "EPJ Web of Conferences",
+   "type": "conference-paper",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4392681951",
    "doi": "10.1007/s40843-023-2777-2",
    "title": "Dealing with the big data challenges in AI for thermoelectric materials",
@@ -1268,6 +1644,23 @@
    ],
    "n_authors": 4,
    "venue": "Science China Materials",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4390521374",
+   "doi": "10.1039/d3mh01930f",
+   "title": "Are topological insulators promising thermoelectrics?",
+   "year": 2024,
+   "date": "2024-03-04",
+   "authors": [
+    "Michael Y. Toriyama",
+    "Gerald Jeffrey Snyder"
+   ],
+   "n_authors": 2,
+   "venue": "Materials Horizons",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -1324,24 +1717,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4403733510",
-   "doi": "10.1039/d4ta06452f",
-   "title": "Development and application of Few-shot learning methods in materials science under data scarcity",
-   "year": 2024,
-   "date": "2024-01-01",
-   "authors": [
-    "Yongxing Chen",
-    "Long Peng",
-    "Bin Liu"
-   ],
-   "n_authors": 9,
-   "venue": "Journal of Materials Chemistry A",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4390544547",
    "doi": "10.1039/d3dd00131h",
    "title": "Machine learning based feature engineering for thermoelectric materials by design",
@@ -1360,17 +1735,18 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4390521374",
-   "doi": "10.1039/d3mh01930f",
-   "title": "Are topological insulators promising thermoelectrics?",
+   "id": "https://openalex.org/W4403733510",
+   "doi": "10.1039/d4ta06452f",
+   "title": "Development and application of Few-shot learning methods in materials science under data scarcity",
    "year": 2024,
    "date": "2024-01-01",
    "authors": [
-    "Michael Y. Toriyama",
-    "Gerald Jeffrey Snyder"
+    "Yongxing Chen",
+    "Long Peng",
+    "Bin Liu"
    ],
-   "n_authors": 2,
-   "venue": "Materials Horizons",
+   "n_authors": 9,
+   "venue": "Journal of Materials Chemistry A",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -1395,19 +1771,469 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4392811395",
-   "doi": "10.1051/epjconf/202429212003",
-   "title": "Developing a New Web Service for Experimental Nuclear Reaction Database (EXFOR) Using RESTful API and JSON",
+   "id": "https://openalex.org/W4394081381",
+   "doi": "10.6084/m9.figshare.25041491",
+   "title": "20240123_starrydata2",
    "year": 2024,
    "date": "2024-01-01",
    "authors": [
-    "Shin Okumura",
-    "Georg Schnabel",
-    "Arjan J. KONING"
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
    ],
    "n_authors": 3,
-   "venue": "EPJ Web of Conferences",
-   "type": "conference-paper",
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394093769",
+   "doi": "10.6084/m9.figshare.24943134",
+   "title": "20240105_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394095385",
+   "doi": "10.6084/m9.figshare.24926292",
+   "title": "20240103_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394137291",
+   "doi": "10.6084/m9.figshare.24961968",
+   "title": "20240109_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394148304",
+   "doi": "10.6084/m9.figshare.25055000",
+   "title": "20240125_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394153972",
+   "doi": "10.6084/m9.figshare.24922905",
+   "title": "20240102_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394174133",
+   "doi": "10.6084/m9.figshare.24953928",
+   "title": "20240107_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394184831",
+   "doi": "10.6084/m9.figshare.25021073",
+   "title": "20240119_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394185153",
+   "doi": "10.6084/m9.figshare.25013276",
+   "title": "20240118_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394219109",
+   "doi": "10.6084/m9.figshare.24994643",
+   "title": "20240114_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394240649",
+   "doi": "10.6084/m9.figshare.25048007",
+   "title": "20240124_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394255196",
+   "doi": "10.6084/m9.figshare.25035689",
+   "title": "20240121_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394260105",
+   "doi": "10.6084/m9.figshare.25075493",
+   "title": "20240127_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394298611",
+   "doi": "10.6084/m9.figshare.24955104",
+   "title": "20240108_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394326244",
+   "doi": "10.6084/m9.figshare.24990603",
+   "title": "20240113_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394359712",
+   "doi": "10.6084/m9.figshare.25062233",
+   "title": "20240126_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394371133",
+   "doi": "10.6084/m9.figshare.25004714",
+   "title": "20240117_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394407296",
+   "doi": "10.6084/m9.figshare.25029263",
+   "title": "20240120_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394410171",
+   "doi": "10.6084/m9.figshare.24968823",
+   "title": "20240110_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394423214",
+   "doi": "10.6084/m9.figshare.24975177",
+   "title": "20240111_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394427842",
+   "doi": "10.6084/m9.figshare.25036931",
+   "title": "20240122_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394434487",
+   "doi": "10.6084/m9.figshare.24936903",
+   "title": "20240104_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394441603",
+   "doi": "10.6084/m9.figshare.24982503",
+   "title": "20240112_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394468188",
+   "doi": "10.6084/m9.figshare.24949200",
+   "title": "20240106_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394495574",
+   "doi": "10.6084/m9.figshare.24999668",
+   "title": "20240116_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394530081",
+   "doi": "10.6084/m9.figshare.24996107",
+   "title": "20240115_starrydata2",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
    "cites": [
     "pbte2019"
    ]
@@ -1458,7 +2284,7 @@
     "Ruiming Zhu"
    ],
    "n_authors": 1,
-   "venue": "",
+   "venue": "DR-NTU (Nanyang Technological University)",
    "type": "dissertation",
    "cites": [
     "pbte2019"
@@ -1493,8 +2319,8 @@
     "Michael Y. Toriyama"
    ],
    "n_authors": 2,
-   "venue": "",
-   "type": "other",
+   "venue": "Wiley eBooks",
+   "type": "book-chapter",
    "cites": [
     "pbte2019"
    ]
@@ -1675,6 +2501,22 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4395962520",
+   "doi": "10.15068/0002012969",
+   "title": "Automated Extraction and Curation of Materials Information from Scientific Literature",
+   "year": 2023,
+   "date": "2023-02-07",
+   "authors": [
+    "Luca Foppiano"
+   ],
+   "n_authors": 1,
+   "venue": "HAL",
+   "type": "dissertation",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4316591890",
    "doi": "10.7566/jpsjnc.20.01",
    "title": "Solving Long-standing Problems in Thermoelectric Properties using Machine Learning",
@@ -1723,6 +2565,2847 @@
    "n_authors": 7,
    "venue": "Digital Discovery",
    "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394069489",
+   "doi": "10.6084/m9.figshare.24454417",
+   "title": "20231029_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394070137",
+   "doi": "10.6084/m9.figshare.24632079",
+   "title": "20231125_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394070191",
+   "doi": "10.6084/m9.figshare.24291052",
+   "title": "20231012_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394072363",
+   "doi": "10.6084/m9.figshare.24126693",
+   "title": "20230913_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394074240",
+   "doi": "10.6084/m9.figshare.24878403",
+   "title": "20231221_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394075246",
+   "doi": "10.6084/m9.figshare.24560518",
+   "title": "20231115_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394078161",
+   "doi": "10.6084/m9.figshare.24261169",
+   "title": "20231007_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394078659",
+   "doi": "10.6084/m9.figshare.24582333",
+   "title": "20231118_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394087738",
+   "doi": "10.6084/m9.figshare.24787569",
+   "title": "20231212_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394087860",
+   "doi": "10.6084/m9.figshare.24428602",
+   "title": "20231025_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394091396",
+   "doi": "10.6084/m9.figshare.23936823",
+   "title": "20230813_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394091572",
+   "doi": "10.6084/m9.figshare.23807031",
+   "title": "20230731_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394102488",
+   "doi": "10.6084/m9.figshare.24377899",
+   "title": "20231020_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394103836",
+   "doi": "10.6084/m9.figshare.24613473",
+   "title": "20231123_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394108141",
+   "doi": "10.6084/m9.figshare.24422026",
+   "title": "20231024_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394109691",
+   "doi": "10.6084/m9.figshare.24412294",
+   "title": "20231021_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394113399",
+   "doi": "10.6084/m9.figshare.24306991",
+   "title": "20231014_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394116522",
+   "doi": "10.6084/m9.figshare.23997396",
+   "title": "20230821_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394118299",
+   "doi": "10.6084/m9.figshare.24718128",
+   "title": "20231204_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394125220",
+   "doi": "10.6084/m9.figshare.24224770",
+   "title": "20231001_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394128827",
+   "doi": "10.6084/m9.figshare.23948595",
+   "title": "20230815_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394133677",
+   "doi": "10.6084/m9.figshare.24496300",
+   "title": "20231104_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394135059",
+   "doi": "10.6084/m9.figshare.24279736",
+   "title": "20231011_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394138693",
+   "doi": "10.6084/m9.figshare.24552766",
+   "title": "20231114_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394143422",
+   "doi": "10.6084/m9.figshare.23995482",
+   "title": "20230821_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394150376",
+   "doi": "10.6084/m9.figshare.24501709",
+   "title": "20231106_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394155239",
+   "doi": "10.6084/m9.figshare.24033852",
+   "title": "20230826_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394162634",
+   "doi": "10.6084/m9.figshare.23652408",
+   "title": "20230710_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai"
+   ],
+   "n_authors": 2,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394167008",
+   "doi": "10.6084/m9.figshare.24639099",
+   "title": "20231128_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394168530",
+   "doi": "10.6084/m9.figshare.23934990",
+   "title": "20230812_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394176824",
+   "doi": "10.6084/m9.figshare.24681051",
+   "title": "20231201_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394179110",
+   "doi": "10.6084/m9.figshare.24794376",
+   "title": "20231213_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394181101",
+   "doi": "10.6084/m9.figshare.24084822",
+   "title": "20230906_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394184205",
+   "doi": "10.6084/m9.figshare.24417118",
+   "title": "20231022_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394184742",
+   "doi": "10.6084/m9.figshare.24187392",
+   "title": "20230924_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394185501",
+   "doi": "10.6084/m9.figshare.24518176",
+   "title": "20231108_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394186615",
+   "doi": "10.6084/m9.figshare.24088557",
+   "title": "20230907_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394190847",
+   "doi": "10.6084/m9.figshare.24192084",
+   "title": "20230926_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394194490",
+   "doi": "10.6084/m9.figshare.23925039",
+   "title": "20230810_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394200547",
+   "doi": "10.6084/m9.figshare.24018870",
+   "title": "20230824_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394204660",
+   "doi": "10.6084/m9.figshare.24716133",
+   "title": "20231203_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394205009",
+   "doi": "10.6084/m9.figshare.23980236",
+   "title": "20230818_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394207462",
+   "doi": "10.6084/m9.figshare.24851241",
+   "title": "20231219_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394208253",
+   "doi": "10.6084/m9.figshare.24542896",
+   "title": "20231111_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394208755",
+   "doi": "10.6084/m9.figshare.24894618",
+   "title": "20231223_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394209278",
+   "doi": "10.6084/m9.figshare.24917349",
+   "title": "20231230_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394213686",
+   "doi": "10.6084/m9.figshare.24845826",
+   "title": "20231217_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394214128",
+   "doi": "10.6084/m9.figshare.24500191",
+   "title": "20231105_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394216208",
+   "doi": "10.6084/m9.figshare.24586851",
+   "title": "20231119_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394221956",
+   "doi": "10.6084/m9.figshare.24588693",
+   "title": "20231120_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394223291",
+   "doi": "10.6084/m9.figshare.24460765",
+   "title": "20231031_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394227900",
+   "doi": "10.6084/m9.figshare.24065940",
+   "title": "20230901_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394227987",
+   "doi": "10.6084/m9.figshare.24547612",
+   "title": "20231112_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394228251",
+   "doi": "10.6084/m9.figshare.24574330",
+   "title": "20231117_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394229655",
+   "doi": "10.6084/m9.figshare.24904572",
+   "title": "20231227_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394229666",
+   "doi": "10.6084/m9.figshare.24347464",
+   "title": "20231019_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394232299",
+   "doi": "10.6084/m9.figshare.23798532",
+   "title": "20230728_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394237409",
+   "doi": "10.6084/m9.figshare.24920793",
+   "title": "20231231_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394238777",
+   "doi": "10.6084/m9.figshare.23741457",
+   "title": "20230725_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394240926",
+   "doi": "10.6084/m9.figshare.24418205",
+   "title": "20231023_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394242261",
+   "doi": "10.6084/m9.figshare.24886518",
+   "title": "20231222_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394243066",
+   "doi": "10.6084/m9.figshare.24764361",
+   "title": "20231208_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394244496",
+   "doi": "10.6084/m9.figshare.24243793",
+   "title": "20231005_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394247574",
+   "doi": "10.6084/m9.figshare.24325048",
+   "title": "20231018_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394248833",
+   "doi": "10.6084/m9.figshare.24183885",
+   "title": "20230923_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394259267",
+   "doi": "10.6084/m9.figshare.23871543",
+   "title": "20230805_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394263081",
+   "doi": "10.6084/m9.figshare.24188526",
+   "title": "20230925_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394266735",
+   "doi": "10.6084/m9.figshare.24043212",
+   "title": "20230829_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394279207",
+   "doi": "10.6084/m9.figshare.24773541",
+   "title": "20231209_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394280497",
+   "doi": "10.6084/m9.figshare.24199533",
+   "title": "20230927_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394286448",
+   "doi": "10.6084/m9.figshare.24913620",
+   "title": "20231229_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394290471",
+   "doi": "10.6084/m9.figshare.24205509",
+   "title": "20230928_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394291176",
+   "doi": "10.6084/m9.figshare.24147924",
+   "title": "20230916_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394291284",
+   "doi": "10.6084/m9.figshare.24119415",
+   "title": "20230912_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394291330",
+   "doi": "10.6084/m9.figshare.24921882",
+   "title": "20240101_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394291616",
+   "doi": "10.6084/m9.figshare.24746877",
+   "title": "20231206_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394296267",
+   "doi": "10.6084/m9.figshare.24835056",
+   "title": "20231216_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394297699",
+   "doi": "10.6084/m9.figshare.24807924",
+   "title": "20231215_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394299642",
+   "doi": "10.6084/m9.figshare.24162771",
+   "title": "20230920_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394308457",
+   "doi": "10.6084/m9.figshare.24592407",
+   "title": "20231121_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394313907",
+   "doi": "10.6084/m9.figshare.24476821",
+   "title": "20231102_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394314633",
+   "doi": "10.6084/m9.figshare.24512446",
+   "title": "20231107_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394319798",
+   "doi": "10.6084/m9.figshare.24659106",
+   "title": "20231130_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394322872",
+   "doi": "10.6084/m9.figshare.24712386",
+   "title": "20231202_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394329191",
+   "doi": "10.6084/m9.figshare.24026376",
+   "title": "20230825_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394333760",
+   "doi": "10.6084/m9.figshare.24050820",
+   "title": "20230830_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394337711",
+   "doi": "10.6084/m9.figshare.24212745",
+   "title": "20230929_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394346685",
+   "doi": "10.6084/m9.figshare.24866979",
+   "title": "20231220_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394357857",
+   "doi": "10.6084/m9.figshare.24649356",
+   "title": "20231129_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394358025",
+   "doi": "10.6084/m9.figshare.24450073",
+   "title": "20231028_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394367663",
+   "doi": "10.6084/m9.figshare.23928939",
+   "title": "20230811_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394368681",
+   "doi": "10.6084/m9.figshare.24435121",
+   "title": "20231026_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394369745",
+   "doi": "10.6084/m9.figshare.24107220",
+   "title": "20230909_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394370110",
+   "doi": "10.6084/m9.figshare.24168540",
+   "title": "20230921_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394370906",
+   "doi": "10.6084/m9.figshare.23970612",
+   "title": "20230817_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394371134",
+   "doi": "10.6084/m9.figshare.24265588",
+   "title": "20231008_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394372149",
+   "doi": "10.6084/m9.figshare.23896833",
+   "title": "20230807_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394374757",
+   "doi": "10.6084/m9.figshare.24566287",
+   "title": "20231116_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394377537",
+   "doi": "10.6084/m9.figshare.24722085",
+   "title": "20231205_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394381773",
+   "doi": "10.6084/m9.figshare.23938011",
+   "title": "20230814_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394384491",
+   "doi": "10.6084/m9.figshare.24001362",
+   "title": "20230822_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394388822",
+   "doi": "10.6084/m9.figshare.24272203",
+   "title": "20231010_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394392702",
+   "doi": "10.6084/m9.figshare.24132825",
+   "title": "20230914_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394396067",
+   "doi": "10.6084/m9.figshare.24799800",
+   "title": "20231214_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394403092",
+   "doi": "10.6084/m9.figshare.24783273",
+   "title": "20231211_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394408068",
+   "doi": "10.6084/m9.figshare.24156453",
+   "title": "20230919_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394419354",
+   "doi": "10.6084/m9.figshare.24311056",
+   "title": "20231015_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394419602",
+   "doi": "10.6084/m9.figshare.24467887",
+   "title": "20231101_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394419901",
+   "doi": "10.6084/m9.figshare.24312313",
+   "title": "20231016_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394421326",
+   "doi": "10.6084/m9.figshare.23824464",
+   "title": "20230803_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394425822",
+   "doi": "10.6084/m9.figshare.24299032",
+   "title": "20231013_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394428515",
+   "doi": "10.6084/m9.figshare.24008616",
+   "title": "20230823_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394441406",
+   "doi": "10.6084/m9.figshare.22565095",
+   "title": "20230406_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO"
+   ],
+   "n_authors": 1,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394441627",
+   "doi": "10.6084/m9.figshare.24039327",
+   "title": "20230828_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394441757",
+   "doi": "10.6084/m9.figshare.24226048",
+   "title": "20231002_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394449873",
+   "doi": "10.6084/m9.figshare.24908082",
+   "title": "20231228_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394451047",
+   "doi": "10.6084/m9.figshare.24456313",
+   "title": "20231030_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394452988",
+   "doi": "10.6084/m9.figshare.24635256",
+   "title": "20231127_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394453596",
+   "doi": "10.6084/m9.figshare.24599757",
+   "title": "20231122_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394457408",
+   "doi": "10.6084/m9.figshare.23991843",
+   "title": "20230819_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394459517",
+   "doi": "10.6084/m9.figshare.24114360",
+   "title": "20230910_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394460558",
+   "doi": "10.6084/m9.figshare.24115842",
+   "title": "20230911_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394460632",
+   "doi": "10.6084/m9.figshare.24847836",
+   "title": "20231218_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394463392",
+   "doi": "10.6084/m9.figshare.24152031",
+   "title": "20230917_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394469548",
+   "doi": "10.6084/m9.figshare.24139380",
+   "title": "20230915_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394473072",
+   "doi": "10.6084/m9.figshare.24781923",
+   "title": "20231210_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394478031",
+   "doi": "10.6084/m9.figshare.24003816",
+   "title": "20230822_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394478842",
+   "doi": "10.6084/m9.figshare.24756777",
+   "title": "20231207_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394483552",
+   "doi": "10.6084/m9.figshare.23960493",
+   "title": "20230816_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394487874",
+   "doi": "10.6084/m9.figshare.24487807",
+   "title": "20231103_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394489003",
+   "doi": "10.6084/m9.figshare.24317002",
+   "title": "20231017_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394491855",
+   "doi": "10.6084/m9.figshare.23901942",
+   "title": "20230808_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394495940",
+   "doi": "10.6084/m9.figshare.24549007",
+   "title": "20231113_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394499085",
+   "doi": "10.6084/m9.figshare.24236926",
+   "title": "20231004_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394502281",
+   "doi": "10.6084/m9.figshare.24902613",
+   "title": "20231226_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394504282",
+   "doi": "10.6084/m9.figshare.23907570",
+   "title": "20230809_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394504358",
+   "doi": "10.6084/m9.figshare.23839929",
+   "title": "20230804_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394505170",
+   "doi": "10.6084/m9.figshare.24442528",
+   "title": "20231027_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394505605",
+   "doi": "10.6084/m9.figshare.23915115",
+   "title": "20230810_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394507869",
+   "doi": "10.6084/m9.figshare.24101301",
+   "title": "20230908_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394510440",
+   "doi": "10.6084/m9.figshare.23818176",
+   "title": "20230802_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394511202",
+   "doi": "10.6084/m9.figshare.24899727",
+   "title": "20231224_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394511248",
+   "doi": "10.6084/m9.figshare.24001596",
+   "title": "20230822_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394514365",
+   "doi": "10.6084/m9.figshare.24038322",
+   "title": "20230827_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394516083",
+   "doi": "10.6084/m9.figshare.24175137",
+   "title": "20230922_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394517052",
+   "doi": "10.6084/m9.figshare.24525802",
+   "title": "20231109_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394519884",
+   "doi": "10.6084/m9.figshare.24634086",
+   "title": "20231126_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394520800",
+   "doi": "10.6084/m9.figshare.24153090",
+   "title": "20230918_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394521379",
+   "doi": "10.6084/m9.figshare.24534700",
+   "title": "20231110_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394522835",
+   "doi": "10.6084/m9.figshare.24624603",
+   "title": "20231124_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394527864",
+   "doi": "10.6084/m9.figshare.24058815",
+   "title": "20230831_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394532325",
+   "doi": "10.6084/m9.figshare.23895891",
+   "title": "20230806_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394534902",
+   "doi": "10.6084/m9.figshare.23812074",
+   "title": "20230801_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394546627",
+   "doi": "10.6084/m9.figshare.24901746",
+   "title": "20231225_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394547997",
+   "doi": "10.6084/m9.figshare.23787342",
+   "title": "20230727_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394548240",
+   "doi": "10.6084/m9.figshare.23751483",
+   "title": "20230726_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394559449",
+   "doi": "10.6084/m9.figshare.24268714",
+   "title": "20231009_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4394560949",
+   "doi": "10.6084/m9.figshare.23994150",
+   "title": "20230820_starrydata2",
+   "year": 2023,
+   "date": "2023-01-01",
+   "authors": [
+    "Tomoya MATO",
+    "Masaya Kumagai",
+    "Yukari Katsura"
+   ],
+   "n_authors": 3,
+   "venue": "Figshare",
+   "type": "dataset",
    "cites": [
     "pbte2019"
    ]
@@ -1915,6 +5598,22 @@
    ],
    "n_authors": 1,
    "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4312274054",
+   "doi": "10.3327/jaesjb.64.10_569",
+   "title": "DX application to the field of nuclear materials and its issues (1)",
+   "year": 2022,
+   "date": "2022-01-01",
+   "authors": [
+    "Ken Kurosaki"
+   ],
+   "n_authors": 1,
+   "venue": "Journal of the Atomic Energy Society of Japan",
    "type": "article",
    "cites": [
     "pbte2019"
