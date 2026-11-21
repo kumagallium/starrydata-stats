@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-20",
+ "fetched_at": "2026-11-21",
  "source": "OpenAlex",
  "papers": [
   {
@@ -54,6 +54,25 @@
    "venue": "Science and Technology of Advanced Materials Methods",
    "type": "article",
    "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7221681098",
+   "doi": "10.1080/27660400.2026.2745581",
+   "title": "Mapping chemical composition space onto phase-diagram-like geometries via principal component analysis",
+   "year": 2026,
+   "date": "2026-11-04",
+   "authors": [
+    "Yukari Katsura",
+    "Tomoya MATO",
+    "Dewi Yana"
+   ],
+   "n_authors": 6,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -181,18 +200,18 @@
    ]
   },
   {
-   "id": "https://openalex.org/W7221681098",
-   "doi": "10.1080/27660400.2026.2745581",
-   "title": "Mapping chemical composition space onto phase-diagram-like geometries via principal component analysis",
+   "id": "https://openalex.org/W7204445083",
+   "doi": "10.1103/zywf-jxy9",
+   "title": "Validity of the scattering exponent approximation for materials with a complex electronic structure",
    "year": 2026,
-   "date": "2026-10-13",
+   "date": "2026-10-06",
    "authors": [
-    "Yukari Katsura",
-    "Tomoya MATO",
-    "Dewi Yana"
+    "Anonymous",
+    "Rajeev Dutt",
+    "Bhawna Sahni"
    ],
-   "n_authors": 6,
-   "venue": "Science and Technology of Advanced Materials Methods",
+   "n_authors": 4,
+   "venue": "Physical review. B./Physical review. B",
    "type": "article",
    "cites": [
     "starrydata2025",
@@ -250,25 +269,6 @@
    "venue": "Renewable and Sustainable Energy Reviews",
    "type": "article",
    "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W7204445083",
-   "doi": "10.1103/zywf-jxy9",
-   "title": "Validity of the scattering exponent approximation for materials with a complex electronic structure",
-   "year": 2026,
-   "date": "2026-08-27",
-   "authors": [
-    "Anonymous",
-    "Rajeev Dutt",
-    "Bhawna Sahni"
-   ],
-   "n_authors": 4,
-   "venue": "Physical review. B./Physical review. B",
-   "type": "article",
-   "cites": [
-    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -489,7 +489,7 @@
    "doi": "10.1088/2632-2153/ae6416",
    "title": "Multi-task attention for doped thermoelectric properties prediction",
    "year": 2026,
-   "date": "2026-04-23",
+   "date": "2026-05-19",
    "authors": [
     "Leng Ze Tang",
     "Trupti Mohanty",
@@ -538,6 +538,25 @@
    ]
   },
   {
+   "id": "https://openalex.org/W7140230018",
+   "doi": "10.1088/1361-648x/ae56a9",
+   "title": "Topological thermoelectrics: analytical framework, material aspects and machine learning",
+   "year": 2026,
+   "date": "2026-04-07",
+   "authors": [
+    "Deep Mondal",
+    "Supriya Ghosal",
+    "Sujoy Datta"
+   ],
+   "n_authors": 4,
+   "venue": "Journal of Physics Condensed Matter",
+   "type": "review",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W7147423892",
    "doi": "10.1016/j.mser.2026.101213",
    "title": "Data-driven approaches for functional ceramics",
@@ -569,25 +588,6 @@
    "n_authors": 3,
    "venue": "Journal of the Physical Society of Japan",
    "type": "article",
-   "cites": [
-    "starrydata2025",
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W7140230018",
-   "doi": "10.1088/1361-648x/ae56a9",
-   "title": "Topological thermoelectrics: analytical framework, material aspects and machine learning",
-   "year": 2026,
-   "date": "2026-03-24",
-   "authors": [
-    "Deep Mondal",
-    "Supriya Ghosal",
-    "Sujoy Datta"
-   ],
-   "n_authors": 4,
-   "venue": "Journal of Physics Condensed Matter",
-   "type": "review",
    "cites": [
     "starrydata2025",
     "pbte2019"
@@ -701,6 +701,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4417187428",
+   "doi": "10.1039/d5dd00482a",
+   "title": "Optimizing data extraction from materials science literature: a study of tools using large language models",
+   "year": 2026,
+   "date": "2026-01-01",
+   "authors": [
+    "Wenkai Ning",
+    "Musen Li",
+    "Jeffrey R. Reimers"
+   ],
+   "n_authors": 4,
+   "venue": "Digital Discovery",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W7128795067",
    "doi": "10.1039/d5ta09114d",
    "title": "Machine learning discovery of medium-entropy thermoelectric materials with ultralow lattice thermal conductivity",
@@ -773,6 +791,25 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4416401002",
+   "doi": "10.1080/27660400.2025.2590811",
+   "title": "Development of LLM-assisted data curation tools for the Starrydata materials science database",
+   "year": 2025,
+   "date": "2025-12-31",
+   "authors": [
+    "Yukari Katsura",
+    "Tomoya MATO",
+    "Yu Takada"
+   ],
+   "n_authors": 7,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W7116388158",
    "doi": "10.1016/j.jallcom.2025.185711",
    "title": "Machine learning–driven thermoelectric materials: Review on prediction, optimization, and discovery",
@@ -785,24 +822,6 @@
    ],
    "n_authors": 8,
    "venue": "Journal of Alloys and Compounds",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4417187428",
-   "doi": "10.1039/d5dd00482a",
-   "title": "Optimizing data extraction from materials science literature: a study of tools using large language models",
-   "year": 2025,
-   "date": "2025-12-10",
-   "authors": [
-    "Wenkai Ning",
-    "Musen Li",
-    "Jeffrey R. Reimers"
-   ],
-   "n_authors": 4,
-   "venue": "Digital Discovery",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -827,6 +846,25 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4416076180",
+   "doi": "10.1080/27660400.2025.2586299",
+   "title": "Reference compositions for bismuth telluride thermoelectric materials for low-temperature power generation",
+   "year": 2025,
+   "date": "2025-12-02",
+   "authors": [
+    "Nirma Kumari",
+    "Jaywan Chung",
+    "Seunghyun Oh"
+   ],
+   "n_authors": 8,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "starrydata2025",
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4416420292",
    "doi": "10.1016/j.mtphys.2025.101948",
    "title": "Tackling dataset curation challenges towards reliable machine learning: a case study on thermoelectric materials",
@@ -846,40 +884,20 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4416401002",
-   "doi": "10.1080/27660400.2025.2590811",
-   "title": "Development of LLM-assisted data curation tools for the Starrydata materials science database",
+   "id": "https://openalex.org/W4415636081",
+   "doi": "10.1103/lqtf-rvlm",
+   "title": "Uncertainty analysis of microscopic parameters obtained from the single parabolic band modeling of thermoelectric materials",
    "year": 2025,
-   "date": "2025-11-20",
+   "date": "2025-10-28",
    "authors": [
-    "Yukari Katsura",
-    "Tomoya MATO",
-    "Yu Takada"
+    "Harshita Naithani",
+    "Eckhard Müller",
+    "Johannes de Boor"
    ],
-   "n_authors": 7,
-   "venue": "Science and Technology of Advanced Materials Methods",
+   "n_authors": 3,
+   "venue": "Physical Review Applied",
    "type": "article",
    "cites": [
-    "starrydata2025",
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4416076180",
-   "doi": "10.1080/27660400.2025.2586299",
-   "title": "Reference compositions for bismuth telluride thermoelectric materials for low-temperature power generation",
-   "year": 2025,
-   "date": "2025-11-10",
-   "authors": [
-    "Nirma Kumari",
-    "Jaywan Chung",
-    "Seunghyun Oh"
-   ],
-   "n_authors": 8,
-   "venue": "Science and Technology of Advanced Materials Methods",
-   "type": "article",
-   "cites": [
-    "starrydata2025",
     "pbte2019"
    ]
   },
@@ -949,24 +967,6 @@
    ],
    "n_authors": 11,
    "venue": "Journal of the American Chemical Society",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4415636081",
-   "doi": "10.1103/lqtf-rvlm",
-   "title": "Uncertainty analysis of microscopic parameters obtained from the single parabolic band modeling of thermoelectric materials",
-   "year": 2025,
-   "date": "2025-09-09",
-   "authors": [
-    "Harshita Naithani",
-    "Eckhard Müller",
-    "Johannes de Boor"
-   ],
-   "n_authors": 3,
-   "venue": "Physical Review Applied",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -1079,6 +1079,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4410542656",
+   "doi": "10.1080/27660400.2025.2506976",
+   "title": "Starrydata: from published plots to shared materials data",
+   "year": 2025,
+   "date": "2025-06-12",
+   "authors": [
+    "Yukari Katsura",
+    "Masaya Kumagai",
+    "Tomoya MATO"
+   ],
+   "n_authors": 17,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4411111661",
    "doi": "10.1038/s41524-025-01645-y",
    "title": "SeeBand: a highly efficient, interactive tool for analyzing electronic transport data",
@@ -1134,24 +1152,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4410542656",
-   "doi": "10.1080/27660400.2025.2506976",
-   "title": "Starrydata: from published plots to shared materials data",
-   "year": 2025,
-   "date": "2025-05-20",
-   "authors": [
-    "Yukari Katsura",
-    "Masaya Kumagai",
-    "Tomoya MATO"
-   ],
-   "n_authors": 17,
-   "venue": "Science and Technology of Advanced Materials Methods",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4410414984",
    "doi": "10.1002/aelm.202500210",
    "title": "Rationally Design Thermoelectric Materials Based on Ingenious Machine Learning Methods",
@@ -1174,7 +1174,7 @@
    "doi": "10.1080/27660400.2025.2485018",
    "title": "Data-driven analysis and visualization of dielectric properties curated from scientific literature",
    "year": 2025,
-   "date": "2025-04-04",
+   "date": "2025-04-22",
    "authors": [
     "Tomoki Murata",
     "Naoto Saito",
@@ -1241,6 +1241,24 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4407960750",
+   "doi": "10.1088/2515-7655/adba87",
+   "title": "Recent strides in artificial intelligence for predicting thermoelectric properties and materials discovery",
+   "year": 2025,
+   "date": "2025-03-06",
+   "authors": [
+    "Nikhil Kumar Barua",
+    "Sangjoon Lee",
+    "Anton O. Oliynyk"
+   ],
+   "n_authors": 4,
+   "venue": "Journal of Physics Energy",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4408848753",
    "doi": "10.1063/5.0241645",
    "title": "Advances in theory and computational methods for next-generation thermoelectric materials",
@@ -1253,24 +1271,6 @@
    ],
    "n_authors": 3,
    "venue": "Applied Physics Reviews",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4407960750",
-   "doi": "10.1088/2515-7655/adba87",
-   "title": "Recent strides in artificial intelligence for predicting thermoelectric properties and materials discovery",
-   "year": 2025,
-   "date": "2025-02-26",
-   "authors": [
-    "Nikhil Kumar Barua",
-    "Sangjoon Lee",
-    "Anton O. Oliynyk"
-   ],
-   "n_authors": 4,
-   "venue": "Journal of Physics Energy",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -1299,7 +1299,7 @@
    "doi": "10.1080/27660400.2024.2444866",
    "title": "Large-scale database analysis of anomalous thermal conductivity of quasicrystals and its application to thermal diodes",
    "year": 2025,
-   "date": "2025-01-31",
+   "date": "2025-02-03",
    "authors": [
     "Takashi Kurono",
     "Jinjia Zhang",
@@ -1308,6 +1308,24 @@
    "n_authors": 4,
    "venue": "Science and Technology of Advanced Materials Methods",
    "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4405424593",
+   "doi": "10.1080/14686996.2024.2436347",
+   "title": "Integrating machine learning with advanced processing and characterization for polycrystalline materials: a methodology review and application to iron-based superconductors",
+   "year": 2025,
+   "date": "2025-01-21",
+   "authors": [
+    "Akiyasu Yamamoto",
+    "Akinori Yamanaka",
+    "K. Iida"
+   ],
+   "n_authors": 5,
+   "venue": "Science and Technology of Advanced Materials",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1342,6 +1360,24 @@
    ],
    "n_authors": 17,
    "venue": "Digital Discovery",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4405547791",
+   "doi": "10.1039/d4tc03784g",
+   "title": "Antibonding Cu (d)–Te (p) states and bonding inhomogeneity in inducing low lattice thermal conductivity and extraordinary thermoelectric properties of the layered heteroanionic NdCuOTe material: a first-principles study",
+   "year": 2025,
+   "date": "2025-01-01",
+   "authors": [
+    "Shuwei Tang",
+    "Wanrong Guo",
+    "Da Wan"
+   ],
+   "n_authors": 9,
+   "venue": "Journal of Materials Chemistry C",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -1384,19 +1420,19 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4405547791",
-   "doi": "10.1039/d4tc03784g",
-   "title": "Antibonding Cu (d)–Te (p) states and bonding inhomogeneity in inducing low lattice thermal conductivity and extraordinary thermoelectric properties of the layered heteroanionic NdCuOTe material: a first-principles study",
+   "id": "https://openalex.org/W4404228126",
+   "doi": "10.1080/14686996.2024.2428154",
+   "title": "Systematic searches for new inorganic materials assisted by materials informatics",
    "year": 2024,
-   "date": "2024-12-18",
+   "date": "2024-12-23",
    "authors": [
-    "Shuwei Tang",
-    "Wanrong Guo",
-    "Da Wan"
+    "Yukari Katsura",
+    "Masakazu Akiyama",
+    "Haruhiko Morito"
    ],
-   "n_authors": 9,
-   "venue": "Journal of Materials Chemistry C",
-   "type": "article",
+   "n_authors": 5,
+   "venue": "Science and Technology of Advanced Materials",
+   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1420,24 +1456,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4405424593",
-   "doi": "10.1080/14686996.2024.2436347",
-   "title": "Integrating machine learning with advanced processing and characterization for polycrystalline materials: a methodology review and application to iron-based superconductors",
-   "year": 2024,
-   "date": "2024-12-16",
-   "authors": [
-    "Akiyasu Yamamoto",
-    "Akinori Yamanaka",
-    "K. Iida"
-   ],
-   "n_authors": 5,
-   "venue": "Science and Technology of Advanced Materials",
-   "type": "review",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4404333419",
    "doi": "10.1038/s41597-024-04043-z",
    "title": "Comprehensive experimental datasets of quasicrystals and their approximants",
@@ -1451,24 +1469,6 @@
    "n_authors": 9,
    "venue": "Scientific Data",
    "type": "data-paper",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4404228126",
-   "doi": "10.1080/14686996.2024.2428154",
-   "title": "Systematic searches for new inorganic materials assisted by materials informatics",
-   "year": 2024,
-   "date": "2024-11-11",
-   "authors": [
-    "Yukari Katsura",
-    "Masakazu Akiyama",
-    "Haruhiko Morito"
-   ],
-   "n_authors": 5,
-   "venue": "Science and Technology of Advanced Materials",
-   "type": "review",
    "cites": [
     "pbte2019"
    ]
@@ -1747,6 +1747,42 @@
    ],
    "n_authors": 9,
    "venue": "Journal of Materials Chemistry A",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4389254575",
+   "doi": "10.1039/d3ta05690b",
+   "title": "Machine-learning-assisted discovery of 212-Zintl-phase compounds with ultra-low lattice thermal conductivity",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Qi Ren",
+    "Dali Chen",
+    "Lixiang Rao"
+   ],
+   "n_authors": 6,
+   "venue": "Journal of Materials Chemistry A",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4390363249",
+   "doi": "10.1039/d3dd00207a",
+   "title": "Not as simple as we thought: a rigorous examination of data aggregation in materials informatics",
+   "year": 2024,
+   "date": "2024-01-01",
+   "authors": [
+    "Federico Ottomano",
+    "Giovanni de Felice",
+    "Vladimir V. Gusev"
+   ],
+   "n_authors": 4,
+   "venue": "Digital Discovery",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -2291,24 +2327,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4390363249",
-   "doi": "10.1039/d3dd00207a",
-   "title": "Not as simple as we thought: a rigorous examination of data aggregation in materials informatics",
-   "year": 2023,
-   "date": "2023-12-28",
-   "authors": [
-    "Federico Ottomano",
-    "Giovanni de Felice",
-    "Vladimir V. Gusev"
-   ],
-   "n_authors": 4,
-   "venue": "Digital Discovery",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4389490775",
    "doi": "10.1002/9781394256419.ch2",
    "title": "Computational and Data‐Driven Development of Thermoelectric Materials",
@@ -2326,18 +2344,18 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4389254575",
-   "doi": "10.1039/d3ta05690b",
-   "title": "Machine-learning-assisted discovery of 212-Zintl-phase compounds with ultra-low lattice thermal conductivity",
+   "id": "https://openalex.org/W4387821128",
+   "doi": "10.1080/00223131.2023.2269974",
+   "title": "A multiclass classification model for predicting the thermal conductivity of uranium compounds",
    "year": 2023,
-   "date": "2023-12-01",
+   "date": "2023-11-08",
    "authors": [
-    "Qi Ren",
-    "Dali Chen",
-    "Lixiang Rao"
+    "Yifan Sun",
+    "Masaya Kumagai",
+    "Mingyu Jin"
    ],
-   "n_authors": 6,
-   "venue": "Journal of Materials Chemistry A",
+   "n_authors": 7,
+   "venue": "Journal of Nuclear Science and Technology",
    "type": "article",
    "cites": [
     "pbte2019"
@@ -2372,24 +2390,6 @@
    "n_authors": 1,
    "venue": "IntechOpen eBooks",
    "type": "book",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4387821128",
-   "doi": "10.1080/00223131.2023.2269974",
-   "title": "A multiclass classification model for predicting the thermal conductivity of uranium compounds",
-   "year": 2023,
-   "date": "2023-10-20",
-   "authors": [
-    "Yifan Sun",
-    "Masaya Kumagai",
-    "Mingyu Jin"
-   ],
-   "n_authors": 7,
-   "venue": "Journal of Nuclear Science and Technology",
-   "type": "article",
    "cites": [
     "pbte2019"
    ]
@@ -5484,7 +5484,7 @@
    "doi": "10.1080/27660400.2022.2109447",
    "title": "Effects of data bias on machine-learning–based material discovery using experimental property data",
    "year": 2022,
-   "date": "2022-08-04",
+   "date": "2022-08-15",
    "authors": [
     "Masaya Kumagai",
     "Yuki Ando",
@@ -5592,7 +5592,7 @@
    "doi": "10.1080/27660400.2021.2024101",
    "title": "True Gaussian mixture regression and genetic algorithm-based optimization with constraints for direct inverse analysis",
    "year": 2022,
-   "date": "2022-01-05",
+   "date": "2022-01-24",
    "authors": [
     "Hiromasa Kaneko"
    ],
@@ -5707,6 +5707,22 @@
    ]
   },
   {
+   "id": "https://openalex.org/W3092368410",
+   "doi": "10.35848/1347-4065/abbfa0",
+   "title": "Recent advances and future prospects in energy harvesting technologies",
+   "year": 2020,
+   "date": "2020-10-23",
+   "authors": [
+    "Hiroyuki Akinaga"
+   ],
+   "n_authors": 1,
+   "venue": "Japanese Journal of Applied Physics",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W3092728602",
    "doi": "10.1021/acsaem.0c01844",
    "title": "Monolayer Ag 2 S: Ultralow Lattice Thermal Conductivity and Excellent Thermoelectric Performance",
@@ -5719,22 +5735,6 @@
    ],
    "n_authors": 3,
    "venue": "ACS Applied Energy Materials",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W3092368410",
-   "doi": "10.35848/1347-4065/abbfa0",
-   "title": "Recent advances and future prospects in energy harvesting technologies",
-   "year": 2020,
-   "date": "2020-10-09",
-   "authors": [
-    "Hiroyuki Akinaga"
-   ],
-   "n_authors": 1,
-   "venue": "Japanese Journal of Applied Physics",
    "type": "article",
    "cites": [
     "pbte2019"
