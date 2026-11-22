@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-21",
+ "fetched_at": "2026-11-22",
  "source": "OpenAlex",
  "papers": [
   {
@@ -9,7 +9,7 @@
    "short": "Starrydata (2025)",
    "authors": "Y. Katsura, M. Kumagai, T. Mato, Y. Takada, Y. Ando, E. Fujita, F. Hosono, E. Koyama, F. Mudasar, T. N. T. Phuong, N. Saito, Y. Sakamoto, A. Tanaka, D. Yana, K. Kimura, K. Tsuda, M. Demura",
    "journal": "Science and Technology of Advanced Materials: Methods 5, 1 (2025) 2506976",
-   "count": 28
+   "count": 29
   },
   {
    "key": "pbte2019",
@@ -18,10 +18,45 @@
    "short": "PbTe τ (2019)",
    "authors": "Y. Katsura, M. Kumagai, T. Kodani, M. Kaneshige, Y. Ando, S. Gunji, Y. Imai, H. Ouchi, K. Tobita, K. Kimura, K. Tsuda",
    "journal": "Science and Technology of Advanced Materials 20 (2019) 511–520",
-   "count": 309
+   "count": 313
   }
  ],
  "works": [
+  {
+   "id": "https://openalex.org/W7127299318",
+   "doi": "10.1103/2ffk-zqn8",
+   "title": "Generalizable machine learning framework for half-Heusler thermoelectrics",
+   "year": 2026,
+   "date": "2026-11-20",
+   "authors": [
+    "Shoeb Athar",
+    "Adrien Mecibah",
+    "Philippe Jund"
+   ],
+   "n_authors": 3,
+   "venue": "Physical review. B./Physical review. B",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7204247198",
+   "doi": "10.1038/s41598-026-81477-y",
+   "title": "Uncertainty quantification reveals the limits of lattice thermal conductivity prediction",
+   "year": 2026,
+   "date": "2026-11-19",
+   "authors": [
+    "Milad Rayka",
+    "S. Shahab Naghavi"
+   ],
+   "n_authors": 2,
+   "venue": "Scientific Reports",
+   "type": "article",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
   {
    "id": "https://openalex.org/W7225770325",
    "doi": "10.26434/chemrxiv.15011944/v1",
@@ -644,24 +679,6 @@
    "type": "article",
    "cites": [
     "starrydata2025",
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W7127299318",
-   "doi": "10.48550/arxiv.2602.01149",
-   "title": "A Generalizable Machine Learning Framework for Half-Heusler Thermoelectrics",
-   "year": 2026,
-   "date": "2026-02-01",
-   "authors": [
-    "Shoeb Athar",
-    "Adrien Mecibah",
-    "Philippe Jund"
-   ],
-   "n_authors": 3,
-   "venue": "arXiv (Cornell University)",
-   "type": "preprint",
-   "cites": [
     "pbte2019"
    ]
   },
@@ -1507,6 +1524,23 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4402072382",
+   "doi": "10.26434/chemrxiv-2024-p6d7s-v3",
+   "title": "Unsupervised machine learning-based image recognition of raw IR spectra: Toward chemist-like chemical structural classification",
+   "year": 2024,
+   "date": "2024-08-29",
+   "authors": [
+    "Kentaro Fuku",
+    "Takefumi Yoshida"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4401664718",
    "doi": "10.1002/adts.202400308",
    "title": "Predicting High‐Performance Thermoelectric Materials With StarryData2",
@@ -1596,6 +1630,23 @@
    ]
   },
   {
+   "id": "https://openalex.org/W4399094005",
+   "doi": "10.26434/chemrxiv-2024-p6d7s",
+   "title": "Unsupervised Raw IR Spectra Images Recognition: Toward Chemist-Like Chemical Structure Classification",
+   "year": 2024,
+   "date": "2024-05-28",
+   "authors": [
+    "Kentaro Fuku",
+    "Takefumi Yoshida"
+   ],
+   "n_authors": 2,
+   "venue": "ChemRxiv",
+   "type": "preprint",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
    "id": "https://openalex.org/W4393230037",
    "doi": "10.1016/j.jnucmat.2024.155048",
    "title": "Thermophysical characterization of UFe3B2 and USiNi: An experimental study",
@@ -1609,6 +1660,22 @@
    "n_authors": 7,
    "venue": "Journal of Nuclear Materials",
    "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7144227229",
+   "doi": "10.15083/0002013170",
+   "title": "新規無機三元系化合物探索のための機械学習",
+   "year": 2024,
+   "date": "2024-03-21",
+   "authors": [
+    "祐樹 稲田"
+   ],
+   "n_authors": 1,
+   "venue": "Institutional Repositories DataBase (IRDB)",
+   "type": "dissertation",
    "cites": [
     "pbte2019"
    ]
@@ -5685,6 +5752,22 @@
    "n_authors": 8,
    "venue": "Advanced Energy Materials",
    "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W3170486954",
+   "doi": "10.34726/hss.2021.89026",
+   "title": "Development of a Thin-FilmThermoelectric Generator on the Basis of Optimised Full-Heusler Fe2VAl Compounds",
+   "year": 2021,
+   "date": "2021-05-01",
+   "authors": [
+    "B. Hinterleitner"
+   ],
+   "n_authors": 1,
+   "venue": "reposiTUm (TU Wien)",
+   "type": "dissertation",
    "cites": [
     "pbte2019"
    ]
