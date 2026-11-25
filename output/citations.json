@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-24",
+ "fetched_at": "2026-11-25",
  "source": "OpenAlex",
  "papers": [
   {
@@ -18,10 +18,28 @@
    "short": "PbTe τ (2019)",
    "authors": "Y. Katsura, M. Kumagai, T. Kodani, M. Kaneshige, Y. Ando, S. Gunji, Y. Imai, H. Ouchi, K. Tobita, K. Kimura, K. Tsuda",
    "journal": "Science and Technology of Advanced Materials 20 (2019) 511–520",
-   "count": 313
+   "count": 309
   }
  ],
  "works": [
+  {
+   "id": "https://openalex.org/W7213273154",
+   "doi": "10.1080/27660400.2026.2756911",
+   "title": "Quantitative control and recording of materials-synthesis processes using an automated experimentation platform",
+   "year": 2026,
+   "date": "2026-11-23",
+   "authors": [
+    "Yusuke Hashimoto",
+    "Takaya Muramoto",
+    "寺田光"
+   ],
+   "n_authors": 6,
+   "venue": "Science and Technology of Advanced Materials Methods",
+   "type": "article",
+   "cites": [
+    "pbte2019"
+   ]
+  },
   {
    "id": "https://openalex.org/W7127299318",
    "doi": "10.1103/2ffk-zqn8",
@@ -75,24 +93,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W7213273154",
-   "doi": "10.1080/27660400.2026.2756911",
-   "title": "Quantitative control and recording of materials-synthesis processes using an automated experimentation platform",
-   "year": 2026,
-   "date": "2026-11-05",
-   "authors": [
-    "Yusuke Hashimoto",
-    "Takaya Muramoto",
-    "寺田光"
-   ],
-   "n_authors": 6,
-   "venue": "Science and Technology of Advanced Materials Methods",
-   "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W7221681098",
    "doi": "10.1080/27660400.2026.2745581",
    "title": "Mapping chemical composition space onto phase-diagram-like geometries via principal component analysis",
@@ -122,7 +122,7 @@
     "Takaaki Tomai"
    ],
    "n_authors": 2,
-   "venue": "arXiv (Cornell University)",
+   "venue": "arXiv",
    "type": "preprint",
    "cites": [
     "starrydata2025",
@@ -371,7 +371,7 @@
     "Kenneth Kroenlein"
    ],
    "n_authors": 9,
-   "venue": "arXiv (Cornell University)",
+   "venue": "arXiv",
    "type": "preprint",
    "cites": [
     "pbte2019"
@@ -1000,7 +1000,7 @@
     "Masaya Kumagai"
    ],
    "n_authors": 2,
-   "venue": "arXiv (Cornell University)",
+   "venue": "arXiv",
    "type": "preprint",
    "cites": [
     "starrydata2025",
@@ -1143,7 +1143,7 @@
     "Park, Sungjin"
    ],
    "n_authors": 8,
-   "venue": "arXiv (Cornell University)",
+   "venue": "arXiv",
    "type": "preprint",
    "cites": [
     "starrydata2025",
@@ -1491,23 +1491,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4402380373",
-   "doi": "10.26434/chemrxiv-2024-p6d7s-v4",
-   "title": "Unsupervised machine learning-based image recognition of raw IR spectra: Toward chemist-like chemical structural classification",
-   "year": 2024,
-   "date": "2024-09-08",
-   "authors": [
-    "Kentaro Fuku",
-    "Takefumi Yoshida"
-   ],
-   "n_authors": 2,
-   "venue": "ChemRxiv",
-   "type": "preprint",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4402084234",
    "doi": "10.1541/ieejfms.144.350",
    "title": "Natural Language Processing for Materials Informatics of Literature Data: Examples in the Superconducting Material Development",
@@ -1519,23 +1502,6 @@
    "n_authors": 1,
    "venue": "IEEJ Transactions on Fundamentals and Materials",
    "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4402072382",
-   "doi": "10.26434/chemrxiv-2024-p6d7s-v3",
-   "title": "Unsupervised machine learning-based image recognition of raw IR spectra: Toward chemist-like chemical structural classification",
-   "year": 2024,
-   "date": "2024-08-29",
-   "authors": [
-    "Kentaro Fuku",
-    "Takefumi Yoshida"
-   ],
-   "n_authors": 2,
-   "venue": "ChemRxiv",
-   "type": "preprint",
    "cites": [
     "pbte2019"
    ]
@@ -1595,23 +1561,6 @@
    ]
   },
   {
-   "id": "https://openalex.org/W4399789294",
-   "doi": "10.26434/chemrxiv-2024-p6d7s-v2",
-   "title": "Unsupervised Raw IR Spectra Images Recognition: Toward Chemist-Like Chemical Structure Classification",
-   "year": 2024,
-   "date": "2024-06-17",
-   "authors": [
-    "Kentaro Fuku",
-    "Takefumi Yoshida"
-   ],
-   "n_authors": 2,
-   "venue": "ChemRxiv",
-   "type": "preprint",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
    "id": "https://openalex.org/W4399446094",
    "doi": "10.1038/s41427-024-00549-5",
    "title": "Superstrength permanent magnets with iron-based superconductors by data- and researcher-driven process design",
@@ -1625,23 +1574,6 @@
    "n_authors": 6,
    "venue": "NPG Asia Materials",
    "type": "article",
-   "cites": [
-    "pbte2019"
-   ]
-  },
-  {
-   "id": "https://openalex.org/W4399094005",
-   "doi": "10.26434/chemrxiv-2024-p6d7s",
-   "title": "Unsupervised Raw IR Spectra Images Recognition: Toward Chemist-Like Chemical Structure Classification",
-   "year": 2024,
-   "date": "2024-05-28",
-   "authors": [
-    "Kentaro Fuku",
-    "Takefumi Yoshida"
-   ],
-   "n_authors": 2,
-   "venue": "ChemRxiv",
-   "type": "preprint",
    "cites": [
     "pbte2019"
    ]
