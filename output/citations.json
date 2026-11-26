@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-25",
+ "fetched_at": "2026-11-26",
  "source": "OpenAlex",
  "papers": [
   {
@@ -256,7 +256,7 @@
   {
    "id": "https://openalex.org/W7220475116",
    "doi": "10.1021/acs.inorgchem.6c04306",
-   "title": "Where Are Eu? Structural Diversity from Coloring Variants in Tellurides Eu(Al1– x Ga x )2Te4",
+   "title": "Where Are Eu? Structural Diversity from Coloring Variants in Tellurides Eu(Al1– x Ga x)2Te4",
    "year": 2026,
    "date": "2026-10-05",
    "authors": [
@@ -5463,7 +5463,7 @@
   {
    "id": "https://openalex.org/W4297853423",
    "doi": "10.1021/acsami.2c12112",
-   "title": "Y 2 Te 3 : A New n-Type Thermoelectric Material",
+   "title": "Y 2 Te 3: A New n-Type Thermoelectric Material",
    "year": 2022,
    "date": "2022-09-19",
    "authors": [
