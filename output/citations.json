@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-26",
+ "fetched_at": "2026-11-27",
  "source": "OpenAlex",
  "papers": [
   {
@@ -9,7 +9,7 @@
    "short": "Starrydata (2025)",
    "authors": "Y. Katsura, M. Kumagai, T. Mato, Y. Takada, Y. Ando, E. Fujita, F. Hosono, E. Koyama, F. Mudasar, T. N. T. Phuong, N. Saito, Y. Sakamoto, A. Tanaka, D. Yana, K. Kimura, K. Tsuda, M. Demura",
    "journal": "Science and Technology of Advanced Materials: Methods 5, 1 (2025) 2506976",
-   "count": 29
+   "count": 30
   },
   {
    "key": "pbte2019",
@@ -71,6 +71,24 @@
    "n_authors": 2,
    "venue": "Scientific Reports",
    "type": "article",
+   "cites": [
+    "starrydata2025"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7238816881",
+   "doi": "10.48550/arxiv.2611.26788",
+   "title": "Prediction of lattice thermal conductivity of half-Heusler compounds by machine learning and transfer-function calibration",
+   "year": 2026,
+   "date": "2026-11-19",
+   "authors": [
+    "Shivam Randive",
+    "Ojaswini Randive",
+    "Heet Lungaria"
+   ],
+   "n_authors": 4,
+   "venue": "arXiv",
+   "type": "preprint",
    "cites": [
     "starrydata2025"
    ]
